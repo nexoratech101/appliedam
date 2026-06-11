@@ -1,0 +1,7 @@
+baseURL = "https://appliedam.net/"
+languageCode = "en-us"
+title = "AppliedAM"
+theme = "ananke"
+
+[params]
+  description = "Applied Additive Manufacturing — Articles, Projects & Insights"
