@@ -1,0 +1,18 @@
+<header class="aam-topnav">
+  <div class="aam-topnav-inner">
+
+    <a href="{{ .Site.BaseURL }}" class="aam-logo-link">
+      <img src="/images/logo.png" alt="AppliedAM" style="height:72px; width:auto; display:block;">
+    </a>
+
+    <nav class="aam-nav-links">
+      {{ range .Site.Menus.main }}
+        {{ if and (ne .Name "Submit") (ne .Name "Submit a Project") }}
+        <a href="{{ .URL }}" class="aam-nav-link">{{ .Name }}</a>
+        {{ end }}
+      {{ end }}
+      <a href="/submit/" class="aam-nav-cta">Submit Project</a>
+    </nav>
+
+  </div>
+</header>

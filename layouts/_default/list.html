@@ -1,0 +1,37 @@
+{{ define "main" }}
+
+<div class="aam-list-header">
+  <div class="aam-container">
+    <h1 class="aam-list-title">{{ .Title }}</h1>
+    {{ if .Description }}<p class="aam-list-desc">{{ .Description }}</p>{{ end }}
+  </div>
+</div>
+
+<div class="aam-container">
+  <div class="aam-grid aam-grid-list">
+    {{ range .Pages }}
+    <article class="aam-card">
+      {{ if .Params.featured_image }}
+      <div class="aam-card-img" style="background-image:url('{{ .Params.featured_image }}')"></div>
+      {{ end }}
+      <div class="aam-card-body">
+        <div class="aam-card-meta">
+          {{ .Date.Format "Jan 2, 2006" }}
+          {{ if .Params.author }} · {{ .Params.author }}{{ end }}
+          {{ if .Params.project_university }} · {{ .Params.project_university }}{{ end }}
+        </div>
+        <h2 class="aam-card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        <p class="aam-card-desc">{{ .Description }}</p>
+        <div class="aam-card-tags">
+          {{ range first 4 .Params.tags }}
+          <span class="aam-tag">{{ . }}</span>
+          {{ end }}
+        </div>
+        <a href="{{ .Permalink }}" class="aam-card-read">Read more →</a>
+      </div>
+    </article>
+    {{ end }}
+  </div>
+</div>
+
+{{ end }}

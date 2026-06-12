@@ -1,0 +1,142 @@
+{{ define "main" }}
+
+<section class="aam-hero">
+  <div class="aam-hero-inner">
+    <div class="aam-hero-eyebrow">Applied Additive Manufacturing</div>
+    <h1 class="aam-hero-title">A Publication for the<br>Additive Manufacturing Community</h1>
+    <p class="aam-hero-sub">Where inventors, manufacturers, and practitioners share research, applications, and real-world case studies in additive manufacturing.</p>
+    <div class="aam-hero-actions">
+      <a href="/research/" class="aam-btn">Explore Research</a>
+      <a href="/submit/" class="aam-btn aam-btn-ghost">Submit Your Work</a>
+    </div>
+  </div>
+</section>
+
+<section class="aam-stats">
+  <div class="aam-stats-inner">
+    <div class="aam-stat">
+      <span class="aam-stat-number">Research</span>
+      <span class="aam-stat-label">New Techniques &amp; Materials</span>
+    </div>
+    <div class="aam-stat">
+      <span class="aam-stat-number">Applications</span>
+      <span class="aam-stat-label">AM in Production &amp; Products</span>
+    </div>
+    <div class="aam-stat">
+      <span class="aam-stat-number">Case Studies</span>
+      <span class="aam-stat-label">Real Projects, Documented</span>
+    </div>
+  </div>
+</section>
+
+<section class="aam-section">
+  <div class="aam-container">
+    <div class="aam-section-header">
+      <h2 class="aam-section-title">Latest Research</h2>
+      <a href="/research/" class="aam-see-all">See all research →</a>
+    </div>
+    <div class="aam-grid">
+      {{ $items := where .Site.RegularPages "Section" "research" }}
+      {{ range first 3 $items }}
+      <article class="aam-card">
+        {{ if .Params.featured_image }}
+        <div class="aam-card-img" style="background-image:url('{{ .Params.featured_image }}')"></div>
+        {{ end }}
+        <div class="aam-card-body">
+          <div class="aam-card-meta">
+            {{ .Date.Format "Jan 2, 2006" }}
+            {{ if .Params.author }} · {{ .Params.author }}{{ end }}
+          </div>
+          <h3 class="aam-card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+          <p class="aam-card-desc">{{ .Description }}</p>
+          <div class="aam-card-tags">
+            {{ range first 3 .Params.tags }}
+            <span class="aam-tag">{{ . }}</span>
+            {{ end }}
+          </div>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="aam-section aam-section-alt">
+  <div class="aam-container">
+    <div class="aam-section-header">
+      <h2 class="aam-section-title">Featured Case Studies</h2>
+      <a href="/case-studies/" class="aam-see-all">See all case studies →</a>
+    </div>
+    <div class="aam-grid">
+      {{ $items := where .Site.RegularPages "Section" "case-studies" }}
+      {{ range first 3 $items }}
+      <article class="aam-card">
+        {{ if .Params.featured_image }}
+        <div class="aam-card-img" style="background-image:url('{{ .Params.featured_image }}')"></div>
+        {{ end }}
+        <div class="aam-card-body">
+          <div class="aam-card-meta">
+            {{ if .Params.project_university }}
+            <span class="aam-university">{{ .Params.project_university }}</span>
+            {{ else }}
+            {{ .Date.Format "Jan 2, 2006" }}
+            {{ end }}
+          </div>
+          <h3 class="aam-card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+          <p class="aam-card-desc">{{ .Description }}</p>
+          <div class="aam-card-tags">
+            {{ range first 3 .Params.tags }}
+            <span class="aam-tag">{{ . }}</span>
+            {{ end }}
+          </div>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="aam-section">
+  <div class="aam-container">
+    <div class="aam-section-header">
+      <h2 class="aam-section-title">Industry</h2>
+      <a href="/industry/" class="aam-see-all">See all industry stories →</a>
+    </div>
+    <div class="aam-grid">
+      {{ $items := where .Site.RegularPages "Section" "industry" }}
+      {{ range first 3 $items }}
+      <article class="aam-card">
+        {{ if .Params.featured_image }}
+        <div class="aam-card-img" style="background-image:url('{{ .Params.featured_image }}')"></div>
+        {{ end }}
+        <div class="aam-card-body">
+          <div class="aam-card-meta">
+            {{ .Date.Format "Jan 2, 2006" }}
+            {{ if .Params.author }} · {{ .Params.author }}{{ end }}
+          </div>
+          <h3 class="aam-card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+          <p class="aam-card-desc">{{ .Description }}</p>
+          <div class="aam-card-tags">
+            {{ range first 3 .Params.tags }}
+            <span class="aam-tag">{{ . }}</span>
+            {{ end }}
+          </div>
+        </div>
+      </article>
+      {{ end }}
+      {{ if not $items }}
+      <p style="color:var(--text-muted)">No applications published yet. <a href="/submit/">Be the first to submit one.</a></p>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="aam-cta">
+  <div class="aam-cta-inner">
+    <h2 class="aam-cta-title">Have work worth featuring?</h2>
+    <p class="aam-cta-sub">AppliedAM features research, applications, and case studies from inventors, manufacturers, and practitioners across additive manufacturing.</p>
+    <a href="/submit/" class="aam-btn aam-btn-white">Submit Your Work</a>
+  </div>
+</section>
+
+{{ end }}

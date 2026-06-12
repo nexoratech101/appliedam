@@ -1,7 +1,83 @@
 baseURL = "https://appliedam.net/"
-languageCode = "en-us"
+locale = "en-us"
 title = "AppliedAM"
 theme = "ananke"
 
+paginate = 9
+enableEmoji = true
+enableGitInfo = true
+
 [params]
-  description = "Applied Additive Manufacturing — Articles, Projects & Insights"
+  description = "Applied Additive Manufacturing — Techniques, Projects, and Insights"
+  author = "AppliedAM Team"
+  background_color_class = "bg-near-black"
+  featured_image = "/images/ChatGPT_Image_Jun_9__2026__09_13_06_PM.png"
+  recent_posts_number = 3
+  show_reading_time = true
+
+  [params.ananke]
+    custom_css = ["css/custom.css"]
+
+[menu]
+
+  [[menu.main]]
+    name   = "Home"
+    url    = "/"
+    weight = 1
+
+  [[menu.main]]
+    name   = "Research"
+    url    = "/research/"
+    weight = 2
+
+  [[menu.main]]
+    name   = "Industry"
+    url    = "/industry/"
+    weight = 3
+
+  [[menu.main]]
+    name   = "Case Studies"
+    url    = "/case-studies/"
+    weight = 4
+
+  [[menu.main]]
+    name   = "Submit"
+    url    = "/submit/"
+    weight = 5
+
+  [[menu.main]]
+    name   = "About"
+    url    = "/about/"
+    weight = 6
+
+  [[menu.footer]]
+    name   = "Write for Us"
+    url    = "/write-for-us/"
+    weight = 1
+
+  [[menu.footer]]
+    name   = "About"
+    url    = "/about/"
+    weight = 2
+
+  [[menu.footer]]
+    name   = "Submit"
+    url    = "/submit/"
+    weight = 3
+
+[social]
+  twitter  = "appliedam"
+  github   = "nexoratech101/appliedam"
+  linkedin = "appliedam"
+
+[taxonomies]
+  tag      = "tags"
+  category = "categories"
+  author   = "authors"
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.highlight]
+    style = "monokai"
+    lineNos = true

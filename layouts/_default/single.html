@@ -1,0 +1,61 @@
+{{ define "main" }}
+<div class="aam-single-wrap">
+
+  <!-- ARTICLE HEADER -->
+  <header class="aam-article-header">
+    <div class="aam-container aam-container-narrow">
+      {{ with .Params.categories }}
+      <div class="aam-article-category">
+        {{ range . }}<span class="aam-cat-badge">{{ . }}</span>{{ end }}
+      </div>
+      {{ end }}
+      <h1 class="aam-article-title">{{ .Title }}</h1>
+      {{ if .Description }}
+      <p class="aam-article-desc">{{ .Description }}</p>
+      {{ end }}
+      <div class="aam-article-meta">
+        {{ if .Params.author }}<span>By {{ .Params.author }}</span>{{ end }}
+        <span>{{ .Date.Format "January 2, 2006" }}</span>
+        {{ if .ReadingTime }}<span>{{ .ReadingTime }} min read</span>{{ end }}
+      </div>
+      {{ with .Params.tags }}
+      <div class="aam-article-tags">
+        {{ range . }}<a href="/tags/{{ . | urlize }}/" class="aam-tag">{{ . }}</a>{{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </header>
+
+  {{ if .Params.featured_image }}
+  <div class="aam-article-hero-img">
+    <img src="{{ .Params.featured_image }}" alt="{{ .Title }}">
+  </div>
+  {{ end }}
+
+  <!-- ARTICLE BODY -->
+  <div class="aam-container aam-container-narrow">
+    <div class="aam-article-body">
+      {{ .Content }}
+    </div>
+
+    <!-- PROJECT META BOX -->
+    {{ if .Params.project_university }}
+    <div class="aam-project-meta-box">
+      <h4>Project Details</h4>
+      <table>
+        {{ if .Params.project_university }}<tr><td>University</td><td>{{ .Params.project_university }}</td></tr>{{ end }}
+        {{ if .Params.project_course }}<tr><td>Course</td><td>{{ .Params.project_course }}</td></tr>{{ end }}
+        {{ if .Params.project_year }}<tr><td>Year</td><td>{{ .Params.project_year }}</td></tr>{{ end }}
+        {{ if .Params.project_printer }}<tr><td>Printer</td><td>{{ .Params.project_printer }}</td></tr>{{ end }}
+      </table>
+    </div>
+    {{ end }}
+
+    <!-- BACK LINK -->
+    <div class="aam-article-back">
+      <a href="{{ .Site.BaseURL }}{{ .Section }}/">← Back to {{ .Section | title }}</a>
+    </div>
+  </div>
+
+</div>
+{{ end }}
