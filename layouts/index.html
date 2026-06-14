@@ -33,7 +33,7 @@
   <div class="aam-container">
     <div class="aam-section-header">
       <h2 class="aam-section-title">Latest Research</h2>
-      <a href="/research/" class="aam-see-all">See all research →</a>
+      <a href="/research/" class="aam-see-all">See all research ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢</a>
     </div>
     <div class="aam-grid">
       {{ $items := where .Site.RegularPages "Section" "research" }}
@@ -45,14 +45,15 @@
         <div class="aam-card-body">
           <div class="aam-card-meta">
             {{ .Date.Format "Jan 2, 2006" }}
-            {{ if .Params.author }} · {{ .Params.author }}{{ end }}
+            {{ if .Params.author }} Ãƒâ€šÃ‚Â· {{ .Params.author }}{{ end }}
           </div>
           <h3 class="aam-card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
           <p class="aam-card-desc">{{ .Description }}</p>
           <div class="aam-card-tags">
-            {{ range first 3 .Params.tags }}
+            {{ if .Params.tags }}{{ range first 3 .Params.tags }}
             <span class="aam-tag">{{ . }}</span>
             {{ end }}
+          {{ end }}
           </div>
         </div>
       </article>
@@ -65,7 +66,7 @@
   <div class="aam-container">
     <div class="aam-section-header">
       <h2 class="aam-section-title">Featured Case Studies</h2>
-      <a href="/case-studies/" class="aam-see-all">See all case studies →</a>
+      <a href="/case-studies/" class="aam-see-all">See all case studies ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢</a>
     </div>
     <div class="aam-grid">
       {{ $items := where .Site.RegularPages "Section" "case-studies" }}
@@ -85,11 +86,10 @@
           <h3 class="aam-card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
           <p class="aam-card-desc">{{ .Description }}</p>
           <div class="aam-card-tags">
- 		{{ if .Params.tags }}
-    		{{ range first 3 .Params.tags }}
+ 		{{ if .Params.tags }}{{ range first 3 .Params.tags }}
    		 <span class="aam-tag">{{ . }}</span>
   	  {{ end }}
- 	 {{ end }}
+          {{ end }}
 	</div>
         </div>
       </article>
@@ -102,7 +102,7 @@
   <div class="aam-container">
     <div class="aam-section-header">
       <h2 class="aam-section-title">Industry</h2>
-      <a href="/industry/" class="aam-see-all">See all industry stories →</a>
+      <a href="/industry/" class="aam-see-all">See all industry stories ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢</a>
     </div>
     <div class="aam-grid">
       {{ $items := where .Site.RegularPages "Section" "industry" }}
@@ -114,14 +114,15 @@
         <div class="aam-card-body">
           <div class="aam-card-meta">
             {{ .Date.Format "Jan 2, 2006" }}
-            {{ if .Params.author }} · {{ .Params.author }}{{ end }}
+            {{ if .Params.author }} Ãƒâ€šÃ‚Â· {{ .Params.author }}{{ end }}
           </div>
           <h3 class="aam-card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
           <p class="aam-card-desc">{{ .Description }}</p>
           <div class="aam-card-tags">
-            {{ range first 3 .Params.tags }}
+            {{ if .Params.tags }}{{ range first 3 .Params.tags }}
             <span class="aam-tag">{{ . }}</span>
             {{ end }}
+          {{ end }}
           </div>
         </div>
       </article>

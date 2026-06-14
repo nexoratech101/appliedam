@@ -23,8 +23,10 @@
         <h2 class="aam-card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
         <p class="aam-card-desc">{{ .Description }}</p>
         <div class="aam-card-tags">
+          {{ if .Params.tags }}
           {{ range first 4 .Params.tags }}
           <span class="aam-tag">{{ . }}</span>
+          {{ end }}
           {{ end }}
         </div>
         <a href="{{ .Permalink }}" class="aam-card-read">Read more →</a>
@@ -33,5 +35,4 @@
     {{ end }}
   </div>
 </div>
-
 {{ end }}

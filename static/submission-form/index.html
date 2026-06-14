@@ -92,6 +92,10 @@
 
   code { font-family: var(--font-mono); background: var(--color-background-secondary); padding: 1px 4px; border-radius: 4px; }
 
+  .req { color: var(--color-text-danger); margin-left: 2px; }
+  .field-error { font-size: 12px; color: var(--color-text-danger); margin-top: 4px; display: none; }
+  input.invalid, select.invalid, textarea.invalid { border-color: var(--color-text-danger); }
+
   .step-pill {
     padding: 4px 10px;
     border-radius: 999px;
@@ -139,8 +143,9 @@
       <h3 style="margin:0 0 12px;"><i class="ti ti-user" style="font-size:16px; vertical-align:-2px; margin-right:6px;" aria-hidden="true"></i>Author details</h3>
       <div style="display:flex; flex-direction:column; gap:12px;">
         <div>
-          <label style="font-size:13px; color:var(--color-text-secondary); display:block; margin-bottom:6px;">Name</label>
+          <label style="font-size:13px; color:var(--color-text-secondary); display:block; margin-bottom:6px;">Name<span class="req">*</span></label>
           <input type="text" id="authorName" placeholder="e.g. Aisha Mwangi" />
+          <div class="field-error" id="err-authorName">Please enter your name</div>
         </div>
         <div>
           <label style="font-size:13px; color:var(--color-text-secondary); display:block; margin-bottom:6px;">Contributor type</label>
@@ -156,8 +161,9 @@
           <input type="text" id="authorAffiliation" placeholder="e.g. company, organization, or leave blank" />
         </div>
         <div>
-          <label style="font-size:13px; color:var(--color-text-secondary); display:block; margin-bottom:6px;">Email (corresponding author)</label>
+          <label style="font-size:13px; color:var(--color-text-secondary); display:block; margin-bottom:6px;">Email (corresponding author)<span class="req">*</span></label>
           <input type="email" id="authorEmail" placeholder="name@example.com" style="margin-bottom:8px;" />
+          <div class="field-error" id="err-authorEmail">Please enter a valid email</div>
           <label style="display:flex; align-items:center; gap:8px; font-size:13px; color:var(--color-text-secondary); cursor:pointer;">
             <input type="checkbox" id="emailPublish" />
             Publish my email address with this article
@@ -193,23 +199,26 @@
       <input type="text" id="slug" placeholder="e.g. glass-tube-printing-jig" />
     </div>
     <div>
-      <label style="font-size:13px; color:var(--color-text-secondary); display:block; margin-bottom:6px;"><i class="ti ti-photo" style="font-size:14px; vertical-align:-2px; margin-right:4px;" aria-hidden="true"></i>Hero image <span style="color:var(--color-text-tertiary);">(displayed at 1200&times;500, cropped to fit, max 5MB)</span></label>
+      <label style="font-size:13px; color:var(--color-text-secondary); display:block; margin-bottom:6px;"><i class="ti ti-photo" style="font-size:14px; vertical-align:-2px; margin-right:4px;" aria-hidden="true"></i>Hero image<span class="req">*</span> <span style="color:var(--color-text-tertiary);">(displayed at 1200&times;500, cropped to fit, max 5MB)</span></label>
       <div style="border:0.5px dashed var(--color-border-secondary); border-radius:var(--border-radius-md); padding:1rem; text-align:center;">
         <input type="file" id="heroFile" accept="image/*" />
         <div id="heroPreviewName" style="margin-top:8px; font-size:13px; color:var(--color-text-secondary);">No hero image selected</div>
       </div>
     </div>
     <div>
-      <label style="font-size:13px; color:var(--color-text-secondary); display:block; margin-bottom:6px;">Title</label>
+      <label style="font-size:13px; color:var(--color-text-secondary); display:block; margin-bottom:6px;">Title<span class="req">*</span></label>
       <input type="text" id="title" placeholder="Article title" />
+      <div class="field-error" id="err-title">Please enter a title</div>
     </div>
     <div>
-      <label style="font-size:13px; color:var(--color-text-secondary); display:block; margin-bottom:6px;">Summary (1-2 sentences)</label>
+      <label style="font-size:13px; color:var(--color-text-secondary); display:block; margin-bottom:6px;">Summary (1-2 sentences)<span class="req">*</span></label>
       <textarea id="summary" rows="2" placeholder="Short summary for listings and SEO"></textarea>
+      <div class="field-error" id="err-summary">Please enter a summary</div>
     </div>
     <div>
-      <label style="font-size:13px; color:var(--color-text-secondary); display:block; margin-bottom:6px;">Tags (comma separated)</label>
+      <label style="font-size:13px; color:var(--color-text-secondary); display:block; margin-bottom:6px;">Tags (comma separated)<span class="req">*</span></label>
       <input type="text" id="tags" placeholder="3D printing, manufacturing, UV printing" />
+      <div class="field-error" id="err-tags">Please enter at least one tag</div>
     </div>
     <div style="border-top:0.5px solid var(--color-border-tertiary); padding-top:1rem;">
       <h3 style="margin:0 0 4px;">Content blocks</h3>
@@ -340,7 +349,31 @@ function goToStep(n) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-document.getElementById('s1next').addEventListener('click', () => goToStep(2));
+document.getElementById('s1next').addEventListener('click', () => {
+  let valid = true;
+  const name = document.getElementById('authorName');
+  const email = document.getElementById('authorEmail');
+
+  if (!name.value.trim()) {
+    name.classList.add('invalid');
+    document.getElementById('err-authorName').style.display = 'block';
+    valid = false;
+  } else {
+    name.classList.remove('invalid');
+    document.getElementById('err-authorName').style.display = 'none';
+  }
+
+  if (!email.value.trim() || !email.value.includes('@')) {
+    email.classList.add('invalid');
+    document.getElementById('err-authorEmail').style.display = 'block';
+    valid = false;
+  } else {
+    email.classList.remove('invalid');
+    document.getElementById('err-authorEmail').style.display = 'none';
+  }
+
+  if (valid) goToStep(2);
+});
 document.getElementById('s2back').addEventListener('click', () => goToStep(1));
 document.getElementById('s3back').addEventListener('click', () => goToStep(2));
 document.getElementById('s4back').addEventListener('click', () => goToStep(3));
@@ -562,6 +595,51 @@ function buildByline() {
 }
 
 document.getElementById('s2next').addEventListener('click', () => {
+  let valid = true;
+
+  const titleEl = document.getElementById('title');
+  const summaryEl = document.getElementById('summary');
+  const tagsEl = document.getElementById('tags');
+
+  if (!heroFile.files[0]) {
+    document.getElementById('heroPreviewName').textContent = 'Please select a hero image';
+    document.getElementById('heroPreviewName').style.color = 'var(--color-text-danger)';
+    valid = false;
+  }
+
+  if (!titleEl.value.trim()) {
+    titleEl.classList.add('invalid');
+    document.getElementById('err-title').style.display = 'block';
+    valid = false;
+  } else {
+    titleEl.classList.remove('invalid');
+    document.getElementById('err-title').style.display = 'none';
+  }
+
+  if (!summaryEl.value.trim()) {
+    summaryEl.classList.add('invalid');
+    document.getElementById('err-summary').style.display = 'block';
+    valid = false;
+  } else {
+    summaryEl.classList.remove('invalid');
+    document.getElementById('err-summary').style.display = 'none';
+  }
+
+  if (!tagsEl.value.trim()) {
+    tagsEl.classList.add('invalid');
+    document.getElementById('err-tags').style.display = 'block';
+    valid = false;
+  } else {
+    tagsEl.classList.remove('invalid');
+    document.getElementById('err-tags').style.display = 'none';
+  }
+
+  if (blocksEl.querySelectorAll(':scope > div').length === 0) {
+    alert('Please add at least one content block before previewing.');
+    valid = false;
+  }
+
+  if (!valid) return;
   const title = document.getElementById('title').value.trim() || 'Untitled article';
   const summary = document.getElementById('summary').value.trim();
 
