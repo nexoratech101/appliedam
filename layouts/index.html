@@ -85,10 +85,12 @@
           <h3 class="aam-card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
           <p class="aam-card-desc">{{ .Description }}</p>
           <div class="aam-card-tags">
-            {{ range first 3 .Params.tags }}
-            <span class="aam-tag">{{ . }}</span>
-            {{ end }}
-          </div>
+ 		{{ if .Params.tags }}
+    		{{ range first 3 .Params.tags }}
+   		 <span class="aam-tag">{{ . }}</span>
+  	  {{ end }}
+ 	 {{ end }}
+	</div>
         </div>
       </article>
       {{ end }}
