@@ -4,6 +4,8 @@ description: "Submit research, industry applications, or case studies to be feat
 featured_image: "/images/hero-bg.jpg"
 ---
 
+[Start your submission →](/submission-form/)
+
 ## Get Featured on AppliedAM
 
 We feature work from across the additive manufacturing community —
@@ -46,6 +48,7 @@ Send the following to **submit@appliedam.net**:
 ---
 
 Interested in writing general articles instead of featuring specific work?
+
 [Write for AppliedAM](/write-for-us/)
 
 ---

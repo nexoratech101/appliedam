@@ -10,7 +10,7 @@
 <div class="aam-container">
   <div class="aam-grid aam-grid-list">
     {{ range .Pages }}
-    <article class="aam-card">
+    <article class="aam-card aam-card-{{ .Section }}">
       {{ if .Params.featured_image }}
       <div class="aam-card-img" style="background-image:url('{{ .Params.featured_image }}')"></div>
       {{ end }}

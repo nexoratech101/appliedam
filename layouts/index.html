@@ -15,15 +15,15 @@
 <section class="aam-stats">
   <div class="aam-stats-inner">
     <div class="aam-stat">
-      <span class="aam-stat-number">Research</span>
+      <span class="aam-stat-number" style="color:#8A94A0 !important;">Research</span>
       <span class="aam-stat-label">New Techniques &amp; Materials</span>
     </div>
     <div class="aam-stat">
-      <span class="aam-stat-number">Applications</span>
+      <span class="aam-stat-number" style="color:#4FA3F7 !important;">Industry</span>
       <span class="aam-stat-label">AM in Production &amp; Products</span>
     </div>
     <div class="aam-stat">
-      <span class="aam-stat-number">Case Studies</span>
+      <span class="aam-stat-number" style="color:#1E6FD9 !important;">Case Studies</span>
       <span class="aam-stat-label">Real Projects, Documented</span>
     </div>
   </div>
@@ -38,7 +38,7 @@
     <div class="aam-grid">
       {{ $items := where .Site.RegularPages "Section" "research" }}
       {{ range first 3 $items }}
-      <article class="aam-card">
+      <article class="aam-card aam-card-research">
         {{ if .Params.featured_image }}
         <div class="aam-card-img" style="background-image:url('{{ .Params.featured_image }}')"></div>
         {{ end }}
@@ -105,7 +105,7 @@
     <div class="aam-grid">
       {{ $items := where .Site.RegularPages "Section" "industry" }}
       {{ range first 3 $items }}
-      <article class="aam-card">
+      <article class="aam-card aam-card-industry">
         {{ if .Params.featured_image }}
         <div class="aam-card-img" style="background-image:url('{{ .Params.featured_image }}')"></div>
         {{ end }}

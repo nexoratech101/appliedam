@@ -42,7 +42,7 @@ enableGitInfo = true
 
   [[menu.main]]
     name   = "Submit"
-    url    = "/submit/"
+    url    = "/submission-form/"
     weight = 5
 
   [[menu.main]]
@@ -62,7 +62,7 @@ enableGitInfo = true
 
   [[menu.footer]]
     name   = "Submit"
-    url    = "/submit/"
+    url    = "/submission-form/"
     weight = 3
 
 [social]

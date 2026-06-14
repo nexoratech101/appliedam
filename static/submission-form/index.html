@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Submit Your Work | AppliedAM</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/@tabler/icons-webfont/3.31.0/tabler-icons.min.css">
+<style>
+  :root {
+    --color-background-primary: #FFFFFF;
+    --color-background-secondary: #f3f4f6;
+    --color-background-tertiary: #e7eaee;
+    --color-background-danger: #fdecea;
+    --color-text-primary: #0D0D1A;
+    --color-text-secondary: #5a5e6e;
+    --color-text-tertiary: #9a9eae;
+    --color-text-info: #0077FF;
+    --color-text-success: #1e7e34;
+    --color-text-danger: #c0392b;
+    --color-border-tertiary: rgba(13,13,26,0.12);
+    --color-border-secondary: rgba(13,13,26,0.25);
+    --color-border-info: #0077FF;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --font-sans: 'Inter', 'Segoe UI', Arial, sans-serif;
+    --font-serif: Georgia, serif;
+    --font-mono: 'SFMono-Regular', Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-text-primary);
+    background: var(--color-background-primary);
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 4rem;
+    line-height: 1.5;
+  }
+
+  h1 { font-size: 26px; font-weight: 500; margin: 0 0 0.25rem; }
+  h2 { font-size: 18px; font-weight: 500; margin: 0; }
+  h3 { font-size: 16px; font-weight: 500; }
+  p { margin: 0; }
+
+  input, select, textarea, button {
+    font-family: var(--font-sans);
+    font-size: 14px;
+  }
+
+  input[type="text"], input[type="email"], input[type="url"], select, textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    background: var(--color-background-primary);
+    color: var(--color-text-primary);
+  }
+
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--color-border-info);
+    box-shadow: 0 0 0 2px rgba(0,119,255,0.15);
+  }
+
+  textarea { resize: vertical; }
+
+  input[type="checkbox"] { width: auto; }
+
+  button {
+    padding: 10px 16px;
+    border: 0.5px solid var(--color-border-secondary);
+    border-radius: var(--border-radius-md);
+    background: var(--color-background-primary);
+    color: var(--color-text-primary);
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  button:hover { background: var(--color-background-secondary); }
+  button:active { transform: scale(0.98); }
+  button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  button[style*="font-weight:500"], .primary {
+    background: var(--color-text-info);
+    color: #fff;
+    border-color: var(--color-text-info);
+    font-weight: 500;
+  }
+  button.primary:hover { background: #005FCC; }
+  button.primary:disabled { background: var(--color-text-tertiary); border-color: var(--color-text-tertiary); }
+
+  code { font-family: var(--font-mono); background: var(--color-background-secondary); padding: 1px 4px; border-radius: 4px; }
+
+  .step-pill {
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--color-background-secondary);
+    color: var(--color-text-tertiary);
+    font-weight: 400;
+    transition: background 0.2s, color 0.2s;
+  }
+  .step-pill.step-active {
+    background: var(--color-text-info);
+    color: #fff;
+    font-weight: 500;
+  }
+  .step-pill.step-done {
+    background: #d6e9ff;
+    color: #0058BF;
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<div style="margin-bottom:1.5rem;">
+  <h1>Submit your <span style="color:var(--color-text-info);">work</span></h1>
+  <p style="font-size:14px; color:var(--color-text-secondary); margin-top:4px;">Share your research, industry case study, or project with the <span style="color:#0D0D1A; font-weight:500;">Applied</span><span style="color:var(--color-text-info); font-weight:500;">AM</span> community.</p>
+</div>
+
+<div style="display:flex; flex-direction:column; gap:1.5rem;">
+
+  <div style="display:flex; gap:8px; align-items:center; font-size:12px; flex-wrap:wrap;">
+    <span id="ind1" class="step-pill step-active">1. Author</span>
+    <i class="ti ti-chevron-right" style="font-size:12px; color:var(--color-text-tertiary);" aria-hidden="true"></i>
+    <span id="ind2" class="step-pill">2. Content</span>
+    <i class="ti ti-chevron-right" style="font-size:12px; color:var(--color-text-tertiary);" aria-hidden="true"></i>
+    <span id="ind3" class="step-pill">3. Preview</span>
+    <i class="ti ti-chevron-right" style="font-size:12px; color:var(--color-text-tertiary);" aria-hidden="true"></i>
+    <span id="ind4" class="step-pill">4. Download</span>
+    <i class="ti ti-chevron-right" style="font-size:12px; color:var(--color-text-tertiary);" aria-hidden="true"></i>
+    <span id="ind5" class="step-pill">5. Submit</span>
+  </div>
+
+  <!-- STEP 1: AUTHOR -->
+  <div id="step1">
+    <div style="border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:1rem 1.25rem;">
+      <h3 style="margin:0 0 12px;"><i class="ti ti-user" style="font-size:16px; vertical-align:-2px; margin-right:6px;" aria-hidden="true"></i>Author details</h3>
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <div>
+          <label style="font-size:13px; color:var(--color-text-secondary); display:block; margin-bottom:6px;">Name</label>
+          <input type="text" id="authorName" placeholder="e.g. Aisha Mwangi" />
+        </div>
+        <div>
+          <label style="font-size:13px; color:var(--color-text-secondary); display:block; margin-bottom:6px;">Contributor type</label>
+          <select id="authorType">
+            <option value="general">General contributor</option>
+            <option value="student">Student / university</option>
+            <option value="registered">Registered writer (Write for AppliedAM)</option>
+            <option value="industry">Industry / company</option>
+          </select>
+        </div>
+        <div id="affiliationWrap">
+          <label id="affiliationLabel" style="font-size:13px; color:var(--color-text-secondary); display:block; margin-bottom:6px;">Affiliation / organization (optional)</label>
+          <input type="text" id="authorAffiliation" placeholder="e.g. company, organization, or leave blank" />
+        </div>
+        <div>
+          <label style="font-size:13px; color:var(--color-text-secondary); display:block; margin-bottom:6px;">Email (corresponding author)</label>
+          <input type="email" id="authorEmail" placeholder="name@example.com" style="margin-bottom:8px;" />
+          <label style="display:flex; align-items:center; gap:8px; font-size:13px; color:var(--color-text-secondary); cursor:pointer;">
+            <input type="checkbox" id="emailPublish" />
+            Publish my email address with this article
+          </label>
+        </div>
+        <div>
+          <label style="font-size:13px; color:var(--color-text-secondary); display:block; margin-bottom:6px;">Bio / role line (optional, shown under name)</label>
+          <input type="text" id="authorBio" placeholder="e.g. Turning research into innovation through industry" />
+        </div>
+        <div>
+          <label style="font-size:13px; color:var(--color-text-secondary); display:block; margin-bottom:6px;"><i class="ti ti-note" style="font-size:14px; vertical-align:-2px; margin-right:4px;" aria-hidden="true"></i>Note to editors (optional, not published)</label>
+          <textarea id="editorNote" rows="3" placeholder="Anything else the editorial team should know - context, special requests, acknowledgments, etc."></textarea>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:1rem;">
+      <button id="s1next" type="button" class="primary" style="width:100%; font-weight:500;">Next: Content<i class="ti ti-arrow-right" style="font-size:16px; vertical-align:-2px; margin-left:6px;" aria-hidden="true"></i></button>
+    </div>
+  </div>
+
+  <!-- STEP 2: CONTENT -->
+  <div id="step2" style="display:none; flex-direction:column; gap:1.5rem;">
+    <div>
+      <label style="font-size:13px; color:var(--color-text-secondary); display:block; margin-bottom:6px;">Section</label>
+      <select id="section">
+        <option value="case-studies">Case Studies</option>
+        <option value="research">Research</option>
+        <option value="industry">Industry</option>
+      </select>
+    </div>
+    <div>
+      <label style="font-size:13px; color:var(--color-text-secondary); display:block; margin-bottom:6px;">Article slug (used for filenames/folders)</label>
+      <input type="text" id="slug" placeholder="e.g. glass-tube-printing-jig" />
+    </div>
+    <div>
+      <label style="font-size:13px; color:var(--color-text-secondary); display:block; margin-bottom:6px;"><i class="ti ti-photo" style="font-size:14px; vertical-align:-2px; margin-right:4px;" aria-hidden="true"></i>Hero image <span style="color:var(--color-text-tertiary);">(displayed at 1200&times;500, cropped to fit, max 5MB)</span></label>
+      <div style="border:0.5px dashed var(--color-border-secondary); border-radius:var(--border-radius-md); padding:1rem; text-align:center;">
+        <input type="file" id="heroFile" accept="image/*" />
+        <div id="heroPreviewName" style="margin-top:8px; font-size:13px; color:var(--color-text-secondary);">No hero image selected</div>
+      </div>
+    </div>
+    <div>
+      <label style="font-size:13px; color:var(--color-text-secondary); display:block; margin-bottom:6px;">Title</label>
+      <input type="text" id="title" placeholder="Article title" />
+    </div>
+    <div>
+      <label style="font-size:13px; color:var(--color-text-secondary); display:block; margin-bottom:6px;">Summary (1-2 sentences)</label>
+      <textarea id="summary" rows="2" placeholder="Short summary for listings and SEO"></textarea>
+    </div>
+    <div>
+      <label style="font-size:13px; color:var(--color-text-secondary); display:block; margin-bottom:6px;">Tags (comma separated)</label>
+      <input type="text" id="tags" placeholder="3D printing, manufacturing, UV printing" />
+    </div>
+    <div style="border-top:0.5px solid var(--color-border-tertiary); padding-top:1rem;">
+      <h3 style="margin:0 0 4px;">Content blocks</h3>
+      <p style="font-size:12px; color:var(--color-text-tertiary); margin:0 0 1rem;">Tip: in paragraphs you can also write links directly as <code>[text](https://...)</code></p>
+      <div id="blocks" style="display:flex; flex-direction:column; gap:12px;"></div>
+      <div style="margin-top:12px;">
+        <p style="font-size:13px; color:var(--color-text-secondary); margin:0 0 8px;">Add next block:</p>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <button id="addPara" type="button"><i class="ti ti-align-left" style="font-size:16px; vertical-align:-2px; margin-right:6px;" aria-hidden="true"></i>Paragraph</button>
+          <button id="addImg" type="button"><i class="ti ti-photo" style="font-size:16px; vertical-align:-2px; margin-right:6px;" aria-hidden="true"></i>Image + caption</button>
+          <button id="addQuote" type="button"><i class="ti ti-quote" style="font-size:16px; vertical-align:-2px; margin-right:6px;" aria-hidden="true"></i>Quote</button>
+          <button id="addLink" type="button"><i class="ti ti-link" style="font-size:16px; vertical-align:-2px; margin-right:6px;" aria-hidden="true"></i>Link</button>
+        </div>
+        <p style="font-size:12px; color:var(--color-text-tertiary); margin:8px 0 0;">Images max 5MB each.</p>
+      </div>
+    </div>
+    <div id="sizeWarning" style="display:none; font-size:13px; color:var(--color-text-danger); background:var(--color-background-danger); border-radius:var(--border-radius-md); padding:0.75rem;"></div>
+    <div style="display:flex; gap:8px;">
+      <button id="s2back" type="button" style="flex:0 0 auto;"><i class="ti ti-arrow-left" style="font-size:16px; vertical-align:-2px; margin-right:6px;" aria-hidden="true"></i>Back</button>
+      <button id="s2next" type="button" class="primary" style="flex:1; font-weight:500;"><i class="ti ti-eye" style="font-size:16px; vertical-align:-2px; margin-right:6px;" aria-hidden="true"></i>Preview article</button>
+    </div>
+  </div>
+
+  <!-- STEP 3: PREVIEW -->
+  <div id="step3" style="display:none; flex-direction:column; gap:1rem;">
+    <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-lg); padding:1.5rem; border:0.5px solid var(--color-border-tertiary);">
+      <article id="previewArticle"></article>
+    </div>
+    <div style="display:flex; gap:8px;">
+      <button id="s3back" type="button" style="flex:0 0 auto;"><i class="ti ti-arrow-left" style="font-size:16px; vertical-align:-2px; margin-right:6px;" aria-hidden="true"></i>Back</button>
+      <button id="s3next" type="button" class="primary" style="flex:1; font-weight:500;">Looks good<i class="ti ti-arrow-right" style="font-size:16px; vertical-align:-2px; margin-left:6px;" aria-hidden="true"></i></button>
+    </div>
+  </div>
+
+  <!-- STEP 4: DOWNLOAD -->
+  <div id="step4" style="display:none; flex-direction:column; gap:1rem;">
+    <h3 style="margin:0;">Download your submission</h3>
+    <p style="font-size:14px; color:var(--color-text-secondary); line-height:1.7; margin:0;">Download the file below, then attach it as-is in the next step.</p>
+
+    <div id="zipInfo" style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:1rem; font-size:13px; color:var(--color-text-secondary); line-height:1.7;"></div>
+
+    <button id="downloadBtn" type="button" class="primary" style="font-weight:500;"><i class="ti ti-file-zip" style="font-size:16px; vertical-align:-2px; margin-right:6px;" aria-hidden="true"></i>Download submission file</button>
+    <div id="downloadConfirm" style="display:none; font-size:13px; color:var(--color-text-success);"><i class="ti ti-check" style="font-size:14px; vertical-align:-2px; margin-right:4px;" aria-hidden="true"></i>Downloaded. Continue to submit.</div>
+    <div id="zipStatus" style="display:none; font-size:13px; color:var(--color-text-secondary);"><i class="ti ti-loader-2" style="font-size:14px; vertical-align:-2px; margin-right:4px;" aria-hidden="true"></i>Preparing file...</div>
+
+    <div style="display:flex; gap:8px;">
+      <button id="s4back" type="button" style="flex:0 0 auto;"><i class="ti ti-arrow-left" style="font-size:16px; vertical-align:-2px; margin-right:6px;" aria-hidden="true"></i>Back</button>
+      <button id="s4next" type="button" class="primary" style="flex:1; font-weight:500;" disabled>Next: Submit<i class="ti ti-arrow-right" style="font-size:16px; vertical-align:-2px; margin-left:6px;" aria-hidden="true"></i></button>
+    </div>
+  </div>
+
+  <!-- STEP 5: SUBMIT -->
+  <div id="step5" style="display:none; flex-direction:column; gap:1rem;">
+    <h3 style="margin:0;">Submit your article</h3>
+    <ol style="font-size:14px; color:var(--color-text-secondary); line-height:1.8; margin:0; padding-left:1.25rem;">
+      <li>Click "Open submission email" below</li>
+      <li>Your email app will open with the recipient and subject pre-filled</li>
+      <li>Attach the file you downloaded in the previous step, as-is</li>
+      <li>Send</li>
+    </ol>
+    <button id="emailBtn" type="button" class="primary" style="font-weight:500;"><i class="ti ti-mail" style="font-size:16px; vertical-align:-2px; margin-right:6px;" aria-hidden="true"></i>Submit</button>
+    <div style="display:flex; gap:8px;">
+      <button id="s5back" type="button" style="flex:0 0 auto;"><i class="ti ti-arrow-left" style="font-size:16px; vertical-align:-2px; margin-right:6px;" aria-hidden="true"></i>Back</button>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script>
+const MAX_SIZE = 5 * 1024 * 1024;
+const NL = String.fromCharCode(10);
+let blockCount = 0;
+const blocksEl = document.getElementById('blocks');
+const heroFile = document.getElementById('heroFile');
+const heroPreviewName = document.getElementById('heroPreviewName');
+const authorType = document.getElementById('authorType');
+const affiliationLabel = document.getElementById('affiliationLabel');
+const authorAffiliation = document.getElementById('authorAffiliation');
+const sizeWarning = document.getElementById('sizeWarning');
+
+let heroDataUrl = null;
+let heroOversize = false;
+let lastSlug = 'untitled-article';
+let lastMd = '';
+let lastImageCount = 0;
+let lastZipName = '';
+
+const affiliationLabels = {
+  general: 'Affiliation / organization (optional)',
+  student: 'University / institution',
+  registered: 'Affiliation (optional)',
+  industry: 'Company / organization'
+};
+const affiliationPlaceholders = {
+  general: 'e.g. company, organization, or leave blank',
+  student: 'e.g. University of Michigan, Mechanical Engineering',
+  registered: 'e.g. organization, or leave blank',
+  industry: 'e.g. Precise Group, Dubai'
+};
+const typeLabels = {
+  general: 'General contributor',
+  student: 'Student contributor',
+  registered: 'Registered writer',
+  industry: 'Industry contributor'
+};
+
+authorType.addEventListener('change', () => {
+  affiliationLabel.textContent = affiliationLabels[authorType.value];
+  authorAffiliation.placeholder = affiliationPlaceholders[authorType.value];
+});
+
+const steps = ['step1','step2','step3','step4','step5'];
+const inds = ['ind1','ind2','ind3','ind4','ind5'];
+function goToStep(n) {
+  steps.forEach((s, i) => {
+    document.getElementById(s).style.display = (i === n-1) ? (n === 1 ? 'block' : 'flex') : 'none';
+  });
+  inds.forEach((id, i) => {
+    const el = document.getElementById(id);
+    el.classList.remove('step-active', 'step-done');
+    if (i === n-1) {
+      el.classList.add('step-active');
+    } else if (i < n-1) {
+      el.classList.add('step-done');
+    }
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+document.getElementById('s1next').addEventListener('click', () => goToStep(2));
+document.getElementById('s2back').addEventListener('click', () => goToStep(1));
+document.getElementById('s3back').addEventListener('click', () => goToStep(2));
+document.getElementById('s4back').addEventListener('click', () => goToStep(3));
+document.getElementById('s5back').addEventListener('click', () => goToStep(4));
+
+function formatSize(bytes) {
+  return (bytes / (1024*1024)).toFixed(2) + ' MB';
+}
+
+function updateSizeWarning() {
+  const oversized = [];
+  if (heroOversize && heroFile.files[0]) oversized.push('Hero image (' + formatSize(heroFile.files[0].size) + ')');
+  blocksEl.querySelectorAll(':scope > div[data-type="image"]').forEach(block => {
+    const fi = block.querySelector('.imgFile');
+    if (fi.files[0] && fi.files[0].size > MAX_SIZE) {
+      oversized.push('Block ' + block.dataset.num + ' image (' + formatSize(fi.files[0].size) + ')');
+    }
+  });
+  if (oversized.length) {
+    sizeWarning.style.display = 'block';
+    sizeWarning.innerHTML = '<i class="ti ti-alert-triangle" style="font-size:14px; vertical-align:-2px; margin-right:6px;" aria-hidden="true"></i>The following files exceed the 5MB limit and should be compressed before upload: ' + oversized.join(', ');
+  } else {
+    sizeWarning.style.display = 'none';
+  }
+}
+
+heroFile.addEventListener('change', () => {
+  const f = heroFile.files[0];
+  if (f) {
+    heroOversize = f.size > MAX_SIZE;
+    heroPreviewName.textContent = 'Selected: ' + f.name + ' (' + formatSize(f.size) + ')' + (heroOversize ? ' - exceeds 5MB' : '');
+    heroPreviewName.style.color = heroOversize ? 'var(--color-text-danger)' : 'var(--color-text-secondary)';
+    const reader = new FileReader();
+    reader.onload = e => { heroDataUrl = e.target.result; };
+    reader.readAsDataURL(f);
+  } else {
+    heroPreviewName.textContent = 'No hero image selected';
+    heroPreviewName.style.color = 'var(--color-text-secondary)';
+    heroDataUrl = null;
+    heroOversize = false;
+  }
+  updateSizeWarning();
+});
+
+function blockHeader(label, iconClass, div) {
+  const header = document.createElement('div');
+  header.style = 'display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;';
+  header.innerHTML = '<span style="font-size:12px; color:var(--color-text-secondary);"><i class="' + iconClass + '" style="font-size:14px; vertical-align:-2px; margin-right:4px;" aria-hidden="true"></i>Block ' + div.dataset.num + ': ' + label + '</span><button type="button" class="removeBtn" aria-label="Remove block"><i class="ti ti-trash" style="font-size:14px;" aria-hidden="true"></i></button>';
+  return header;
+}
+
+function addParaBlock() {
+  blockCount++;
+  const div = document.createElement('div');
+  div.dataset.num = blockCount;
+  div.style = 'border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-md); padding:0.75rem;';
+  div.dataset.type = 'paragraph';
+  const header = blockHeader('Paragraph', 'ti ti-align-left', div);
+  div.appendChild(header);
+  const ta = document.createElement('textarea');
+  ta.rows = 3;
+  ta.className = 'paraText';
+  ta.placeholder = 'Paragraph text (markdown ok, e.g. [link text](https://example.com))';
+  div.appendChild(ta);
+  header.querySelector('.removeBtn').addEventListener('click', () => { div.remove(); updateSizeWarning(); });
+  blocksEl.appendChild(div);
+}
+
+function addImgBlock() {
+  blockCount++;
+  const div = document.createElement('div');
+  div.dataset.num = blockCount;
+  div.style = 'border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-md); padding:0.75rem;';
+  div.dataset.type = 'image';
+  const header = blockHeader('Image + caption', 'ti ti-photo', div);
+  div.appendChild(header);
+
+  const hint = document.createElement('div');
+  hint.style = 'font-size:12px; color:var(--color-text-tertiary); margin-bottom:6px;';
+  hint.textContent = 'Displays at full article width, natural aspect ratio. Max 5MB.';
+  div.appendChild(hint);
+
+  const fileInput = document.createElement('input');
+  fileInput.type = 'file';
+  fileInput.accept = 'image/*';
+  fileInput.className = 'imgFile';
+  fileInput.style = 'width:100%; margin-bottom:8px;';
+  div.appendChild(fileInput);
+
+  const fileName = document.createElement('div');
+  fileName.className = 'imgFileName';
+  fileName.style = 'font-size:12px; color:var(--color-text-secondary); margin-bottom:8px;';
+  fileName.textContent = 'No file selected';
+  div.appendChild(fileName);
+
+  const captionInput = document.createElement('input');
+  captionInput.type = 'text';
+  captionInput.className = 'imgCaption';
+  captionInput.placeholder = 'Caption';
+  div.appendChild(captionInput);
+
+  fileInput.addEventListener('change', () => {
+    const f = fileInput.files[0];
+    if (f) {
+      const oversize = f.size > MAX_SIZE;
+      fileName.textContent = 'Selected: ' + f.name + ' (' + formatSize(f.size) + ')' + (oversize ? ' - exceeds 5MB' : '');
+      fileName.style.color = oversize ? 'var(--color-text-danger)' : 'var(--color-text-secondary)';
+      const reader = new FileReader();
+      reader.onload = e => { div.dataset.dataUrl = e.target.result; };
+      reader.readAsDataURL(f);
+    } else {
+      fileName.textContent = 'No file selected';
+      fileName.style.color = 'var(--color-text-secondary)';
+      delete div.dataset.dataUrl;
+    }
+    updateSizeWarning();
+  });
+  header.querySelector('.removeBtn').addEventListener('click', () => { div.remove(); updateSizeWarning(); });
+  blocksEl.appendChild(div);
+}
+
+function addQuoteBlock() {
+  blockCount++;
+  const div = document.createElement('div');
+  div.dataset.num = blockCount;
+  div.style = 'border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-md); padding:0.75rem;';
+  div.dataset.type = 'quote';
+  const header = blockHeader('Quote', 'ti ti-quote', div);
+  div.appendChild(header);
+
+  const ta = document.createElement('textarea');
+  ta.rows = 2;
+  ta.className = 'quoteText';
+  ta.placeholder = 'Quote text';
+  ta.style.marginBottom = '8px';
+  div.appendChild(ta);
+
+  const attr = document.createElement('input');
+  attr.type = 'text';
+  attr.className = 'quoteAttr';
+  attr.placeholder = 'Attribution (optional, e.g. Name, Role)';
+  div.appendChild(attr);
+
+  header.querySelector('.removeBtn').addEventListener('click', () => { div.remove(); updateSizeWarning(); });
+  blocksEl.appendChild(div);
+}
+
+function addLinkBlock() {
+  blockCount++;
+  const div = document.createElement('div');
+  div.dataset.num = blockCount;
+  div.style = 'border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-md); padding:0.75rem;';
+  div.dataset.type = 'link';
+  const header = blockHeader('Link', 'ti ti-link', div);
+  div.appendChild(header);
+
+  const textInput = document.createElement('input');
+  textInput.type = 'text';
+  textInput.className = 'linkText';
+  textInput.placeholder = 'Link text (e.g. Read the full paper)';
+  textInput.style.marginBottom = '8px';
+  div.appendChild(textInput);
+
+  const urlInput = document.createElement('input');
+  urlInput.type = 'url';
+  urlInput.className = 'linkUrl';
+  urlInput.placeholder = 'https://...';
+  div.appendChild(urlInput);
+
+  header.querySelector('.removeBtn').addEventListener('click', () => { div.remove(); updateSizeWarning(); });
+  blocksEl.appendChild(div);
+}
+
+document.getElementById('addPara').addEventListener('click', addParaBlock);
+document.getElementById('addImg').addEventListener('click', addImgBlock);
+document.getElementById('addQuote').addEventListener('click', addQuoteBlock);
+document.getElementById('addLink').addEventListener('click', addLinkBlock);
+
+function escapeHtml(str) {
+  const d = document.createElement('div');
+  d.textContent = str;
+  return d.innerHTML;
+}
+
+function slugify(str) {
+  return str.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '') || 'file';
+}
+
+function renderInlineLinks(text) {
+  const escaped = escapeHtml(text);
+  return escaped.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener" style="color:var(--color-text-info);">$1</a>');
+}
+
+function buildByline() {
+  const aName = document.getElementById('authorName').value.trim();
+  const aType = authorType.value;
+  const aAffil = authorAffiliation.value.trim();
+  const aBio = document.getElementById('authorBio').value.trim();
+  const aEmail = document.getElementById('authorEmail').value.trim();
+  const emailPublish = document.getElementById('emailPublish').checked;
+  const today = new Date();
+  const dateStr = today.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+  let parts = [];
+  if (aName) parts.push('<span style="font-weight:500;">' + escapeHtml(aName) + '</span>');
+  let metaLine = [];
+  if (aAffil) metaLine.push(escapeHtml(aAffil));
+  metaLine.push(typeLabels[aType]);
+  metaLine.push(dateStr);
+
+  let html = '';
+  if (parts.length) html += '<div style="font-size:14px; margin-bottom:2px;">' + parts.join(', ') + '</div>';
+  if (aBio) html += '<div style="font-size:13px; color:var(--color-text-secondary); margin-bottom:4px;">' + escapeHtml(aBio) + '</div>';
+  html += '<div style="font-size:12px; color:var(--color-text-tertiary);">' + metaLine.join(' &bull; ') + '</div>';
+  if (emailPublish && aEmail) {
+    html += '<div style="font-size:12px; color:var(--color-text-info); margin-top:4px;"><i class="ti ti-mail" style="font-size:13px; vertical-align:-2px; margin-right:4px;" aria-hidden="true"></i>' + escapeHtml(aEmail) + '</div>';
+  }
+  return html;
+}
+
+document.getElementById('s2next').addEventListener('click', () => {
+  const title = document.getElementById('title').value.trim() || 'Untitled article';
+  const summary = document.getElementById('summary').value.trim();
+
+  let html = '';
+  if (heroDataUrl) {
+    html += '<div style="width:100%; aspect-ratio: 1200 / 500; border-radius:var(--border-radius-md); overflow:hidden; margin-bottom:1rem;"><img src="' + heroDataUrl + '" alt="Hero image" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>';
+  } else {
+    html += '<div style="width:100%; aspect-ratio: 1200 / 500; background:var(--color-background-tertiary); border-radius:var(--border-radius-md); margin-bottom:1rem; display:flex; align-items:center; justify-content:center; color:var(--color-text-tertiary); font-size:13px;"><i class="ti ti-photo" style="font-size:24px; margin-right:6px;" aria-hidden="true"></i>Hero image (1200&times;500)</div>';
+  }
+
+  html += '<h1 style="margin:0 0 8px;">' + escapeHtml(title) + '</h1>';
+  html += '<div style="border-bottom:0.5px solid var(--color-border-tertiary); padding-bottom:12px; margin-bottom:16px;">' + buildByline() + '</div>';
+
+  if (summary) {
+    html += '<p style="font-size:15px; color:var(--color-text-secondary); font-style:italic; margin:0 0 1rem;">' + escapeHtml(summary) + '</p>';
+  }
+
+  blocksEl.querySelectorAll(':scope > div').forEach(block => {
+    if (block.dataset.type === 'paragraph') {
+      const text = block.querySelector('.paraText').value.trim();
+      if (text) html += '<p style="margin:0 0 1rem; line-height:1.7;">' + renderInlineLinks(text).replace(/\n/g, '<br>') + '</p>';
+    } else if (block.dataset.type === 'quote') {
+      const text = block.querySelector('.quoteText').value.trim();
+      const attr = block.querySelector('.quoteAttr').value.trim();
+      if (text) {
+        html += '<blockquote style="border-left:2px solid var(--color-border-info); padding-left:1rem; margin:0 0 1rem; font-family:var(--font-serif); font-style:italic; color:var(--color-text-secondary);">';
+        html += escapeHtml(text).replace(/\n/g, '<br>');
+        if (attr) html += '<div style="margin-top:4px; font-size:13px; font-style:normal;">&mdash; ' + escapeHtml(attr) + '</div>';
+        html += '</blockquote>';
+      }
+    } else if (block.dataset.type === 'link') {
+      const linkText = block.querySelector('.linkText').value.trim();
+      const linkUrl = block.querySelector('.linkUrl').value.trim();
+      if (linkUrl) {
+        html += '<p style="margin:0 0 1rem;"><i class="ti ti-link" style="font-size:14px; vertical-align:-2px; margin-right:6px; color:var(--color-text-info);" aria-hidden="true"></i><a href="' + escapeHtml(linkUrl) + '" target="_blank" rel="noopener" style="color:var(--color-text-info);">' + escapeHtml(linkText || linkUrl) + '</a></p>';
+      }
+    } else {
+      const caption = block.querySelector('.imgCaption').value.trim();
+      const dataUrl = block.dataset.dataUrl;
+      html += '<figure style="margin:0 0 1rem; width:100%;">';
+      if (dataUrl) {
+        html += '<img src="' + dataUrl + '" alt="' + escapeHtml(caption || 'image') + '" style="width:100%; height:auto; border-radius:var(--border-radius-md); display:block;" />';
+      } else {
+        html += '<div style="width:100%; height:140px; background:var(--color-background-tertiary); border-radius:var(--border-radius-md); display:flex; align-items:center; justify-content:center; color:var(--color-text-tertiary); font-size:13px;"><i class="ti ti-photo" style="font-size:24px; margin-right:6px;" aria-hidden="true"></i>Image (full width)</div>';
+      }
+      if (caption) html += '<figcaption style="font-size:13px; color:var(--color-text-secondary); text-align:center; margin-top:6px;">' + escapeHtml(caption) + '</figcaption>';
+      html += '</figure>';
+    }
+  });
+
+  document.getElementById('previewArticle').innerHTML = html;
+  goToStep(3);
+});
+
+function buildMarkdown() {
+  const section = document.getElementById('section').value;
+  const slug = document.getElementById('slug').value.trim() || slugify(document.getElementById('title').value || 'untitled-article');
+  lastSlug = slug;
+  const title = document.getElementById('title').value.trim();
+  const summary = document.getElementById('summary').value.trim();
+  const tagsRaw = document.getElementById('tags').value.trim();
+  const tags = tagsRaw ? tagsRaw.split(',').map(t => '"' + t.trim() + '"').join(', ') : '';
+  const today = new Date().toISOString().split('T')[0];
+  const heroFileName = heroFile.files[0] ? ('hero.' + (heroFile.files[0].name.split('.').pop() || 'jpg')) : 'cover.jpg';
+
+  const aName = document.getElementById('authorName').value.trim();
+  const aType = authorType.value;
+  const aAffil = authorAffiliation.value.trim();
+  const aEmail = document.getElementById('authorEmail').value.trim();
+  const emailPublish = document.getElementById('emailPublish').checked;
+  const aBio = document.getElementById('authorBio').value.trim();
+  const editorNote = document.getElementById('editorNote').value.trim();
+
+  const bodyLines = [];
+  let imgIndex = 1;
+  let imageCount = heroFile.files[0] ? 1 : 0;
+
+  blocksEl.querySelectorAll(':scope > div').forEach(block => {
+    if (block.dataset.type === 'paragraph') {
+      const text = block.querySelector('.paraText').value.trim();
+      if (text) { bodyLines.push(text); bodyLines.push(''); }
+    } else if (block.dataset.type === 'quote') {
+      const text = block.querySelector('.quoteText').value.trim();
+      const attr = block.querySelector('.quoteAttr').value.trim();
+      if (text) {
+        text.split(NL).forEach(l => bodyLines.push('> ' + l));
+        if (attr) { bodyLines.push('>'); bodyLines.push('> - ' + attr); }
+        bodyLines.push('');
+      }
+    } else if (block.dataset.type === 'link') {
+      const linkText = block.querySelector('.linkText').value.trim();
+      const linkUrl = block.querySelector('.linkUrl').value.trim();
+      if (linkUrl) {
+        bodyLines.push('[' + (linkText || linkUrl) + '](' + linkUrl + ')');
+        bodyLines.push('');
+      }
+    } else {
+      const fileInput = block.querySelector('.imgFile');
+      const caption = block.querySelector('.imgCaption').value.trim();
+      const f = fileInput.files[0];
+      if (f) {
+        const ext = f.name.split('.').pop() || 'jpg';
+        const targetName = 'image-' + imgIndex + '.' + ext;
+        bodyLines.push('![' + (caption || 'image') + '](/images/' + section + '/' + slug + '/' + targetName + ')');
+        if (caption) bodyLines.push('*' + caption + '*');
+        bodyLines.push('');
+        imgIndex++;
+        imageCount++;
+      }
+    }
+  });
+
+  const fm = [];
+  fm.push('---');
+  fm.push('title: "' + title + '"');
+  fm.push('date: ' + today);
+  fm.push('summary: "' + summary + '"');
+  fm.push('category: "' + section + '"');
+  fm.push('image: "/images/' + section + '/' + slug + '/' + heroFileName + '"');
+  fm.push('tags: [' + tags + ']');
+  fm.push('author:');
+  fm.push('  name: "' + aName + '"');
+  fm.push('  type: "' + typeLabels[aType] + '"');
+  if (aAffil) fm.push('  affiliation: "' + aAffil + '"');
+  if (aBio) fm.push('  bio: "' + aBio + '"');
+  if (aEmail) {
+    fm.push('  email: "' + aEmail + '"');
+    fm.push('  email_public: ' + (emailPublish ? 'true' : 'false'));
+  }
+  if (editorNote) {
+    fm.push('editor_note: "' + editorNote.replace(/"/g, "'").replace(/\n/g, ' ') + '"');
+  }
+  fm.push('---');
+  fm.push('');
+
+  lastMd = fm.join(NL) + NL + bodyLines.join(NL).trim() + NL;
+  lastImageCount = imageCount;
+}
+
+document.getElementById('s3next').addEventListener('click', () => {
+  buildMarkdown();
+  const section = document.getElementById('section').value;
+  const slug = lastSlug;
+  lastZipName = slug + '-submission.zip';
+
+  document.getElementById('zipInfo').innerHTML =
+    '<strong>File:</strong> ' + lastZipName + '<br>' +
+    '<strong>Contains:</strong> article text (' + slug + '.md) + ' + lastImageCount + ' image' + (lastImageCount === 1 ? '' : 's') + '<br>' +
+    '<strong>Section:</strong> ' + section + '<br><br>' +
+    'Attach this zip file as-is in the next step - no need to unzip or rename.';
+
+  document.getElementById('downloadConfirm').style.display = 'none';
+  document.getElementById('s4next').disabled = true;
+  goToStep(4);
+});
+
+function dataUrlToBlob(dataUrl) {
+  const parts = dataUrl.split(',');
+  const byteString = atob(parts[1]);
+  const mime = parts[0].match(/:(.*?);/)[1];
+  let len = byteString.length;
+  const bytes = new Uint8Array(len);
+  for (let i = 0; i < len; i++) bytes[i] = byteString.charCodeAt(i);
+  return new Blob([bytes], { type: mime });
+}
+
+document.getElementById('downloadBtn').addEventListener('click', async () => {
+  const zipStatus = document.getElementById('zipStatus');
+  zipStatus.style.display = 'block';
+  document.getElementById('downloadConfirm').style.display = 'none';
+
+  const zip = new JSZip();
+  const slug = lastSlug;
+  zip.file(slug + '.md', lastMd);
+
+  if (heroFile.files[0] && heroDataUrl) {
+    const ext = heroFile.files[0].name.split('.').pop() || 'jpg';
+    zip.file('hero.' + ext, dataUrlToBlob(heroDataUrl));
+  }
+
+  let imgIndex = 1;
+  blocksEl.querySelectorAll(':scope > div[data-type="image"]').forEach(block => {
+    const fi = block.querySelector('.imgFile');
+    if (fi.files[0] && block.dataset.dataUrl) {
+      const ext = fi.files[0].name.split('.').pop() || 'jpg';
+      zip.file('image-' + imgIndex + '.' + ext, dataUrlToBlob(block.dataset.dataUrl));
+      imgIndex++;
+    }
+  });
+
+  const blob = await zip.generateAsync({ type: 'blob' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = lastZipName;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+
+  zipStatus.style.display = 'none';
+  document.getElementById('downloadConfirm').style.display = 'block';
+  document.getElementById('s4next').disabled = false;
+});
+
+document.getElementById('s4next').addEventListener('click', () => goToStep(5));
+
+document.getElementById('emailBtn').addEventListener('click', () => {
+  const title = document.getElementById('title').value.trim() || 'Untitled article';
+  const section = document.getElementById('section').value;
+  const aName = document.getElementById('authorName').value.trim();
+
+  const subject = 'AppliedAM submission: ' + title;
+  const bodyLines = [
+    'Hi AppliedAM team,',
+    '',
+    'I would like to submit the following article for the ' + section + ' section.',
+    '',
+    'Title: ' + title,
+    'Author: ' + (aName || '(see attached file)'),
+    '',
+    'The submission file (' + lastZipName + ') is attached.',
+    '',
+    'Thank you!'
+  ];
+  const body = bodyLines.join(NL);
+
+  const mailto = 'mailto:nexoratech101@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  window.location.href = mailto;
+});
+</script>
+
+</body>
+</html>
