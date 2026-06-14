@@ -14,7 +14,7 @@
       <p class="aam-article-desc">{{ .Description }}</p>
       {{ end }}
       <div class="aam-article-meta">
-        {{ if .Params.author }}<span>By {{ .Params.author }}</span>{{ end }}
+        {{ if .Params.author }}{{ if reflect.IsMap .Params.author }}<span>By {{ .Params.author.name }}</span>{{ else }}<span>By {{ .Params.author }}</span>{{ end }}{{ end }}
         <span>{{ .Date.Format "January 2, 2006" }}</span>
         {{ if .ReadingTime }}<span>{{ .ReadingTime }} min read</span>{{ end }}
       </div>
@@ -53,7 +53,7 @@
 
     <!-- BACK LINK -->
     <div class="aam-article-back">
-      <a href="{{ .Site.BaseURL }}{{ .Section }}/">← Back to {{ .Section | title }}</a>
+      <a href="{{ .Site.BaseURL }}{{ .Section }}/">Ã¢â€ Â Back to {{ .Section | title }}</a>
     </div>
   </div>
 
