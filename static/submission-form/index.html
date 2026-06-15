@@ -114,6 +114,46 @@
     color: #0058BF;
     font-weight: 500;
   }
+
+/* Ã¢â€â‚¬Ã¢â€â‚¬ GAP ROW BLOCK INSERTER Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+.aam-gap-row {
+  display: flex; align-items: center; gap: 8px;
+  height: 28px; opacity: 0; transition: opacity 0.15s;
+  position: relative;
+}
+.aam-gap-row:hover { opacity: 1 !important; }
+.aam-gap-row.force-open { opacity: 1; }
+.aam-gap-row::before { content:''; flex:1; height:0.5px; background:var(--color-border-secondary); }
+.aam-gap-row::after  { content:''; flex:1; height:0.5px; background:var(--color-border-secondary); }
+.aam-gap-btn {
+  width: 22px; height: 22px; border-radius: 50%;
+  border: 0.5px solid var(--color-border-secondary);
+  background: var(--color-background-primary);
+  color: var(--color-text-secondary);
+  cursor: pointer; font-size: 15px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; z-index: 2;
+}
+.aam-gap-btn:hover { background: var(--color-background-info); color: var(--color-text-info); border-color: var(--color-border-info); }
+.aam-picker-popup {
+  display: none; position: absolute; left: 50%; transform: translateX(-50%);
+  top: 28px; z-index: 20;
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-secondary);
+  border-radius: var(--border-radius-lg);
+  padding: 8px; flex-direction: row; gap: 6px; flex-wrap: wrap;
+  width: 310px;
+}
+.aam-picker-popup.open { display: flex; }
+.aam-pick-btn {
+  display: flex; align-items: center; gap: 6px;
+  padding: 6px 10px; border-radius: var(--border-radius-md);
+  border: 0.5px solid var(--color-border-tertiary);
+  background: var(--color-background-secondary);
+  cursor: pointer; font-size: 13px; color: var(--color-text-primary);
+  font-family: var(--font-sans);
+}
+.aam-pick-btn:hover { border-color: var(--color-border-info); color: var(--color-text-info); background: var(--color-background-info); }
 </style>
 </head>
 <body>
@@ -190,14 +230,15 @@
       <label style="font-size:13px; color:var(--color-text-secondary); display:block; margin-bottom:6px;">Section</label>
       <select id="section">
         <option value="case-studies">Case Studies</option>
+        <option value="insights">Insights</option>
         <option value="research">Research</option>
         <option value="industry">Industry</option>
       </select>
     </div>
     <div>
-      <label style="font-size:13px; color:var(--color-text-secondary); display:block; margin-bottom:6px;">Article slug<span class="req">*</span> <span style="color:var(--color-text-tertiary); font-size:12px;">â€” lowercase, hyphens only, no spaces (e.g. glass-tube-printing-jig)</span></label>
+      <label style="font-size:13px; color:var(--color-text-secondary); display:block; margin-bottom:6px;">Article slug<span class="req">*</span> <span style="color:var(--color-text-tertiary); font-size:12px;">lowercase and hyphens only, no spaces (e.g. glass-tube-printing-jig)</span></label>
       <input type="text" id="slug" placeholder="e.g. glass-tube-printing-jig" oninput="validateSlug(this)" />
-      <div class="field-error" id="err-slug" style="display:none;">Slug must use only lowercase letters, numbers and hyphens â€” no spaces or underscores.</div>
+      <div class="field-error" id="err-slug" style="display:none;">Slug must use only lowercase letters, numbers and hyphens Ã¢â‚¬â€ no spaces or underscores.</div>
     </div>
     <div>
       <label style="font-size:13px; color:var(--color-text-secondary); display:block; margin-bottom:6px;"><i class="ti ti-photo" style="font-size:14px; vertical-align:-2px; margin-right:4px;" aria-hidden="true"></i>Hero image<span class="req">*</span> <span style="color:var(--color-text-tertiary);">(displayed at 1200&times;500, cropped to fit, max 5MB)</span></label>
@@ -231,6 +272,7 @@
           <button id="addPara" type="button"><i class="ti ti-align-left" style="font-size:16px; vertical-align:-2px; margin-right:6px;" aria-hidden="true"></i>Paragraph</button>
           <button id="addImg" type="button"><i class="ti ti-photo" style="font-size:16px; vertical-align:-2px; margin-right:6px;" aria-hidden="true"></i>Image + caption</button>
           <button id="addQuote" type="button"><i class="ti ti-quote" style="font-size:16px; vertical-align:-2px; margin-right:6px;" aria-hidden="true"></i>Quote</button>
+          <button id="addSubtitle" type="button"><i class="ti ti-h-2" style="font-size:16px; vertical-align:-2px; margin-right:6px;" aria-hidden="true"></i>Subtitle</button>
           <button id="addLink" type="button"><i class="ti ti-link" style="font-size:16px; vertical-align:-2px; margin-right:6px;" aria-hidden="true"></i>Link</button>
         </div>
         <p style="font-size:12px; color:var(--color-text-tertiary); margin:8px 0 0;">Images max 5MB each.</p>
@@ -355,7 +397,7 @@ function validateSlug(el) {
   if (/[^a-z0-9-]/.test(val)) {
     el.classList.add("invalid");
     document.getElementById("err-slug").style.display = "block";
-    document.getElementById("err-slug").textContent = val.includes(" ") ? "No spaces allowed â€” use hyphens instead (e.g. my-article-title)" : val.includes("_") ? "No underscores â€” use hyphens instead (e.g. my-article-title)" : "Only lowercase letters, numbers and hyphens allowed";
+    document.getElementById("err-slug").textContent = val.includes(" ") ? "No spaces allowed Ã¢â‚¬â€ use hyphens instead (e.g. my-article-title)" : val.includes("_") ? "No underscores Ã¢â‚¬â€ use hyphens instead (e.g. my-article-title)" : "Only lowercase letters, numbers and hyphens allowed";
   } else {
     el.classList.remove("invalid");
     document.getElementById("err-slug").style.display = "none";
@@ -438,7 +480,7 @@ function blockHeader(label, iconClass, div) {
   return header;
 }
 
-function addParaBlock() {
+function createParaBlock() {
   blockCount++;
   const div = document.createElement('div');
   div.dataset.num = blockCount;
@@ -451,11 +493,11 @@ function addParaBlock() {
   ta.className = 'paraText';
   ta.placeholder = 'Paragraph text (markdown ok, e.g. [link text](https://example.com))';
   div.appendChild(ta);
-  header.querySelector('.removeBtn').addEventListener('click', () => { div.remove(); updateSizeWarning(); });
-  blocksEl.appendChild(div);
+  header.querySelector('.removeBtn').addEventListener('click', () => { div.remove(); updateSizeWarning(); renderGapRows(); });
+  return div;
 }
 
-function addImgBlock() {
+function createImgBlock() {
   blockCount++;
   const div = document.createElement('div');
   div.dataset.num = blockCount;
@@ -504,11 +546,11 @@ function addImgBlock() {
     }
     updateSizeWarning();
   });
-  header.querySelector('.removeBtn').addEventListener('click', () => { div.remove(); updateSizeWarning(); });
-  blocksEl.appendChild(div);
+  header.querySelector('.removeBtn').addEventListener('click', () => { div.remove(); updateSizeWarning(); renderGapRows(); });
+  return div;
 }
 
-function addQuoteBlock() {
+function createQuoteBlock() {
   blockCount++;
   const div = document.createElement('div');
   div.dataset.num = blockCount;
@@ -530,11 +572,29 @@ function addQuoteBlock() {
   attr.placeholder = 'Attribution (optional, e.g. Name, Role)';
   div.appendChild(attr);
 
-  header.querySelector('.removeBtn').addEventListener('click', () => { div.remove(); updateSizeWarning(); });
-  blocksEl.appendChild(div);
+  header.querySelector('.removeBtn').addEventListener('click', () => { div.remove(); updateSizeWarning(); renderGapRows(); });
+  return div;
 }
 
-function addLinkBlock() {
+function createSubtitleBlock() {
+  blockCount++;
+  const div = document.createElement('div');
+  div.dataset.num = blockCount;
+  div.style = 'border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-md); padding:0.75rem;';
+  div.dataset.type = 'subtitle';
+  const header = blockHeader('Subtitle', 'ti ti-h-2', div);
+  div.appendChild(header);
+  const inp = document.createElement('input');
+  inp.type = 'text';
+  inp.className = 'subtitleText';
+  inp.placeholder = 'Section heading (e.g. The Problem)';
+  inp.style = 'width:100%; font-size:16px; font-weight:600;';
+  div.appendChild(inp);
+  header.querySelector('.removeBtn').addEventListener('click', () => { div.remove(); updateSizeWarning(); renderGapRows(); });
+  return div;
+}
+
+function createLinkBlock() {
   blockCount++;
   const div = document.createElement('div');
   div.dataset.num = blockCount;
@@ -556,14 +616,119 @@ function addLinkBlock() {
   urlInput.placeholder = 'https://...';
   div.appendChild(urlInput);
 
-  header.querySelector('.removeBtn').addEventListener('click', () => { div.remove(); updateSizeWarning(); });
-  blocksEl.appendChild(div);
+  header.querySelector('.removeBtn').addEventListener('click', () => { div.remove(); updateSizeWarning(); renderGapRows(); });
+  return div;
 }
 
-document.getElementById('addPara').addEventListener('click', addParaBlock);
-document.getElementById('addImg').addEventListener('click', addImgBlock);
-document.getElementById('addQuote').addEventListener('click', addQuoteBlock);
-document.getElementById('addLink').addEventListener('click', addLinkBlock);
+document.getElementById('addPara').addEventListener('click', () => addBlockAtEnd('paragraph'));
+document.getElementById('addImg').addEventListener('click', () => addBlockAtEnd('image'));
+document.getElementById('addQuote').addEventListener('click', () => addBlockAtEnd('quote'));
+document.getElementById('addSubtitle').addEventListener('click', () => addBlockAtEnd('subtitle'));
+document.getElementById('addLink').addEventListener('click', () => addBlockAtEnd('link'));
+
+function addBlockAtEnd(type) {
+  addBlockByType(type);
+  renderGapRows();
+}
+
+const BLOCK_TYPES = [
+  { type:'paragraph', icon:'ti ti-align-left', label:'Paragraph' },
+  { type:'subtitle',  icon:'ti ti-h-2',        label:'Subtitle' },
+  { type:'image',     icon:'ti ti-photo',       label:'Image + caption' },
+  { type:'quote',     icon:'ti ti-quote',       label:'Quote' },
+  { type:'link',      icon:'ti ti-link',        label:'Link' },
+];
+
+function makeGapRow(insertAt) {
+  const row = document.createElement('div');
+  row.className = 'aam-gap-row';
+
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'aam-gap-btn';
+  btn.setAttribute('aria-label', 'Add block here');
+  btn.innerHTML = '<i class="ti ti-plus" aria-hidden="true"></i>';
+
+  const popup = document.createElement('div');
+  popup.className = 'aam-picker-popup';
+
+  BLOCK_TYPES.forEach(t => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'aam-pick-btn';
+    b.innerHTML = '<i class="' + t.icon + '" style="font-size:15px;" aria-hidden="true"></i>' + t.label;
+    b.onclick = (e) => {
+      e.stopPropagation();
+      addBlockByType(t.type, insertAt);
+      closeAllPickers();
+      renderGapRows();
+    };
+    popup.appendChild(b);
+  });
+
+  btn.onclick = (e) => {
+    e.stopPropagation();
+    const isOpen = popup.classList.contains('open');
+    closeAllPickers();
+    if (!isOpen) {
+      popup.classList.add('open');
+      row.classList.add('force-open');
+    }
+  };
+
+  row.addEventListener('mouseleave', () => {
+    if (!popup.classList.contains('open')) row.style.opacity = '0';
+  });
+
+  row.appendChild(btn);
+  row.appendChild(popup);
+  return row;
+}
+
+function closeAllPickers() {
+  document.querySelectorAll('.aam-picker-popup.open').forEach(p => p.classList.remove('open'));
+  document.querySelectorAll('.aam-gap-row.force-open').forEach(r => {
+    r.classList.remove('force-open');
+    r.style.opacity = '0';
+  });
+}
+
+function renderGapRows() {
+  document.querySelectorAll('.aam-gap-row').forEach(r => r.remove());
+  const blocks = Array.from(blocksEl.querySelectorAll(':scope > div'));
+  blocksEl.insertBefore(makeGapRow(0), blocksEl.firstChild);
+  blocks.forEach((block, idx) => {
+    block.after(makeGapRow(idx + 1));
+  });
+}
+
+function addBlockByType(type, insertAt) {
+  let div;
+  if (type === 'paragraph') { div = createParaBlock(); }
+  else if (type === 'image') { div = createImgBlock(); }
+  else if (type === 'quote') { div = createQuoteBlock(); }
+  else if (type === 'subtitle') { div = createSubtitleBlock(); }
+  else if (type === 'link') { div = createLinkBlock(); }
+  if (!div) return;
+
+  if (insertAt === undefined || insertAt === null) {
+    blocksEl.appendChild(div);
+  } else {
+    const allBlocks = Array.from(blocksEl.querySelectorAll(':scope > div:not(.aam-gap-row)'));
+    if (insertAt === 0 || allBlocks.length === 0) {
+      const firstGap = blocksEl.querySelector('.aam-gap-row');
+      if (firstGap) firstGap.after(div);
+      else blocksEl.prepend(div);
+    } else {
+      const refBlock = allBlocks[insertAt - 1];
+      if (refBlock) refBlock.after(div);
+      else blocksEl.appendChild(div);
+    }
+  }
+}
+
+document.addEventListener('click', () => closeAllPickers());
+
 
 function escapeHtml(str) {
   const d = document.createElement('div');
@@ -674,6 +839,9 @@ document.getElementById('s2next').addEventListener('click', () => {
     if (block.dataset.type === 'paragraph') {
       const text = block.querySelector('.paraText').value.trim();
       if (text) html += '<p style="margin:0 0 1rem; line-height:1.7;">' + renderInlineLinks(text).replace(/\n/g, '<br>') + '</p>';
+    } else if (block.dataset.type === 'subtitle') {
+      const text = block.querySelector('.subtitleText').value.trim();
+      if (text) html += '<h2 style="font-family:var(--font-display,sans-serif); font-size:1.3rem; font-weight:700; margin:1.5rem 0 0.5rem; color:var(--color-text-primary);">' + escapeHtml(text) + '</h2>';
     } else if (block.dataset.type === 'quote') {
       const text = block.querySelector('.quoteText').value.trim();
       const attr = block.querySelector('.quoteAttr').value.trim();
@@ -734,6 +902,9 @@ function buildMarkdown() {
     if (block.dataset.type === 'paragraph') {
       const text = block.querySelector('.paraText').value.trim();
       if (text) { bodyLines.push(text); bodyLines.push(''); }
+    } else if (block.dataset.type === 'subtitle') {
+      const text = block.querySelector('.subtitleText').value.trim();
+      if (text) html += '<h2 style="font-family:var(--font-display,sans-serif); font-size:1.3rem; font-weight:700; margin:1.5rem 0 0.5rem; color:var(--color-text-primary);">' + escapeHtml(text) + '</h2>';
     } else if (block.dataset.type === 'quote') {
       const text = block.querySelector('.quoteText').value.trim();
       const attr = block.querySelector('.quoteAttr').value.trim();
