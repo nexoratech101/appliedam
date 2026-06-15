@@ -1,12 +1,12 @@
 ---
 title: "FDM 3D Printing: A Complete Guide for Engineers"
 date: 2024-01-15
-description: "A comprehensive guide to Fused Deposition Modeling â€” how it works, material choices, print settings, and real-world applications."
-featured_image: "/images/fdm-guide.jpg"
-author: "AppliedAM Team"
-categories: ["Research"]
-tags: ["FDM", "3D Printing", "Materials", "Beginners", "Engineering"]
-draft: false
+description: "A comprehensive guide to Fused Deposition Modeling, how it works, material choices, print settings, and real-world applications."
+featured_image: ""
+tags: ["FDM", "3D Printing", "Materials", "Engineering"]
+author:
+  name: "AppliedAM Team"
+  type: "Registered writer"
 ---
 
 Fused Deposition Modeling â€” better known as FDM â€” is the most widely used
