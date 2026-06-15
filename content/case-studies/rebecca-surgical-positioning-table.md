@@ -1,13 +1,15 @@
 ---
 title: "A $200,000 Problem - and a Student at Western University, Canada, Who Is 3D Printing the Solution"
 date: 2026-06-14
-description: "Graduate student Rebecca Kaaya Nansubuga is developing an open-source 3D-printed orthopedic surgical positioning table — bringing a $200,000 piece of operating room equipment within reach of any facility with a desktop printer."
-category: "case-studies"
+description: "Graduate student Rebecca Kaaya Nansubuga is developing an open-source 3D-printed orthopedic surgical positioning table, bringing a $200,000 piece of operating room equipment within reach of any facility with a desktop printer."
 featured_image: "/images/case-studies/rebecca-surgical-positioning-table/hero.jpeg"
-tags: ["3D Printing", "Healthcare", "University Project"]
+tags: ["3D Printing", "Healthcare", "University Project", "Open Source", "FDM"]
 author:
   name: "Randima Bandara"
   type: "General contributor"
+  bio: "Turning research into innovation through industry"
+  email: "randiam005@gmail.com"
+  email_public: false
 ---
 
 What if one of the most critical pieces of equipment in an operating room could be built for a fraction of its commercial price, by anyone, anywhere in the world? That is exactly the question Rebecca Kaaya Nansubuga, a graduate student in Western University, Ontario, supervised by Dr. Joshua Pearce, is working to answer.
@@ -24,8 +26,8 @@ The problem she is tackling is straightforward but sobering. Orthopedic surgical
 
 Using FDM (Fused Deposition Modeling) technology, which she deliberately chose for its accessibility, Rebecca is developing a surgical positioning table that any facility with a desktop 3D printer can replicate. The design uses TPU for flexible components that come into contact with the patient's body - reducing pressure and protecting soft tissue during long procedures, and PETG for structural parts, chosen for its durability over more brittle options like PLA. For non-printed parts, simple tools like laser cutters or even hand saws can be used, keeping the barrier to replication as low as possible.
 
-![A rode holder printed in TPU with a fuzzy skin effect â€” enhancing grip and ensuring a secure, snug fit.](/images/case-studies/rebecca-surgical-positioning-table/image-3.png)
-*A rode holder printed in TPU with a fuzzy skin effect â€” enhancing grip and ensuring a secure, snug fit.*
+![A rode holder printed in TPU with a fuzzy skin effect Ã¢â‚¬" enhancing grip and ensuring a secure, snug fit.](/images/case-studies/rebecca-surgical-positioning-table/image-3.png)
+*A rode holder printed in TPU with a fuzzy skin effect Ã¢â‚¬" enhancing grip and ensuring a secure, snug fit.*
 
 > The design is intentionally open source. Anyone, anywhere, can access the files and build the table, without needing expensive equipment or imported expertise.
 

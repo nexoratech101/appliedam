@@ -1,7 +1,7 @@
 ---
 title: "FDM 3D Printing: A Complete Guide for Engineers"
 date: 2024-01-15
-description: "A comprehensive guide to Fused Deposition Modeling — how it works, material choices, print settings, and real-world applications."
+description: "A comprehensive guide to Fused Deposition Modeling â€” how it works, material choices, print settings, and real-world applications."
 featured_image: "/images/fdm-guide.jpg"
 author: "AppliedAM Team"
 categories: ["Research"]
@@ -9,7 +9,7 @@ tags: ["FDM", "3D Printing", "Materials", "Beginners", "Engineering"]
 draft: false
 ---
 
-Fused Deposition Modeling — better known as FDM — is the most widely used
+Fused Deposition Modeling â€” better known as FDM â€” is the most widely used
 additive manufacturing process in the world. From desktop hobbyist printers
 to industrial machines, the core principle is the same: melt a thermoplastic
 filament and deposit it layer by layer to build a three-dimensional part.
@@ -20,10 +20,10 @@ filament and deposit it layer by layer to build a three-dimensional part.
 
 An FDM printer has four core systems:
 
-1. **The extruder** — feeds filament into the hotend
-2. **The hotend** — heats filament above its glass transition temperature
-3. **The motion system** — moves the nozzle in X, Y, and Z axes
-4. **The build plate** — the surface where the part is deposited
+1. **The extruder** â€” feeds filament into the hotend
+2. **The hotend** â€” heats filament above its glass transition temperature
+3. **The motion system** â€” moves the nozzle in X, Y, and Z axes
+4. **The build plate** â€” the surface where the part is deposited
 
 > **Key insight:** Layer adhesion is the weakest point in FDM parts.
 > Parts are typically 20-30% weaker in the Z axis than in X or Y.
@@ -44,10 +44,10 @@ An FDM printer has four core systems:
 
 ## Critical Print Settings
 
-- **Layer Height** — 0.2mm is the best all-around balance
-- **Infill** — 40-60% for functional parts
-- **Wall Count** — minimum 3-4 walls for strength
-- **Print Speed** — start at 50mm/s
+- **Layer Height** â€” 0.2mm is the best all-around balance
+- **Infill** â€” 40-60% for functional parts
+- **Wall Count** â€” minimum 3-4 walls for strength
+- **Print Speed** â€” start at 50mm/s
 
 ---
 
