@@ -16,10 +16,10 @@ documentation, and a community willing to share what worked and what did not.
 
 ## What We Cover
 
-- Process guides — practical breakdowns of every major AM process
-- Material science — how to choose materials for functional parts
-- Student projects — real work with full documentation
-- Industry insights — where AM is being used across industries
+- Process guides - practical breakdowns of every major AM process
+- Material science - how to choose materials for functional parts
+- Student projects - real work with full documentation
+- Industry insights - where AM is being used across industries
 
 ---
 

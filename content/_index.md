@@ -1,6 +1,6 @@
 ---
 title: "AppliedAM"
-description: "Applied Additive Manufacturing — Techniques, Projects, and Insights"
+description: "Applied Additive Manufacturing - Techniques, Projects, and Insights"
 featured_image: "/images/hero-bg.jpg"
 ---
 
@@ -10,7 +10,7 @@ featured_image: "/images/hero-bg.jpg"
 and makers exploring the cutting edge of 3D printing and additive manufacturing.
 
 Whether you are learning FDM basics, diving into metal sintering, or showcasing
-a student project — this is your community.
+a student project - this is your community.
 
 ---
 
@@ -33,7 +33,7 @@ around the world. See what people are building.
 ---
 
 ### Techniques
-Step-by-step breakdowns of AM processes — FDM, SLA, SLS, DMLS, and more.
+Step-by-step breakdowns of AM processes - FDM, SLA, SLS, DMLS, and more.
 Practical knowledge you can apply immediately.
 
 [Explore Techniques](/techniques/)

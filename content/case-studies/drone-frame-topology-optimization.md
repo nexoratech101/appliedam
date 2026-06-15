@@ -19,7 +19,7 @@ manufacturing can produce a competition-grade racing drone frame that is
 significantly lighter and stiffer than a conventionally designed equivalent.
 
 The final frame weighs **87 grams** compared to 142 grams for the baseline
-design — while maintaining equivalent torsional stiffness under flight loads.
+design - while maintaining equivalent torsional stiffness under flight loads.
 
 ---
 
@@ -35,14 +35,14 @@ structural performance of flat carbon fiber plate at lower weight?
 
 ## Design Process
 
-### Step 1 — Define Load Cases
+### Step 1 - Define Load Cases
 
-- Motor thrust — vertical force at each arm tip up to 800g per motor
-- Crash impact — horizontal impulse load at arm tips
-- Vibration — high-frequency excitation from props at 400-500Hz
-- Torsion — twisting loads during aggressive maneuvers
+- Motor thrust - vertical force at each arm tip up to 800g per motor
+- Crash impact - horizontal impulse load at arm tips
+- Vibration - high-frequency excitation from props at 400-500Hz
+- Torsion - twisting loads during aggressive maneuvers
 
-### Step 2 — Topology Optimization
+### Step 2 - Topology Optimization
 
 Ran SIMP optimization in nTopology with:
 
@@ -50,7 +50,7 @@ Ran SIMP optimization in nTopology with:
 - Constraint: Retain 35% of original volume
 - Load cases: All four flight scenarios weighted by frequency
 
-### Step 3 — Material Selection
+### Step 3 - Material Selection
 
 | Property | Standard PETG | CF-PETG | Improvement |
 |---|---|---|---|

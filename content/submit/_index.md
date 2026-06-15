@@ -8,20 +8,20 @@ featured_image: "/images/hero-bg.jpg"
 
 ## Get Featured on AppliedAM
 
-We feature work from across the additive manufacturing community —
+We feature work from across the additive manufacturing community -
 new research and techniques, industrial applications, and real-world
 case studies and projects.
 
-Whether you are an inventor, a manufacturer, or a practitioner —
-including students — we want to feature documented, real work.
+Whether you are an inventor, a manufacturer, or a practitioner -
+including students - we want to feature documented, real work.
 
 ---
 
 ## What We Feature
 
-- **Research** — new techniques, materials, or process innovations
-- **Applications** — how your organization is using AM in production or products
-- **Case Studies** — projects with documented process, results, and lessons learned
+- **Research** - new techniques, materials, or process innovations
+- **Applications** - how your organization is using AM in production or products
+- **Case Studies** - projects with documented process, results, and lessons learned
 
 ---
 
@@ -29,12 +29,12 @@ including students — we want to feature documented, real work.
 
 Send the following to **submit@appliedam.net**:
 
-1. **Title and summary** — what is this and why does it matter
-2. **Your name and affiliation** — university, company, or independent
-3. **Category** — Research, Application, or Case Study
-4. **Full write-up** — process, materials, methods, results
-5. **Photos, renders, or data** — visuals strengthen any submission
-6. **Files** — CAD, STL, datasets, or GitHub link (optional)
+1. **Title and summary** - what is this and why does it matter
+2. **Your name and affiliation** - university, company, or independent
+3. **Category** - Research, Application, or Case Study
+4. **Full write-up** - process, materials, methods, results
+5. **Photos, renders, or data** - visuals strengthen any submission
+6. **Files** - CAD, STL, datasets, or GitHub link (optional)
 
 ---
 

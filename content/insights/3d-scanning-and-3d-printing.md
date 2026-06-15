@@ -11,7 +11,7 @@ author:
   email_public: false
 ---
 
-Image capturing and 3D scanning play a crucial role in generating accurate 3D models for 3D printing applications. Various techniques exist to create a digital file of a physical object, but this article focuses specifically on 3D scanning solutions. When selecting the right scanner, multiple factors must be considered â€” the application, the object being scanned, the location, and the desired level of detail. Choosing the most suitable scanner ensures the best results for your specific needs.
+Image capturing and 3D scanning play a crucial role in generating accurate 3D models for 3D printing applications. Various techniques exist to create a digital file of a physical object, but this article focuses specifically on 3D scanning solutions. When selecting the right scanner, multiple factors must be considered â€" the application, the object being scanned, the location, and the desired level of detail. Choosing the most suitable scanner ensures the best results for your specific needs.
 
 ## From Photo Capture to Advanced 3D Scanning
 
@@ -20,7 +20,7 @@ One of the earliest and most accessible methods for generating 3D models was the
 ![Photos were captured using a mobile phone and the generated 3D model was printed using a Thrimana 3D printer almost 9 years ago. Guess who this is?](/images/insights/3d-scanning-and-3d-printing/image-1.jpeg)
 *Photos captured using a mobile phone, model printed on a Thrimana 3D printer almost 9 years ago. Guess who this is?*
 
-A more advanced version is the photobooth scanner. I first encountered one in the UAE, owned by PRECISE 3D HUB Dubai, and later experienced another fully operational photobooth at Objex Unlimited in Toronto, Canada. Unlike single-camera scanning, photobooth scanners use multiple cameras positioned at various angles to capture a subject simultaneously. This significantly improves accuracy, precision, and colour detailing, making it ideal for high-quality 3D models. The technology is widely used in the figurine industry â€” so if you have ever wanted a miniature version of yourself, these services are worth exploring.
+A more advanced version is the photobooth scanner. I first encountered one in the UAE, owned by PRECISE 3D HUB Dubai, and later experienced another fully operational photobooth at Objex Unlimited in Toronto, Canada. Unlike single-camera scanning, photobooth scanners use multiple cameras positioned at various angles to capture a subject simultaneously. This significantly improves accuracy, precision, and colour detailing, making it ideal for high-quality 3D models. The technology is widely used in the figurine industry â€" so if you have ever wanted a miniature version of yourself, these services are worth exploring.
 
 ![The 3D Photobooth at Objex Unlimited](/images/insights/3d-scanning-and-3d-printing/image-2.png)
 *The 3D Photobooth at Objex Unlimited*
@@ -29,7 +29,7 @@ A more advanced version is the photobooth scanner. I first encountered one in th
 
 The function of a typical 3D scanner is illustrated below. Multiple optical sources project light patterns onto the object, and cameras capture these patterns from different angles to generate a point cloud in virtual space. By connecting each point, a mesh is formed, and a final 3D object can be exported.
 
-![Multiview Projectors/Cameras System for 3D Reconstruction of Dynamic Scenes â€” Furukawa et al.](/images/insights/3d-scanning-and-3d-printing/image-3.png)
+![Multiview Projectors/Cameras System for 3D Reconstruction of Dynamic Scenes â€" Furukawa et al.](/images/insights/3d-scanning-and-3d-printing/image-3.png)
 *Image source: Multiview Projectors/Cameras System for 3D Reconstruction of Dynamic Scenes, Furukawa et al.*
 
 ## Types of 3D Scanners
@@ -38,7 +38,7 @@ There are three primary types of 3D scanners, each suited for different applicat
 
 **Structured Light Scanners** are the most common due to their affordability and efficiency. These project structured light patterns onto an object and analyse distortions to create a 3D model. They are ideal for capturing detailed textures and colour information, making them well suited for product design, cultural heritage preservation, and medical prosthetics.
 
-![Scanning a prosthetic part using a Shining 3D scanner â€” a project conducted in 2019 with the National Hospital of Sri Lanka and RCS2 Technologies](/images/insights/3d-scanning-and-3d-printing/image-4.png)
+![Scanning a prosthetic part using a Shining 3D scanner â€" a project conducted in 2019 with the National Hospital of Sri Lanka and RCS2 Technologies](/images/insights/3d-scanning-and-3d-printing/image-4.png)
 *Scanning a prosthetic part using a Shining 3D scanner. Project conducted in 2019 with the National Hospital of Sri Lanka and RCS2 Technologies.*
 
 **Laser-Based Scanners** use laser triangulation to measure the distance between the scanner and the object, making them excellent for scanning reflective, dark, or intricate surfaces that structured light scanners struggle with. Their high precision makes them essential for industrial metrology, aerospace, and automotive quality control.
