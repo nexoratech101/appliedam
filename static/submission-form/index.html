@@ -152,7 +152,7 @@
           <select id="authorType">
             <option value="general">General contributor</option>
             <option value="student">Student / university</option>
-            <option value="registered">Registered writer (Write for AppliedAM)</option>
+            <option value="registered">AppliedAM Editorial Team</option>
             <option value="industry">Industry / company</option>
           </select>
         </div>
@@ -195,8 +195,9 @@
       </select>
     </div>
     <div>
-      <label style="font-size:13px; color:var(--color-text-secondary); display:block; margin-bottom:6px;">Article slug (used for filenames/folders)</label>
-      <input type="text" id="slug" placeholder="e.g. glass-tube-printing-jig" />
+      <label style="font-size:13px; color:var(--color-text-secondary); display:block; margin-bottom:6px;">Article slug<span class="req">*</span> <span style="color:var(--color-text-tertiary); font-size:12px;">â€” lowercase, hyphens only, no spaces (e.g. glass-tube-printing-jig)</span></label>
+      <input type="text" id="slug" placeholder="e.g. glass-tube-printing-jig" oninput="validateSlug(this)" />
+      <div class="field-error" id="err-slug" style="display:none;">Slug must use only lowercase letters, numbers and hyphens â€” no spaces or underscores.</div>
     </div>
     <div>
       <label style="font-size:13px; color:var(--color-text-secondary); display:block; margin-bottom:6px;"><i class="ti ti-photo" style="font-size:14px; vertical-align:-2px; margin-right:4px;" aria-hidden="true"></i>Hero image<span class="req">*</span> <span style="color:var(--color-text-tertiary);">(displayed at 1200&times;500, cropped to fit, max 5MB)</span></label>
@@ -322,7 +323,7 @@ const affiliationPlaceholders = {
 const typeLabels = {
   general: 'General contributor',
   student: 'Student contributor',
-  registered: 'Registered writer',
+  registered: 'AppliedAM Editorial Team',
   industry: 'Industry contributor'
 };
 
@@ -349,7 +350,19 @@ function goToStep(n) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-document.getElementById('s1next').addEventListener('click', () => {
+function validateSlug(el) {
+  var val = el.value;
+  if (/[^a-z0-9-]/.test(val)) {
+    el.classList.add("invalid");
+    document.getElementById("err-slug").style.display = "block";
+    document.getElementById("err-slug").textContent = val.includes(" ") ? "No spaces allowed â€” use hyphens instead (e.g. my-article-title)" : val.includes("_") ? "No underscores â€” use hyphens instead (e.g. my-article-title)" : "Only lowercase letters, numbers and hyphens allowed";
+  } else {
+    el.classList.remove("invalid");
+    document.getElementById("err-slug").style.display = "none";
+  }
+}
+
+document.getElementById("s1next").addEventListener('click', () => {
   let valid = true;
   const name = document.getElementById('authorName');
   const email = document.getElementById('authorEmail');

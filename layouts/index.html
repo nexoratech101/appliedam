@@ -1,51 +1,37 @@
 {{ define "main" }}
 
+<!-- HERO -->
 <section class="aam-hero">
   <div class="aam-hero-inner">
     <div class="aam-hero-eyebrow">Applied Additive Manufacturing</div>
-    <h1 class="aam-hero-title">A Publication for the<br>Additive Manufacturing Community</h1>
-    <p class="aam-hero-sub">Where inventors, manufacturers, and practitioners share research, applications, and real-world case studies in additive manufacturing.</p>
+    <h1 class="aam-hero-title">Where AM Knowledge<br>Gets Published</h1>
+    <p class="aam-hero-sub">Research, industry applications, and real-world case studies from inventors, manufacturers, and practitioners across additive manufacturing.</p>
     <div class="aam-hero-actions">
       <a href="/research/" class="aam-btn">Explore Research</a>
-      <a href="/submit/" class="aam-btn aam-btn-ghost">Submit Your Work</a>
+      <a href="/submission-form/" class="aam-btn aam-btn-ghost" target="_blank" rel="noopener">Submit Your Work</a>
     </div>
   </div>
 </section>
 
-<section class="aam-stats">
-  <div class="aam-stats-inner">
-    <div class="aam-stat">
-      <span class="aam-stat-number" style="color:#8A94A0 !important;">Research</span>
-      <span class="aam-stat-label">New Techniques &amp; Materials</span>
-    </div>
-    <div class="aam-stat">
-      <span class="aam-stat-number" style="color:#4FA3F7 !important;">Industry</span>
-      <span class="aam-stat-label">AM in Production &amp; Products</span>
-    </div>
-    <div class="aam-stat">
-      <span class="aam-stat-number" style="color:#1E6FD9 !important;">Case Studies</span>
-      <span class="aam-stat-label">Real Projects, Documented</span>
-    </div>
-  </div>
-</section>
-
+<!-- LATEST ARTICLES (mixed, date ordered) -->
 <section class="aam-section">
   <div class="aam-container">
     <div class="aam-section-header">
-      <h2 class="aam-section-title">Latest Research</h2>
-      <a href="/research/" class="aam-see-all">See all research â†’</a>
+      <h2 class="aam-section-title">Latest Articles</h2>
     </div>
     <div class="aam-grid">
-      {{ $items := where .Site.RegularPages "Section" "research" }}
-      {{ range first 3 $items }}
-      <article class="aam-card aam-card-research">
+      {{ $all := where .Site.RegularPages "Section" "ne" "" }}
+      {{ range first 3 ($all.ByDate.Reverse) }}
+      <article class="aam-card aam-card-{{ .Section }}">
         {{ if .Params.featured_image }}
         <div class="aam-card-img" style="background-image:url('{{ .Params.featured_image }}')"></div>
+        {{ else }}
+        <div class="aam-card-img"></div>
         {{ end }}
         <div class="aam-card-body">
           <div class="aam-card-meta">
+            <span class="aam-section-badge aam-badge-{{ .Section }}">{{ .Section | title }}</span>
             {{ .Date.Format "Jan 2, 2006" }}
-            {{ if .Params.author }}{{ if reflect.IsMap .Params.author }} Â· {{ .Params.author.name }}{{ else }} Â· {{ .Params.author }}{{ end }}{{ end }}
           </div>
           <h3 class="aam-card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
           <p class="aam-card-desc">{{ .Description }}</p>
@@ -63,85 +49,113 @@
   </div>
 </section>
 
+<!-- FEATURED: ONE FROM EACH SECTION -->
 <section class="aam-section aam-section-alt">
   <div class="aam-container">
     <div class="aam-section-header">
-      <h2 class="aam-section-title">Featured Case Studies</h2>
-      <a href="/case-studies/" class="aam-see-all">See all case studies â†’</a>
+      <h2 class="aam-section-title">Featured From Each Section</h2>
     </div>
     <div class="aam-grid">
-      {{ $items := where .Site.RegularPages "Section" "case-studies" }}
-      {{ range first 3 $items }}
-      <article class="aam-card">
+
+      {{ $research := where .Site.RegularPages "Section" "research" }}
+      {{ with (index ($research.ByDate.Reverse) 0) }}
+      <article class="aam-card aam-card-research">
         {{ if .Params.featured_image }}
         <div class="aam-card-img" style="background-image:url('{{ .Params.featured_image }}')"></div>
+        {{ else }}
+        <div class="aam-card-img"></div>
         {{ end }}
         <div class="aam-card-body">
           <div class="aam-card-meta">
-            {{ if .Params.project_university }}
-            <span class="aam-university">{{ .Params.project_university }}</span>
-            {{ else }}
+            <span class="aam-section-badge aam-badge-research">Research</span>
             {{ .Date.Format "Jan 2, 2006" }}
-            {{ end }}
           </div>
           <h3 class="aam-card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
           <p class="aam-card-desc">{{ .Description }}</p>
           <div class="aam-card-tags">
-            {{ if .Params.tags }}
-            {{ range first 3 .Params.tags }}
-            <span class="aam-tag">{{ . }}</span>
-            {{ end }}
-            {{ end }}
+            {{ if .Params.tags }}{{ range first 3 .Params.tags }}<span class="aam-tag">{{ . }}</span>{{ end }}{{ end }}
           </div>
         </div>
       </article>
       {{ end }}
-    </div>
-  </div>
-</section>
 
-<section class="aam-section">
-  <div class="aam-container">
-    <div class="aam-section-header">
-      <h2 class="aam-section-title">Industry</h2>
-      <a href="/industry/" class="aam-see-all">See all industry stories â†’</a>
-    </div>
-    <div class="aam-grid">
-      {{ $items := where .Site.RegularPages "Section" "industry" }}
-      {{ range first 3 $items }}
+      {{ $industry := where .Site.RegularPages "Section" "industry" }}
+      {{ with (index ($industry.ByDate.Reverse) 0) }}
       <article class="aam-card aam-card-industry">
         {{ if .Params.featured_image }}
         <div class="aam-card-img" style="background-image:url('{{ .Params.featured_image }}')"></div>
+        {{ else }}
+        <div class="aam-card-img"></div>
         {{ end }}
         <div class="aam-card-body">
           <div class="aam-card-meta">
+            <span class="aam-section-badge aam-badge-industry">Industry</span>
             {{ .Date.Format "Jan 2, 2006" }}
-            {{ if .Params.author }}{{ if reflect.IsMap .Params.author }} Â· {{ .Params.author.name }}{{ else }} Â· {{ .Params.author }}{{ end }}{{ end }}
           </div>
           <h3 class="aam-card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
           <p class="aam-card-desc">{{ .Description }}</p>
           <div class="aam-card-tags">
-            {{ if .Params.tags }}
-            {{ range first 3 .Params.tags }}
-            <span class="aam-tag">{{ . }}</span>
-            {{ end }}
-            {{ end }}
+            {{ if .Params.tags }}{{ range first 3 .Params.tags }}<span class="aam-tag">{{ . }}</span>{{ end }}{{ end }}
           </div>
         </div>
       </article>
       {{ end }}
-      {{ if not $items }}
-      <p style="color:var(--text-muted)">No applications published yet. <a href="/submit/">Be the first to submit one.</a></p>
+
+      {{ $cases := where .Site.RegularPages "Section" "case-studies" }}
+      {{ with (index ($cases.ByDate.Reverse) 0) }}
+      <article class="aam-card aam-card-case-studies">
+        {{ if .Params.featured_image }}
+        <div class="aam-card-img" style="background-image:url('{{ .Params.featured_image }}')"></div>
+        {{ else }}
+        <div class="aam-card-img"></div>
+        {{ end }}
+        <div class="aam-card-body">
+          <div class="aam-card-meta">
+            <span class="aam-section-badge aam-badge-case-studies">Case Studies</span>
+            {{ .Date.Format "Jan 2, 2006" }}
+          </div>
+          <h3 class="aam-card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+          <p class="aam-card-desc">{{ .Description }}</p>
+          <div class="aam-card-tags">
+            {{ if .Params.tags }}{{ range first 3 .Params.tags }}<span class="aam-tag">{{ . }}</span>{{ end }}{{ end }}
+          </div>
+        </div>
+      </article>
       {{ end }}
+
     </div>
   </div>
 </section>
 
+<!-- SUBMIT CTA -->
 <section class="aam-cta">
   <div class="aam-cta-inner">
     <h2 class="aam-cta-title">Have work worth featuring?</h2>
-    <p class="aam-cta-sub">AppliedAM features research, applications, and case studies from inventors, manufacturers, and practitioners across additive manufacturing.</p>
-    <a href="/submit/" class="aam-btn aam-btn-white">Submit Your Work</a>
+    <p class="aam-cta-sub">AppliedAM features research, industry applications, and case studies from inventors, manufacturers, and practitioners across additive manufacturing.</p>
+    <a href="/submission-form/" class="aam-btn aam-btn-white" target="_blank" rel="noopener">Submit Your Work</a>
+  </div>
+</section>
+
+<!-- NEWSLETTER SIGNUP -->
+<section class="aam-newsletter">
+  <div class="aam-container">
+    <div class="aam-newsletter-inner">
+      <div class="aam-newsletter-text">
+        <h2 class="aam-newsletter-title">Stay ahead in additive manufacturing</h2>
+        <p class="aam-newsletter-sub">New research, industry stories, and case studies delivered to your inbox weekly. No spam, unsubscribe anytime.</p>
+        <div class="aam-newsletter-stats">
+          <span>Researchers</span>
+          <span>Manufacturers</span>
+          <span>Practitioners</span>
+          <span>Students</span>
+        </div>
+      </div>
+      <div class="aam-newsletter-form">
+        <input type="email" placeholder="your@email.com" class="aam-newsletter-input" />
+        <button class="aam-newsletter-btn">Subscribe</button>
+        <p class="aam-newsletter-note">Join the AppliedAM community. Free, weekly, unsubscribe anytime.</p>
+      </div>
+    </div>
   </div>
 </section>
 

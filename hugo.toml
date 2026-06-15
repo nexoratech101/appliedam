@@ -8,7 +8,7 @@ enableEmoji = true
 enableGitInfo = true
 
 [params]
-  description = "Applied Additive Manufacturing — Techniques, Projects, and Insights"
+  description = "Applied Additive Manufacturing â€” Techniques, Projects, and Insights"
   author = "AppliedAM Team"
   background_color_class = "bg-near-black"
   featured_image = "/images/ChatGPT_Image_Jun_9__2026__09_13_06_PM.png"
@@ -45,6 +45,10 @@ enableGitInfo = true
     url    = "/submission-form/"
     weight = 5
 
+  [[menu.main]]
+    name   = "Insights"
+    url    = "/insights/"
+    weight = 5
   [[menu.main]]
     name   = "About"
     url    = "/about/"

@@ -2,13 +2,11 @@
 title: "Jerk, Junction Deviation and Real Jerk (Cheetah): Smarter Motion in 3D Printing"
 date: 2026-06-15
 description: "From classic jerk control to dynamic junction deviation and UltiMaker's Cheetah motion planner, here is how smarter motion control is transforming 3D print quality and speed."
-featured_image: "/images/industry/smart-motion-in-3d-printing/hero.png"
+featured_image: "/images/insights/smart-motion-in-3d-printing/hero.png"
 tags: ["3D Printing", "Motion Control", "Firmware", "Jerk", "UltiMaker"]
 author:
   name: "Randima Bandara"
   type: "General contributor"
-  email: "randiam005@gmail.com"
-  email_public: false
 ---
 
 If we say 3D printing is an evolution of CNC technology, it wouldn't be far from the truth.
