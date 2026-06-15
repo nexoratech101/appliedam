@@ -17,8 +17,12 @@
       <div class="aam-card-body">
         <div class="aam-card-meta">
           {{ .Date.Format "Jan 2, 2006" }}
-          {{ if .Params.author }} Ã‚Â· {{ .Params.author }}{{ end }}
-          {{ if .Params.project_university }} Ã‚Â· {{ .Params.project_university }}{{ end }}
+          {{ if .Params.author }}
+            {{ if reflect.IsMap .Params.author }} Â· {{ .Params.author.name }}
+            {{ else }} Â· {{ .Params.author }}
+            {{ end }}
+          {{ end }}
+          {{ if .Params.project_university }} Â· {{ .Params.project_university }}{{ end }}
         </div>
         <h2 class="aam-card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
         <p class="aam-card-desc">{{ .Description }}</p>
@@ -29,7 +33,7 @@
           {{ end }}
           {{ end }}
         </div>
-        <a href="{{ .Permalink }}" class="aam-card-read">Read more Ã¢â€ â€™</a>
+        <a href="{{ .Permalink }}" class="aam-card-read">Read more &rarr;</a>
       </div>
     </article>
     {{ end }}
