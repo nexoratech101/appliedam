@@ -1,28 +1,41 @@
 ---
 title: "About AppliedAM"
-description: "Our mission, who we are, and why we built AppliedAM."
-featured_image: "/images/hero-bg.jpg"
+description: "AppliedAM is a publication platform for the additive manufacturing community — where real work gets documented, shared, and recognized."
+draft: false
 ---
 
-## Our Mission
+## What We Are
 
-AppliedAM exists to make additive manufacturing knowledge accessible
-to every student, engineer, and maker.
+AppliedAM is an independent publication for the additive manufacturing community. We document real work — research breakthroughs, industrial applications, and practitioner projects — and present it with the credibility and permanence of a journal.
 
-We believe the best way to learn AM is through real projects, honest
-documentation, and a community willing to share what worked and what did not.
+We are not a news feed, a product review site, or a social platform. We are a record of what people are actually building, printing, and discovering with additive manufacturing.
 
----
+## Why We Exist
 
-## What We Cover
+Additive manufacturing is producing genuinely novel work at every level — from university labs to factory floors to independent makers. Most of that work goes undocumented, or lives only in a LinkedIn post that disappears in two weeks.
 
-- Process guides - practical breakdowns of every major AM process
-- Material science - how to choose materials for functional parts
-- Student projects - real work with full documentation
-- Industry insights - where AM is being used across industries
+AppliedAM exists to fix that. We give inventors, manufacturers, and practitioners a place to publish work that can be cited, shared, and found — work that carries professional weight because it appears somewhere with editorial standards.
 
----
+## Who We Publish
+
+We cover three communities:
+
+**Inventors and Researchers** — People pushing the boundaries of what AM can do: new materials, new processes, new geometries. If you are working on the frontier of what is technically possible, this is your venue.
+
+**Manufacturers** — Companies integrating AM into production at scale. Supply chain innovation, cost reduction, part consolidation, consumer product development. The business reality of additive, not just the possibility.
+
+**Practitioners** — Engineers, students, and independent builders applying AM to specific problems. A topology-optimized drone frame. A patient-specific medical device prototype. A one-off jig that cut assembly time in half. If you built something real and documented it, it belongs here.
+
+## Editorial Standards
+
+Every piece published on AppliedAM is reviewed for technical accuracy, completeness, and relevance to the AM community. We do not publish promotional content, vendor press releases, or speculative pieces without factual grounding.
+
+We aim for the tone of a technical journal, not a trade magazine. Credibility is the product.
 
 ## Contact
 
-Reach us at **hello@appliedam.net**
+**Submit work for publication:** [submit@appliedam.net](mailto:submit@appliedam.net)
+
+**Write for us (editorial contributors):** [writers@appliedam.net](mailto:writers@appliedam.net)
+
+**General inquiries:** [hello@appliedam.net](mailto:hello@appliedam.net)
