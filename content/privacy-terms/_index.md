@@ -1,5 +1,5 @@
 ---
-title: "Legal & Privacy"
+title: "Privacy & Terms"
 date: 2026-06-18
 description: "How AppliedAM works, what we do with your information, and the terms of using this site."
 draft: false
