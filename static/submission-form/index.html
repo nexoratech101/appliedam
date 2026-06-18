@@ -322,6 +322,12 @@
     <div id="zipStatus" style="display:none; font-size:13px; color:var(--color-text-secondary);">Preparing file...</div>
 
     <div style="display:flex; gap:8px;">
+      </div>
+    <label style="display:flex; align-items:flex-start; gap:8px; font-size:13px; color:var(--color-text-secondary); cursor:pointer; line-height:1.5; margin-bottom:4px;">
+      <input type="checkbox" id="termsCheck" style="margin-top:2px; width:auto; flex-shrink:0;" onchange="document.getElementById('s4next').disabled=!this.checked;" />
+      <span>I agree to the <a href="/privacy-terms/" target="_blank" style="color:var(--color-text-info);">AppliedAM submission terms</a> and confirm this is my original work or I have permission to submit it.</span>
+    </label>
+    <div style="display:flex; gap:8px;">
       <button id="s4back" type="button" style="flex:0 0 auto;">Back</button>
       <button id="s4next" type="button" class="primary" style="flex:1; font-weight:500;" disabled>Next: Submit</button>
     </div>
@@ -1041,6 +1047,10 @@ document.getElementById('downloadBtn').addEventListener('click', async () => {
   zipStatus.style.display = 'none';
   document.getElementById('downloadConfirm').style.display = 'block';
   document.getElementById('s4next').disabled = false;
+  document.getElementById('termsCheck').addEventListener('change', function() {
+    document.getElementById('s4next').disabled = !this.checked;
+  });
+  document.getElementById('s4next').disabled = true;
 });
 
 document.getElementById('s4next').addEventListener('click', () => goToStep(5));
