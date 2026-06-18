@@ -40,7 +40,7 @@ When you submit work to AppliedAM — whether through `/submit/` or `/write-for-
 - **You can publish it elsewhere.** We don't claim exclusivity. You're free to post your work on your own site, in a journal, or anywhere else.
 - **Your work is yours to submit.** By sending it to us, you're confirming you have the right to share it - it's your original work, or you have permission from whoever owns it.
 
-If you ever want your content removed, contact us at [submit@appliedam.net](mailto:submit@appliedam.net) and we'll handle it promptly.
+If you ever want your content removed, contact us at [appliedam101@gmail.com](mailto:appliedam101@gmail.com) and we'll handle it promptly.
 
 ---
 
@@ -62,4 +62,4 @@ If we make meaningful changes to how we handle your data or the terms of submiss
 
 ## Contact
 
-Questions about anything on this page? Email us at [submit@appliedam.net](mailto:submit@appliedam.net).
+Questions about anything on this page? Email us at [appliedam101@gmail.com](mailto:appliedam101@gmail.com).
