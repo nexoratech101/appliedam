@@ -31,11 +31,3 @@ We cover three communities:
 Every piece published on AppliedAM is reviewed for technical accuracy, completeness, and relevance to the AM community. We do not publish promotional content, vendor press releases, or speculative pieces without factual grounding.
 
 We aim for the tone of a technical journal, not a trade magazine. Credibility is the product.
-
-## Contact
-
-**Submit work for publication:** [submit@appliedam.net](mailto:submit@appliedam.net)
-
-**Write for us (editorial contributors):** [writers@appliedam.net](mailto:writers@appliedam.net)
-
-**General inquiries:** [hello@appliedam.net](mailto:hello@appliedam.net)
