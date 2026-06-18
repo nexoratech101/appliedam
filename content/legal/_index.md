@@ -36,9 +36,9 @@ We don't sell, share, or trade your information with anyone.
 When you submit work to AppliedAM — whether through `/submit/` or `/write-for-us/` — here's what you're agreeing to:
 
 - **You own your work.** Submitting to us doesn't transfer your copyright. You keep full ownership of everything you submit.
-- **You're giving us permission to publish it.** By submitting, you grant AppliedAM a non-exclusive, royalty-free licence to display, publish, and promote your work on this site and in connection with AppliedAM's presence (e.g. sharing an article on LinkedIn).
+- **You're giving us permission to publish it.** By submitting, you grant AppliedAM a non-exclusive, royalty-free licence to display, publish, and promote your work on this site and in connection with AppliedAM's presence.
 - **You can publish it elsewhere.** We don't claim exclusivity. You're free to post your work on your own site, in a journal, or anywhere else.
-- **Your work is yours to submit.** By sending it to us, you're confirming you have the right to share it — it's your original work, or you have permission from whoever owns it.
+- **Your work is yours to submit.** By sending it to us, you're confirming you have the right to share it - it's your original work, or you have permission from whoever owns it.
 
 If you ever want your content removed, contact us at [submit@appliedam.net](mailto:submit@appliedam.net) and we'll handle it promptly.
 
@@ -48,7 +48,7 @@ If you ever want your content removed, contact us at [submit@appliedam.net](mail
 
 A few basic rules for using AppliedAM:
 
-- The content on this site is for information and professional reference. It's not engineering advice — always apply your own judgment and consult qualified professionals for your specific situation.
+- The content on this site is for information and professional reference. It's not engineering advice - always apply your own judgment and consult qualified professionals for your specific situation.
 - Don't scrape, copy, or republish our editorial content without permission.
 - Links to external sites are provided for reference. We're not responsible for what's on them.
 
