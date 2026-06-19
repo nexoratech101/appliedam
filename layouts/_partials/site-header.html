@@ -1,18 +1,26 @@
 <header class="aam-topnav">
   <div class="aam-topnav-inner">
-
     <a href="{{ .Site.BaseURL }}" class="aam-logo-link">
       <img src="/images/logo.png" alt="AppliedAM" style="height:72px; width:auto; display:block;">
     </a>
 
-    <nav class="aam-nav-links">
+    <input type="checkbox" id="aam-menu-toggle" class="aam-menu-toggle-input">
+
+    <nav class="aam-nav-links" id="aam-nav-links">
       {{ range .Site.Menus.main }}
         {{ if and (ne .Name "Submit") (ne .Name "Submit a Project") }}
         <a href="{{ .URL }}" class="aam-nav-link">{{ .Name }}</a>
         {{ end }}
       {{ end }}
-      <a href="/submission-form/" class="aam-nav-cta" target="_blank" rel="noopener">Submit</a>
     </nav>
 
+    <div class="aam-topnav-right">
+      <a href="/submission-form/" class="aam-nav-cta" target="_blank" rel="noopener">Submit</a>
+      <label for="aam-menu-toggle" class="aam-hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </div>
   </div>
 </header>
