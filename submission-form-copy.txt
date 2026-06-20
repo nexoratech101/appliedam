@@ -90,14 +90,6 @@
   button.primary:hover { background: #005FCC; }
   button.primary:disabled { background: var(--color-text-tertiary); border-color: var(--color-text-tertiary); }
 
-  button.secondary {
-    background: #fff;
-    color: var(--color-text-info);
-    border-color: var(--color-text-info);
-    font-weight: 500;
-  }
-  button.secondary:hover { background: #eaf3fe; }
-
   code { font-family: var(--font-mono); background: var(--color-background-secondary); padding: 1px 4px; border-radius: 4px; }
 
   .req { color: var(--color-text-danger); margin-left: 2px; }
@@ -137,7 +129,7 @@
     font-weight: 500;
   }
 
-/* ---------------- GAP ROW BLOCK INSERTER ---------------- */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ GAP ROW BLOCK INSERTER Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
 .aam-gap-row {
   display: flex; align-items: center; gap: 8px;
   height: 28px; opacity: 0; transition: opacity 0.15s;
@@ -176,46 +168,26 @@
   font-family: var(--font-sans);
 }
 .aam-pick-btn:hover { border-color: var(--color-border-info); color: var(--color-text-info); background: var(--color-background-info); }
-
-/* ---------------- REVIEW MODAL ---------------- */
-#aamReviewModal {
-  display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6);
-  z-index: 999; align-items: center; justify-content: center; padding: 1.25rem;
-}
-#aamReviewModal .aam-modal-box {
-  background: #fff; border-radius: 12px; max-width: 420px; width: 100%;
-  padding: 24px; max-height: 90vh; overflow-y: auto;
-}
-
-/* ---------------- REVIEWER-ONLY MODE ---------------- */
-#aamReviewerBanner {
-  display: none;
-  background: #eaf3fe; border: 1px solid #b6dbff; border-radius: var(--border-radius-md);
-  padding: 14px 16px; margin-bottom: 1.5rem; font-size: 13px; color: var(--color-text-primary); line-height: 1.6;
-}
 </style>
 </head>
 <body>
 
-<!-- Shown ONLY when arriving via a PDF review link -->
-<div id="aamReviewerBanner">
-  <strong>You're reviewing a draft article.</strong><br>
-  Title: <span id="aamReviewerArticleName" style="font-weight:500;"></span><br>
-  Scroll down to approve or leave a comment.
-</div>
-
-<div id="aamMainHeading" style="margin-bottom:1.5rem;">
+<div style="margin-bottom:1.5rem;">
   <h1>Submit your <span style="color:var(--color-text-info);">work</span></h1>
   <p style="font-size:14px; color:var(--color-text-secondary); margin-top:4px;">Share your research, industry case study, or project with the <span style="color:#0D0D1A; font-weight:500;">Applied</span><span style="color:var(--color-text-info); font-weight:500;">AM</span> community.</p>
 </div>
 
-<div id="aamWizard" style="display:flex; flex-direction:column; gap:1.5rem;">
+<div style="display:flex; flex-direction:column; gap:1.5rem;">
 
-  <div id="aamStepIndicators" style="display:flex; gap:8px; align-items:center; font-size:12px; flex-wrap:wrap;">
+  <div style="display:flex; gap:8px; align-items:center; font-size:12px; flex-wrap:wrap;">
     <span id="ind1" class="step-pill step-active">1. Author</span>
+    
     <span id="ind2" class="step-pill">2. Content</span>
+    
     <span id="ind3" class="step-pill">3. Preview</span>
+    
     <span id="ind4" class="step-pill">4. Download</span>
+    
     <span id="ind5" class="step-pill">5. Submit</span>
   </div>
 
@@ -280,7 +252,7 @@
     <div>
       <label style="font-size:13px; color:var(--color-text-secondary); display:block; margin-bottom:6px;">Article slug<span class="req">*</span> <span style="color:var(--color-text-tertiary); font-size:12px;">lowercase and hyphens only, no spaces (e.g. glass-tube-printing-jig)</span></label>
       <input type="text" id="slug" placeholder="e.g. glass-tube-printing-jig" oninput="validateSlug(this)" />
-      <div class="field-error" id="err-slug" style="display:none;">Slug must use only lowercase letters, numbers and hyphens, no spaces or underscores.</div>
+      <div class="field-error" id="err-slug" style="display:none;">Slug must use only lowercase letters, numbers and hyphens Ã¢â‚¬â€ no spaces or underscores.</div>
     </div>
     <div>
       <label style="font-size:13px; color:var(--color-text-secondary); display:block; margin-bottom:6px;">Hero image<span class="req">*</span> <span style="color:var(--color-text-tertiary);">(displayed at 1200&times;500, cropped to fit, max 5MB)</span></label>
@@ -340,41 +312,24 @@
 
   <!-- STEP 4: DOWNLOAD -->
   <div id="step4" style="display:none; flex-direction:column; gap:1rem;">
-    <div id="step4DownloadPart">
-      <h3 style="margin:0;">Download your submission</h3>
-      <p style="font-size:14px; color:var(--color-text-secondary); line-height:1.7; margin:0.5rem 0;">Download the file below, then attach it as-is in the next step. You can also download a PDF of the preview to send for approval &mdash; the PDF includes a link the reviewer can click to approve or comment directly.</p>
+    <h3 style="margin:0;">Download your submission</h3>
+    <p style="font-size:14px; color:var(--color-text-secondary); line-height:1.7; margin:0;">Download the file below, then attach it as-is in the next step.</p>
 
-      <div id="zipInfo" style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:1rem; font-size:13px; color:var(--color-text-secondary); line-height:1.7; margin-bottom:1rem;"></div>
+    <div id="zipInfo" style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:1rem; font-size:13px; color:var(--color-text-secondary); line-height:1.7;"></div>
 
-      <div style="display:flex; gap:8px; flex-wrap:wrap;">
-        <button id="downloadBtn" type="button" class="primary" style="font-weight:500; flex:1; min-width:200px;">Download submission file (.zip)</button>
-        <button id="downloadPdfBtn" type="button" class="secondary" style="font-weight:500; flex:1; min-width:200px;">Download preview as PDF</button>
+    <button id="downloadBtn" type="button" class="primary" style="font-weight:500;">Download submission file</button>
+    <div id="downloadConfirm" style="display:none; font-size:13px; color:var(--color-text-success);">Downloaded. Continue to submit.</div>
+    <div id="zipStatus" style="display:none; font-size:13px; color:var(--color-text-secondary);">Preparing file...</div>
+
+    <div style="display:flex; gap:8px;">
       </div>
-      <div id="downloadConfirm" style="display:none; font-size:13px; color:var(--color-text-success); margin-top:8px;">Downloaded. Continue to submit.</div>
-      <div id="pdfConfirm" style="display:none; font-size:13px; color:var(--color-text-success); margin-top:8px;">PDF downloaded &mdash; it includes a clickable review link.</div>
-      <div id="zipStatus" style="display:none; font-size:13px; color:var(--color-text-secondary); margin-top:8px;">Preparing file...</div>
-      <div id="pdfStatus" style="display:none; font-size:13px; color:var(--color-text-secondary); margin-top:8px;">Generating PDF...</div>
-    </div>
-
-    <!-- APPROVAL / COMMENT -->
-    <div id="aamApprovalBlock" style="border-top:0.5px solid var(--color-border-tertiary); padding-top:1rem; margin-top:0.25rem;">
-      <h3 style="margin:0 0 4px;">Need sign-off before publishing?</h3>
-      <p style="font-size:13px; color:var(--color-text-secondary); margin:0 0 12px; line-height:1.6;">If this article needs approval from a contributor, interviewee, or editorial reviewer, send them the PDF above &mdash; their click on the link inside it will bring them straight here.</p>
-      <div style="display:flex; gap:8px; flex-wrap:wrap;">
-        <button id="approveBtn" type="button" class="primary" style="font-weight:500; flex:1; min-width:140px;">Approve</button>
-        <button id="commentBtn" type="button" style="flex:1; min-width:140px;">Leave a Comment</button>
-      </div>
-    </div>
-
-    <div id="step4SubmitPart">
-      <label style="display:flex; align-items:flex-start; gap:8px; font-size:13px; color:var(--color-text-secondary); cursor:pointer; line-height:1.5; margin-top:0.5rem;">
-        <input type="checkbox" id="termsCheck" style="margin-top:2px; width:auto; flex-shrink:0;" onchange="document.getElementById('s4next').disabled=!this.checked;" />
-        <span>I agree to the <a href="/privacy-terms/" target="_blank" style="color:var(--color-text-info);">AppliedAM submission terms</a> and confirm this is my original work or I have permission to submit it.</span>
-      </label>
-      <div style="display:flex; gap:8px; margin-top:0.75rem;">
-        <button id="s4back" type="button" style="flex:0 0 auto;">Back</button>
-        <button id="s4next" type="button" class="primary" style="flex:1; font-weight:500;" disabled>Next: Submit</button>
-      </div>
+    <label style="display:flex; align-items:flex-start; gap:8px; font-size:13px; color:var(--color-text-secondary); cursor:pointer; line-height:1.5; margin-bottom:4px;">
+      <input type="checkbox" id="termsCheck" style="margin-top:2px; width:auto; flex-shrink:0;" onchange="document.getElementById('s4next').disabled=!this.checked;" />
+      <span>I agree to the <a href="/privacy-terms/" target="_blank" style="color:var(--color-text-info);">AppliedAM submission terms</a> and confirm this is my original work or I have permission to submit it.</span>
+    </label>
+    <div style="display:flex; gap:8px;">
+      <button id="s4back" type="button" style="flex:0 0 auto;">Back</button>
+      <button id="s4next" type="button" class="primary" style="flex:1; font-weight:500;" disabled>Next: Submit</button>
     </div>
   </div>
 
@@ -395,48 +350,7 @@
 
 </div>
 
-<!-- REVIEW MODAL -->
-<div id="aamReviewModal">
-  <div class="aam-modal-box">
-    <h3 id="aamReviewTitle" style="font-size:18px; margin:0 0 6px;">Approve this article</h3>
-    <p id="aamReviewSub" style="font-size:13px; color:var(--color-text-secondary); margin:0 0 16px; line-height:1.5;">Confirm you're happy for this to be published on AppliedAM.</p>
-
-    <form id="aamReviewForm" action="https://formspree.io/f/xzdqlvlv" method="POST">
-      <input type="hidden" id="aamReviewArticleTitle" name="article_title" value="">
-      <input type="hidden" id="aamReviewType" name="review_type" value="approve">
-
-      <label style="font-size:13px; font-weight:500; display:block; margin-bottom:5px;">Your name</label>
-      <input type="text" name="reviewer_name" required style="margin-bottom:12px;">
-
-      <label style="font-size:13px; font-weight:500; display:block; margin-bottom:5px;">Email</label>
-      <input type="email" name="reviewer_email" required style="margin-bottom:12px;">
-
-      <div id="aamCommentWrap" style="display:none;">
-        <label style="font-size:13px; font-weight:500; display:block; margin-bottom:5px;">Your comment</label>
-        <textarea id="aamCommentField" name="comment" rows="3" style="margin-bottom:12px;" placeholder="Let us know what needs changing..."></textarea>
-      </div>
-
-      <label style="display:flex; align-items:flex-start; gap:8px; font-size:12px; color:var(--color-text-secondary); margin-bottom:14px; line-height:1.5; cursor:pointer;">
-        <input type="checkbox" name="privacy_agree" required style="margin-top:2px;">
-        <span>I have read and agree to the <a href="/privacy-terms/" target="_blank" style="color:var(--color-text-info);">Privacy Policy and Terms</a>, and confirm I'm happy for this content to be published.</span>
-      </label>
-
-      <button type="submit" class="primary" style="width:100%; font-weight:500;">Submit</button>
-    </form>
-
-    <div id="aamReviewSuccess" style="display:none; text-align:center; padding:12px 0;">
-      <div style="font-size:36px; margin-bottom:8px;">&#10003;</div>
-      <p style="font-weight:500; margin:0 0 4px;">Thanks, submitted!</p>
-      <p style="font-size:13px; color:var(--color-text-secondary); margin:0 0 14px;">AppliedAM will be in touch if anything needs your input.</p>
-      <button id="aamReviewCloseBtn2" type="button">Close</button>
-    </div>
-
-    <button id="aamReviewCloseBtn" type="button" style="display:block; margin:12px auto 0; background:none; border:none; color:var(--color-text-tertiary); font-size:13px;">Cancel</button>
-  </div>
-</div>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <script>
 const MAX_SIZE = 5 * 1024 * 1024;
 const NL = String.fromCharCode(10);
@@ -947,7 +861,7 @@ document.getElementById('s2next').addEventListener('click', () => {
       if (text) html += '<p style="margin:0 0 1rem; line-height:1.7;">' + renderInlineLinks(text).replace(/\n/g, '<br>') + '</p>';
     } else if (block.dataset.type === 'subtitle') {
       const text = block.querySelector('.subtitleText').value.trim();
-      if (text) html += '<h2 style="font-size:1.3rem; font-weight:700; margin:1.5rem 0 0.5rem; color:var(--color-text-primary);">' + escapeHtml(text) + '</h2>';
+      if (text) html += '<h2 style="font-family:var(--font-display,sans-serif); font-size:1.3rem; font-weight:700; margin:1.5rem 0 0.5rem; color:var(--color-text-primary);">' + escapeHtml(text) + '</h2>';
     } else if (block.dataset.type === 'quote') {
       const text = block.querySelector('.quoteText').value.trim();
       const attr = block.querySelector('.quoteAttr').value.trim();
@@ -1010,7 +924,7 @@ function buildMarkdown() {
       if (text) { bodyLines.push(text); bodyLines.push(''); }
     } else if (block.dataset.type === 'subtitle') {
       const text = block.querySelector('.subtitleText').value.trim();
-      if (text) { bodyLines.push('## ' + text); bodyLines.push(''); }
+      if (text) html += '<h2 style="font-family:var(--font-display,sans-serif); font-size:1.3rem; font-weight:700; margin:1.5rem 0 0.5rem; color:var(--color-text-primary);">' + escapeHtml(text) + '</h2>';
     } else if (block.dataset.type === 'quote') {
       const text = block.querySelector('.quoteText').value.trim();
       const attr = block.querySelector('.quoteAttr').value.trim();
@@ -1082,7 +996,6 @@ document.getElementById('s3next').addEventListener('click', () => {
     'Attach this zip file as-is in the next step - no need to unzip or rename.';
 
   document.getElementById('downloadConfirm').style.display = 'none';
-  document.getElementById('pdfConfirm').style.display = 'none';
   document.getElementById('s4next').disabled = true;
   goToStep(4);
 });
@@ -1133,108 +1046,14 @@ document.getElementById('downloadBtn').addEventListener('click', async () => {
 
   zipStatus.style.display = 'none';
   document.getElementById('downloadConfirm').style.display = 'block';
-});
-
-/* ---------------- PDF DOWNLOAD WITH CLICKABLE REVIEW LINK ---------------- */
-document.getElementById('downloadPdfBtn').addEventListener('click', () => {
-  const pdfStatus = document.getElementById('pdfStatus');
-  const pdfConfirm = document.getElementById('pdfConfirm');
-  pdfStatus.style.display = 'block';
-  pdfConfirm.style.display = 'none';
-
-  const titleVal = document.getElementById('title').value.trim() || 'Untitled article';
-  const reviewUrl = window.location.origin + window.location.pathname + '?review=' + encodeURIComponent(titleVal);
-
-const source = document.getElementById('previewArticle');
-  const clone = source.cloneNode(true);
-
-  const wrapper = document.createElement('div');
-  wrapper.style.cssText = 'width:680px; max-width:680px; padding:20px; margin:0; font-family:Inter,\'Segoe UI\',Arial,sans-serif; box-sizing:border-box;';
-
-const linkBlock = document.createElement('div');
-  linkBlock.style.cssText = 'background:#eaf3fe; border:1px solid #b6dbff; border-radius:8px; padding:14px 16px; margin:0 0 16px 0; font-size:13px; line-height:1.6; position:relative; display:block; box-sizing:border-box; overflow:hidden;';
-  linkBlock.innerHTML = '<div style="margin:0; padding:0; line-height:1.5;"><strong style="display:block; margin:0 0 4px 0;">Reviewing this draft?</strong>' +
-    '<span style="display:block; margin:0 0 4px 0;">Click the link below to approve or leave a comment:</span>' +
-    '<a href="' + reviewUrl + '" style="color:#0077FF; word-break:break-all; display:inline-block; line-height:1.4;">' + reviewUrl + '</a></div>';
-wrapper.appendChild(linkBlock);
-  wrapper.appendChild(clone);
-
-  const fileSlug = titleVal.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
-  const fileName = (fileSlug || 'aam-draft') + '-draft.pdf';
-
-const opt = {
-    margin: [4, 10, 10, 10],
-    filename: fileName,
-    image: { type: 'jpeg', quality: 0.95 },
-    html2canvas: { scale: 2, useCORS: true },
-    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-    pagebreak: { mode: ['css', 'legacy'] }
-  };
-
-  html2pdf().set(opt).from(wrapper).save().then(() => {
-    pdfStatus.style.display = 'none';
-    pdfConfirm.style.display = 'block';
-  }).catch(() => {
-    pdfStatus.style.display = 'none';
-    alert('Something went wrong generating the PDF. Please try again.');
+  document.getElementById('s4next').disabled = false;
+  document.getElementById('termsCheck').addEventListener('change', function() {
+    document.getElementById('s4next').disabled = !this.checked;
   });
+  document.getElementById('s4next').disabled = true;
 });
 
 document.getElementById('s4next').addEventListener('click', () => goToStep(5));
-
-/* ---------------- APPROVE / COMMENT MODAL ---------------- */
-const aamModal = document.getElementById('aamReviewModal');
-const aamForm = document.getElementById('aamReviewForm');
-const aamSuccess = document.getElementById('aamReviewSuccess');
-const aamCommentWrap = document.getElementById('aamCommentWrap');
-const aamCommentField = document.getElementById('aamCommentField');
-
-function aamOpenReview(type) {
-  const titleField = document.getElementById('title');
-  const title = (titleField && titleField.value.trim()) || aamReviewerModeTitle || 'Untitled article';
-  document.getElementById('aamReviewArticleTitle').value = title;
-  document.getElementById('aamReviewType').value = type;
-
-  aamForm.style.display = 'block';
-  aamSuccess.style.display = 'none';
-  aamModal.style.display = 'flex';
-
-  if (type === 'comment') {
-    document.getElementById('aamReviewTitle').textContent = 'Leave a comment';
-    document.getElementById('aamReviewSub').textContent = 'Tell us what needs adjusting before this goes live.';
-    aamCommentWrap.style.display = 'block';
-    aamCommentField.required = true;
-  } else {
-    document.getElementById('aamReviewTitle').textContent = 'Approve this article';
-    document.getElementById('aamReviewSub').textContent = "Confirm you're happy for this to be published on AppliedAM.";
-    aamCommentWrap.style.display = 'none';
-    aamCommentField.required = false;
-  }
-}
-
-document.getElementById('approveBtn').addEventListener('click', () => aamOpenReview('approve'));
-document.getElementById('commentBtn').addEventListener('click', () => aamOpenReview('comment'));
-document.getElementById('aamReviewCloseBtn').addEventListener('click', () => { aamModal.style.display = 'none'; });
-document.getElementById('aamReviewCloseBtn2').addEventListener('click', () => { aamModal.style.display = 'none'; });
-
-aamForm.addEventListener('submit', function (e) {
-  e.preventDefault();
-  const data = new FormData(aamForm);
-  fetch(aamForm.action, {
-    method: 'POST',
-    body: data,
-    headers: { 'Accept': 'application/json' }
-  }).then(function (response) {
-    if (response.ok) {
-      aamForm.style.display = 'none';
-      aamSuccess.style.display = 'block';
-    } else {
-      alert('Something went wrong submitting this. Please try again or email us directly.');
-    }
-  }).catch(function () {
-    alert('Something went wrong submitting this. Please try again or email us directly.');
-  });
-});
 
 document.getElementById('emailBtn').addEventListener('click', () => {
   const title = document.getElementById('title').value.trim() || 'Untitled article';
@@ -1250,7 +1069,7 @@ document.getElementById('emailBtn').addEventListener('click', () => {
     'Title: ' + title,
     'Author: ' + (aName || '(see attached file)'),
     '',
-    'The submission file (' + lastZipName + ') is attached. A PDF preview may also be attached if downloaded.',
+    'The submission file (' + lastZipName + ') is attached.',
     '',
     'Thank you!'
   ];
@@ -1259,32 +1078,6 @@ document.getElementById('emailBtn').addEventListener('click', () => {
   const mailto = 'mailto:nexoratech101@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
   window.location.href = mailto;
 });
-
-/* ---------------- REVIEWER-ONLY MODE (arrived via PDF link) ---------------- */
-let aamReviewerModeTitle = null;
-
-(function () {
-  const params = new URLSearchParams(window.location.search);
-  const reviewParam = params.get('review');
-  if (!reviewParam) return;
-
-  aamReviewerModeTitle = reviewParam;
-
-  // Hide the normal wizard chrome
-  document.getElementById('aamMainHeading').style.display = 'none';
-  document.getElementById('aamStepIndicators').style.display = 'none';
-  document.getElementById('step1').style.display = 'none';
-  document.getElementById('step2').style.display = 'none';
-  document.getElementById('step3').style.display = 'none';
-  document.getElementById('step5').style.display = 'none';
-  document.getElementById('step4DownloadPart').style.display = 'none';
-  document.getElementById('step4SubmitPart').style.display = 'none';
-
-  // Show step4 (which now only contains the approval block) and the reviewer banner
-  document.getElementById('step4').style.display = 'flex';
-  document.getElementById('aamReviewerBanner').style.display = 'block';
-  document.getElementById('aamReviewerArticleName').textContent = reviewParam;
-})();
 </script>
 
 </body>
