@@ -215,8 +215,9 @@
     <span id="ind1" class="step-pill step-active">1. Author</span>
     <span id="ind2" class="step-pill">2. Content</span>
     <span id="ind3" class="step-pill">3. Preview</span>
-    <span id="ind4" class="step-pill">4. Download</span>
-    <span id="ind5" class="step-pill">5. Submit</span>
+    <span id="ind3b" class="step-pill">4. AI Declaration</span>
+    <span id="ind4" class="step-pill">5. Download</span>
+    <span id="ind5" class="step-pill">6. Submit</span>
   </div>
 
   <!-- STEP 1: AUTHOR -->
@@ -338,6 +339,67 @@
     </div>
   </div>
 
+  <!-- STEP 3B: AI DECLARATION -->
+  <div id="step3b" style="display:none; flex-direction:column; gap:1.25rem;">
+    <div style="border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:1rem 1.25rem;">
+      <h3 style="margin:0 0 8px;">AI Usage Declaration</h3>
+      <p style="font-size:13px; color:var(--color-text-secondary); line-height:1.6; margin:0 0 16px;">This declaration is about how this <strong>article was written for AppliedAM</strong> — not about the underlying research or work described within it.</p>
+
+      <!-- Opt-in question -->
+      <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:16px;">
+        <p style="font-size:14px; font-weight:500; margin:0;">Would you like to disclose your AI usage for this article?</p>
+        <label style="display:flex; align-items:center; gap:8px; font-size:14px; cursor:pointer;">
+          <input type="radio" name="aiOptIn" id="aiYes" value="yes" style="width:auto;" onchange="document.getElementById('aiDeclarationDetails').style.display='flex'"/>
+          Yes, I would like to disclose
+        </label>
+        <label style="display:flex; align-items:center; gap:8px; font-size:14px; cursor:pointer;">
+          <input type="radio" name="aiOptIn" id="aiNo" value="no" style="width:auto;" onchange="document.getElementById('aiDeclarationDetails').style.display='none'"/>
+          No, I prefer not to disclose
+        </label>
+      </div>
+
+      <!-- Declaration details (shown only if Yes) -->
+      <div id="aiDeclarationDetails" style="display:none; flex-direction:column; gap:16px; border-top:0.5px solid var(--color-border-tertiary); padding-top:16px;">
+
+        <!-- Level 1: Collaboration level -->
+        <div>
+          <label style="font-size:13px; color:var(--color-text-secondary); display:block; margin-bottom:6px; font-weight:500;">Collaboration level</label>
+          <select id="aiLevel" style="width:100%;">
+            <option value="">Select collaboration level...</option>
+            <option value="all-human">All Human — No AI used</option>
+            <option value="leader">Leader — Human led, AI assisted (checks, corrections, enhancement)</option>
+            <option value="collaborator">Collaborator — Human and AI worked together equally</option>
+            <option value="oversight">Oversight — AI led, human reviewed and corrected</option>
+            <option value="all-machine">All Machine — Entirely AI generated</option>
+          </select>
+        </div>
+
+        <!-- Level 2: Function checkboxes -->
+        <div>
+          <label style="font-size:13px; color:var(--color-text-secondary); display:block; margin-bottom:10px; font-weight:500;">Which functions involved AI? <span style="font-weight:400;">(select all that apply)</span></label>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+            <label style="display:flex; align-items:center; gap:8px; font-size:13px; cursor:pointer;"><input type="checkbox" class="aiFn" value="Ideation" style="width:auto;"/> Ideation</label>
+            <label style="display:flex; align-items:center; gap:8px; font-size:13px; cursor:pointer;"><input type="checkbox" class="aiFn" value="Literature Review" style="width:auto;"/> Literature Review</label>
+            <label style="display:flex; align-items:center; gap:8px; font-size:13px; cursor:pointer;"><input type="checkbox" class="aiFn" value="Data Collection" style="width:auto;"/> Data Collection</label>
+            <label style="display:flex; align-items:center; gap:8px; font-size:13px; cursor:pointer;"><input type="checkbox" class="aiFn" value="Data Analysis" style="width:auto;"/> Data Analysis</label>
+            <label style="display:flex; align-items:center; gap:8px; font-size:13px; cursor:pointer;"><input type="checkbox" class="aiFn" value="Data Interpretation" style="width:auto;"/> Data Interpretation</label>
+            <label style="display:flex; align-items:center; gap:8px; font-size:13px; cursor:pointer;"><input type="checkbox" class="aiFn" value="Writing" style="width:auto;"/> Writing</label>
+            <label style="display:flex; align-items:center; gap:8px; font-size:13px; cursor:pointer;"><input type="checkbox" class="aiFn" value="Translation" style="width:auto;"/> Translation</label>
+            <label style="display:flex; align-items:center; gap:8px; font-size:13px; cursor:pointer;"><input type="checkbox" class="aiFn" value="Visuals" style="width:auto;"/> Visuals</label>
+            <label style="display:flex; align-items:center; gap:8px; font-size:13px; cursor:pointer;"><input type="checkbox" class="aiFn" value="Design" style="width:auto;"/> Design</label>
+            <label style="display:flex; align-items:center; gap:8px; font-size:13px; cursor:pointer;"><input type="checkbox" class="aiFn" value="Instrument" style="width:auto;"/> Instrument</label>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div style="display:flex; gap:8px;">
+      <button id="s3bback" type="button" style="flex:0 0 auto;">Back</button>
+      <button id="s3bnext" type="button" class="primary" style="flex:1; font-weight:500;">Continue to Download</button>
+    </div>
+  </div>
+
   <!-- STEP 4: DOWNLOAD -->
   <div id="step4" style="display:none; flex-direction:column; gap:1rem;">
     <div id="step4DownloadPart">
@@ -404,6 +466,7 @@
     <form id="aamReviewForm" action="https://formspree.io/f/xzdqlvlv" method="POST">
       <input type="hidden" id="aamReviewArticleTitle" name="article_title" value="">
       <input type="hidden" id="aamReviewType" name="review_type" value="approve">
+      <input type="hidden" id="aamReviewSubject" name="_subject" value="">
 
       <label style="font-size:13px; font-weight:500; display:block; margin-bottom:5px;">Your name</label>
       <input type="text" name="reviewer_name" required style="margin-bottom:12px;">
@@ -480,8 +543,8 @@ authorType.addEventListener('change', () => {
   authorAffiliation.placeholder = affiliationPlaceholders[authorType.value];
 });
 
-const steps = ['step1','step2','step3','step4','step5'];
-const inds = ['ind1','ind2','ind3','ind4','ind5'];
+const steps = ['step1','step2','step3','step3b','step4','step5'];
+const inds = ['ind1','ind2','ind3','ind3b','ind4','ind5'];
 function goToStep(n) {
   steps.forEach((s, i) => {
     document.getElementById(s).style.display = (i === n-1) ? (n === 1 ? 'block' : 'flex') : 'none';
@@ -1070,20 +1133,6 @@ function buildMarkdown() {
 }
 
 document.getElementById('s3next').addEventListener('click', () => {
-  buildMarkdown();
-  const section = document.getElementById('section').value;
-  const slug = lastSlug;
-  lastZipName = slug + '-submission.zip';
-
-  document.getElementById('zipInfo').innerHTML =
-    '<strong>File:</strong> ' + lastZipName + '<br>' +
-    '<strong>Contains:</strong> article text (' + slug + '.md) + ' + lastImageCount + ' image' + (lastImageCount === 1 ? '' : 's') + '<br>' +
-    '<strong>Section:</strong> ' + section + '<br><br>' +
-    'Attach this zip file as-is in the next step - no need to unzip or rename.';
-
-  document.getElementById('downloadConfirm').style.display = 'none';
-  document.getElementById('pdfConfirm').style.display = 'none';
-  document.getElementById('s4next').disabled = true;
   goToStep(4);
 });
 
@@ -1194,10 +1243,15 @@ function aamOpenReview(type) {
   const title = (titleField && titleField.value.trim()) || aamReviewerModeTitle || 'Untitled article';
   document.getElementById('aamReviewArticleTitle').value = title;
   document.getElementById('aamReviewType').value = type;
+  document.getElementById('aamReviewSubject').value = 'AppliedAM submission: ' + title;
 
   aamForm.style.display = 'block';
   aamSuccess.style.display = 'none';
   aamModal.style.display = 'flex';
+  var mpc = document.getElementById('modalPrivacyCheck');
+  var msb = document.getElementById('modalSubmitBtn');
+  if (mpc) { mpc.checked = false; }
+  if (msb) { msb.disabled = true; }
 
   if (type === 'comment') {
     document.getElementById('aamReviewTitle').textContent = 'Leave a comment';
@@ -1285,6 +1339,38 @@ let aamReviewerModeTitle = null;
   document.getElementById('aamReviewerBanner').style.display = 'block';
   document.getElementById('aamReviewerArticleName').textContent = reviewParam;
 })();
+
+// AI DECLARATION STEP (3b)
+document.getElementById('s3bback').addEventListener('click', function() { goToStep(3); });
+
+document.getElementById('s3bnext').addEventListener('click', function() {
+  var optInEl = document.querySelector('input[name="aiOptIn"]:checked');
+  var previewArticle = document.getElementById('previewArticle');
+  var existing = document.getElementById('aiDeclarationBlock');
+  if (existing) existing.remove();
+
+  if (optInEl && optInEl.value === 'yes') {
+    var level = document.getElementById('aiLevel').value;
+    var levelLabels = {'all-human':'All Human - No AI used','leader':'Leader - Human led, AI assisted','collaborator':'Collaborator - Human and AI worked together','oversight':'Oversight - AI led, human reviewed','all-machine':'All Machine - Entirely AI generated'};
+    var fns = [];
+    document.querySelectorAll('.aiFn:checked').forEach(function(cb) { fns.push(cb.value); });
+    var fnHtml = fns.length > 0 ? '<p style="margin:0;"><strong>AI used for:</strong> ' + fns.join(', ') + '</p>' : '';
+    var levelHtml = level ? '<p style="margin:0 0 8px;"><strong>Collaboration level:</strong> ' + (levelLabels[level] || level) + '</p>' : '';
+    var block = document.createElement('div');
+    block.id = 'aiDeclarationBlock';
+    block.style.cssText = 'margin-top:2rem; border-top:1px solid #e2e8f0; padding-top:1.5rem;';
+    block.innerHTML = '<details open style="border:1px solid #e2e8f0; border-radius:8px; overflow:hidden;">'
+      + '<summary style="background:#f8fafc; padding:0.75rem 1rem; cursor:pointer; font-size:13px; font-weight:600; color:#1a1a2e; list-style:none; display:flex; align-items:center; justify-content:space-between;">'
+      + '<span>AI Usage Declaration</span><span style="font-size:11px; font-weight:400; color:#64748b;">Click to expand/collapse</span></summary>'
+      + '<div style="padding:1rem; font-size:13px; color:#64748b; line-height:1.7;">'
+      + '<p style="margin:0 0 12px; font-style:italic; color:#94a3b8; font-size:12px;">This declaration refers to the writing and presentation of this article on AppliedAM — not the underlying research or work described within it.</p>'
+      + levelHtml + fnHtml + '</div></details>'
+      + '<style>@media print { #aiDeclarationBlock details, #aiDeclarationBlock details > div { display:block !important; } }</style>';
+    previewArticle.appendChild(block);
+  }
+  goToStep(5);
+});
+
 </script>
 
 </body>
