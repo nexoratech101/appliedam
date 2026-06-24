@@ -996,3 +996,13 @@ main { margin: 0 !important; padding-bottom: 0 !important; }
 .aam-share-facebook svg { color: #1877F2; }
 .aam-share-email svg { color: #555; }
 .aam-share-copy svg { color: #555; }
+.aam-card-img {
+  overflow: hidden;
+}
+
+@media (hover: none) {
+  .aam-share-trigger {
+    opacity: 1;
+  }
+}
+
