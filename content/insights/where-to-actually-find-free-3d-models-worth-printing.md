@@ -1,14 +1,14 @@
 ---
 title: "Where to Actually Find Free 3D Models Worth Printing"
 date: 2026-06-24
-summary: "Not all free model repositories are built for AM practitioners. Here is where to look - and what to watch out for."
+description: "Not all free model repositories are built for AM practitioners. Here is where to look - and what to watch out for."
 category: "insights"
-image: "/images/insights/where-to-actually-find-free-3d-models-worth-printing/hero.avif"
+featured_image: "/images/insights/where-to-actually-find-free-3d-models-worth-printing/hero.avif"
 tags: ["3D models", "repositories", "FDM", "STL", "free resources"]
 author:
-  name: "Randima Bandara"
+  name: "AppliedAM Editorial Team"
   type: "AppliedAM Editorial Team"
-  affiliation: "Western University"
+  affiliation:
 ai_level: "Oversight"
 ai_functions: ["Data Collection", "Writing"]
 draft: false
