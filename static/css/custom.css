@@ -846,3 +846,49 @@ main { margin: 0 !important; padding-bottom: 0 !important; }
     transform: rotate(-45deg) translate(5px, -5px);
   }
 }
+/* Mobile nav - complete rewrite */
+@media (max-width: 768px) {
+  .aam-nav-cta { display: none !important; }
+  .aam-hamburger { display: flex !important; }
+  .aam-menu-toggle-input { display: none; }
+  .aam-nav-links {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #0D0D1A;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 3rem 2rem;
+    z-index: 999;
+    gap: 1.5rem;
+    box-sizing: border-box;
+  }
+  .aam-nav-link {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #fff !important;
+    padding: 0.4rem 0;
+    text-decoration: none;
+  }
+  .aam-menu-toggle-input:checked ~ .aam-nav-links {
+    display: flex !important;
+  }
+  .aam-topnav-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 1000;
+    position: relative;
+  }
+  .aam-hamburger {
+    z-index: 1000;
+    position: relative;
+  }
+}
