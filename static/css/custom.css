@@ -802,3 +802,6 @@ footer a:hover, .site-footer a:hover { color: #ffffff !important; }
 main { margin: 0 !important; padding-bottom: 0 !important; }
 .aam-article-body > *:last-child { margin-bottom: 0; }
 .aam-hmc-row { margin-top: 1rem !important; }
+
+.aam-article-body blockquote:last-child { margin-bottom: 0 !important; }
+.aam-article-body p:last-child { margin-bottom: 0 !important; }
