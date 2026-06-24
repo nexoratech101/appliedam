@@ -805,3 +805,44 @@ main { margin: 0 !important; padding-bottom: 0 !important; }
 
 .aam-article-body blockquote:last-child { margin-bottom: 0 !important; }
 .aam-article-body p:last-child { margin-bottom: 0 !important; }
+
+/* Mobile nav fixes */
+@media (max-width: 768px) {
+  .aam-nav-cta { display: none !important; }
+  .aam-hamburger { display: flex !important; }
+  .aam-topnav-right { margin-left: auto; display: flex; align-items: center; }
+  .aam-topnav-inner { justify-content: space-between; flex-wrap: nowrap; }
+  .aam-nav-links {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0D0D1A;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2rem 2rem;
+    z-index: 100;
+    gap: 1.5rem;
+  }
+  .aam-nav-link {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff !important;
+    padding: 0.5rem 0;
+  }
+  .aam-menu-toggle-input:checked ~ .aam-nav-links {
+    display: flex;
+  }
+  .aam-menu-toggle-input:checked ~ .aam-topnav-right .aam-hamburger span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .aam-menu-toggle-input:checked ~ .aam-topnav-right .aam-hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+  .aam-menu-toggle-input:checked ~ .aam-topnav-right .aam-hamburger span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+}
