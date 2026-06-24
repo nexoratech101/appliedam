@@ -214,8 +214,8 @@
   <div id="aamStepIndicators" style="display:flex; gap:8px; align-items:center; font-size:12px; flex-wrap:wrap;">
     <span id="ind1" class="step-pill step-active">1. Author</span>
     <span id="ind2" class="step-pill">2. Content</span>
-    <span id="ind3" class="step-pill">3. Preview</span>
-    <span id="ind3b" class="step-pill">4. AI Declaration</span>
+    <span id="ind3b" class="step-pill">3. AI Declaration</span>
+    <span id="ind3" class="step-pill">4. Preview</span>
     <span id="ind4" class="step-pill">5. Download</span>
     <span id="ind5" class="step-pill">6. Submit</span>
   </div>
@@ -324,7 +324,7 @@
     <div id="sizeWarning" style="display:none; font-size:13px; color:var(--color-text-danger); background:var(--color-background-danger); border-radius:var(--border-radius-md); padding:0.75rem;"></div>
     <div style="display:flex; gap:8px;">
       <button id="s2back" type="button" style="flex:0 0 auto;">Back</button>
-      <button id="s2next" type="button" class="primary" style="flex:1; font-weight:500;">Preview article</button>
+      <button id="s2next" type="button" class="primary" style="flex:1; font-weight:500;">Next: AI Declaration</button>
     </div>
   </div>
 
@@ -396,7 +396,7 @@
 
     <div style="display:flex; gap:8px;">
       <button id="s3bback" type="button" style="flex:0 0 auto;">Back</button>
-      <button id="s3bnext" type="button" class="primary" style="flex:1; font-weight:500;">Continue to Download</button>
+      <button id="s3bnext" type="button" class="primary" style="flex:1; font-weight:500;">Preview article</button>
     </div>
   </div>
 
@@ -543,8 +543,8 @@ authorType.addEventListener('change', () => {
   authorAffiliation.placeholder = affiliationPlaceholders[authorType.value];
 });
 
-const steps = ['step1','step2','step3','step3b','step4','step5'];
-const inds = ['ind1','ind2','ind3','ind3b','ind4','ind5'];
+const steps = ['step1','step2','step3b','step3','step4','step5'];
+const inds = ['ind1','ind2','ind3b','ind3','ind4','ind5'];
 function goToStep(n) {
   steps.forEach((s, i) => {
     document.getElementById(s).style.display = (i === n-1) ? (n === 1 ? 'block' : 'flex') : 'none';
@@ -601,7 +601,7 @@ document.getElementById("s1next").addEventListener('click', () => {
 document.getElementById('s2back').addEventListener('click', () => goToStep(1));
 document.getElementById('s3back').addEventListener('click', () => goToStep(2));
 document.getElementById('s4back').addEventListener('click', () => goToStep(3));
-document.getElementById('s5back').addEventListener('click', () => goToStep(4));
+document.getElementById('s5back').addEventListener('click', () => goToStep(5));
 
 function formatSize(bytes) {
   return (bytes / (1024*1024)).toFixed(2) + ' MB';
@@ -1229,7 +1229,7 @@ const opt = {
   });
 });
 
-document.getElementById('s4next').addEventListener('click', () => goToStep(5));
+document.getElementById('s4next').addEventListener('click', () => goToStep(6));
 
 /* ---------------- APPROVE / COMMENT MODAL ---------------- */
 const aamModal = document.getElementById('aamReviewModal');
@@ -1341,7 +1341,7 @@ let aamReviewerModeTitle = null;
 })();
 
 // AI DECLARATION STEP (3b)
-document.getElementById('s3bback').addEventListener('click', function() { goToStep(3); });
+document.getElementById('s3bback').addEventListener('click', function() { goToStep(2); });
 
 document.getElementById('s3bnext').addEventListener('click', function() {
   var optInEl = document.querySelector('input[name="aiOptIn"]:checked');
@@ -1368,7 +1368,7 @@ document.getElementById('s3bnext').addEventListener('click', function() {
       + '<style>@media print { #aiDeclarationBlock details, #aiDeclarationBlock details > div { display:block !important; } }</style>';
     previewArticle.appendChild(block);
   }
-  goToStep(5);
+  goToStep(4);
 });
 
 </script>

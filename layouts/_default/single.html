@@ -1,148 +1,189 @@
 {{ define "main" }}
-<div class="aam-single-wrap">
+{{ if .Params.featured_image }}
+<div class="aam-article-hero-overlay" style="background-image:url('{{ .Params.featured_image }}'); background-size:cover; background-position:center; position:relative; min-height:420px; display:flex; align-items:flex-end;">
+  <div style="position:absolute; inset:0; background:linear-gradient(to bottom, rgba(13,13,26,0.3) 0%, rgba(13,13,26,0.82) 100%);"></div>
+  <div class="aam-hero-content-wide" style="position:relative; z-index:2; padding:2.5rem 2rem 2rem; max-width:900px; margin:0 auto; width:100%;">
+    {{ range .Params.categories }}<span class="aam-cat-badge">{{ . }}</span>{{ end }}
+    <h1 class="aam-article-title" style="color:#fff; margin:0.5rem 0 0.75rem;">{{ .Title }}</h1>
+    <div class="aam-article-meta" style="color:rgba(255,255,255,0.7); font-size:13px; display:flex; gap:12px; flex-wrap:wrap;">
+      {{ if .Params.author }}{{ if reflect.IsMap .Params.author }}<span>{{ .Params.author.name }}</span>{{ else }}<span>{{ .Params.author }}</span>{{ end }}{{ end }}
+      <span>{{ .Date.Format "January 2, 2006" }}</span>
+      {{ if .ReadingTime }}<span>{{ .ReadingTime }} min read</span>{{ end }}
+    </div>
+  </div>
+</div>
+{{ else }}
+<div class="aam-article-header">
+  {{ range .Params.categories }}<span class="aam-cat-badge">{{ . }}</span>{{ end }}
+  <h1 class="aam-article-title">{{ .Title }}</h1>
+  <div class="aam-article-meta">
+    {{ if .Params.author }}{{ if reflect.IsMap .Params.author }}<span>{{ .Params.author.name }}</span>{{ else }}<span>{{ .Params.author }}</span>{{ end }}{{ end }}
+    <span>{{ .Date.Format "January 2, 2006" }}</span>
+    {{ if .ReadingTime }}<span>{{ .ReadingTime }} min read</span>{{ end }}
+  </div>
+</div>
+{{ end }}
 
-  {{ if .Params.featured_image }}
-  <div class="aam-article-hero-overlay" style="background-image: url('{{ .Params.featured_image }}');">
-    <div class="aam-article-hero-gradient">
-      <div class="aam-hero-content-wide">
-        <h1 class="aam-article-title">{{ .Title }}</h1>
-        <div class="aam-article-meta">
-          {{ if .Params.author }}
-            {{ if reflect.IsMap .Params.author }}
-            <span>{{ .Params.author.name }}</span>
-            {{ else }}
-            <span>{{ .Params.author }}</span>
-            {{ end }}
-          {{ end }}
-          <span>{{ .Date.Format "January 2, 2006" }}</span>
-          {{ if .ReadingTime }}<span>{{ .ReadingTime }} min read</span>{{ end }}
+<div class="aam-article-layout">
+  <div class="aam-article-sidebar-left">
+    <div class="aam-sidebar-sticky">
+      {{ if .Description }}
+      <div class="aam-article-summary"><p>{{ .Description }}</p></div>
+      {{ end }}
+      <div class="aam-share-block">
+        <span class="aam-sidebar-label">Share</span>
+        <div class="aam-share-btns">
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink | urlize }}" target="_blank" rel="noopener" class="aam-share-btn">LinkedIn</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink | urlize }}" target="_blank" rel="noopener" class="aam-share-btn">Facebook</a>
+          <a href="mailto:?subject={{ .Title | urlize }}&body={{ .Permalink | urlize }}" class="aam-share-btn">Email</a>
+          <button class="aam-share-btn aam-copy-link" onclick="navigator.clipboard.writeText('{{ .Permalink }}'); this.textContent='Copied!'; setTimeout(()=>this.textContent='Copy link',2000);">Copy link</button>
         </div>
       </div>
     </div>
   </div>
-  {{ else }}
-  <header class="aam-article-header">
-    <div class="aam-hero-content-wide">
-      <h1 class="aam-article-title">{{ .Title }}</h1>
-      <div class="aam-article-meta">
-        {{ if .Params.author }}
-          {{ if reflect.IsMap .Params.author }}
-          <span>{{ .Params.author.name }}</span>
-          {{ else }}
-          <span>{{ .Params.author }}</span>
-          {{ end }}
+
+  <div class="aam-article-main">
+    <div class="aam-article-body">
+      {{ .Content }}
+    </div>
+
+    {{ if .Params.ai_level }}
+    <div class="aam-hmc-row" style="display:flex; align-items:center; gap:10px; margin:2rem 0 1.5rem; padding:14px 16px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; flex-wrap:wrap;">
+      <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.07em; color:#8A94A0; margin-right:4px;">AI Declaration</span>
+
+      {{ $level := .Params.ai_level }}
+
+      {{ if eq $level "All Human" }}
+      <span title="All Human" style="display:inline-flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:50%; background:#1a1a2e; flex-shrink:0;">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="6" r="3.5" stroke="#fff" stroke-width="1.5"/><path d="M2.5 15.5c0-3.314 2.91-6 6.5-6s6.5 2.686 6.5 6" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </span>
+      {{ else if eq $level "Leader" }}
+      <span title="Leader" style="display:inline-flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:50%; background:#1E6FD9; flex-shrink:0;">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="6" r="3.5" stroke="#fff" stroke-width="1.5"/><path d="M2.5 15.5c0-3.314 2.91-6 6.5-6s6.5 2.686 6.5 6" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><path d="M13 3l1.5 1.5L16 3" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      {{ else if eq $level "Collaborator" }}
+      <span title="Collaborator" style="display:inline-flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:50%; background:#4FA3F7; flex-shrink:0;">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="6.5" cy="6" r="2.8" stroke="#fff" stroke-width="1.4"/><circle cx="11.5" cy="6" r="2.8" stroke="#fff" stroke-width="1.4"/><path d="M1 15c0-2.8 2.46-5 5.5-5 .7 0 1.37.12 2 .33A6.47 6.47 0 0111.5 10c3.04 0 5.5 2.2 5.5 5" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/></svg>
+      </span>
+      {{ else if eq $level "Oversight" }}
+      <span title="Oversight" style="display:inline-flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:50%; background:#0D0D1A; flex-shrink:0;">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="7" width="12" height="8" rx="2" stroke="#fff" stroke-width="1.4"/><path d="M6 7V5a3 3 0 016 0v2" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/><circle cx="9" cy="11" r="1.2" fill="#fff"/></svg>
+      </span>
+      {{ else if eq $level "All Machine" }}
+      <span title="All Machine" style="display:inline-flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:50%; background:#636e7b; flex-shrink:0;">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="12" height="10" rx="2" stroke="#fff" stroke-width="1.4"/><path d="M6 8h6M6 11h4" stroke="#fff" stroke-width="1.3" stroke-linecap="round"/><path d="M6.5 2v2M11.5 2v2" stroke="#fff" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </span>
+      {{ end }}
+
+      <span style="width:1px; height:24px; background:#e2e8f0; margin:0 2px; flex-shrink:0;"></span>
+
+      {{ range .Params.ai_functions }}
+        {{ $fn := . }}
+        {{ if eq $fn "Ideation" }}
+        <span title="Ideation" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:50%; background:#eaf3fe; flex-shrink:0;">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="7.5" cy="6" r="3.5" stroke="#0077FF" stroke-width="1.3"/><path d="M5.5 11.5h4M6.5 13h2" stroke="#0077FF" stroke-width="1.3" stroke-linecap="round"/><path d="M7.5 2.5V1.5M11.5 4l.7-.7M3.5 4l-.7-.7" stroke="#0077FF" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </span>
+        {{ else if eq $fn "Literature Review" }}
+        <span title="Literature Review" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:50%; background:#eaf3fe; flex-shrink:0;">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="1.5" width="9" height="12" rx="1.2" stroke="#0077FF" stroke-width="1.3"/><path d="M4.5 5h4M4.5 7.5h4M4.5 10h2.5" stroke="#0077FF" stroke-width="1.2" stroke-linecap="round"/><path d="M11 4.5l2 2-2 2" stroke="#0077FF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        {{ else if eq $fn "Data Collection" }}
+        <span title="Data Collection" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:50%; background:#eaf3fe; flex-shrink:0;">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="7.5" cy="4" rx="4.5" ry="2" stroke="#0077FF" stroke-width="1.3"/><path d="M3 4v3.5c0 1.1 2.02 2 4.5 2s4.5-.9 4.5-2V4" stroke="#0077FF" stroke-width="1.3"/><path d="M3 7.5V11c0 1.1 2.02 2 4.5 2s4.5-.9 4.5-2V7.5" stroke="#0077FF" stroke-width="1.3"/></svg>
+        </span>
+        {{ else if eq $fn "Data Analysis" }}
+        <span title="Data Analysis" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:50%; background:#eaf3fe; flex-shrink:0;">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 12l3-4 2.5 2 3-5 2.5 3" stroke="#0077FF" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><rect x="1.5" y="1.5" width="12" height="12" rx="1.5" stroke="#0077FF" stroke-width="1.2"/></svg>
+        </span>
+        {{ else if eq $fn "Data Interpretation" }}
+        <span title="Data Interpretation" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:50%; background:#eaf3fe; flex-shrink:0;">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="7.5" cy="7.5" r="5.5" stroke="#0077FF" stroke-width="1.3"/><path d="M7.5 5v3l2 1.5" stroke="#0077FF" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        {{ else if eq $fn "Writing" }}
+        <span title="Writing" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:50%; background:#eaf3fe; flex-shrink:0;">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 11.5l1-3L10 2l2 2-6.5 6.5-3 1z" stroke="#0077FF" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.5 3.5l2 2" stroke="#0077FF" stroke-width="1.3" stroke-linecap="round"/></svg>
+        </span>
+        {{ else if eq $fn "Translation" }}
+        <span title="Translation" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:50%; background:#eaf3fe; flex-shrink:0;">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 4h7M5.5 2v2M4 4c0 2.5 1.5 4.5 3.5 5.5" stroke="#0077FF" stroke-width="1.3" stroke-linecap="round"/><path d="M8 9l5 4M8 13l5-4" stroke="#0077FF" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        {{ else if eq $fn "Visuals" }}
+        <span title="Visuals" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:50%; background:#eaf3fe; flex-shrink:0;">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1.5" y="2.5" width="12" height="10" rx="1.5" stroke="#0077FF" stroke-width="1.3"/><circle cx="5" cy="6" r="1.2" fill="#0077FF"/><path d="M2 11l3-3 2.5 2 2-2.5 3 3.5" stroke="#0077FF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        {{ else if eq $fn "Design" }}
+        <span title="Design" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:50%; background:#eaf3fe; flex-shrink:0;">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="7.5" cy="7.5" r="5.5" stroke="#0077FF" stroke-width="1.3"/><circle cx="7.5" cy="7.5" r="2" stroke="#0077FF" stroke-width="1.2"/><path d="M7.5 2v1.5M7.5 11.5V13M2 7.5h1.5M11.5 7.5H13" stroke="#0077FF" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </span>
+        {{ else if eq $fn "Instrument" }}
+        <span title="Instrument" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:50%; background:#eaf3fe; flex-shrink:0;">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 13V6a3.5 3.5 0 017 0v7" stroke="#0077FF" stroke-width="1.3" stroke-linecap="round"/><path d="M2.5 13h10" stroke="#0077FF" stroke-width="1.3" stroke-linecap="round"/><circle cx="7.5" cy="6" r="1" fill="#0077FF"/></svg>
+        </span>
         {{ end }}
-        <span>{{ .Date.Format "January 2, 2006" }}</span>
-        {{ if .ReadingTime }}<span>{{ .ReadingTime }} min read</span>{{ end }}
+      {{ end }}
+
+      <a href="/privacy-terms/" title="About this AI declaration" style="display:inline-flex; align-items:center; justify-content:center; width:18px; height:18px; border-radius:50%; background:#e2e8f0; color:#8A94A0; text-decoration:none; font-size:11px; font-weight:700; flex-shrink:0; margin-left:4px;">i</a>
+    </div>
+    {{ end }}
+
+    {{ if .Params.project_university }}
+    <div class="aam-project-meta">
+      <h4 class="aam-sidebar-label">Project details</h4>
+      <table class="aam-meta-table">
+        {{ if .Params.project_university }}<tr><td>University</td><td>{{ .Params.project_university }}</td></tr>{{ end }}
+        {{ if .Params.project_course }}<tr><td>Course</td><td>{{ .Params.project_course }}</td></tr>{{ end }}
+        {{ if .Params.project_year }}<tr><td>Year</td><td>{{ .Params.project_year }}</td></tr>{{ end }}
+        {{ if .Params.project_printer }}<tr><td>Printer</td><td>{{ .Params.project_printer }}</td></tr>{{ end }}
+      </table>
+    </div>
+    {{ end }}
+
+    {{ if .Params.tags }}
+    <div class="aam-article-tags-bottom">
+      <span class="aam-sidebar-label">Tags</span>
+      <div class="aam-tags-list">
+        {{ range .Params.tags }}<span class="aam-tag">{{ . }}</span>{{ end }}
       </div>
     </div>
-  </header>
-  {{ end }}
+    {{ end }}
+  </div>
 
-  <div class="aam-article-layout">
+  <div class="aam-article-sidebar-right">
+    <div class="aam-sidebar-sticky">
+      <div class="aam-sidebar-cta">
+        <p class="aam-sidebar-cta-text">Have work worth featuring?</p>
+        <p style="font-size:13px; color:var(--text-secondary); margin:0 0 1rem; line-height:1.5;">Share your research, case study, or project with the AM community.</p>
+        <a href="/submission-form/" class="aam-btn" target="_blank" rel="noopener" style="display:block; text-align:center;">Submit your work</a>
+      </div>
 
-    <!-- LEFT: SUMMARY + SHARE (sticky) -->
-    <aside class="aam-article-sidebar-left">
-      <div class="aam-sidebar-sticky">
-
-        {{ if .Description }}
-        <div class="aam-article-summary">
-          <p>{{ .Description }}</p>
+      <div class="aam-related">
+        <span class="aam-sidebar-label">Related articles</span>
+        {{ $current := . }}
+        {{ $section := .Section }}
+        {{ $related := where .Site.RegularPages "Section" $section }}
+        {{ range first 3 (where $related "Permalink" "ne" $current.Permalink) }}
+        <div class="aam-related-item">
+          {{ if .Params.featured_image }}
+          <div class="aam-related-img" style="background-image:url('{{ .Params.featured_image }}')"></div>
+          {{ else }}
+          <div class="aam-related-img"></div>
+          {{ end }}
+          <div class="aam-related-body">
+            <a href="{{ .Permalink }}" class="aam-related-title">{{ .Title }}</a>
+            <div class="aam-related-meta">{{ .Section | title }} &middot; {{ .Date.Format "Jan 2, 2006" }} &middot; {{ .ReadingTime }} min</div>
+            {{ if .Description }}<p class="aam-related-desc">{{ .Description | truncate 90 }}</p>{{ end }}
+          </div>
         </div>
         {{ end }}
-
-        <p class="aam-sidebar-label">Share</p>
-        <div class="aam-share-buttons">
-          <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink | absURL }}" target="_blank" rel="noopener" class="aam-share-btn">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="#0077FF"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            LinkedIn
-          </a>
-          <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink | absURL }}" target="_blank" rel="noopener" class="aam-share-btn">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            Facebook
-          </a>
-          <a href="mailto:?subject={{ .Title | urlize }}&body={{ .Permalink | absURL }}" class="aam-share-btn">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            Email
-          </a>
-          <a href="#" onclick="navigator.clipboard.writeText('{{ .Permalink | absURL }}'); this.textContent='Copied!'; setTimeout(()=>this.textContent='Copy link',2000); return false;" class="aam-share-btn">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
-            Copy link
-          </a>
-        </div>
-      </div>
-    </aside>
-
-    <!-- ARTICLE BODY -->
-    <main class="aam-article-main">
-      <div class="aam-article-body">
-        {{ .Content }}
       </div>
 
-      {{ if .Params.project_university }}
-      <div class="aam-project-meta-box">
-        <h4>Project details</h4>
-        <table>
-          {{ if .Params.project_university }}<tr><td>University</td><td>{{ .Params.project_university }}</td></tr>{{ end }}
-          {{ if .Params.project_course }}<tr><td>Course</td><td>{{ .Params.project_course }}</td></tr>{{ end }}
-          {{ if .Params.project_year }}<tr><td>Year</td><td>{{ .Params.project_year }}</td></tr>{{ end }}
-          {{ if .Params.project_printer }}<tr><td>Printer</td><td>{{ .Params.project_printer }}</td></tr>{{ end }}
-        </table>
+      <div class="aam-sidebar-subscribe">
+        <span class="aam-sidebar-label">Stay updated</span>
+        <p style="font-size:13px; color:var(--text-secondary); margin:0 0 0.75rem;">New articles from the AM community, weekly.</p>
+        <input type="email" placeholder="your@email.com" class="aam-newsletter-input" style="margin-bottom:8px;" />
+        <button class="aam-newsletter-btn" style="width:100%;">Subscribe</button>
       </div>
-      {{ end }}
-
-      {{ if .Params.tags }}
-      <div class="aam-article-tags-bottom">
-        <p class="aam-sidebar-label">Tags</p>
-        <div class="aam-tags-list">
-          {{ range .Params.tags }}
-          <a href="/tags/{{ . | urlize }}/" class="aam-tag">{{ . }}</a>
-          {{ end }}
-        </div>
-      </div>
-      {{ end }}
-    </main>
-
-    <!-- RIGHT: SUBMIT + RELATED + SUBSCRIBE -->
-    <aside class="aam-article-sidebar-right">
-      <div class="aam-sidebar-sticky">
-
-        <div class="aam-submit-cta">
-          <svg width="22" height="22" fill="none" stroke="#4FA3F7" stroke-width="1.5" viewBox="0 0 24 24" style="display:block; margin:0 auto 8px;"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/></svg>
-          <p class="aam-submit-cta-title">Have work worth featuring?</p>
-          <p class="aam-submit-cta-sub">Share your research, case study, or project with the AM community.</p>
-          <a href="/submission-form/" target="_blank" rel="noopener" class="aam-submit-cta-btn">Submit your work</a>
-        </div>
-
-        <div class="aam-sidebar-divider"></div>
-        <p class="aam-sidebar-label">Related articles</p>
-        <div class="aam-related-articles">
-          {{ $current := . }}
-          {{ $section := .Section }}
-          {{ $related := where .Site.RegularPages "Section" $section }}
-          {{ range first 3 (where $related "Permalink" "ne" $current.Permalink) }}
-          <a href="{{ .Permalink }}" class="aam-related-item">
-            {{ if .Params.featured_image }}
-            <div class="aam-related-img" style="background-image:url('{{ .Params.featured_image }}');"></div>
-            {{ else }}
-            <div class="aam-related-img aam-related-img-placeholder"></div>
-            {{ end }}
-            <p class="aam-related-title">{{ .Title }}</p>
-            <p class="aam-related-meta">{{ .Section | title }} Â· {{ .Date.Format "Jan 2, 2006" }} Â· {{ .ReadingTime }} min</p>
-            {{ if .Description }}<p class="aam-related-desc">{{ .Description | truncate 90 }}</p>{{ end }}
-          </a>
-          {{ end }}
-        </div>
-
-        <div class="aam-sidebar-divider"></div>
-        <p class="aam-sidebar-label">Stay updated</p>
-        <p class="aam-sidebar-sub">New articles from the AM community, weekly.</p>
-        <input type="email" placeholder="your@email.com" class="aam-subscribe-input" />
-        <button class="aam-subscribe-btn">Subscribe</button>
-
-      </div>
-    </aside>
-
+    </div>
   </div>
 </div>
 {{ end }}
