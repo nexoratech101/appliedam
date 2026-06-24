@@ -892,3 +892,107 @@ main { margin: 0 !important; padding-bottom: 0 !important; }
     position: relative;
   }
 }
+/* ── Card Share Overlay ─────────────────────────────────────────── */
+.aam-card-img {
+  position: relative;
+  overflow: visible;
+}
+
+.aam-card-share {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+}
+
+.aam-share-trigger {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.55);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 0;
+  opacity: 0;
+  transition: opacity 0.2s, background 0.2s;
+}
+
+.aam-share-trigger span {
+  display: block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+/* Desktop: show on card hover */
+@media (hover: hover) {
+  .aam-card:hover .aam-share-trigger {
+    opacity: 1;
+  }
+  .aam-share-trigger:hover {
+    background: rgba(0,0,0,0.8);
+  }
+}
+
+/* Mobile: always visible */
+@media (hover: none) {
+  .aam-share-trigger {
+    opacity: 1;
+    background: rgba(0,0,0,0.55);
+  }
+}
+
+.aam-share-menu {
+  display: none;
+  position: absolute;
+  top: 38px;
+  right: 0;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+  min-width: 150px;
+  padding: 6px 0;
+  z-index: 100;
+}
+
+.aam-share-menu.is-open {
+  display: block;
+}
+
+.aam-share-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 16px;
+  font-size: 0.85rem;
+  font-family: var(--font-body, Inter, sans-serif);
+  color: #1a1a2e;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: background 0.15s;
+}
+
+.aam-share-item:hover {
+  background: #f3f4f6;
+}
+
+.aam-share-item svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.aam-share-linkedin svg { color: #0A66C2; }
+.aam-share-facebook svg { color: #1877F2; }
+.aam-share-email svg { color: #555; }
+.aam-share-copy svg { color: #555; }
