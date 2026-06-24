@@ -347,7 +347,7 @@ a.aam-tag:hover { background: var(--accent); color: #ffffff; }
   padding-left: 1rem;
   margin: 0 0 2rem;
 }
-.aam-article-body { padding: 1rem 0 3rem; font-size: 1.05rem; line-height: 1.8; }
+.aam-article-body { padding: 1rem 0 0.5rem; font-size: 1.05rem; line-height: 1.8; }
 .aam-article-body h2 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: var(--text); letter-spacing: -0.02em; margin: 2.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--border); }
 .aam-article-body h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; color: var(--text); margin: 2rem 0 0.75rem; }
 .aam-article-body p { margin-bottom: 1.25rem; }
