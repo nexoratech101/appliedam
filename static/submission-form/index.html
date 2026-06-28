@@ -1133,6 +1133,7 @@ function buildMarkdown() {
 }
 
 document.getElementById('s3next').addEventListener('click', () => {
+  buildMarkdown();
   goToStep(5);
 });
 
