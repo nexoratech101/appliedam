@@ -1130,6 +1130,7 @@ function buildMarkdown() {
 
   lastMd = fm.join(NL) + NL + bodyLines.join(NL).trim() + NL;
   lastImageCount = imageCount;
+  lastZipName = lastSlug + '-submission.zip';
 }
 
 document.getElementById('s3next').addEventListener('click', () => {
