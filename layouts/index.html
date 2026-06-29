@@ -2,9 +2,16 @@
 
 {{ $all := where .Site.RegularPages "Section" "ne" "" }}
 {{ $pages := $all.ByDate.Reverse }}
-{{ $hero := index $pages 0 }}
 {{ $insights := where .Site.RegularPages "Section" "insights" }}
 {{ $insightPages := $insights.ByDate.Reverse }}
+{{ $researchAll := where .Site.RegularPages "Section" "research" }}
+{{ $industryAll := where .Site.RegularPages "Section" "industry" }}
+{{ $caseAll := where .Site.RegularPages "Section" "case-studies" }}
+{{ $latestInsight := index $insightPages 0 }}
+{{ $latestResearch := index $researchAll.ByDate.Reverse 0 }}
+{{ $latestIndustry := index $industryAll.ByDate.Reverse 0 }}
+{{ $latestCase := index $caseAll.ByDate.Reverse 0 }}
+{{ $hero := index $pages 0 }}
 
 <section class="aam-hp-wrap">
   <div class="aam-hp-hero-grid">
