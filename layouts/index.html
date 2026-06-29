@@ -1,351 +1,240 @@
 {{ define "main" }}
 
-<!-- HERO -->
-<section class="aam-hero">
-  <div class="aam-hero-inner">
-    <div class="aam-hero-eyebrow">Applied Additive Manufacturing</div>
-    <h1 class="aam-hero-title">Where AM Knowledge<br>Gets Published</h1>
-    <p class="aam-hero-sub">Research, industry applications, and real-world case studies from inventors, manufacturers, and practitioners across additive manufacturing.</p>
-    <div class="aam-hero-actions">
-      <a href="/research/" class="aam-btn">Explore Research</a>
-      <a href="/submission-form/" class="aam-btn aam-btn-ghost" target="_blank" rel="noopener">Submit Your Work</a>
-    </div>
-  </div>
-</section>
+{{ $shareLinkedIn := "<svg viewBox=\"0 0 24 24\" fill=\"currentColor\" width=\"14\" height=\"14\"><path d=\"M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z\"/></svg>" }}
+{{ $shareFacebook := "<svg viewBox=\"0 0 24 24\" fill=\"currentColor\" width=\"14\" height=\"14\"><path d=\"M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z\"/></svg>" }}
+{{ $shareEmail := "<svg viewBox=\"0 0 24 24\" fill=\"currentColor\" width=\"14\" height=\"14\"><path d=\"M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z\"/></svg>" }}
+{{ $shareCopy := "<svg viewBox=\"0 0 24 24\" fill=\"currentColor\" width=\"14\" height=\"14\"><path d=\"M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z\"/></svg>" }}
 
-<!-- LATEST ARTICLES (mixed, date ordered) -->
-<section class="aam-section">
-  <div class="aam-container">
-    <div class="aam-section-header">
-      <h2 class="aam-section-title">Latest Articles</h2>
-    </div>
-    <div class="aam-grid">
-      {{ $all := where .Site.RegularPages "Section" "ne" "" }}
-      {{ range first 3 ($all.ByDate.Reverse) }}
-      <article class="aam-card aam-card-{{ .Section }}">
-        {{ if .Params.featured_image }}
-        <div class="aam-card-img" style="background-image:url('{{ .Params.featured_image }}')">
-        <div class="aam-card-share">
-          <button class="aam-share-trigger" aria-label="Share">
-            <span></span><span></span><span></span>
-          </button>
-          <div class="aam-share-menu">
-            <a class="aam-share-item aam-share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink | absURL }}" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-              LinkedIn
-            </a>
-            <a class="aam-share-item aam-share-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink | absURL }}" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-              Facebook
-            </a>
-            <a class="aam-share-item aam-share-email" href="mailto:?subject={{ .Title | urlize }}&body={{ .Permalink | absURL }}">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-              Email
-            </a>
-            <button class="aam-share-item aam-share-copy" data-url="{{ .Permalink | absURL }}">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              Copy link
-            </button>
-          </div>
+<!-- TICKER -->
+<div class="aam-ticker">
+  <span class="aam-ticker-label">Latest</span>
+  <div class="aam-ticker-inner">
+    {{ range first 6 .Site.RegularPages.ByDate.Reverse }}
+    <span class="aam-ticker-item"><a href="{{ .Permalink }}">{{ .Title }}</a></span>
+    {{ end }}
+  </div>
+</div>
+
+<!-- HERO GRID -->
+{{ $pages := .Site.RegularPages.ByDate.Reverse }}
+<section class="aam-hero-grid-wrap">
+  <div class="aam-hero-grid">
+    {{ with (index $pages 0) }}
+    <a href="{{ .Permalink }}" class="aam-hero-main{{ if .Params.featured_image }} aam-has-img{{ end }}"
+      {{ if .Params.featured_image }}style="background-image:url('{{ .Params.featured_image }}')"{{ end }}>
+      <div class="aam-hero-overlay"></div>
+      <div class="aam-hero-content">
+        <span class="aam-hp-badge aam-hp-badge-{{ .Section }}">{{ .Section | title }}</span>
+        <h2 class="aam-hero-title">{{ .Title }}</h2>
+        <div class="aam-hero-meta">
+          {{ if .Params.author }}{{ if reflect.IsMap .Params.author }}{{ .Params.author.name }}{{ else }}{{ .Params.author }}{{ end }} &middot; {{ end }}{{ .Date.Format "Jan 2, 2006" }} &middot; {{ .ReadingTime }} min read
         </div>
       </div>
-        {{ else }}
-        <div class="aam-card-img">
-        <div class="aam-card-share">
-          <button class="aam-share-trigger" aria-label="Share">
-            <span></span><span></span><span></span>
-          </button>
-          <div class="aam-share-menu">
-            <a class="aam-share-item aam-share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink | absURL }}" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-              LinkedIn
-            </a>
-            <a class="aam-share-item aam-share-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink | absURL }}" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-              Facebook
-            </a>
-            <a class="aam-share-item aam-share-email" href="mailto:?subject={{ .Title | urlize }}&body={{ .Permalink | absURL }}">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-              Email
-            </a>
-            <button class="aam-share-item aam-share-copy" data-url="{{ .Permalink | absURL }}">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              Copy link
-            </button>
-          </div>
+    </a>
+    {{ end }}
+    <div class="aam-hero-stack">
+      {{ range first 3 (after 1 $pages) }}
+      <a href="{{ .Permalink }}" class="aam-stack-card{{ if .Params.featured_image }} aam-has-img{{ end }}"
+        {{ if .Params.featured_image }}style="background-image:url('{{ .Params.featured_image }}')"{{ end }}>
+        <div class="aam-stack-overlay"></div>
+        <div class="aam-stack-content">
+          <span class="aam-hp-badge aam-hp-badge-{{ .Section }}">{{ .Section | title }}</span>
+          <div class="aam-stack-title">{{ .Title }}</div>
+          <div class="aam-stack-meta">{{ .Date.Format "Jan 2, 2006" }}</div>
         </div>
-      </div>
-        {{ end }}
-        <div class="aam-card-body">
-          <div class="aam-card-meta">
-            <span class="aam-section-badge aam-badge-{{ .Section }}">{{ .Section | title }}</span>
-            {{ .Date.Format "Jan 2, 2006" }}
-          </div>
-          <h3 class="aam-card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-          <p class="aam-card-desc">{{ .Description }}</p>
-          <div class="aam-card-tags">
-            {{ if .Params.tags }}
-            {{ range first 3 .Params.tags }}
-            <span class="aam-tag">{{ . }}</span>
-            {{ end }}
-            {{ end }}
-          </div>
-        </div>
-      </article>
+      </a>
       {{ end }}
     </div>
   </div>
 </section>
 
-<!-- FEATURED: ONE FROM EACH SECTION -->
-<section class="aam-section aam-section-alt">
-  <div class="aam-container">
-    <div class="aam-section-header">
-      <h2 class="aam-section-title">Featured From Each Section</h2>
+<!-- ABOUT -->
+<section class="aam-hp-about">
+  <div class="aam-hp-container">
+    <div class="aam-hp-about-inner">
+      <div class="aam-hp-about-text">
+        <div class="aam-hp-eyebrow">About AppliedAM</div>
+        <h2 class="aam-hp-about-title">Where AM Knowledge Gets Published</h2>
+        <p class="aam-hp-about-desc">AppliedAM is an independent publication for the additive manufacturing community. We publish original research, industry applications, and real-world case studies from the people actually doing the work.</p>
+        <p class="aam-hp-about-desc">Our goal is straightforward - give inventors, manufacturers, and practitioners a credible place to share what they have learned, and give the wider AM community a reliable source of practical knowledge.</p>
+        <a href="/about/" class="aam-hp-about-link">Learn more about AppliedAM &rarr;</a>
+      </div>
+      <div class="aam-hp-pillars">
+        <div class="aam-hp-pillar">
+          <div class="aam-hp-pillar-dot" style="background:#8A94A0"></div>
+          <div>
+            <div class="aam-hp-pillar-tag">Research</div>
+            <div class="aam-hp-pillar-name">Inventors</div>
+            <div class="aam-hp-pillar-desc">New techniques, materials, and process innovations from researchers pushing AM forward.</div>
+          </div>
+        </div>
+        <div class="aam-hp-pillar">
+          <div class="aam-hp-pillar-dot" style="background:#4FA3F7"></div>
+          <div>
+            <div class="aam-hp-pillar-tag">Industry</div>
+            <div class="aam-hp-pillar-name">Manufacturers</div>
+            <div class="aam-hp-pillar-desc">How companies integrate AM into production - what is working at scale today.</div>
+          </div>
+        </div>
+        <div class="aam-hp-pillar">
+          <div class="aam-hp-pillar-dot" style="background:#1E6FD9"></div>
+          <div>
+            <div class="aam-hp-pillar-tag">Case Studies</div>
+            <div class="aam-hp-pillar-name">Practitioners</div>
+            <div class="aam-hp-pillar-desc">Fully documented projects - problem, process, materials, results. Students to engineers.</div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="aam-grid">
+  </div>
+</section>
 
+<!-- LATEST RESEARCH -->
+<section class="aam-hp-strip">
+  <div class="aam-hp-container">
+    <div class="aam-hp-strip-header">
+      <h2 class="aam-hp-strip-title">Latest <span>Research</span></h2>
+      <a href="/research/" class="aam-hp-strip-link">See all &rarr;</a>
+    </div>
+    <div class="aam-hp-cards">
       {{ $research := where .Site.RegularPages "Section" "research" }}
-      {{ with (index ($research.ByDate.Reverse) 0) }}
-      <article class="aam-card aam-card-research">
-        {{ if .Params.featured_image }}
-        <div class="aam-card-img" style="background-image:url('{{ .Params.featured_image }}')">
-        <div class="aam-card-share">
-          <button class="aam-share-trigger" aria-label="Share">
-            <span></span><span></span><span></span>
-          </button>
-          <div class="aam-share-menu">
-            <a class="aam-share-item aam-share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink | absURL }}" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-              LinkedIn
-            </a>
-            <a class="aam-share-item aam-share-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink | absURL }}" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-              Facebook
-            </a>
-            <a class="aam-share-item aam-share-email" href="mailto:?subject={{ .Title | urlize }}&body={{ .Permalink | absURL }}">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-              Email
-            </a>
-            <button class="aam-share-item aam-share-copy" data-url="{{ .Permalink | absURL }}">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              Copy link
-            </button>
+      {{ range first 3 ($research.ByDate.Reverse) }}
+      <article class="aam-hp-card">
+        <div class="aam-hp-card-img{{ if not .Params.featured_image }} aam-hp-card-img-empty{{ end }}"
+          {{ if .Params.featured_image }}style="background-image:url('{{ .Params.featured_image }}')"{{ end }}>
+          <div class="aam-card-share">
+            <button class="aam-share-trigger" aria-label="Share"><span></span><span></span><span></span></button>
+            <div class="aam-share-menu">
+              <a class="aam-share-item" href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink | absURL }}" target="_blank" rel="noopener">{{ $shareLinkedIn | safeHTML }} LinkedIn</a>
+              <a class="aam-share-item" href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink | absURL }}" target="_blank" rel="noopener">{{ $shareFacebook | safeHTML }} Facebook</a>
+              <a class="aam-share-item" href="mailto:?subject={{ .Title | urlize }}&body={{ .Permalink | absURL }}">{{ $shareEmail | safeHTML }} Email</a>
+              <button class="aam-share-item aam-share-copy" data-url="{{ .Permalink | absURL }}">{{ $shareCopy | safeHTML }} Copy link</button>
+            </div>
           </div>
         </div>
-      </div>
-        {{ else }}
-        <div class="aam-card-img">
-        <div class="aam-card-share">
-          <button class="aam-share-trigger" aria-label="Share">
-            <span></span><span></span><span></span>
-          </button>
-          <div class="aam-share-menu">
-            <a class="aam-share-item aam-share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink | absURL }}" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-              LinkedIn
-            </a>
-            <a class="aam-share-item aam-share-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink | absURL }}" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-              Facebook
-            </a>
-            <a class="aam-share-item aam-share-email" href="mailto:?subject={{ .Title | urlize }}&body={{ .Permalink | absURL }}">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-              Email
-            </a>
-            <button class="aam-share-item aam-share-copy" data-url="{{ .Permalink | absURL }}">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              Copy link
-            </button>
+        <div class="aam-hp-card-body">
+          <div class="aam-hp-card-meta">
+            <span class="aam-hp-badge aam-hp-badge-research">Research</span>
+            <span class="aam-hp-card-date">{{ .Date.Format "Jan 2, 2006" }}</span>
           </div>
-        </div>
-      </div>
-        {{ end }}
-        <div class="aam-card-body">
-          <div class="aam-card-meta">
-            <span class="aam-section-badge aam-badge-research">Research</span>
-            {{ .Date.Format "Jan 2, 2006" }}
-          </div>
-          <h3 class="aam-card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-          <p class="aam-card-desc">{{ .Description }}</p>
-          <div class="aam-card-tags">
-            {{ if .Params.tags }}{{ range first 3 .Params.tags }}<span class="aam-tag">{{ . }}</span>{{ end }}{{ end }}
-          </div>
+          <h3 class="aam-hp-card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+          <p class="aam-hp-card-desc">{{ .Description }}</p>
         </div>
       </article>
       {{ end }}
-
-      {{ $industry := where .Site.RegularPages "Section" "industry" }}
-      {{ with (index ($industry.ByDate.Reverse) 0) }}
-      <article class="aam-card aam-card-industry">
-        {{ if .Params.featured_image }}
-        <div class="aam-card-img" style="background-image:url('{{ .Params.featured_image }}')">
-        <div class="aam-card-share">
-          <button class="aam-share-trigger" aria-label="Share">
-            <span></span><span></span><span></span>
-          </button>
-          <div class="aam-share-menu">
-            <a class="aam-share-item aam-share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink | absURL }}" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-              LinkedIn
-            </a>
-            <a class="aam-share-item aam-share-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink | absURL }}" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-              Facebook
-            </a>
-            <a class="aam-share-item aam-share-email" href="mailto:?subject={{ .Title | urlize }}&body={{ .Permalink | absURL }}">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-              Email
-            </a>
-            <button class="aam-share-item aam-share-copy" data-url="{{ .Permalink | absURL }}">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              Copy link
-            </button>
-          </div>
-        </div>
-      </div>
-        {{ else }}
-        <div class="aam-card-img">
-        <div class="aam-card-share">
-          <button class="aam-share-trigger" aria-label="Share">
-            <span></span><span></span><span></span>
-          </button>
-          <div class="aam-share-menu">
-            <a class="aam-share-item aam-share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink | absURL }}" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-              LinkedIn
-            </a>
-            <a class="aam-share-item aam-share-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink | absURL }}" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-              Facebook
-            </a>
-            <a class="aam-share-item aam-share-email" href="mailto:?subject={{ .Title | urlize }}&body={{ .Permalink | absURL }}">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-              Email
-            </a>
-            <button class="aam-share-item aam-share-copy" data-url="{{ .Permalink | absURL }}">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              Copy link
-            </button>
-          </div>
-        </div>
-      </div>
-        {{ end }}
-        <div class="aam-card-body">
-          <div class="aam-card-meta">
-            <span class="aam-section-badge aam-badge-industry">Industry</span>
-            {{ .Date.Format "Jan 2, 2006" }}
-          </div>
-          <h3 class="aam-card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-          <p class="aam-card-desc">{{ .Description }}</p>
-          <div class="aam-card-tags">
-            {{ if .Params.tags }}{{ range first 3 .Params.tags }}<span class="aam-tag">{{ . }}</span>{{ end }}{{ end }}
-          </div>
-        </div>
-      </article>
-      {{ end }}
-
-      {{ $cases := where .Site.RegularPages "Section" "case-studies" }}
-      {{ with (index ($cases.ByDate.Reverse) 0) }}
-      <article class="aam-card aam-card-case-studies">
-        {{ if .Params.featured_image }}
-        <div class="aam-card-img" style="background-image:url('{{ .Params.featured_image }}')">
-        <div class="aam-card-share">
-          <button class="aam-share-trigger" aria-label="Share">
-            <span></span><span></span><span></span>
-          </button>
-          <div class="aam-share-menu">
-            <a class="aam-share-item aam-share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink | absURL }}" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-              LinkedIn
-            </a>
-            <a class="aam-share-item aam-share-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink | absURL }}" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-              Facebook
-            </a>
-            <a class="aam-share-item aam-share-email" href="mailto:?subject={{ .Title | urlize }}&body={{ .Permalink | absURL }}">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-              Email
-            </a>
-            <button class="aam-share-item aam-share-copy" data-url="{{ .Permalink | absURL }}">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              Copy link
-            </button>
-          </div>
-        </div>
-      </div>
-        {{ else }}
-        <div class="aam-card-img">
-        <div class="aam-card-share">
-          <button class="aam-share-trigger" aria-label="Share">
-            <span></span><span></span><span></span>
-          </button>
-          <div class="aam-share-menu">
-            <a class="aam-share-item aam-share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink | absURL }}" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-              LinkedIn
-            </a>
-            <a class="aam-share-item aam-share-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink | absURL }}" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-              Facebook
-            </a>
-            <a class="aam-share-item aam-share-email" href="mailto:?subject={{ .Title | urlize }}&body={{ .Permalink | absURL }}">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-              Email
-            </a>
-            <button class="aam-share-item aam-share-copy" data-url="{{ .Permalink | absURL }}">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              Copy link
-            </button>
-          </div>
-        </div>
-      </div>
-        {{ end }}
-        <div class="aam-card-body">
-          <div class="aam-card-meta">
-            <span class="aam-section-badge aam-badge-case-studies">Case Studies</span>
-            {{ .Date.Format "Jan 2, 2006" }}
-          </div>
-          <h3 class="aam-card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-          <p class="aam-card-desc">{{ .Description }}</p>
-          <div class="aam-card-tags">
-            {{ if .Params.tags }}{{ range first 3 .Params.tags }}<span class="aam-tag">{{ . }}</span>{{ end }}{{ end }}
-          </div>
-        </div>
-      </article>
-      {{ end }}
-
     </div>
   </div>
 </section>
 
-<!-- SUBMIT CTA -->
-<section class="aam-cta">
-  <div class="aam-cta-inner">
-    <h2 class="aam-cta-title">Have work worth featuring?</h2>
-    <p class="aam-cta-sub">AppliedAM features research, industry applications, and case studies from inventors, manufacturers, and practitioners across additive manufacturing.</p>
-    <a href="/submission-form/" class="aam-btn aam-btn-white" target="_blank" rel="noopener">Submit Your Work</a>
+<!-- EDITOR PICK + SIDEBAR -->
+<section class="aam-hp-feature-row">
+  <div class="aam-hp-container">
+    <div class="aam-hp-feature-inner">
+      <div class="aam-hp-feature-col">
+        {{ $insights := where .Site.RegularPages "Section" "insights" }}
+        {{ with (index ($insights.ByDate.Reverse) 0) }}
+        <div class="aam-hp-feature-card">
+          <div class="aam-hp-feature-img{{ if not .Params.featured_image }} aam-hp-card-img-empty{{ end }}"
+            {{ if .Params.featured_image }}style="background-image:url('{{ .Params.featured_image }}')"{{ end }}></div>
+          <div class="aam-hp-feature-body">
+            <div class="aam-hp-feature-label">Editor Pick &middot; Insights</div>
+            <h3 class="aam-hp-feature-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+            <p class="aam-hp-feature-desc">{{ .Description }}</p>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+      <div class="aam-hp-sidebar">
+        <div class="aam-hp-recent">
+          <div class="aam-hp-recent-title">Recently published</div>
+          {{ range first 5 .Site.RegularPages.ByDate.Reverse }}
+          <div class="aam-hp-recent-item">
+            <a href="{{ .Permalink }}" class="aam-hp-recent-item-title">{{ .Title }}</a>
+            <div class="aam-hp-recent-item-meta">{{ .Section | title }} &middot; {{ .Date.Format "Jan 2" }}</div>
+          </div>
+          {{ end }}
+        </div>
+        <div class="aam-hp-nl-box">
+          <div class="aam-hp-nl-title">Stay updated</div>
+          <p class="aam-hp-nl-sub">New AM research and industry articles, weekly.</p>
+          <input type="email" placeholder="your@email.com" class="aam-newsletter-input" />
+          <button class="aam-newsletter-btn">Subscribe</button>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- NEWSLETTER SIGNUP -->
-<section class="aam-newsletter">
-  <div class="aam-container">
-    <div class="aam-newsletter-inner">
-      <div class="aam-newsletter-text">
-        <h2 class="aam-newsletter-title">Stay ahead in additive manufacturing</h2>
-        <p class="aam-newsletter-sub">New research, industry stories, and case studies delivered to your inbox weekly. No spam, unsubscribe anytime.</p>
-        <div class="aam-newsletter-stats">
-          <span>Researchers</span>
-          <span>Manufacturers</span>
-          <span>Practitioners</span>
-          <span>Students</span>
+<!-- LATEST INSIGHTS -->
+<section class="aam-hp-strip">
+  <div class="aam-hp-container">
+    <div class="aam-hp-strip-header">
+      <h2 class="aam-hp-strip-title">Latest <span>Insights</span></h2>
+      <a href="/insights/" class="aam-hp-strip-link">See all &rarr;</a>
+    </div>
+    <div class="aam-hp-cards">
+      {{ $insights2 := where .Site.RegularPages "Section" "insights" }}
+      {{ range first 3 ($insights2.ByDate.Reverse) }}
+      <article class="aam-hp-card">
+        <div class="aam-hp-card-img{{ if not .Params.featured_image }} aam-hp-card-img-empty{{ end }}"
+          {{ if .Params.featured_image }}style="background-image:url('{{ .Params.featured_image }}')"{{ end }}>
+          <div class="aam-card-share">
+            <button class="aam-share-trigger" aria-label="Share"><span></span><span></span><span></span></button>
+            <div class="aam-share-menu">
+              <a class="aam-share-item" href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink | absURL }}" target="_blank" rel="noopener">{{ $shareLinkedIn | safeHTML }} LinkedIn</a>
+              <a class="aam-share-item" href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink | absURL }}" target="_blank" rel="noopener">{{ $shareFacebook | safeHTML }} Facebook</a>
+              <a class="aam-share-item" href="mailto:?subject={{ .Title | urlize }}&body={{ .Permalink | absURL }}">{{ $shareEmail | safeHTML }} Email</a>
+              <button class="aam-share-item aam-share-copy" data-url="{{ .Permalink | absURL }}">{{ $shareCopy | safeHTML }} Copy link</button>
+            </div>
+          </div>
+        </div>
+        <div class="aam-hp-card-body">
+          <div class="aam-hp-card-meta">
+            <span class="aam-hp-badge aam-hp-badge-insights">Insights</span>
+            <span class="aam-hp-card-date">{{ .Date.Format "Jan 2, 2006" }}</span>
+          </div>
+          <h3 class="aam-hp-card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+          <p class="aam-hp-card-desc">{{ .Description }}</p>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- CONTRIBUTE -->
+<section class="aam-hp-contribute">
+  <div class="aam-hp-container">
+    <div class="aam-hp-contribute-inner">
+      <div class="aam-hp-contribute-left">
+        <div class="aam-hp-eyebrow aam-hp-eyebrow-light">Contribute to AppliedAM</div>
+        <h2 class="aam-hp-contribute-title">Share your work with the AM community</h2>
+        <p class="aam-hp-contribute-desc">Being published on AppliedAM is free. We review every submission and work with contributors to ensure their work is presented accurately and professionally. Features are shared across our LinkedIn newsletter and social channels.</p>
+        <div class="aam-hp-audience">
+          <span class="aam-hp-audience-tag" style="background:rgba(138,148,160,0.15);color:#8A94A0">Researchers</span>
+          <span class="aam-hp-audience-tag" style="background:rgba(79,163,247,0.15);color:#4FA3F7">Manufacturers</span>
+          <span class="aam-hp-audience-tag" style="background:rgba(30,111,217,0.2);color:#6FA8F5">Practitioners</span>
+          <span class="aam-hp-audience-tag" style="background:rgba(138,148,160,0.15);color:#8A94A0">Students</span>
+          <span class="aam-hp-audience-tag" style="background:rgba(79,163,247,0.15);color:#4FA3F7">Engineers</span>
         </div>
       </div>
-      <div class="aam-newsletter-form">
-        <input type="email" placeholder="your@email.com" class="aam-newsletter-input" />
-        <button class="aam-newsletter-btn">Subscribe</button>
-        <p class="aam-newsletter-note">Join the AppliedAM community. Free, weekly, unsubscribe anytime.</p>
+      <div class="aam-hp-pathways">
+        <div class="aam-hp-pathway">
+          <div class="aam-hp-pathway-header">
+            <div class="aam-hp-pathway-dot" style="background:#0077FF"></div>
+            <div class="aam-hp-pathway-name">Submit Your Work</div>
+          </div>
+          <p class="aam-hp-pathway-desc">Have a project, research finding, or industry application worth sharing? Submit for consideration - research, industry case studies, and practitioner projects welcome.</p>
+          <a href="/submission-form/" class="aam-hp-pathway-btn aam-hp-pathway-btn-primary" target="_blank" rel="noopener">Submit your work &rarr;</a>
+        </div>
+        <div class="aam-hp-pathway">
+          <div class="aam-hp-pathway-header">
+            <div class="aam-hp-pathway-dot" style="background:#14b8a6"></div>
+            <div class="aam-hp-pathway-name">Write for AppliedAM</div>
+          </div>
+          <p class="aam-hp-pathway-desc">Industry commentary, technical explainers, opinion pieces, or interviews. If you have a perspective on AM worth reading, we want to hear from you.</p>
+          <a href="/write-for-us/" class="aam-hp-pathway-btn aam-hp-pathway-btn-outline">Get in touch &rarr;</a>
+        </div>
       </div>
     </div>
   </div>
