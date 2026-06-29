@@ -103,11 +103,11 @@
   <div class="aam-hp-container">
     <div class="aam-hp-feature-row">
       <div class="aam-hp-feature-col">
-        {{ with (index $pages 0) }}
+        {{ $researchPages := where .Site.RegularPages "Section" "research" }}{{ with (index ($researchPages.ByDate.Reverse) 0) }}
         <div class="aam-hp-feature-card">
           <div class="aam-hp-feature-img{{ if not .Params.featured_image }} aam-hp-card-img-empty{{ end }}"{{ if .Params.featured_image }} style="background-image:url('{{ .Params.featured_image }}')"{{ end }}></div>
           <div class="aam-hp-feature-body">
-            <div class="aam-hp-feature-label">Editor&apos;s Pick &middot; Insights</div>
+            <div class="aam-hp-feature-label">Editor&apos;s Pick &middot; Research</div>
             <h3 class="aam-hp-feature-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
             <p class="aam-hp-feature-desc">{{ .Description }}</p>
           </div>
