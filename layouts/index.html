@@ -1,20 +1,20 @@
 {{ define "main" }}
 
-{{ $all := where .Site.RegularPages "Section" "ne" "" }}
-{{ $pages := $all.ByDate.Reverse }}
+{{ $pages := .Site.RegularPages.ByDate.Reverse }}
+{{ $hero := index $pages 0 }}
 {{ $insights := where .Site.RegularPages "Section" "insights" }}
 {{ $insightPages := $insights.ByDate.Reverse }}
-{{ $researchAll := where .Site.RegularPages "Section" "research" }}
-{{ $industryAll := where .Site.RegularPages "Section" "industry" }}
-{{ $caseAll := where .Site.RegularPages "Section" "case-studies" }}
+{{ $researchAll := (where .Site.RegularPages "Section" "research").ByDate.Reverse }}
+{{ $industryAll := (where .Site.RegularPages "Section" "industry").ByDate.Reverse }}
+{{ $caseAll := (where .Site.RegularPages "Section" "case-studies").ByDate.Reverse }}
+{{ $latestResearch := index $researchAll 0 }}
+{{ $latestIndustry := index $industryAll 0 }}
+{{ $latestCase := index $caseAll 0 }}
 {{ $latestInsight := index $insightPages 0 }}
-{{ $latestResearch := index $researchAll.ByDate.Reverse 0 }}
-{{ $latestIndustry := index $industryAll.ByDate.Reverse 0 }}
-{{ $latestCase := index $caseAll.ByDate.Reverse 0 }}
-{{ $hero := index $pages 0 }}
 
 <section class="aam-hp-wrap">
   <div class="aam-hp-hero-grid">
+
     <div class="aam-hp-hero-left">
       {{ with $hero }}
       <div class="aam-hp-hero-main" {{ if .Params.featured_image }}style="background-image:url('{{ .Params.featured_image }}')"{{ end }}>
@@ -26,31 +26,51 @@
         </div>
       </div>
       {{ end }}
-      <div class="aam-hp-hero-sub-row">
-        {{ range first 2 (after 1 $pages) }}
-        <div class="aam-hp-hero-sub" {{ if .Params.featured_image }}style="background-image:url('{{ .Params.featured_image }}')"{{ end }}>
-          <div class="aam-hp-hero-overlay"></div>
-          <div class="aam-hp-hero-content">
-            <span class="aam-hp-badge aam-hp-badge-{{ .Section }}">{{ .Section | title }}</span>
-            <h3 class="aam-hp-sub-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-            <div class="aam-hp-sub-meta">{{ .Date.Format "Jan 2, 2006" }}</div>
-          </div>
-        </div>
-        {{ end }}
-      </div>
     </div>
+
     <div class="aam-hp-hero-stack">
-      {{ range first 3 (after 3 $pages) }}
+      {{ with $latestResearch }}
       <div class="aam-hp-stack-card" {{ if .Params.featured_image }}style="background-image:url('{{ .Params.featured_image }}')"{{ end }}>
         <div class="aam-hp-hero-overlay"></div>
         <div class="aam-hp-hero-content">
-          <span class="aam-hp-badge aam-hp-badge-{{ .Section }}">{{ .Section | title }}</span>
+          <span class="aam-hp-badge aam-hp-badge-research">Research</span>
+          <h3 class="aam-hp-stack-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+          <div class="aam-hp-sub-meta">{{ .Date.Format "Jan 2, 2006" }}</div>
+        </div>
+      </div>
+      {{ end }}
+      {{ with $latestIndustry }}
+      <div class="aam-hp-stack-card" {{ if .Params.featured_image }}style="background-image:url('{{ .Params.featured_image }}')"{{ end }}>
+        <div class="aam-hp-hero-overlay"></div>
+        <div class="aam-hp-hero-content">
+          <span class="aam-hp-badge aam-hp-badge-industry">Industry</span>
+          <h3 class="aam-hp-stack-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+          <div class="aam-hp-sub-meta">{{ .Date.Format "Jan 2, 2006" }}</div>
+        </div>
+      </div>
+      {{ end }}
+      {{ with $latestCase }}
+      <div class="aam-hp-stack-card" {{ if .Params.featured_image }}style="background-image:url('{{ .Params.featured_image }}')"{{ end }}>
+        <div class="aam-hp-hero-overlay"></div>
+        <div class="aam-hp-hero-content">
+          <span class="aam-hp-badge aam-hp-badge-case-studies">Case Studies</span>
+          <h3 class="aam-hp-stack-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+          <div class="aam-hp-sub-meta">{{ .Date.Format "Jan 2, 2006" }}</div>
+        </div>
+      </div>
+      {{ end }}
+      {{ with $latestInsight }}
+      <div class="aam-hp-stack-card" {{ if .Params.featured_image }}style="background-image:url('{{ .Params.featured_image }}')"{{ end }}>
+        <div class="aam-hp-hero-overlay"></div>
+        <div class="aam-hp-hero-content">
+          <span class="aam-hp-badge aam-hp-badge-insights">Insights</span>
           <h3 class="aam-hp-stack-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
           <div class="aam-hp-sub-meta">{{ .Date.Format "Jan 2, 2006" }}</div>
         </div>
       </div>
       {{ end }}
     </div>
+
   </div>
 </section>
 
@@ -110,7 +130,7 @@
   <div class="aam-hp-container">
     <div class="aam-hp-feature-row">
       <div class="aam-hp-feature-col">
-        {{ $researchPages := where .Site.RegularPages "Section" "research" }}{{ with (index ($researchPages.ByDate.Reverse) 0) }}
+        {{ with $latestResearch }}
         <div class="aam-hp-feature-card">
           <div class="aam-hp-feature-img{{ if not .Params.featured_image }} aam-hp-card-img-empty{{ end }}"{{ if .Params.featured_image }} style="background-image:url('{{ .Params.featured_image }}')"{{ end }}></div>
           <div class="aam-hp-feature-body">
