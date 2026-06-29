@@ -2,15 +2,11 @@
 
 {{ $pages := .Site.RegularPages.ByDate.Reverse }}
 {{ $hero := index $pages 0 }}
-{{ $insights := where .Site.RegularPages "Section" "insights" }}
-{{ $insightPages := $insights.ByDate.Reverse }}
-{{ $researchAll := (where .Site.RegularPages "Section" "research").ByDate.Reverse }}
-{{ $industryAll := (where .Site.RegularPages "Section" "industry").ByDate.Reverse }}
-{{ $caseAll := (where .Site.RegularPages "Section" "case-studies").ByDate.Reverse }}
-{{ $latestResearch := index $researchAll 0 }}
-{{ $latestIndustry := index $industryAll 0 }}
-{{ $latestCase := index $caseAll 0 }}
-{{ $latestInsight := index $insightPages 0 }}
+{{ $heroSection := $hero.Section }}
+{{ $insightPages := (where .Site.RegularPages "Section" "insights").ByDate.Reverse }}
+{{ $researchPages := (where .Site.RegularPages "Section" "research").ByDate.Reverse }}
+{{ $industryPages := (where .Site.RegularPages "Section" "industry").ByDate.Reverse }}
+{{ $casePages := (where .Site.RegularPages "Section" "case-studies").ByDate.Reverse }}
 
 <section class="aam-hp-wrap">
   <div class="aam-hp-hero-grid">
@@ -29,7 +25,7 @@
     </div>
 
     <div class="aam-hp-hero-stack">
-      {{ with $latestResearch }}
+      {{ if ne $heroSection "research" }}{{ with (index $researchPages 0) }}
       <div class="aam-hp-stack-card" {{ if .Params.featured_image }}style="background-image:url('{{ .Params.featured_image }}')"{{ end }}>
         <div class="aam-hp-hero-overlay"></div>
         <div class="aam-hp-hero-content">
@@ -38,28 +34,8 @@
           <div class="aam-hp-sub-meta">{{ .Date.Format "Jan 2, 2006" }}</div>
         </div>
       </div>
-      {{ end }}
-      {{ with $latestIndustry }}
-      <div class="aam-hp-stack-card" {{ if .Params.featured_image }}style="background-image:url('{{ .Params.featured_image }}')"{{ end }}>
-        <div class="aam-hp-hero-overlay"></div>
-        <div class="aam-hp-hero-content">
-          <span class="aam-hp-badge aam-hp-badge-industry">Industry</span>
-          <h3 class="aam-hp-stack-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-          <div class="aam-hp-sub-meta">{{ .Date.Format "Jan 2, 2006" }}</div>
-        </div>
-      </div>
-      {{ end }}
-      {{ with $latestCase }}
-      <div class="aam-hp-stack-card" {{ if .Params.featured_image }}style="background-image:url('{{ .Params.featured_image }}')"{{ end }}>
-        <div class="aam-hp-hero-overlay"></div>
-        <div class="aam-hp-hero-content">
-          <span class="aam-hp-badge aam-hp-badge-case-studies">Case Studies</span>
-          <h3 class="aam-hp-stack-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-          <div class="aam-hp-sub-meta">{{ .Date.Format "Jan 2, 2006" }}</div>
-        </div>
-      </div>
-      {{ end }}
-      {{ with $latestInsight }}
+      {{ end }}{{ end }}
+      {{ if ne $heroSection "insights" }}{{ with (index $insightPages 0) }}
       <div class="aam-hp-stack-card" {{ if .Params.featured_image }}style="background-image:url('{{ .Params.featured_image }}')"{{ end }}>
         <div class="aam-hp-hero-overlay"></div>
         <div class="aam-hp-hero-content">
@@ -68,7 +44,27 @@
           <div class="aam-hp-sub-meta">{{ .Date.Format "Jan 2, 2006" }}</div>
         </div>
       </div>
-      {{ end }}
+      {{ end }}{{ end }}
+      {{ if ne $heroSection "industry" }}{{ with (index $industryPages 0) }}
+      <div class="aam-hp-stack-card" {{ if .Params.featured_image }}style="background-image:url('{{ .Params.featured_image }}')"{{ end }}>
+        <div class="aam-hp-hero-overlay"></div>
+        <div class="aam-hp-hero-content">
+          <span class="aam-hp-badge aam-hp-badge-industry">Industry</span>
+          <h3 class="aam-hp-stack-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+          <div class="aam-hp-sub-meta">{{ .Date.Format "Jan 2, 2006" }}</div>
+        </div>
+      </div>
+      {{ end }}{{ end }}
+      {{ if ne $heroSection "case-studies" }}{{ with (index $casePages 0) }}
+      <div class="aam-hp-stack-card" {{ if .Params.featured_image }}style="background-image:url('{{ .Params.featured_image }}')"{{ end }}>
+        <div class="aam-hp-hero-overlay"></div>
+        <div class="aam-hp-hero-content">
+          <span class="aam-hp-badge aam-hp-badge-case-studies">Case Studies</span>
+          <h3 class="aam-hp-stack-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+          <div class="aam-hp-sub-meta">{{ .Date.Format "Jan 2, 2006" }}</div>
+        </div>
+      </div>
+      {{ end }}{{ end }}
     </div>
 
   </div>
