@@ -44,6 +44,15 @@
           <div class="aam-hp-sub-meta">{{ .Date.Format "Jan 2, 2006" }}</div>
         </div>
       </div>
+      {{ end }}{{ else }}{{ with (index $insightPages 1) }}
+      <div class="aam-hp-stack-card" {{ if .Params.featured_image }}style="background-image:url('{{ .Params.featured_image }}')"{{ end }}>
+        <div class="aam-hp-hero-overlay"></div>
+        <div class="aam-hp-hero-content">
+          <span class="aam-hp-badge aam-hp-badge-insights">Insights</span>
+          <h3 class="aam-hp-stack-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+          <div class="aam-hp-sub-meta">{{ .Date.Format "Jan 2, 2006" }}</div>
+        </div>
+      </div>
       {{ end }}{{ end }}
       {{ if ne $heroSection "industry" }}{{ with (index $industryPages 0) }}
       <div class="aam-hp-stack-card" {{ if .Params.featured_image }}style="background-image:url('{{ .Params.featured_image }}')"{{ end }}>
