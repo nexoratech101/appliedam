@@ -10,7 +10,7 @@
   <div class="aam-hp-hero-grid">
     <div class="aam-hp-hero-left">
       {{ with $hero }}
-      <div class="aam-hp-hero-main" {{ if .Params.featured_image }}style="background-image:url({{ chr 39 }}{{ .Params.featured_image }}{{ chr 39 }})"{{ end }}>
+      <div class="aam-hp-hero-main" {{ if .Params.featured_image }}style="background-image:url('{{ .Params.featured_image }}')"{{ end }}>
         <div class="aam-hp-hero-overlay"></div>
         <div class="aam-hp-hero-content">
           <span class="aam-hp-badge aam-hp-badge-{{ .Section }}">{{ .Section | title }}</span>
@@ -21,7 +21,7 @@
       {{ end }}
       <div class="aam-hp-hero-sub-row">
         {{ range first 2 (after 1 $pages) }}
-        <div class="aam-hp-hero-sub" {{ if .Params.featured_image }}style="background-image:url({{ chr 39 }}{{ .Params.featured_image }}{{ chr 39 }})"{{ end }}>
+        <div class="aam-hp-hero-sub" {{ if .Params.featured_image }}style="background-image:url('{{ .Params.featured_image }}')"{{ end }}>
           <div class="aam-hp-hero-overlay"></div>
           <div class="aam-hp-hero-content">
             <span class="aam-hp-badge aam-hp-badge-{{ .Section }}">{{ .Section | title }}</span>
@@ -34,7 +34,7 @@
     </div>
     <div class="aam-hp-hero-stack">
       {{ range first 3 (after 3 $pages) }}
-      <div class="aam-hp-stack-card" {{ if .Params.featured_image }}style="background-image:url({{ chr 39 }}{{ .Params.featured_image }}{{ chr 39 }})"{{ end }}>
+      <div class="aam-hp-stack-card" {{ if .Params.featured_image }}style="background-image:url('{{ .Params.featured_image }}')"{{ end }}>
         <div class="aam-hp-hero-overlay"></div>
         <div class="aam-hp-hero-content">
           <span class="aam-hp-badge aam-hp-badge-{{ .Section }}">{{ .Section | title }}</span>
@@ -84,7 +84,7 @@
     <div class="aam-hp-cards4">
       {{ range first 4 $insightPages }}
       <article class="aam-hp-card">
-        <div class="aam-hp-card-img{{ if not .Params.featured_image }} aam-hp-card-img-empty{{ end }}"{{ if .Params.featured_image }} style="background-image:url({{ chr 39 }}{{ .Params.featured_image }}{{ chr 39 }})"{{ end }}></div>
+        <div class="aam-hp-card-img{{ if not .Params.featured_image }} aam-hp-card-img-empty{{ end }}"{{ if .Params.featured_image }} style="background-image:url('{{ .Params.featured_image }}')"{{ end }}></div>
         <div class="aam-hp-card-body">
           <div class="aam-hp-card-meta">
             <span class="aam-hp-badge aam-hp-badge-insights">Insights</span>
@@ -103,9 +103,9 @@
   <div class="aam-hp-container">
     <div class="aam-hp-feature-row">
       <div class="aam-hp-feature-col">
-        {{ with (index $insightPages 0) }}
+        {{ with (index $pages 0) }}
         <div class="aam-hp-feature-card">
-          <div class="aam-hp-feature-img{{ if not .Params.featured_image }} aam-hp-card-img-empty{{ end }}"{{ if .Params.featured_image }} style="background-image:url({{ chr 39 }}{{ .Params.featured_image }}{{ chr 39 }})"{{ end }}></div>
+          <div class="aam-hp-feature-img{{ if not .Params.featured_image }} aam-hp-card-img-empty{{ end }}"{{ if .Params.featured_image }} style="background-image:url('{{ .Params.featured_image }}')"{{ end }}></div>
           <div class="aam-hp-feature-body">
             <div class="aam-hp-feature-label">Editor&apos;s Pick &middot; Insights</div>
             <h3 class="aam-hp-feature-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
