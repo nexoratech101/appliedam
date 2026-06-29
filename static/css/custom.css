@@ -1231,7 +1231,7 @@ main { margin: 0 !important; padding-bottom: 0 !important; }
 .aam-hp-feature-wrap { padding:0 0 28px; }
 .aam-hp-feature-row { display:grid; grid-template-columns:2fr 1fr; gap:18px; }
 .aam-hp-feature-card { border-radius:10px; overflow:hidden; background:#fff; border:0.5px solid var(--border); }
-.aam-hp-feature-img { height:240px; background-size:cover; background-position:center; background-color:#0B1929; }
+.aam-hp-feature-img { height:320px; background-size:cover; background-position:center; background-color:#0B1929; }
 .aam-hp-feature-body { padding:22px; }
 .aam-hp-feature-label { font-size:11px; font-weight:700; color:#0077FF; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:8px; }
 .aam-hp-feature-title { font-size:24px; font-weight:700; line-height:1.35; color:var(--text); margin-bottom:10px; }
