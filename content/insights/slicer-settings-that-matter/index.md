@@ -6,6 +6,8 @@ featured_image: "/images/slicer-settings-that-matter-hero.jpg"
 author: "AppliedAM Team"
 categories: ["Insights"]
 tags: ["Slicer Settings", "FDM", "Best Practices", "Print Quality"]
+ai_level: "Oversight"
+ai_functions: ["Data Collection", "Data Interpretation", "Writing"]
 draft: false
 ---
 

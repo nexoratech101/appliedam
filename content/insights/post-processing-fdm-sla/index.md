@@ -6,6 +6,8 @@ featured_image: "/images/post-processing-fdm-sla-hero.jpg"
 author: "AppliedAM Team"
 categories: ["Insights"]
 tags: ["Post-Processing", "FDM", "SLA", "Finishing", "Best Practices"]
+ai_level: "Oversight"
+ai_functions: ["Data Collection", "Data Interpretation", "Writing"]
 draft: false
 ---
 
