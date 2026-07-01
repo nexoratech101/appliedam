@@ -1,72 +1,55 @@
 ---
-title: "3D Scanning and 3D Printing: From Point Cloud to Physical Object"
+title: "Metal FFF and Catalytic Debinding: What Every Practitioner Should Know"
 date: 2025-01-30
-description: "A practical guide to 3D scanning technologies, from photo capture and photobooth scanners to structured light, laser, and infrared systems, and how they feed into real-world 3D printing workflows."
-featured_image: "/images/industry/3d-scanning-and-3d-printing/hero.png"
-tags: ["3D Scanning", "3D Printing", "Reverse Engineering", "Structured Light", "Laser Scanning"]
+description: "Metal Fused Filament Fabrication is a three-stage process of printing, debinding, and sintering. This article breaks down catalytic debinding, the fastest and most widely adopted method, and explains why filament composition is critical to getting it right."
+featured_image: "/images/industry/metal-fff-and-catalytic-debinding/hero.jpg"
+tags: ["Metal AM", "FFF", "Debinding", "Sintering", "Metal 3D Printing"]
 author:
   name: "Randima Bandara"
-  type: "General contributor"
+  type: "AppliedAM Editorial Team"
   email: "randima005@gmail.com"
   email_public: false
+draft: false
 ---
 
-Image capturing and 3D scanning play a crucial role in generating accurate 3D models for 3D printing applications. Various techniques exist to create a digital file of a physical object, but this article focuses specifically on 3D scanning solutions. When selecting the right scanner, multiple factors must be considered â€" the application, the object being scanned, the location, and the desired level of detail. Choosing the most suitable scanner ensures the best results for your specific needs.
+Metal Fused Filament Fabrication (Metal FFF) is an additive manufacturing process used to produce complex metal parts using metal-bound composite filaments. This technique is particularly valuable when fast delivery times are crucial or when traditional manufacturing methods face limitations.
 
-## From Photo Capture to Advanced 3D Scanning
+![3D Printed Metal Parts](/images/industry/metal-fff-and-catalytic-debinding/image-1.jpeg)
+*3D Printed Metal Parts*
 
-One of the earliest and most accessible methods for generating 3D models was the photo-capturing technique. This involved taking multiple images of an object from different angles using a camera, then processing them with specialized software to generate a 3D model. While inexpensive and accessible, it lacked the precision required for professional applications.
+The process consists of three key stages: printing, debinding, and sintering. Industrial 3D printers such as [UltiMaker](https://www.linkedin.com/company/ultimaker/posts/?feedView=all), [Raise3D Technologies](https://www.linkedin.com/company/raise3d-inc./posts/?feedView=all), and [Markforged](https://www.linkedin.com/company/markforged/posts/?feedView=all) are widely used for Metal FFF. One of the key advantages of this technique is that no special skills are required for the printing stage. However, the secondary steps, debinding and sintering, are critical for achieving the best results.
 
-![Photos were captured using a mobile phone and the generated 3D model was printed using a Thrimana 3D printer almost 9 years ago. Guess who this is?](/images/industry/3d-scanning-and-3d-printing/image-1.jpeg)
-*Photos captured using a mobile phone, model printed on a Thrimana 3D printer almost 9 years ago. Guess who this is?*
+In Metal FFF, the printed part is called the "green part", which consists of metal particles bound together by a polymer. During debinding, the polymer binder is removed, transforming the part into a porous and fragile structure known as the "brown part". Finally, during sintering, the metal particles fuse together, resulting in a fully dense, finished metal component.
 
-A more advanced version is the photobooth scanner. I first encountered one in the UAE, owned by PRECISE 3D HUB Dubai, and later experienced another fully operational photobooth at Objex Unlimited in Toronto, Canada. Unlike single-camera scanning, photobooth scanners use multiple cameras positioned at various angles to capture a subject simultaneously. This significantly improves accuracy, precision, and colour detailing, making it ideal for high-quality 3D models. The technology is widely used in the figurine industry â€" so if you have ever wanted a miniature version of yourself, these services are worth exploring.
+![[Process of the Metal FFF](https://support.ultimaker.com/s/article/1667411067066)](/images/industry/metal-fff-and-catalytic-debinding/image-2.png)
+*[Process of the Metal FFF](https://support.ultimaker.com/s/article/1667411067066)*
 
-![The 3D Photobooth at Objex Unlimited](/images/industry/3d-scanning-and-3d-printing/image-2.png)
-*The 3D Photobooth at Objex Unlimited*
+This write-up focuses on the critical factors influencing filament properties and the catalytic debinding process out of the three main methods, which play a key role in determining the final part quality and performance.
 
-## How 3D Scanners Work
+The main methods of debinding:
 
-The function of a typical 3D scanner is illustrated below. Multiple optical sources project light patterns onto the object, and cameras capture these patterns from different angles to generate a point cloud in virtual space. By connecting each point, a mesh is formed, and a final 3D object can be exported.
+- Solvent
+- Thermal
+- Catalytic
 
-![Multiview Projectors/Cameras System for 3D Reconstruction of Dynamic Scenes â€" Furukawa et al.](/images/industry/3d-scanning-and-3d-printing/image-3.png)
-*Image source: Multiview Projectors/Cameras System for 3D Reconstruction of Dynamic Scenes, Furukawa et al.*
+## Catalytic Debinding
 
-## Types of 3D Scanners
+Catalytic Debinding which involves the rapid decomposition of binders into volatile molecules in a catalyst atmosphere, is a fast debinding process. [Forward AM](https://www.linkedin.com/company/forwardam/) developed and introduced this technique to the Metal FFF market and it has become an industry standard, with companies like [XERION BERLIN LABORATORIES GmbH](https://www.linkedin.com/company/xerion-berlin-laboratories-gmbh/) using it. Several factors affect the successful removal of binders, with material composition being a critical one.
 
-There are three primary types of 3D scanners, each suited for different applications.
+![Metal Filament and Finished part](/images/industry/metal-fff-and-catalytic-debinding/image-3.jpeg)
+*Metal Filament and Finished part*
 
-**Structured Light Scanners** are the most common due to their affordability and efficiency. These project structured light patterns onto an object and analyse distortions to create a 3D model. They are ideal for capturing detailed textures and colour information, making them well suited for product design, cultural heritage preservation, and medical prosthetics.
+## Composition of Metal Filament
 
-![Scanning a prosthetic part using a Shining 3D scanner â€" a project conducted in 2019 with the National Hospital of Sri Lanka and RCS2 Technologies](/images/industry/3d-scanning-and-3d-printing/image-4.png)
-*Scanning a prosthetic part using a Shining 3D scanner. Project conducted in 2019 with the National Hospital of Sri Lanka and RCS2 Technologies.*
+Metal filaments are composed of 70%-80% metal and the rest of the polymer to bind the metal powder together. The catamold binder systems typically have two or more polymers to accommodate different functions in different stages.
 
-**Laser-Based Scanners** use laser triangulation to measure the distance between the scanner and the object, making them excellent for scanning reflective, dark, or intricate surfaces that structured light scanners struggle with. Their high precision makes them essential for industrial metrology, aerospace, and automotive quality control.
+The main binder comprises 50%-90% of the polymer, which will be removed during the debinding process. Low molecular weight materials are used to increase viscosity and minimize interference between larger particles. Backbone polymer constitutes up to 50% of the polymer and will not be removed until the sintering process. It helps hold the metal particles together, and thermoplastic is often used. Additives make up to 10% of the binder and serve to stabilize and disperse the binders through the metal particles.
 
-**Infrared (IR) Scanners** use invisible infrared light to capture 3D models, making them ideal for sensitive surfaces like the human body. Unlike structured light and laser scanners, IR scanners do not emit bright light, ensuring comfort for facial scanning, biometric security, and medical imaging applications.
+![Picture Credit: Additive Manufacturing of Metallic and Ceramic Components by the Material Extrusion of Highly-Filled Polymers: [A Review and Future Perspectives](https://www.mdpi.com/1996-1944/11/5/840)](/images/industry/metal-fff-and-catalytic-debinding/image-4.jpeg)
+*Picture Credit: Additive Manufacturing of Metallic and Ceramic Components by the Material Extrusion of Highly-Filled Polymers: [A Review and Future Perspectives](https://www.mdpi.com/1996-1944/11/5/840)*
 
-## Advanced and Hybrid Scanning Solutions
+## Importance of the Distribution of Particles
 
-Modern 3D scanners now integrate multiple scanning techniques for increased versatility. For scanning highly reflective or dark metal surfaces while capturing fine textures, a combination of structured light and laser scanning provides the best results. For capturing human facial features with both comfort and accuracy, a structured light and IR scanning system is the ideal choice.
+The heterogeneous distribution of particles within the filament can have a significant impact on the proper debinding process. This can result in instability and incomplete removal of binders in the brown part. Additionally, sintered parts may exhibit surface cracks, internal pores, uneven shrinkage, and warping.
 
-Another interesting combination is laser and infrared-based 3D scanners, particularly well suited for metrological scanning. While these do not capture texture due to the absence of a light source, they offer metrology-grade accuracy with multiple scanning modes: fast scanning, deep hole scanning, fine scanning, and overall scanning. One of the best examples is the SHINING 3D Freescan series.
-
-![A car body scanned using the Shining 3D Freescan Combo](/images/industry/3d-scanning-and-3d-printing/image-5.png)
-*A car body scanned using the Shining 3D Freescan Combo*
-
-## The Future of 3D Scanning
-
-With rapid development in wireless technology and AI-driven processing, 3D scanners are becoming more portable, faster, and more efficient. Improvements in laser line count, higher-resolution sensors, and increased processing power allow scanners to capture more detail at greater speeds. Enhanced light sources and wider-angle camera systems have also expanded the field of view, making it easier to scan larger objects and areas effortlessly.
-
-![One of the fastest scanners I have experienced - Shining 3D EinStar](/images/industry/3d-scanning-and-3d-printing/image-6.png)
-*One of the fastest scanners I have experienced - Shining 3D EinStar*
-
-These advancements have revolutionised 3D scanning, making it more accessible, reliable, and adaptable across professional and industrial applications. Whether for engineering, medical imaging, or creative industries, today's 3D scanning solutions provide unmatched accuracy and efficiency, pushing the boundaries of what is possible in reverse engineering and 3D printing.
-
-**Further reading and resources:**
-
-[Shining 3D](https://www.linkedin.com/company/shining-3d-tech-co-ltd-/)
-
-[PRECISE 3D Hub](https://www.linkedin.com/company/71977456)
-
-[Objex Unlimited](https://objexunlimited.com/)
+The material composition and uniformity of properties throughout the filament have a direct impact on the debinding process. It is crucial to choose an experienced and reputable manufacturer when selecting a metal filament supplier to mitigate potential challenges.
