@@ -29,7 +29,7 @@ But there's a trade-off: increasing JD too much can reintroduce vibration and ac
 
 A recent innovation from UltiMaker, called Cheetah Motion Planner, takes motion planning to the next level. Instead of relying on static or dynamic jerk values, it uses "real jerk": the actual rate of acceleration change.
 
-![Comparison of vibrations relating to input and affecting the print head motion between Marlin and Cheetah](/images/research/smart-motion-in-3d-printing/image-1.png)
+![Comparison of vibrations relating to input and affecting the print head motion between Marlin and Cheetah](/images/industry/smart-motion-in-3d-printing/marlin-cheetah-vibrations.png)
 *Comparison of vibrations relating to input and affecting the print head motion between Marlin and Cheetah*
 
 This leads to a much more refined movement system:
