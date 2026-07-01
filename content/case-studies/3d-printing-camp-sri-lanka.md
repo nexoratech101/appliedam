@@ -2,7 +2,7 @@
 title: "Empowering the Next Generation: 3D Printing, Robotics, and the Future of Education"
 date: 2026-06-14
 description: "How a zombie-themed 3D printing workshop in Sri Lanka sparked creativity and problem-solving in kids, and what it means for the future of technology education."
-featured_image: "/images/insights/3d-printing-camp-sri-lanka/hero.png"
+featured_image: "/images/case-studies/3d-printing-camp-sri-lanka/hero.png"
 tags: ["3D Printing", "Education", "Innovation", "Global 3D Printing Day"]
 author:
   name: "Randima Bandara"
