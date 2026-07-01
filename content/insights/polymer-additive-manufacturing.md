@@ -1,8 +1,8 @@
 ---
 title: "Polymer Additive Manufacturing: Beyond the Standard Classification"
-date: 2026-06-15
+date: 2025-02-02
 description: "If you can only name a handful of polymer 3D printing techniques, it is time to expand your knowledge. AMPOWER has mapped over 16 distinct polymer AM processes, far beyond the seven categories in the ASTM/ISO 52900 standard."
-featured_image: "/images/industry/polymer-additive-manufacturing/hero.png"
+featured_image: "/images/insights/polymer-additive-manufacturing/hero.jpg"
 tags: ["3D Printing", "Polymer", "AM Standards", "AMPOWER", "Materials"]
 author:
   name: "Randima Bandara"
