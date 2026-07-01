@@ -8,53 +8,73 @@
 </div>
 
 <div class="aam-container">
-  <div class="aam-grid aam-grid-list">
-    {{ range .Pages }}
-    <article class="aam-card aam-card-{{ .Section }}">
-      {{ if .Params.featured_image }}
-      <div class="aam-card-img" style="background-image:url('{{ .Params.featured_image }}')">
-        <div class="aam-card-share">
-          <button class="aam-share-trigger" aria-label="Share">
-            <span></span><span></span><span></span>
-          </button>
-          <div class="aam-share-menu">
-            <a class="aam-share-item aam-share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink | absURL }}" target="_blank" rel="noopener" aria-label="Share on LinkedIn">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-              LinkedIn
-            </a>
-            <a class="aam-share-item aam-share-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink | absURL }}" target="_blank" rel="noopener" aria-label="Share on Facebook">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-              Facebook
-            </a>
-            <a class="aam-share-item aam-share-email" href="mailto:?subject={{ .Title | urlize }}&body={{ .Permalink | absURL }}" aria-label="Share via Email">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-              Email
-            </a>
-            <button class="aam-share-item aam-share-copy" data-url="{{ .Permalink | absURL }}" aria-label="Copy link">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              Copy link
-            </button>
+  {{ $sectionPages := sort .Pages "Date" "desc" }}
+  {{ $featuredPage := index $sectionPages 0 }}
+  {{ $recentPages := first 3 (after 1 $sectionPages) }}
+  {{ $featuredPickPages := sort (where .Site.RegularPages "Params.featured_pick" true) "Date" "desc" }}
+  {{ $usedPages := slice }}
+
+  {{ with $featuredPage }}
+  {{ $usedPages = $usedPages | append . }}
+  <section class="aam-list-feature">
+    <div class="aam-list-feature-row">
+      <div class="aam-list-feature-card">
+        <div class="aam-hp-feature-img{{ if not .Params.featured_image }} aam-hp-card-img-empty{{ end }}"{{ if .Params.featured_image }} style="background-image:url('{{ .Params.featured_image }}')"{{ end }}></div>
+        <div class="aam-hp-feature-body aam-list-feature-body">
+          <div class="aam-hp-feature-label">Featured article</div>
+          <h2 class="aam-hp-feature-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+          <p class="aam-hp-feature-desc">{{ .Description }}</p>
+          <div class="aam-hp-card-meta aam-list-feature-meta">
+            <span class="aam-hp-badge aam-hp-badge-{{ .Section }}">{{ .Section | humanize | title }}</span>
+            <span class="aam-hp-card-date">{{ .Date.Format "Jan 2, 2006" }}</span>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+  {{ end }}
+
+  {{ if $recentPages }}
+  <section class="aam-list-section">
+    <div class="aam-hp-cards3">
+      {{ range $recentPages }}
+      {{ $usedPages = $usedPages | append . }}
+      <article class="aam-hp-card">
+        <div class="aam-hp-card-img{{ if not .Params.featured_image }} aam-hp-card-img-empty{{ end }}"{{ if .Params.featured_image }} style="background-image:url('{{ .Params.featured_image }}')"{{ end }}></div>
+        <div class="aam-hp-card-body">
+          <div class="aam-hp-card-meta">
+            <span class="aam-hp-badge aam-hp-badge-{{ .Section }}">{{ .Section | humanize | title }}</span>
+            <span class="aam-hp-card-date">{{ .Date.Format "Jan 2, 2006" }}</span>
+          </div>
+          <h3 class="aam-hp-card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+          <p class="aam-hp-card-desc">{{ .Description }}</p>
+        </div>
+      </article>
       {{ end }}
-      <div class="aam-card-body">
-        <div class="aam-card-meta">
-          {{ .Date.Format "Jan 2, 2006" }}
+    </div>
+  </section>
+  {{ end }}
+
+  <section class="aam-list-curated">
+    <div class="aam-list-curated-header">
+      <h2 class="aam-list-curated-title">Discover some of our most-read articles</h2>
+    </div>
+    <div class="aam-hp-cards4">
+      {{ range first 4 $featuredPickPages }}
+      {{ $page := . }}
+      <article class="aam-hp-card">
+        <div class="aam-hp-card-img{{ if not $page.Params.featured_image }} aam-hp-card-img-empty{{ end }}"{{ if $page.Params.featured_image }} style="background-image:url('{{ $page.Params.featured_image }}')"{{ end }}></div>
+        <div class="aam-hp-card-body">
+          <div class="aam-hp-card-meta">
+            <span class="aam-hp-badge aam-hp-badge-{{ $page.Section }}">{{ $page.Section | humanize | title }}</span>
+            <span class="aam-hp-card-date">{{ $page.Date.Format "Jan 2, 2006" }}</span>
+          </div>
+          <h3 class="aam-hp-card-title"><a href="{{ $page.Permalink }}">{{ $page.Title }}</a></h3>
+          <p class="aam-hp-card-desc">{{ $page.Description }}</p>
         </div>
-        <h2 class="aam-card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-        <p class="aam-card-desc">{{ .Description }}</p>
-        <div class="aam-card-tags">
-          {{ if .Params.tags }}
-          {{ range first 4 .Params.tags }}
-          <span class="aam-tag">{{ . }}</span>
-          {{ end }}
-          {{ end }}
-        </div>
-        <a href="{{ .Permalink }}" class="aam-card-read">Read more &rarr;</a>
-      </div>
-    </article>
-    {{ end }}
-  </div>
+      </article>
+      {{ end }}
+    </div>
+  </section>
 </div>
 {{ end }}

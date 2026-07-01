@@ -9,6 +9,7 @@ author:
   type: "General contributor"
   email: "randima005@gmail.com"
   email_public: false
+featured_pick: true
 ---
 
 Image capturing and 3D scanning play a crucial role in generating accurate 3D models for 3D printing applications. Various techniques exist to create a digital file of a physical object, but this article focuses specifically on 3D scanning solutions. When selecting the right scanner, multiple factors must be considered â€" the application, the object being scanned, the location, and the desired level of detail. Choosing the most suitable scanner ensures the best results for your specific needs.

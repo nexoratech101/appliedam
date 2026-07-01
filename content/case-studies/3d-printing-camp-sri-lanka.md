@@ -7,6 +7,7 @@ tags: ["3D Printing", "Education", "Innovation", "Global 3D Printing Day"]
 author:
   name: "Randima Bandara"
   type: "General contributor"
+featured_pick: true
 ---
 
 I have recently started an exciting journey with an institute in Canada that teaches Electronics, Robotics, and Programming to kids. It has been fascinating to revisit many concepts I learned in school and university, now with a new goal "" to make them simple, fun, and engaging for young minds. I am proud to play a part in shaping Canada's future innovators, helping them build the skills and confidence to tackle real-world challenges through creativity and technology.
