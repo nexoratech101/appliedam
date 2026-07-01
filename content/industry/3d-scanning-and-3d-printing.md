@@ -1,6 +1,6 @@
 ---
 title: "3D Scanning and 3D Printing: From Point Cloud to Physical Object"
-date: 2026-06-15
+date: 2025-02-18
 description: "A practical guide to 3D scanning technologies, from photo capture and photobooth scanners to structured light, laser, and infrared systems, and how they feed into real-world 3D printing workflows."
 featured_image: "/images/industry/3d-scanning-and-3d-printing/hero.png"
 tags: ["3D Scanning", "3D Printing", "Reverse Engineering", "Structured Light", "Laser Scanning"]
