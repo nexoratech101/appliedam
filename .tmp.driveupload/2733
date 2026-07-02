@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Is 3D Printing Really Changing the Production Space? | AppliedAM</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="How a custom 3D-printed jig solved a UV printing bottleneck for embossing logos on 10,000 glass tubes, cutting per-batch production time from 20 minutes to just a few seconds.">
+    <meta name="generator" content="Hugo 0.163.0">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    <meta name="author" content="map[email:randima005@gmail.com email_public:false name:Randima Bandara type:General contributor]">
+    
+
+    <link rel="stylesheet" href="/ananke/css/main.css">
+    <script>
+  (function () {
+    "use strict";
+
+    
+    
+    function revealButtons() {
+      var buttons = document.querySelectorAll(".code-block .code-copy[hidden]");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].hidden = false;
+      }
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", revealButtons);
+    } else {
+      revealButtons();
+    }
+
+    function flash(button) {
+      var label = button.querySelector(".code-copy-label");
+      var previous = label ? label.textContent : null;
+      button.classList.add("is-copied");
+      if (label) label.textContent = "Copied";
+      window.setTimeout(function () {
+        button.classList.remove("is-copied");
+        if (label && previous !== null) label.textContent = previous;
+      }, 2000);
+    }
+
+    function legacyCopy(text) {
+      var area = document.createElement("textarea");
+      area.value = text;
+      area.setAttribute("readonly", "");
+      area.style.position = "absolute";
+      area.style.left = "-9999px";
+      document.body.appendChild(area);
+      area.select();
+      var ok = false;
+      try {
+        ok = document.execCommand("copy");
+      } catch (e) {
+        ok = false;
+      }
+      document.body.removeChild(area);
+      return ok;
+    }
+
+    function copyFrom(button) {
+      var container = button.closest(".code-block");
+      if (!container) return;
+      var pre = container.querySelector("pre");
+      if (!pre) return;
+      var source = pre.querySelector("code") || pre;
+      var text = source.innerText;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(
+          function () { flash(button); },
+          function () { if (legacyCopy(text)) flash(button); }
+        );
+      } else if (legacyCopy(text)) {
+        flash(button);
+      }
+    }
+
+    document.addEventListener("click", function (event) {
+      var button = event.target.closest(".code-copy");
+      if (button) copyFrom(button);
+    });
+  })();
+</script>
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/case-studies/glass-tube-printing/">
+    
+
+    
+    
+    <meta property="og:title" content="Is 3D Printing Really Changing the Production Space? | AppliedAM">
+<meta property="og:description" content="How a custom 3D-printed jig solved a UV printing bottleneck for embossing logos on 10,000 glass tubes, cutting per-batch production time from 20 minutes to just a few seconds.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://localhost:1313/case-studies/glass-tube-printing/">
+<meta property="og:site_name" content="AppliedAM">
+<meta property="og:image" content="http://localhost:1313/images/case-studies/glass-tube-printing/hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="500">
+<meta property="article:published_time" content="2025-02-09T00:00:00Z">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Is 3D Printing Really Changing the Production Space?">
+<meta name="twitter:description" content="How a custom 3D-printed jig solved a UV printing bottleneck for embossing logos on 10,000 glass tubes, cutting per-batch production time from 20 minutes to just a few seconds.">
+<meta name="twitter:image" content="http://localhost:1313/images/case-studies/glass-tube-printing/hero.png">
+	<meta itemprop="name" content="Is 3D Printing Really Changing the Production Space?">
+	<meta itemprop="description" content="How a custom 3D-printed jig solved a UV printing bottleneck for embossing logos on 10,000 glass tubes, cutting per-batch production time from 20 minutes to just a few seconds.">
+	<meta itemprop="datePublished" content="2025-02-09T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2026-06-15T22:22:22+04:00">
+	<meta itemprop="wordCount" content="294">
+	<meta itemprop="keywords" content="3D Printing,Production,Jig Design,UltiMaker,Manufacturing">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Is 3D Printing Really Changing the Production Space?">
+	<meta name="twitter:description" content="How a custom 3D-printed jig solved a UV printing bottleneck for embossing logos on 10,000 glass tubes, cutting per-batch production time from 20 minutes to just a few seconds.">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="/images/logo_triangle.png">
+<link rel="shortcut icon" type="image/png" href="/images/logo_triangle.png">
+<link rel="apple-touch-icon" href="/images/logo_triangle.png">
+
+  </head><body class="ma0 avenir bg-near-white development is-page is-page page-glass-tube-printing"><header class="aam-topnav">
+  <div class="aam-topnav-inner">
+    <a href="http://localhost:1313/" class="aam-logo-link">
+      <img src="/images/logo.png" alt="AppliedAM" style="height:72px; width:auto; display:block;">
+    </a>
+    <input type="checkbox" id="aam-menu-toggle" class="aam-menu-toggle-input">
+    <nav class="aam-nav-links" id="aam-nav-links">
+      
+    </nav>
+    <div class="aam-topnav-right">
+      <label for="aam-menu-toggle" class="aam-hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <a href="/submission-form/" class="aam-nav-cta" target="_blank" rel="noopener">Submit</a>
+    </div>
+  </div>
+</header><main class="pb7" role="main">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Is 3D Printing Really Changing the Production Space?",
+  "description": "How a custom 3D-printed jig solved a UV printing bottleneck for embossing logos on 10,000 glass tubes, cutting per-batch production time from 20 minutes to just a few seconds.",
+  "datePublished": "2025-02-09",
+  "dateModified": "2026-06-15",
+  "url": "http:\/\/localhost:1313\/case-studies\/glass-tube-printing\/",
+  "image": "https://appliedam.net\/images\/case-studies\/glass-tube-printing\/hero.png",
+  "publisher": {
+    "@type": "Organization",
+    "name": "AppliedAM",
+    "url": "https://appliedam.net"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Randima Bandara"
+  }
+}
+</script>
+
+<div class="aam-article-hero-overlay" style="background-image:url('/images/case-studies/glass-tube-printing/hero.png'); background-size:cover; background-position:center; position:relative; min-height:420px; display:flex; align-items:flex-end;">
+  <div style="position:absolute; inset:0; background:linear-gradient(to bottom, rgba(13,13,26,0.3) 0%, rgba(13,13,26,0.82) 100%);"></div>
+  <div class="aam-hero-content-wide" style="position:relative; z-index:2; padding:2.5rem 2rem 2rem; max-width:900px; margin:0 auto; width:100%;">
+    
+    <h1 class="aam-article-title" style="color:#fff; margin:0.5rem 0 0.75rem;">Is 3D Printing Really Changing the Production Space?</h1>
+    <div class="aam-article-meta" style="color:rgba(255,255,255,0.7); font-size:13px; display:flex; gap:12px; flex-wrap:wrap;">
+      <span>Randima Bandara</span>
+      <span>February 9, 2025</span>
+      <span>2 min read</span>
+    </div>
+  </div>
+</div>
+
+
+<div class="aam-article-layout">
+  <div class="aam-article-sidebar-left">
+    <div class="aam-sidebar-sticky">
+      
+      <div class="aam-article-summary"><p>How a custom 3D-printed jig solved a UV printing bottleneck for embossing logos on 10,000 glass tubes, cutting per-batch production time from 20 minutes to just a few seconds.</p></div>
+      
+      <div class="aam-share-block">
+        <span class="aam-sidebar-label">Share</span>
+        <div class="aam-share-btns">
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=http%2f%2flocalhost1313%2fcase-studies%2fglass-tube-printing%2f" target="_blank" rel="noopener" class="aam-share-btn"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg> LinkedIn</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http%2f%2flocalhost1313%2fcase-studies%2fglass-tube-printing%2f" target="_blank" rel="noopener" class="aam-share-btn"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg> Facebook</a>
+          <a href="https://twitter.com/intent/tweet?url=http%2f%2flocalhost1313%2fcase-studies%2fglass-tube-printing%2f&text=is-3d-printing-really-changing-the-production-space" target="_blank" rel="noopener" class="aam-share-btn"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.265 5.658 5.899-5.658zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> X</a>
+          <a href="https://wa.me/?text=is-3d-printing-really-changing-the-production-space%20http%2f%2flocalhost1313%2fcase-studies%2fglass-tube-printing%2f" target="_blank" rel="noopener" class="aam-share-btn"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.998 2.002C6.477 2.002 2 6.479 2 12c0 1.872.518 3.623 1.419 5.122L2 22l5.003-1.396C8.454 21.507 10.18 22 11.998 22c5.521 0 9.998-4.477 9.998-9.998 0-5.522-4.477-9.998-9.998-10z"/></svg> WhatsApp</a>
+          <a href="mailto:?subject=is-3d-printing-really-changing-the-production-space&body=http%2f%2flocalhost1313%2fcase-studies%2fglass-tube-printing%2f" class="aam-share-btn"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Email</a>
+          <button class="aam-share-btn aam-copy-link" onclick="navigator.clipboard.writeText('http:\/\/localhost:1313\/case-studies\/glass-tube-printing\/'); this.textContent='Copied!'; setTimeout(()=>this.textContent='Copy link',2000);"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg> Copy link</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="aam-article-main">
+    <div class="aam-article-body">
+      <p>3D printing is one of the most powerful tools for overcoming industry challenges, enhancing efficiency, and optimizing production. Here is a compelling case study demonstrating how this technology can deliver game-changing solutions by simply thinking outside the box.</p>
+<p><a href="https://www.linkedin.com/company/425652/">PRECISE GROUP</a> is a leading provider of advanced printing solutions in Dubai and a pioneer in introducing 3D printing to the GCC region. During my time with them, we received an interesting project: printing an embossed logo on 10,000 glass tubes.</p>
+<p><img src="/images/case-studies/glass-tube-printing/image-1.jpeg" alt="A Glass Tube">
+<em>A glass tube awaiting embossing</em></p>
+<p>The company had two UV printing technologies for embossing - one for flat surfaces and another for 360-degree cylindrical printing. Ideally, the cylindrical printer was the optimal choice due to its speed and efficiency. However, the glass tubes were too small to fit this machine, leaving only the flat surface printer, which was significantly slower and impractical for large-scale production.</p>
+<p><img src="/images/case-studies/glass-tube-printing/image-2.jpeg" alt="Small glass tubes placed on the flat surface UV printer">
+<em>Small glass tubes placed on the flat surface UV printer</em></p>
+<p>Determined to find a better solution, our team designed a custom 3D-printed jig that could hold 12 glass tubes simultaneously, enabling the cylindrical printer to handle multiple units in one go. After multiple design iterations and fine-tuning, we 3D printed the jig using the <a href="https://ultimaker.com/">UltiMaker S7</a>, known for its high precision.</p>
+<p><img src="/images/case-studies/glass-tube-printing/image-3.png" alt="3D Printed Jig and UltiMaker printers">
+<em>The 3D-printed jig (left) and UltiMaker printers used to produce it (right)</em></p>
+<blockquote>
+<p>The result? A dramatic transformation in efficiency - reducing production time from 20 minutes per batch to just a few seconds.</p>
+</blockquote>
+<p>The 3D-printed jig not only eliminated handling complexities but also streamlined the entire process, proving how 3D printing can revolutionize manufacturing workflows.</p>
+<p><img src="/images/case-studies/glass-tube-printing/image-4.png" alt="3D-printed jig with glass tubes, ready for the cylindrical printing run">
+<em>3D-printed jig with glass tubes loaded, ready for the cylindrical printing run</em></p>
+<p>This case is a testament to how innovation and 3D printing technology can break barriers, solve real-world challenges, and redefine production efficiency.</p>
+
+    </div>
+
+    
+
+    
+
+    
+    <div class="aam-article-tags-bottom">
+      <span class="aam-sidebar-label">Tags</span>
+      <div class="aam-tags-list">
+        <span class="aam-tag">3D Printing</span><span class="aam-tag">Production</span><span class="aam-tag">Jig Design</span><span class="aam-tag">UltiMaker</span><span class="aam-tag">Manufacturing</span>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="aam-article-sidebar-right">
+    <div class="aam-sidebar-sticky">
+      <div class="aam-sidebar-cta">
+        <p class="aam-sidebar-cta-text">Have work worth featuring?</p>
+        <p style="font-size:13px; color:var(--text-secondary); margin:0 0 1rem; line-height:1.5;">Share your research, case study, or project with the AM community.</p>
+        <a href="/submission-form/" class="aam-btn" target="_blank" rel="noopener" style="display:block; text-align:center;">Submit your work</a>
+      </div>
+
+      <div class="aam-related">
+        <span class="aam-sidebar-label">Related articles</span>
+        
+        
+        
+        
+        <div class="aam-related-item">
+          
+          <div class="aam-related-img" style="background-image:url('/images/case-studies/3d-printing-camp-sri-lanka/hero.png')"></div>
+          
+          <div class="aam-related-body">
+            <a href="http://localhost:1313/case-studies/3d-printing-camp-sri-lanka/" class="aam-related-title">Empowering the Next Generation: 3D Printing, Robotics, and the Future of Education</a>
+            <div class="aam-related-meta">Case-Studies &middot; Jun 14, 2026 &middot; 3 min</div>
+            <p class="aam-related-desc">How a zombie-themed 3D printing workshop in Sri Lanka sparked creativity and …</p>
+          </div>
+        </div>
+        
+        <div class="aam-related-item">
+          
+          <div class="aam-related-img" style="background-image:url('/images/drone-frame-project.jpg')"></div>
+          
+          <div class="aam-related-body">
+            <a href="http://localhost:1313/case-studies/drone-frame-topology-optimization/" class="aam-related-title">Lightweight Drone Frame Using Topology-Optimized FDM Parts</a>
+            <div class="aam-related-meta">Case-Studies &middot; Jan 20, 2024 &middot; 2 min</div>
+            <p class="aam-related-desc">A student project using topology optimization and FDM to build a drone frame 40% lighter …</p>
+          </div>
+        </div>
+        
+      </div>
+
+      <div class="aam-sidebar-subscribe">
+        <span class="aam-sidebar-label">Stay updated</span>
+        <p style="font-size:13px; color:var(--text-secondary); margin:0 0 0.75rem;">New articles from the AM community, weekly.</p>
+        <input type="email" placeholder="your@email.com" class="aam-newsletter-input" style="margin-bottom:8px;" />
+        <button class="aam-newsletter-btn" style="width:100%;">Subscribe</button>
+      </div>
+    </div>
+  </div>
+</div>
+</main><style>
+.aam-footer-grid {
+  max-width:1200px; margin:0 auto; padding:40px 2rem 32px;
+  display:grid; grid-template-columns:1.4fr 0.8fr 0.8fr 0.8fr 1.4fr;
+  gap:36px; align-items:start; text-align:left;
+}
+@media (max-width: 900px) {
+  .aam-footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .aam-footer-grid { grid-template-columns: 1fr; }
+}
+.aam-footer-bottom {
+  max-width:1200px; margin:0 auto; padding:16px 2rem;
+  border-top:1px solid #1A1A2E; display:flex;
+  justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+}
+</style>
+<footer style="background:#0D0D1A; border-top:1px solid rgba(255,255,255,0.07); font-family:Inter,Segoe UI,Arial,sans-serif; overflow-x:hidden;"><div class="aam-footer-grid"><div style="padding-left:0;"><a href="/" style="text-decoration:none; display:inline-block; margin-bottom:8px;"><img src="/images/logo_full.png" alt="AppliedAM" style="height:80px; width:auto; display:block;"></a><p style="font-size:13px; line-height:1.6; color:#8A94A0; margin:0 0 5px; max-width:220px;">The publication for additive manufacturing.</p><p style="font-size:12px; line-height:1.6; color:#636e7b; margin:0 0 16px; max-width:220px;">Connecting inventors, manufacturers, and practitioners through credible, citable content.</p><div style="display:flex; gap:8px;"><a href="https://www.linkedin.com/newsletters/applied-am-7289954432195174400/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border:1px solid #2F3A4A; border-radius:6px; color:#8A94A0; font-size:12px; font-weight:700; text-decoration:none;">in</a><a href="https://x.com" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border:1px solid #2F3A4A; border-radius:6px; color:#8A94A0; font-size:12px; font-weight:700; text-decoration:none;">X</a></div><div style="margin-top:20px; max-width:240px;"><p style="font-size:11px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#ffffff; margin:0 0 8px;">Stay Updated</p><p style="font-size:12px; color:#636e7b; margin:0 0 10px; line-height:1.5;">New articles from the AM community, weekly.</p><input type="email" placeholder="your@email.com" style="width:100%; padding:8px 10px; font-size:13px; border:1px solid #2F3A4A; border-radius:6px; background:#0D0D1A; color:#fff; margin-bottom:8px; box-sizing:border-box;"><button style="background:#0077ff; color:#fff; border:none; padding:8px 16px; border-radius:6px; font-size:13px; font-weight:600; cursor:pointer; width:100%;">Subscribe</button></div></div><div><p style="font-family:Space Grotesk,Segoe UI,Arial,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.09em; text-transform:uppercase; color:#ffffff; margin:0 0 12px;">Content</p><ul style="list-style:none; margin:0; padding:0;"><li style="margin-bottom:8px;"><a href="/research/" style="color:#8A94A0; text-decoration:none; font-size:13px;">Research</a></li><li style="margin-bottom:8px;"><a href="/industry/" style="color:#8A94A0; text-decoration:none; font-size:13px;">Industry</a></li><li style="margin-bottom:8px;"><a href="/case-studies/" style="color:#8A94A0; text-decoration:none; font-size:13px;">Case Studies</a></li><li style="margin-bottom:8px;"><a href="/insights/" style="color:#8A94A0; text-decoration:none; font-size:13px;">Insights</a></li></ul></div><div><p style="font-family:Space Grotesk,Segoe UI,Arial,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.09em; text-transform:uppercase; color:#ffffff; margin:0 0 12px;">Contribute</p><ul style="list-style:none; margin:0; padding:0;"><li style="margin-bottom:8px;"><a href="/submission-form/" target="_blank" rel="noopener" style="color:#8A94A0; text-decoration:none; font-size:13px;">Submit Your Work</a></li><li style="margin-bottom:8px;"><a href="/contact/" target="_blank" style="color:#8A94A0; text-decoration:none; font-size:13px;">Write for Us</a></li></ul></div><div><p style="font-family:Space Grotesk,Segoe UI,Arial,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.09em; text-transform:uppercase; color:#ffffff; margin:0 0 12px;">About</p><ul style="list-style:none; margin:0; padding:0;"><li style="margin-bottom:8px;"><a href="/about/" style="color:#8A94A0; text-decoration:none; font-size:13px;">About AppliedAM</a></li><li style="margin-bottom:8px;"><a href="/contact/" target="_blank" style="color:#8A94A0; text-decoration:none; font-size:13px;">Contact Us</a></li></ul></div><div><p style="font-family:Space Grotesk,Segoe UI,Arial,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.09em; text-transform:uppercase; color:#ffffff; margin:0 0 12px;">Latest Articles</p><ul style="list-style:none; margin:0; padding:0;"><li style="margin-bottom:8px; padding-bottom:8px; border-bottom:1px solid #1a1a2e;"><a href="http://localhost:1313/industry/am-production-wins-2026/" style="color:#8A94A0; text-decoration:none; font-size:12px; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Where Additive Manufacturing …</a><span style="color:#4a5568; font-size:11px;">Jun 2026</span></li><li style="margin-bottom:8px; padding-bottom:8px; border-bottom:1px solid #1a1a2e;"><a href="http://localhost:1313/insights/post-processing-fdm-sla/" style="color:#8A94A0; text-decoration:none; font-size:12px; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Post-Processing for FDM and …</a><span style="color:#4a5568; font-size:11px;">Jun 2026</span></li><li style="margin-bottom:8px; padding-bottom:8px; border-bottom:1px solid #1a1a2e;"><a href="http://localhost:1313/insights/slicer-settings-that-matter/" style="color:#8A94A0; text-decoration:none; font-size:12px; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Slicer Settings That …</a><span style="color:#4a5568; font-size:11px;">Jun 2026</span></li><li style="margin-bottom:8px; padding-bottom:8px; border-bottom:1px solid #1a1a2e;"><a href="http://localhost:1313/research/the-bimetallic-problem-almost-nobody-is-printing/" style="color:#8A94A0; text-decoration:none; font-size:12px; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">The Bimetallic Problem …</a><span style="color:#4a5568; font-size:11px;">Jun 2026</span></li><li style="margin-bottom:8px; padding-bottom:8px; border-bottom:1px solid #1a1a2e;"><a href="http://localhost:1313/insights/design-for-additive-manufacturing-what-actually-changes-when-you-print/" style="color:#8A94A0; text-decoration:none; font-size:12px; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Design for Additive …</a><span style="color:#4a5568; font-size:11px;">Jun 2026</span></li></ul></div></div><div class="aam-footer-bottom"><span style="font-size:12px; color:#8A94A0;">&copy; 2026 AppliedAM. All rights reserved.</span><div style="display:flex; gap:24px; flex-wrap:wrap;"><a href="/about/" style="color:#8A94A0; text-decoration:none; font-size:12px;">About</a><a href="/submission-form/" target="_blank" rel="noopener" style="color:#8A94A0; text-decoration:none; font-size:12px;">Submit</a><a href="/contact/" target="_blank" style="color:#8A94A0; text-decoration:none; font-size:12px;">Join Us</a><a href="/privacy-terms/" style="color:#8A94A0; text-decoration:none; font-size:12px;">Privacy &amp; Terms</a></div></div></footer><script>
+document.addEventListener('click', function(e) {
+  var trigger = e.target.closest('.aam-share-trigger');
+  if (trigger) {
+    e.preventDefault();
+    e.stopPropagation();
+    var share = trigger.closest('.aam-card-share');
+    var isOpen = share.classList.contains('open');
+    document.querySelectorAll('.aam-card-share.open').forEach(function(el) { el.classList.remove('open'); });
+    if (!isOpen) share.classList.add('open');
+    return;
+  }
+  document.querySelectorAll('.aam-card-share.open').forEach(function(el) { el.classList.remove('open'); });
+});
+</script></body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

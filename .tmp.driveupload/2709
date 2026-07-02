@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>About AppliedAM | AppliedAM</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="AppliedAM is a publication platform for the additive manufacturing community — where real work gets documented, shared, and recognized.">
+    <meta name="generator" content="Hugo 0.163.0">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    <meta name="author" content="AppliedAM Editorial Team">
+    
+
+    <link rel="stylesheet" href="/ananke/css/main.css">
+    <script>
+  (function () {
+    "use strict";
+
+    
+    
+    function revealButtons() {
+      var buttons = document.querySelectorAll(".code-block .code-copy[hidden]");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].hidden = false;
+      }
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", revealButtons);
+    } else {
+      revealButtons();
+    }
+
+    function flash(button) {
+      var label = button.querySelector(".code-copy-label");
+      var previous = label ? label.textContent : null;
+      button.classList.add("is-copied");
+      if (label) label.textContent = "Copied";
+      window.setTimeout(function () {
+        button.classList.remove("is-copied");
+        if (label && previous !== null) label.textContent = previous;
+      }, 2000);
+    }
+
+    function legacyCopy(text) {
+      var area = document.createElement("textarea");
+      area.value = text;
+      area.setAttribute("readonly", "");
+      area.style.position = "absolute";
+      area.style.left = "-9999px";
+      document.body.appendChild(area);
+      area.select();
+      var ok = false;
+      try {
+        ok = document.execCommand("copy");
+      } catch (e) {
+        ok = false;
+      }
+      document.body.removeChild(area);
+      return ok;
+    }
+
+    function copyFrom(button) {
+      var container = button.closest(".code-block");
+      if (!container) return;
+      var pre = container.querySelector("pre");
+      if (!pre) return;
+      var source = pre.querySelector("code") || pre;
+      var text = source.innerText;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(
+          function () { flash(button); },
+          function () { if (legacyCopy(text)) flash(button); }
+        );
+      } else if (legacyCopy(text)) {
+        flash(button);
+      }
+    }
+
+    document.addEventListener("click", function (event) {
+      var button = event.target.closest(".code-copy");
+      if (button) copyFrom(button);
+    });
+  })();
+</script>
+
+    
+      
+
+    
+
+    
+    
+      <link href="/about/index.xml" rel="alternate" type="application/rss+xml" title="AppliedAM" />
+      <link href="/about/index.xml" rel="feed" type="application/rss+xml" title="AppliedAM" />
+      
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/about/">
+    
+
+    
+    
+    <meta property="og:title" content="About AppliedAM | AppliedAM">
+<meta property="og:description" content="AppliedAM is a publication platform for the additive manufacturing community — where real work gets documented, shared, and recognized.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://localhost:1313/about/">
+<meta property="og:site_name" content="AppliedAM">
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About AppliedAM">
+<meta name="twitter:description" content="AppliedAM is a publication platform for the additive manufacturing community — where real work gets documented, shared, and recognized.">
+
+	<meta itemprop="name" content="About AppliedAM">
+	<meta itemprop="description" content="AppliedAM is a publication platform for the additive manufacturing community — where real work gets documented, shared, and recognized.">
+	<meta itemprop="dateModified" content="2026-06-18T21:53:11+04:00">
+	<meta itemprop="wordCount" content="297">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="About AppliedAM">
+	<meta name="twitter:description" content="AppliedAM is a publication platform for the additive manufacturing community — where real work gets documented, shared, and recognized.">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="/images/logo_triangle.png">
+<link rel="shortcut icon" type="image/png" href="/images/logo_triangle.png">
+<link rel="apple-touch-icon" href="/images/logo_triangle.png">
+
+  </head><body class="ma0 avenir bg-near-white development is-section is-section"><header class="aam-topnav">
+  <div class="aam-topnav-inner">
+    <a href="http://localhost:1313/" class="aam-logo-link">
+      <img src="/images/logo.png" alt="AppliedAM" style="height:72px; width:auto; display:block;">
+    </a>
+    <input type="checkbox" id="aam-menu-toggle" class="aam-menu-toggle-input">
+    <nav class="aam-nav-links" id="aam-nav-links">
+      
+    </nav>
+    <div class="aam-topnav-right">
+      <label for="aam-menu-toggle" class="aam-hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <a href="/submission-form/" class="aam-nav-cta" target="_blank" rel="noopener">Submit</a>
+    </div>
+  </div>
+</header><main class="pb7" role="main">
+<div class="mw8 center ph3 pv5">
+  <h1 class="f2 fw7 mb4" style="color:#0B3D91; font-family:'Space Grotesk',sans-serif;">About AppliedAM</h1>
+  <div class="about-content lh-copy f4" style="font-family:'Inter',sans-serif; color:#2F3A4A; max-width:720px;">
+    <h2 id="what-we-are">What We Are</h2>
+<p>AppliedAM is an independent publication for the additive manufacturing community. We document real work: research breakthroughs, industrial applications, and practitioner projects, presented with the credibility and permanence of a journal.</p>
+<p>We are not a news feed, a product review site, or a social platform. We are a record of what people are actually building, printing, and discovering with additive manufacturing.</p>
+<h2 id="why-we-exist">Why We Exist</h2>
+<p>Additive manufacturing is producing genuinely novel work at every level: from university labs to factory floors to independent makers. Most of that work goes undocumented, or lives only in a LinkedIn post that disappears in two weeks.</p>
+<p>AppliedAM exists to fix that. We give inventors, manufacturers, and practitioners a place to publish work that can be cited, shared, and found. Work that carries professional weight because it appears somewhere with editorial standards.</p>
+<h2 id="who-we-publish">Who We Publish</h2>
+<p>We cover three communities:</p>
+<p><strong>Inventors and Researchers.</strong> People pushing the boundaries of what AM can do: new materials, new processes, new geometries. If you are working on the frontier of what is technically possible, this is your venue.</p>
+<p><strong>Manufacturers.</strong> Companies integrating AM into production at scale. Supply chain innovation, cost reduction, part consolidation, consumer product development. The business reality of additive, not just the possibility.</p>
+<p><strong>Practitioners.</strong> Engineers, students, and independent builders applying AM to specific problems. A topology-optimized drone frame. A patient-specific medical device prototype. A one-off jig that cut assembly time in half. If you built something real and documented it, it belongs here.</p>
+<h2 id="editorial-standards">Editorial Standards</h2>
+<p>Every piece published on AppliedAM is reviewed for technical accuracy, completeness, and relevance to the AM community. We do not publish promotional content, vendor press releases, or speculative pieces without factual grounding.</p>
+<p>We aim for the tone of a technical journal, not a trade magazine. Credibility is the product.</p>
+
+  </div>
+
+  <div style="margin-top:3rem; padding:2rem; background:#f3f6fb; border-left:4px solid #1E6FD9; max-width:720px;">
+    <h2 style="font-family:'Space Grotesk',sans-serif; color:#0B3D91; margin-top:0;">Share Your Work</h2>
+    <p style="font-family:'Inter',sans-serif; color:#2F3A4A;">
+      AppliedAM is built on real contributions from the AM community. Whether you are a researcher with new findings, a manufacturer with a production story, or a practitioner with a completed project — we want to hear from you.
+    </p>
+    <p style="font-family:'Inter',sans-serif; color:#2F3A4A;">
+      Submissions are reviewed for technical merit and published with full attribution. Getting featured on AppliedAM is free, permanent, and citable.
+    </p>
+    <a href="/submission-form/" style="display:inline-block; margin-top:0.5rem; padding:0.75rem 1.75rem; background:#0077FF; color:#fff; font-family:'Space Grotesk',sans-serif; font-weight:600; text-decoration:none; border-radius:4px;">
+      Submit Your Work
+    </a>
+  </div>
+</div>
+</main><style>
+.aam-footer-grid {
+  max-width:1200px; margin:0 auto; padding:40px 2rem 32px;
+  display:grid; grid-template-columns:1.4fr 0.8fr 0.8fr 0.8fr 1.4fr;
+  gap:36px; align-items:start; text-align:left;
+}
+@media (max-width: 900px) {
+  .aam-footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .aam-footer-grid { grid-template-columns: 1fr; }
+}
+.aam-footer-bottom {
+  max-width:1200px; margin:0 auto; padding:16px 2rem;
+  border-top:1px solid #1A1A2E; display:flex;
+  justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+}
+</style>
+<footer style="background:#0D0D1A; border-top:1px solid rgba(255,255,255,0.07); font-family:Inter,Segoe UI,Arial,sans-serif; overflow-x:hidden;"><div class="aam-footer-grid"><div style="padding-left:0;"><a href="/" style="text-decoration:none; display:inline-block; margin-bottom:8px;"><img src="/images/logo_full.png" alt="AppliedAM" style="height:80px; width:auto; display:block;"></a><p style="font-size:13px; line-height:1.6; color:#8A94A0; margin:0 0 5px; max-width:220px;">The publication for additive manufacturing.</p><p style="font-size:12px; line-height:1.6; color:#636e7b; margin:0 0 16px; max-width:220px;">Connecting inventors, manufacturers, and practitioners through credible, citable content.</p><div style="display:flex; gap:8px;"><a href="https://www.linkedin.com/newsletters/applied-am-7289954432195174400/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border:1px solid #2F3A4A; border-radius:6px; color:#8A94A0; font-size:12px; font-weight:700; text-decoration:none;">in</a><a href="https://x.com" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border:1px solid #2F3A4A; border-radius:6px; color:#8A94A0; font-size:12px; font-weight:700; text-decoration:none;">X</a></div><div style="margin-top:20px; max-width:240px;"><p style="font-size:11px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#ffffff; margin:0 0 8px;">Stay Updated</p><p style="font-size:12px; color:#636e7b; margin:0 0 10px; line-height:1.5;">New articles from the AM community, weekly.</p><input type="email" placeholder="your@email.com" style="width:100%; padding:8px 10px; font-size:13px; border:1px solid #2F3A4A; border-radius:6px; background:#0D0D1A; color:#fff; margin-bottom:8px; box-sizing:border-box;"><button style="background:#0077ff; color:#fff; border:none; padding:8px 16px; border-radius:6px; font-size:13px; font-weight:600; cursor:pointer; width:100%;">Subscribe</button></div></div><div><p style="font-family:Space Grotesk,Segoe UI,Arial,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.09em; text-transform:uppercase; color:#ffffff; margin:0 0 12px;">Content</p><ul style="list-style:none; margin:0; padding:0;"><li style="margin-bottom:8px;"><a href="/research/" style="color:#8A94A0; text-decoration:none; font-size:13px;">Research</a></li><li style="margin-bottom:8px;"><a href="/industry/" style="color:#8A94A0; text-decoration:none; font-size:13px;">Industry</a></li><li style="margin-bottom:8px;"><a href="/case-studies/" style="color:#8A94A0; text-decoration:none; font-size:13px;">Case Studies</a></li><li style="margin-bottom:8px;"><a href="/insights/" style="color:#8A94A0; text-decoration:none; font-size:13px;">Insights</a></li></ul></div><div><p style="font-family:Space Grotesk,Segoe UI,Arial,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.09em; text-transform:uppercase; color:#ffffff; margin:0 0 12px;">Contribute</p><ul style="list-style:none; margin:0; padding:0;"><li style="margin-bottom:8px;"><a href="/submission-form/" target="_blank" rel="noopener" style="color:#8A94A0; text-decoration:none; font-size:13px;">Submit Your Work</a></li><li style="margin-bottom:8px;"><a href="/contact/" target="_blank" style="color:#8A94A0; text-decoration:none; font-size:13px;">Write for Us</a></li></ul></div><div><p style="font-family:Space Grotesk,Segoe UI,Arial,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.09em; text-transform:uppercase; color:#ffffff; margin:0 0 12px;">About</p><ul style="list-style:none; margin:0; padding:0;"><li style="margin-bottom:8px;"><a href="/about/" style="color:#8A94A0; text-decoration:none; font-size:13px;">About AppliedAM</a></li><li style="margin-bottom:8px;"><a href="/contact/" target="_blank" style="color:#8A94A0; text-decoration:none; font-size:13px;">Contact Us</a></li></ul></div><div><p style="font-family:Space Grotesk,Segoe UI,Arial,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.09em; text-transform:uppercase; color:#ffffff; margin:0 0 12px;">Latest Articles</p><ul style="list-style:none; margin:0; padding:0;"><li style="margin-bottom:8px; padding-bottom:8px; border-bottom:1px solid #1a1a2e;"><a href="http://localhost:1313/industry/am-production-wins-2026/" style="color:#8A94A0; text-decoration:none; font-size:12px; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Where Additive Manufacturing …</a><span style="color:#4a5568; font-size:11px;">Jun 2026</span></li><li style="margin-bottom:8px; padding-bottom:8px; border-bottom:1px solid #1a1a2e;"><a href="http://localhost:1313/insights/post-processing-fdm-sla/" style="color:#8A94A0; text-decoration:none; font-size:12px; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Post-Processing for FDM and …</a><span style="color:#4a5568; font-size:11px;">Jun 2026</span></li><li style="margin-bottom:8px; padding-bottom:8px; border-bottom:1px solid #1a1a2e;"><a href="http://localhost:1313/insights/slicer-settings-that-matter/" style="color:#8A94A0; text-decoration:none; font-size:12px; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Slicer Settings That …</a><span style="color:#4a5568; font-size:11px;">Jun 2026</span></li><li style="margin-bottom:8px; padding-bottom:8px; border-bottom:1px solid #1a1a2e;"><a href="http://localhost:1313/research/the-bimetallic-problem-almost-nobody-is-printing/" style="color:#8A94A0; text-decoration:none; font-size:12px; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">The Bimetallic Problem …</a><span style="color:#4a5568; font-size:11px;">Jun 2026</span></li><li style="margin-bottom:8px; padding-bottom:8px; border-bottom:1px solid #1a1a2e;"><a href="http://localhost:1313/insights/design-for-additive-manufacturing-what-actually-changes-when-you-print/" style="color:#8A94A0; text-decoration:none; font-size:12px; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Design for Additive …</a><span style="color:#4a5568; font-size:11px;">Jun 2026</span></li></ul></div></div><div class="aam-footer-bottom"><span style="font-size:12px; color:#8A94A0;">&copy; 2026 AppliedAM. All rights reserved.</span><div style="display:flex; gap:24px; flex-wrap:wrap;"><a href="/about/" style="color:#8A94A0; text-decoration:none; font-size:12px;">About</a><a href="/submission-form/" target="_blank" rel="noopener" style="color:#8A94A0; text-decoration:none; font-size:12px;">Submit</a><a href="/contact/" target="_blank" style="color:#8A94A0; text-decoration:none; font-size:12px;">Join Us</a><a href="/privacy-terms/" style="color:#8A94A0; text-decoration:none; font-size:12px;">Privacy &amp; Terms</a></div></div></footer><script>
+document.addEventListener('click', function(e) {
+  var trigger = e.target.closest('.aam-share-trigger');
+  if (trigger) {
+    e.preventDefault();
+    e.stopPropagation();
+    var share = trigger.closest('.aam-card-share');
+    var isOpen = share.classList.contains('open');
+    document.querySelectorAll('.aam-card-share.open').forEach(function(el) { el.classList.remove('open'); });
+    if (!isOpen) share.classList.add('open');
+    return;
+  }
+  document.querySelectorAll('.aam-card-share.open').forEach(function(el) { el.classList.remove('open'); });
+});
+</script></body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

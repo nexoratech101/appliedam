@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Privacy &amp; Terms | AppliedAM</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="How AppliedAM works, what we do with your information, and the terms of using this site.">
+    <meta name="generator" content="Hugo 0.163.0">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    <meta name="author" content="AppliedAM Editorial Team">
+    
+
+    <link rel="stylesheet" href="/ananke/css/main.css">
+    <script>
+  (function () {
+    "use strict";
+
+    
+    
+    function revealButtons() {
+      var buttons = document.querySelectorAll(".code-block .code-copy[hidden]");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].hidden = false;
+      }
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", revealButtons);
+    } else {
+      revealButtons();
+    }
+
+    function flash(button) {
+      var label = button.querySelector(".code-copy-label");
+      var previous = label ? label.textContent : null;
+      button.classList.add("is-copied");
+      if (label) label.textContent = "Copied";
+      window.setTimeout(function () {
+        button.classList.remove("is-copied");
+        if (label && previous !== null) label.textContent = previous;
+      }, 2000);
+    }
+
+    function legacyCopy(text) {
+      var area = document.createElement("textarea");
+      area.value = text;
+      area.setAttribute("readonly", "");
+      area.style.position = "absolute";
+      area.style.left = "-9999px";
+      document.body.appendChild(area);
+      area.select();
+      var ok = false;
+      try {
+        ok = document.execCommand("copy");
+      } catch (e) {
+        ok = false;
+      }
+      document.body.removeChild(area);
+      return ok;
+    }
+
+    function copyFrom(button) {
+      var container = button.closest(".code-block");
+      if (!container) return;
+      var pre = container.querySelector("pre");
+      if (!pre) return;
+      var source = pre.querySelector("code") || pre;
+      var text = source.innerText;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(
+          function () { flash(button); },
+          function () { if (legacyCopy(text)) flash(button); }
+        );
+      } else if (legacyCopy(text)) {
+        flash(button);
+      }
+    }
+
+    document.addEventListener("click", function (event) {
+      var button = event.target.closest(".code-copy");
+      if (button) copyFrom(button);
+    });
+  })();
+</script>
+
+    
+      
+
+    
+
+    
+    
+      <link href="/privacy-terms/index.xml" rel="alternate" type="application/rss+xml" title="AppliedAM" />
+      <link href="/privacy-terms/index.xml" rel="feed" type="application/rss+xml" title="AppliedAM" />
+      
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/privacy-terms/">
+    
+
+    
+    
+    <meta property="og:title" content="Privacy &amp; Terms | AppliedAM">
+<meta property="og:description" content="How AppliedAM works, what we do with your information, and the terms of using this site.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://localhost:1313/privacy-terms/">
+<meta property="og:site_name" content="AppliedAM">
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Privacy &amp; Terms">
+<meta name="twitter:description" content="How AppliedAM works, what we do with your information, and the terms of using this site.">
+
+	<meta itemprop="name" content="Privacy & Terms">
+	<meta itemprop="description" content="How AppliedAM works, what we do with your information, and the terms of using this site.">
+	<meta itemprop="datePublished" content="2026-06-18T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2026-06-18T23:12:30+04:00">
+	<meta itemprop="wordCount" content="464">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Privacy & Terms">
+	<meta name="twitter:description" content="How AppliedAM works, what we do with your information, and the terms of using this site.">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="/images/logo_triangle.png">
+<link rel="shortcut icon" type="image/png" href="/images/logo_triangle.png">
+<link rel="apple-touch-icon" href="/images/logo_triangle.png">
+
+  </head><body class="ma0 avenir bg-near-white development is-section is-section"><header class="aam-topnav">
+  <div class="aam-topnav-inner">
+    <a href="http://localhost:1313/" class="aam-logo-link">
+      <img src="/images/logo.png" alt="AppliedAM" style="height:72px; width:auto; display:block;">
+    </a>
+    <input type="checkbox" id="aam-menu-toggle" class="aam-menu-toggle-input">
+    <nav class="aam-nav-links" id="aam-nav-links">
+      
+    </nav>
+    <div class="aam-topnav-right">
+      <label for="aam-menu-toggle" class="aam-hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <a href="/submission-form/" class="aam-nav-cta" target="_blank" rel="noopener">Submit</a>
+    </div>
+  </div>
+</header><main class="pb7" role="main"><div style="max-width:760px; margin:0 auto; padding:3rem 2rem; font-family:Inter,sans-serif; line-height:1.8;"><p><em>Last updated: June 2026</em></p>
+<p>AppliedAM is a publication platform for the additive manufacturing community. This page explains how the site works, what we do with your information, and what you agree to by using it. We&rsquo;ve kept it plain and short on purpose.</p>
+<hr>
+<h2 id="who-we-are">Who We Are</h2>
+<p>AppliedAM (<code>appliedam.net</code>) is an independent publication covering additive manufacturing — research, industry applications, and practitioner case studies. We publish submitted work and original editorial content for the AM community.</p>
+<hr>
+<h2 id="information-we-collect">Information We Collect</h2>
+<p>We keep this minimal by design.</p>
+<p><strong>When you contact or submit to us</strong>, you send us your name, email address, and whatever content you include in your message. We use that information only to respond to you and, if your submission is accepted, to publish your work.</p>
+<p><strong>When you visit the site</strong>, standard server logs may record your IP address and browser type. We don&rsquo;t use tracking cookies, and we don&rsquo;t run advertising networks or behavioural analytics.</p>
+<p><strong>Google Fonts</strong> — our site loads fonts (Space Grotesk, Inter) from Google&rsquo;s servers. This means your browser makes a request to Google when you visit. We have no control over what Google does with that data; their privacy policy applies.</p>
+<p>We don&rsquo;t sell, share, or trade your information with anyone.</p>
+<hr>
+<h2 id="submissions--your-content">Submissions &amp; Your Content</h2>
+<p>When you submit work to AppliedAM — whether through <code>/submit/</code> or <code>/write-for-us/</code> — here&rsquo;s what you&rsquo;re agreeing to:</p>
+<ul>
+<li><strong>You own your work.</strong> Submitting to us doesn&rsquo;t transfer your copyright. You keep full ownership of everything you submit.</li>
+<li><strong>You&rsquo;re giving us permission to publish it.</strong> By submitting, you grant AppliedAM a non-exclusive, royalty-free licence to display, publish, and promote your work on this site and in connection with AppliedAM&rsquo;s presence.</li>
+<li><strong>You can publish it elsewhere.</strong> We don&rsquo;t claim exclusivity. You&rsquo;re free to post your work on your own site, in a journal, or anywhere else.</li>
+<li><strong>Your work is yours to submit.</strong> By sending it to us, you&rsquo;re confirming you have the right to share it - it&rsquo;s your original work, or you have permission from whoever owns it.</li>
+</ul>
+<p>If you ever want your content removed, contact us at <a href="mailto:appliedam101@gmail.com">appliedam101@gmail.com</a> and we&rsquo;ll handle it promptly.</p>
+<hr>
+<h2 id="using-this-site">Using This Site</h2>
+<p>A few basic rules for using AppliedAM:</p>
+<ul>
+<li>The content on this site is for information and professional reference. It&rsquo;s not engineering advice - always apply your own judgment and consult qualified professionals for your specific situation.</li>
+<li>Don&rsquo;t scrape, copy, or republish our editorial content without permission.</li>
+<li>Links to external sites are provided for reference. We&rsquo;re not responsible for what&rsquo;s on them.</li>
+</ul>
+<hr>
+<h2 id="changes-to-this-page">Changes to This Page</h2>
+<p>If we make meaningful changes to how we handle your data or the terms of submission, we&rsquo;ll update the date at the top of this page. Nothing here is designed to surprise you.</p>
+<hr>
+<h2 id="contact">Contact</h2>
+<p>Questions about anything on this page? Email us at <a href="mailto:appliedam101@gmail.com">appliedam101@gmail.com</a>.</p>
+</div></main><style>
+.aam-footer-grid {
+  max-width:1200px; margin:0 auto; padding:40px 2rem 32px;
+  display:grid; grid-template-columns:1.4fr 0.8fr 0.8fr 0.8fr 1.4fr;
+  gap:36px; align-items:start; text-align:left;
+}
+@media (max-width: 900px) {
+  .aam-footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .aam-footer-grid { grid-template-columns: 1fr; }
+}
+.aam-footer-bottom {
+  max-width:1200px; margin:0 auto; padding:16px 2rem;
+  border-top:1px solid #1A1A2E; display:flex;
+  justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+}
+</style>
+<footer style="background:#0D0D1A; border-top:1px solid rgba(255,255,255,0.07); font-family:Inter,Segoe UI,Arial,sans-serif; overflow-x:hidden;"><div class="aam-footer-grid"><div style="padding-left:0;"><a href="/" style="text-decoration:none; display:inline-block; margin-bottom:8px;"><img src="/images/logo_full.png" alt="AppliedAM" style="height:80px; width:auto; display:block;"></a><p style="font-size:13px; line-height:1.6; color:#8A94A0; margin:0 0 5px; max-width:220px;">The publication for additive manufacturing.</p><p style="font-size:12px; line-height:1.6; color:#636e7b; margin:0 0 16px; max-width:220px;">Connecting inventors, manufacturers, and practitioners through credible, citable content.</p><div style="display:flex; gap:8px;"><a href="https://www.linkedin.com/newsletters/applied-am-7289954432195174400/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border:1px solid #2F3A4A; border-radius:6px; color:#8A94A0; font-size:12px; font-weight:700; text-decoration:none;">in</a><a href="https://x.com" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border:1px solid #2F3A4A; border-radius:6px; color:#8A94A0; font-size:12px; font-weight:700; text-decoration:none;">X</a></div><div style="margin-top:20px; max-width:240px;"><p style="font-size:11px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#ffffff; margin:0 0 8px;">Stay Updated</p><p style="font-size:12px; color:#636e7b; margin:0 0 10px; line-height:1.5;">New articles from the AM community, weekly.</p><input type="email" placeholder="your@email.com" style="width:100%; padding:8px 10px; font-size:13px; border:1px solid #2F3A4A; border-radius:6px; background:#0D0D1A; color:#fff; margin-bottom:8px; box-sizing:border-box;"><button style="background:#0077ff; color:#fff; border:none; padding:8px 16px; border-radius:6px; font-size:13px; font-weight:600; cursor:pointer; width:100%;">Subscribe</button></div></div><div><p style="font-family:Space Grotesk,Segoe UI,Arial,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.09em; text-transform:uppercase; color:#ffffff; margin:0 0 12px;">Content</p><ul style="list-style:none; margin:0; padding:0;"><li style="margin-bottom:8px;"><a href="/research/" style="color:#8A94A0; text-decoration:none; font-size:13px;">Research</a></li><li style="margin-bottom:8px;"><a href="/industry/" style="color:#8A94A0; text-decoration:none; font-size:13px;">Industry</a></li><li style="margin-bottom:8px;"><a href="/case-studies/" style="color:#8A94A0; text-decoration:none; font-size:13px;">Case Studies</a></li><li style="margin-bottom:8px;"><a href="/insights/" style="color:#8A94A0; text-decoration:none; font-size:13px;">Insights</a></li></ul></div><div><p style="font-family:Space Grotesk,Segoe UI,Arial,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.09em; text-transform:uppercase; color:#ffffff; margin:0 0 12px;">Contribute</p><ul style="list-style:none; margin:0; padding:0;"><li style="margin-bottom:8px;"><a href="/submission-form/" target="_blank" rel="noopener" style="color:#8A94A0; text-decoration:none; font-size:13px;">Submit Your Work</a></li><li style="margin-bottom:8px;"><a href="/contact/" target="_blank" style="color:#8A94A0; text-decoration:none; font-size:13px;">Write for Us</a></li></ul></div><div><p style="font-family:Space Grotesk,Segoe UI,Arial,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.09em; text-transform:uppercase; color:#ffffff; margin:0 0 12px;">About</p><ul style="list-style:none; margin:0; padding:0;"><li style="margin-bottom:8px;"><a href="/about/" style="color:#8A94A0; text-decoration:none; font-size:13px;">About AppliedAM</a></li><li style="margin-bottom:8px;"><a href="/contact/" target="_blank" style="color:#8A94A0; text-decoration:none; font-size:13px;">Contact Us</a></li></ul></div><div><p style="font-family:Space Grotesk,Segoe UI,Arial,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.09em; text-transform:uppercase; color:#ffffff; margin:0 0 12px;">Latest Articles</p><ul style="list-style:none; margin:0; padding:0;"><li style="margin-bottom:8px; padding-bottom:8px; border-bottom:1px solid #1a1a2e;"><a href="http://localhost:1313/industry/am-production-wins-2026/" style="color:#8A94A0; text-decoration:none; font-size:12px; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Where Additive Manufacturing …</a><span style="color:#4a5568; font-size:11px;">Jun 2026</span></li><li style="margin-bottom:8px; padding-bottom:8px; border-bottom:1px solid #1a1a2e;"><a href="http://localhost:1313/insights/post-processing-fdm-sla/" style="color:#8A94A0; text-decoration:none; font-size:12px; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Post-Processing for FDM and …</a><span style="color:#4a5568; font-size:11px;">Jun 2026</span></li><li style="margin-bottom:8px; padding-bottom:8px; border-bottom:1px solid #1a1a2e;"><a href="http://localhost:1313/insights/slicer-settings-that-matter/" style="color:#8A94A0; text-decoration:none; font-size:12px; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Slicer Settings That …</a><span style="color:#4a5568; font-size:11px;">Jun 2026</span></li><li style="margin-bottom:8px; padding-bottom:8px; border-bottom:1px solid #1a1a2e;"><a href="http://localhost:1313/research/the-bimetallic-problem-almost-nobody-is-printing/" style="color:#8A94A0; text-decoration:none; font-size:12px; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">The Bimetallic Problem …</a><span style="color:#4a5568; font-size:11px;">Jun 2026</span></li><li style="margin-bottom:8px; padding-bottom:8px; border-bottom:1px solid #1a1a2e;"><a href="http://localhost:1313/insights/design-for-additive-manufacturing-what-actually-changes-when-you-print/" style="color:#8A94A0; text-decoration:none; font-size:12px; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Design for Additive …</a><span style="color:#4a5568; font-size:11px;">Jun 2026</span></li></ul></div></div><div class="aam-footer-bottom"><span style="font-size:12px; color:#8A94A0;">&copy; 2026 AppliedAM. All rights reserved.</span><div style="display:flex; gap:24px; flex-wrap:wrap;"><a href="/about/" style="color:#8A94A0; text-decoration:none; font-size:12px;">About</a><a href="/submission-form/" target="_blank" rel="noopener" style="color:#8A94A0; text-decoration:none; font-size:12px;">Submit</a><a href="/contact/" target="_blank" style="color:#8A94A0; text-decoration:none; font-size:12px;">Join Us</a><a href="/privacy-terms/" style="color:#8A94A0; text-decoration:none; font-size:12px;">Privacy &amp; Terms</a></div></div></footer><script>
+document.addEventListener('click', function(e) {
+  var trigger = e.target.closest('.aam-share-trigger');
+  if (trigger) {
+    e.preventDefault();
+    e.stopPropagation();
+    var share = trigger.closest('.aam-card-share');
+    var isOpen = share.classList.contains('open');
+    document.querySelectorAll('.aam-card-share.open').forEach(function(el) { el.classList.remove('open'); });
+    if (!isOpen) share.classList.add('open');
+    return;
+  }
+  document.querySelectorAll('.aam-card-share.open').forEach(function(el) { el.classList.remove('open'); });
+});
+</script></body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
