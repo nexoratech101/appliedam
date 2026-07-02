@@ -1,5 +1,13 @@
 {{ define "main" }}
 
+<nav class="aam-breadcrumb" aria-label="Breadcrumb">
+  <div class="aam-breadcrumb-inner">
+    <a href="/">Home</a>
+    <span class="aam-breadcrumb-sep">/</span>
+    <span class="aam-breadcrumb-current">{{ .Title }}</span>
+  </div>
+</nav>
+
 <div class="aam-list-header">
   <div class="aam-container">
     <h1 class="aam-list-title">{{ .Title }}</h1>
