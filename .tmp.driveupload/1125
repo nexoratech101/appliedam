@@ -1,0 +1,16 @@
+baseURL = "https://appliedam.net/"
+locale = "en-us"
+title = "AppliedAM"
+theme = "ananke"
+paginate = 9
+enableEmoji = true
+enableGitInfo = true
+
+[params]
+  description = "AppliedAM is an independent publication for the additive manufacturing community - research, industry applications, and real-world case studies."
+  author = "AppliedAM Editorial Team"
+
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"
