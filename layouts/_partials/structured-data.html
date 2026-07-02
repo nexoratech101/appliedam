@@ -1,0 +1,21 @@
+{{ if .IsPage }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ .Title | jsonify | safeJS }},
+  "description": {{ .Description | jsonify | safeJS }},
+  "datePublished": {{ .Date.Format "2006-01-02" | jsonify | safeJS }},
+  "url": {{ .Permalink | jsonify | safeJS }},
+  "publisher": {
+    "@type": "Organization",
+    "name": "AppliedAM",
+    "url": "https://appliedam.net"
+  },
+  "author": {
+    "@type": "Person",
+    "name": {{ if .Params.author }}{{ if reflect.IsMap .Params.author }}{{ .Params.author.name | jsonify | safeJS }}{{ else }}{{ .Params.author | jsonify | safeJS }}{{ end }}{{ else }}"AppliedAM Editorial Team"{{ end }}
+  }
+}
+</script>
+{{ end }}
