@@ -91,6 +91,7 @@ header.w-100 { display: none !important; }
   justify-content: space-between;
 }
 .aam-logo-link { text-decoration: none; display: flex; align-items: center; }
+.aam-logo-img { height: clamp(40px, 5vw + 24px, 72px); width: auto; display: block; }
 .aam-nav-links { display: flex; align-items: center; gap: 0.25rem; }
 .aam-nav-link {
   color: rgba(255,255,255,0.75);
