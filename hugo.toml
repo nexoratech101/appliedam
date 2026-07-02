@@ -10,6 +10,76 @@ enableGitInfo = true
   author = "AppliedAM Editorial Team"
   [params.ananke]
     custom_css = ["css/custom.css"]
+
+[menu]
+
+  [[menu.main]]
+    name   = "Home"
+    url    = "/"
+    weight = 1
+
+  [[menu.main]]
+    name   = "Research"
+    url    = "/research/"
+    weight = 2
+
+  [[menu.main]]
+    name   = "Industry"
+    url    = "/industry/"
+    weight = 3
+
+  [[menu.main]]
+    name   = "Case Studies"
+    url    = "/case-studies/"
+    weight = 4
+
+  [[menu.main]]
+    name   = "Insights"
+    url    = "/insights/"
+    weight = 5
+
+  [[menu.main]]
+    name   = "Submit"
+    url    = "/submission-form/"
+    weight = 6
+
+  [[menu.main]]
+    name   = "About"
+    url    = "/about/"
+    weight = 7
+
+  [[menu.footer]]
+    name   = "Write for Us"
+    url    = "/write-for-us/"
+    weight = 1
+
+  [[menu.footer]]
+    name   = "About"
+    url    = "/about/"
+    weight = 2
+
+  [[menu.footer]]
+    name   = "Submit"
+    url    = "/submission-form/"
+    weight = 3
+
+[social]
+  twitter  = "appliedam"
+  github   = "nexoratech101/appliedam"
+  linkedin = "appliedam"
+
+[taxonomies]
+  tag      = "tags"
+  category = "categories"
+  author   = "authors"
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.highlight]
+    style = "monokai"
+    lineNos = true
+
 [sitemap]
   changefreq = "weekly"
   priority = 0.5
