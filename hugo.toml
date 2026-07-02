@@ -5,11 +5,11 @@ theme = "ananke"
 paginate = 9
 enableEmoji = true
 enableGitInfo = true
-
 [params]
   description = "AppliedAM is an independent publication for the additive manufacturing community - research, industry applications, and real-world case studies."
   author = "AppliedAM Editorial Team"
-
+  [params.ananke]
+    custom_css = ["css/custom.css"]
 [sitemap]
   changefreq = "weekly"
   priority = 0.5
