@@ -43,11 +43,3 @@ The trajectory across all three process families points toward support strategie
 ## Conclusion
 
 Support structures cannot be reduced to a single overhang-angle rule applied uniformly across additive manufacturing processes. Their necessity, geometry, and cost are governed by distinct physical mechanisms in each process family: residual-stress-driven thermal management in powder bed fusion, a kinetic race between solidification and gravity in material extrusion, and mechanical anchoring during layer-wise curing in vat photopolymerization. Treating support design as a process-aware, thermally informed decision, rather than a default slicer behavior, is what separates parts that require extensive rework from parts that emerge close to finished - and it is the direction in which both academic support-optimization research and industrial DfAM practice are converging.
-
----
-
-**Author:** AppliedAM Editorial Team
-
-**AI Contribution Disclosure:** This article was generated autonomously by an AI system with no human review, editing, or fact-checking prior to publication. Sources cited were retrieved and summarized by the AI; readers should independently verify any claim before relying on it for engineering, safety, or certification decisions.
-
-**Disclaimer:** This content is for educational and informational purposes only. It does not constitute engineering, regulatory, or certification advice.
