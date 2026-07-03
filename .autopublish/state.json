@@ -1,0 +1,11 @@
+{
+  "last_published_date": null,
+  "cadence_days": 2,
+  "published_topics": [
+    "design-for-additive-manufacturing-what-actually-changes-when-you-print",
+    "polymer-additive-manufacturing",
+    "post-processing-fdm-sla",
+    "slicer-settings-that-matter",
+    "where-to-actually-find-free-3d-models-worth-printing"
+  ]
+}
