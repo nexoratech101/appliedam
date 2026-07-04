@@ -2,7 +2,7 @@
 title: "Support Structures in Additive Manufacturing: Thermomechanical Origins and Design Mitigation Strategies"
 date: 2026-07-03
 description: "Support structures are not a slicer-stage afterthought. Their necessity, geometry, and cost are governed by distinct thermal and kinetic mechanisms in powder bed fusion, material extrusion, and vat photopolymerization."
-featured_image: "/images/insights/support-structures-why-they-matter-and-how-to-design-around-them/hero.jpg"
+featured_image: "/images/insights/support-structures-why-they-matter-and-how-to-design-around-them/hero-v2.jpg"
 author: "AppliedAM Editorial Team"
 categories: ["Insights"]
 tags: ["Support Structures", "Powder Bed Fusion", "Residual Stress", "FDM", "SLA", "DfAM"]
