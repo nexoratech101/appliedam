@@ -1,11 +1,12 @@
 {
-  "last_published_date": null,
+  "last_published_date": "2026-07-03",
   "cadence_days": 2,
   "published_topics": [
     "design-for-additive-manufacturing-what-actually-changes-when-you-print",
     "polymer-additive-manufacturing",
     "post-processing-fdm-sla",
     "slicer-settings-that-matter",
-    "where-to-actually-find-free-3d-models-worth-printing"
+    "where-to-actually-find-free-3d-models-worth-printing",
+    "support-structures-why-they-matter-and-how-to-design-around-them"
   ]
 }
