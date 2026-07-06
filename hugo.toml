@@ -8,6 +8,10 @@ enableGitInfo = true
 [params]
   description = "AppliedAM is an independent publication for the additive manufacturing community - research, industry applications, and real-world case studies."
   author = "AppliedAM Editorial Team"
+  background_color_class = "bg-near-black"
+  featured_image = "/images/ChatGPT_Image_Jun_9__2026__09_13_06_PM.png"
+  recent_posts_number = 3
+  show_reading_time = true
   [params.ananke]
     custom_css = ["css/custom.css"]
 
