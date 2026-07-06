@@ -59,7 +59,8 @@
     </div>
 
     {{ if .Params.ai_level }}
-    <div class="aam-hmc-row" style="display:flex; align-items:center; gap:10px; margin:1rem 0 1rem; padding:14px 16px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; flex-wrap:wrap;">
+    <details class="aam-hmc-row">
+      <summary class="aam-hmc-summary">
       <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.07em; color:#8A94A0; margin-right:4px;">AI Declaration</span>
 
       {{ $level := .Params.ai_level }}
@@ -86,6 +87,11 @@
       </span>
       {{ end }}
 
+      <span style="font-size:12px; color:#8A94A0; margin-left:auto; margin-right:6px;">{{ $level }}</span>
+      <svg class="aam-hmc-chevron" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;"><path d="M3.5 5.25L7 8.75l3.5-3.5" stroke="#8A94A0" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </summary>
+
+      <div class="aam-hmc-details">
       <span style="width:1px; height:24px; background:#e2e8f0; margin:0 2px; flex-shrink:0;"></span>
 
       {{ range .Params.ai_functions }}
@@ -134,7 +140,8 @@
       {{ end }}
 
       <a href="/privacy-terms/" title="About this AI declaration" style="display:inline-flex; align-items:center; justify-content:center; width:18px; height:18px; border-radius:50%; background:#e2e8f0; color:#8A94A0; text-decoration:none; font-size:11px; font-weight:700; flex-shrink:0; margin-left:4px;">i</a>
-    </div>
+      </div>
+    </details>
     {{ end }}
 
     {{ if .Params.project_university }}

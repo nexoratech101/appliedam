@@ -837,7 +837,35 @@ footer a:hover, .site-footer a:hover { color: #ffffff !important; }
 /* Fix unwanted margin between main content and footer */
 main { margin: 0 !important; padding-bottom: 0 !important; }
 .aam-article-body > *:last-child { margin-bottom: 0; }
-.aam-hmc-row { margin-top: 1rem !important; }
+.aam-hmc-row {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+.aam-hmc-summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  cursor: pointer;
+  list-style: none;
+}
+.aam-hmc-summary::-webkit-details-marker { display: none; }
+.aam-hmc-chevron { transition: transform 0.2s ease; }
+.aam-hmc-row[open] .aam-hmc-chevron { transform: rotate(180deg); }
+.aam-hmc-details { display: none; }
+.aam-hmc-row[open] .aam-hmc-details {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #e2e8f0;
+}
 
 .aam-article-body blockquote:last-child { margin-bottom: 0 !important; }
 .aam-article-body p:last-child { margin-bottom: 0 !important; }
