@@ -2,7 +2,7 @@
 title: "Why Two CT Scans of the Same AM Part Can Disagree: Porosity Metrology and the Partial-Volume Effect"
 date: 2026-07-06
 description: "X-ray computed tomography has replaced destructive sectioning as the primary way to inspect internal porosity in metal additive manufacturing, but its porosity numbers are only meaningful alongside the resolution and threshold used to produce them."
-featured_image: "/images/insights/ct-inspection-porosity-metrology-metal-am/hero.jpg"
+featured_image: "/images/insights/ct-inspection-porosity-metrology-metal-am/hero-v2.jpg"
 author: "AppliedAM Editorial Team"
 categories: ["Insights"]
 tags: ["quality inspection", "CT scanning", "porosity", "metal additive manufacturing"]
