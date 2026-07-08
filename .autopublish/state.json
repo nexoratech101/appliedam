@@ -1,5 +1,5 @@
 {
-  "last_published_date": "2026-07-06",
+  "last_published_date": "2026-07-08",
   "cadence_days": 2,
   "published_topics": [
     "design-for-additive-manufacturing-what-actually-changes-when-you-print",
@@ -8,6 +8,7 @@
     "slicer-settings-that-matter",
     "where-to-actually-find-free-3d-models-worth-printing",
     "support-structures-why-they-matter-and-how-to-design-around-them",
-    "ct-inspection-porosity-metrology-metal-am"
+    "ct-inspection-porosity-metrology-metal-am",
+    "lattices-that-design-themselves"
   ]
 }
