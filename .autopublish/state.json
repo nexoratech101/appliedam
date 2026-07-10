@@ -1,5 +1,5 @@
 {
-  "last_published_date": "2026-07-08",
+  "last_published_date": "2026-07-10",
   "cadence_days": 2,
   "published_topics": [
     "design-for-additive-manufacturing-what-actually-changes-when-you-print",
@@ -9,6 +9,7 @@
     "where-to-actually-find-free-3d-models-worth-printing",
     "support-structures-why-they-matter-and-how-to-design-around-them",
     "ct-inspection-porosity-metrology-metal-am",
-    "lattices-that-design-themselves"
+    "lattices-that-design-themselves",
+    "three-ways-to-build-in-metal"
   ]
 }
