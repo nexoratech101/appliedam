@@ -2,7 +2,7 @@
 title: "Three Ways to Build in Metal"
 date: 2026-07-10
 description: "Laser powder bed fusion, directed energy deposition, and binder jetting reach full density through fundamentally different physics, each trading resolution, build rate, and cost differently."
-featured_image: "/images/insights/three-ways-to-build-in-metal/hero.jpg"
+featured_image: "/images/insights/three-ways-to-build-in-metal/hero-v2.jpg"
 author: "AppliedAM Editorial Team"
 categories: ["Insights"]
 tags: ["metal additive manufacturing", "powder bed fusion", "binder jetting"]
@@ -17,8 +17,8 @@ L-PBF spreads a thin layer of metal powder, typically 20-60 micrometers, across 
 
 The sintering step is where binder jetting's defining tradeoff appears. Green parts typically reach only 40-60% of theoretical density, and densification during sintering is driven by reduction in surface energy, with volumetric strain rate governed by porosity-dependent viscosity and grain size, as characterized in a study of [supersolidus liquid phase sintering of binder-jetted steel](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9988574/). Linear shrinkage during sintering can reach roughly 25%, and because shrinkage is not perfectly isotropic — interlayer gaps accumulate unevenly with build height — predicting final part dimensions requires modeling anisotropic densification rather than assuming uniform contraction across every axis. This is the central engineering challenge of binder jetting: the process avoids the thermal distortion problems of laser-based methods, but shifts the accuracy burden downstream into a sintering-shrinkage compensation problem instead, one that must be solved computationally before the first part is ever printed.
 
-![A comparison of three metal AM densification pathways: laser powder bed fusion, directed energy deposition, and binder jetting sintering.](/images/insights/three-ways-to-build-in-metal/figure1.jpg)
-*Densification and dimensional-control mechanisms differ fundamentally across the three routes: L-PBF and DED reach near-full density in situ through melting, while binder jetting reaches it later through solid-state and liquid-phase sintering, trading in-process thermal distortion for post-process shrinkage prediction.*
+![Schematic comparison of the three metal AM build mechanisms: laser powder bed fusion, directed energy deposition, and binder jetting.](/images/insights/three-ways-to-build-in-metal/figure1-v2.jpg)
+*The three processes diverge at the build-mechanism level before densification ever enters the picture: L-PBF and binder jetting both spread and selectively address a powder bed, while DED delivers feedstock directly through a nozzle onto the growing part — the geometry of material delivery is what ultimately dictates each process's resolution and scale.*
 
 These physical differences map onto where each process earns its capital cost. Because build size, feature resolution, and post-processing burden differ so sharply, direct process-cost comparisons show that L-PBF's per-part cost is dominated by machine time and support removal, DED's by feedstock and finishing allowances for its rougher near-net shape, and binder jetting's by furnace cycles and shrinkage-compensated tooling, a distinction quantified in recent [cost-modelling work comparing PBF and DED](https://www.mdpi.com/2504-4494/8/4/142). Non-powder-bed approaches such as DED are increasingly favored where large scale or feature repair matters more than fine resolution, while powder-bed methods retain the accuracy needed for complex, small-to-mid-size components — a division examined in a recent [review of non-powder-bed metal additive techniques](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11478304/). Binder jetting occupies a third niche again, favored where geometric complexity and moderate-to-high volume matter more than the finest achievable feature resolution.
 
