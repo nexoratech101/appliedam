@@ -2,7 +2,7 @@
 title: "Lattices That Design Themselves"
 date: 2026-07-08
 description: "Topology optimization and lattice infill are converging with additive manufacturing's own physical constraints, so that overhang angles and minimum feature size are now part of the mathematics that generates a part's shape, not an afterthought."
-featured_image: "/images/insights/lattices-that-design-themselves/hero.jpg"
+featured_image: "/images/insights/lattices-that-design-themselves/hero-v2.jpg"
 author: "AppliedAM Editorial Team"
 categories: ["Insights"]
 tags: ["topology optimization", "lattice structures", "design for additive manufacturing", "TPMS"]
