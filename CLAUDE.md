@@ -56,6 +56,11 @@ Desktop folder route, it doesn't work (see "Why not the local folder" below).
    (Token: ask the user if not already known for this session; it's a fine-grained PAT
    scoped to Contents: read/write on this repo only.)
 
+   **If no working git push token is available** (true in Claude Code Remote / claude.ai
+   sessions as of July 2026 — the sandbox's `GITHUB_TOKEN`/`GH_TOKEN` env vars do NOT
+   authenticate against the real GitHub API, they're session-internal placeholders), see
+   "Pushing without a git token" below instead of blocking on this step.
+
 6. **IMPORTANT — cache-busting**: if you are REPLACING an image at a path that has already
    been deployed/live (i.e. this isn't a brand-new article), do NOT just overwrite the same
    filename. Cloudflare's edge cache and users' browsers cache images by URL, so overwriting
@@ -95,10 +100,51 @@ after 75+ seconds and multiple retries) and even serve wrong bytes under a renam
 not trust bash reads of that folder for anything binary/important — always work from a
 fresh git clone instead.
 
+### Pushing without a git token (Claude Code Remote / claude.ai sessions)
+Confirmed July 2026: in a Claude Code Remote session, the sandbox env vars `GITHUB_TOKEN`
+and `GH_TOKEN` look present but return 403 against the real GitHub API (`GitHub access is
+not enabled for this session`) — they cannot be used for `git push`. The GitHub App must
+instead be **installed** (not just OAuth-authorized) via `github.com/settings/installations`
+→ Authorized GitHub Apps → click the app name (not Revoke) → Install → grant it access to
+this repo with Contents: Read/write. Once installed, the `github` MCP server's own tools
+(`create_or_update_file`, `delete_file`, `create_branch`, etc.) get real write access —
+verify with a throwaway `create_branch` call before relying on it.
+
+**However, `create_or_update_file`'s `content` parameter is text-only and does NOT
+correctly upload binary files.** Passing base64-encoded image bytes as `content` does not
+get decoded server-side the way the raw GitHub Contents API does — it gets stored verbatim
+as a text file (i.e. you get a `.jpg` that is literally the base64 string, not a real
+image). Confirmed by pushing then re-downloading via `raw.githubusercontent.com` and
+checking with `file` — it came back as `ASCII text`, not image data. There is no working
+binary-upload path via the available MCP tools in this environment.
+
+**Workaround: skip `static/images/insights/<slug>/` entirely and embed the images as
+inline base64 data URIs directly in the article markdown** — both in the `featured_image:`
+frontmatter value and the inline `![...](...)` figure reference:
+```
+featured_image: "data:image/jpeg;base64,<b64string>"
+...
+![alt text](data:image/jpeg;base64,<b64string>)
+```
+This works because the `.md` file itself is plain text, so `create_or_update_file` handles
+it correctly, and both Hugo's template (`background-image:url(...)`) and browsers render
+data URIs identically to a file path. To keep this from blowing up the chat context when
+reading the base64 back to construct the tool call, compress images hard first — JPEG,
+~600-800px on the long edge, quality ~40-55 — targeting under ~10KB raw (so the base64
+comfortably fits one `Read` call without truncation; the tokenizer is very inefficient on
+base64, roughly 2 tokens per character). Two images at that size add ~20-30KB of text to
+the article file, which is fine.
+
+If a future session confirms it has a genuinely working git-push token or a fixed
+binary-upload path, prefer real static image files again (matches the convention of all
+prior articles) — this workaround exists only because of the current environment's tooling
+gap, not because it's the better long-term approach.
+
 ## Autopublish automation
 A scheduled task (`appliedam-insights-autopublish`) runs every day and publishes a new
 concise (650-800 word) journal-style Insights article every 2 days, following the same
-git-via-/tmp-clone approach, generating its own hero/figure diagrams via matplotlib (varied
-style each run), and backing up a small asset ZIP to Google Drive under
+git-via-/tmp-clone approach (or the data-URI workaround above if no push token is
+available), generating its own hero/figure diagrams via matplotlib (varied style each
+run), and backing up a small asset ZIP to Google Drive under
 `My Drive > AppliedAM > bot > <Month Year>`. See the scheduled task's own prompt for the
 full spec.
