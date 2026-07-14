@@ -131,10 +131,30 @@ with a generated placeholder hero, then separately upload a real photo to Google
 Claude to swap in later (see "Replacing a generated image with a real photo" above) — if the
 hero only lived in frontmatter, the swap would miss the copy actually visible in the post.
 
+### Topic selection: rotate across domains, don't cluster on metal AM
+Amended July 2026. Additive manufacturing is a broad field — metal AM (LPBF, DED, binder
+jetting) is only one part of it. Before picking a topic, check the last several entries in
+`published_topics` / recent `content/insights/*.md` files. If recent articles have clustered
+in one domain (metal AM has been over-represented — e.g. several of the last few were metal
+processes/QC back to back), deliberately pick from a different area this time instead of
+adding another metal piece. Areas to draw from, roughly evenly over time: polymer AM (FDM,
+SLA, SLS), ceramics, metal AM, materials science broadly, design/software/slicing, hobbyist
+and resource-type pieces, industry/business trends, standards and qualification, and
+sustainability/recycling. Don't force variety at the cost of quality, but do treat "not
+metal AM again" as a real tiebreaker when a topic in another domain is equally viable.
+
+### Titles: keep them short
+Amended July 2026. Prefer a short, punchy title (roughly 5-9 words) over a long descriptive
+one with a subordinate clause. E.g. prefer something like "The Residual Stress Problem
+Nobody's Solved" over "The Residual Stress Problem That Metal 3D Printing Still Hasn't
+Solved and What Engineers Are Doing About It." The `description:` frontmatter field is
+where the fuller explanatory sentence belongs — it doesn't need to be repeated in the title.
+
 ## Autopublish automation
 A scheduled task (`appliedam-insights-autopublish`) runs every day and publishes a new
 concise (650-800 word) journal-style Insights article every 2 days (cadence tracked in
-`.autopublish/state.json`, not the cron schedule). Use the real git push path above for
+`.autopublish/state.json`, not the cron schedule). Pick the topic per "Topic selection"
+above and keep the title short per "Titles" above. Use the real git push path above for
 images (hero + one figure), generating them via matplotlib with varied style each run,
 *unless* a real figure/photo has been provided by the user for that article (then use that
 instead, with a citation — see procedure above). The generated (or real) hero image MUST be
