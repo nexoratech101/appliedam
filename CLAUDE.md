@@ -65,7 +65,10 @@ user has (or a real figure from a paper/site they cite). This is the reliable pr
    Cloudflare's edge cache and browsers cache images by URL. Instead:
    - Copy to a new filename, e.g. `hero-v2.jpg` (bump the suffix each time: v3, v4, ...).
    - `git rm` the old filename.
-   - Update `featured_image:` frontmatter and any inline `![...](...)` reference to match.
+   - Update `featured_image:` frontmatter AND the inline `![...](...)` hero reference in the
+     article body to the new filename — every article's hero appears in BOTH places (see
+     "Hero image must appear in the article body" below), so a hero swap always touches two
+     spots in the `.md` file, not one.
    - Commit and push.
 
 6. Report the live URL (`https://appliedam.net/insights/<slug>/`) and mention the
@@ -114,13 +117,29 @@ above 10,000 characters, which is what led to the (correct, but incomplete) conc
 Drive backups were reliable while GitHub image pushes weren't. All of this is now moot with
 a working git remote — don't reinvent it.
 
+### Hero image must appear in the article body, not just frontmatter
+Amended July 2026. Every article's hero image goes in **two** places in the `.md` file:
+1. `featured_image:` in frontmatter (used by the site's card/listing templates), and
+2. An inline `![...](/images/insights/<slug>/hero.jpg)` in the article **body**, placed
+   right after the frontmatter closing `---` and before the first paragraph (i.e. it's the
+   lead image of the post itself, not just a background used elsewhere on the site).
+
+This applies whether the hero is a matplotlib-generated placeholder or a real photo — both
+need to be swappable later, and the swap procedure above updates both locations at once.
+The reason this matters: the user's usual workflow is to let the autopublish routine go out
+with a generated placeholder hero, then separately upload a real photo to Google Drive for
+Claude to swap in later (see "Replacing a generated image with a real photo" above) — if the
+hero only lived in frontmatter, the swap would miss the copy actually visible in the post.
+
 ## Autopublish automation
 A scheduled task (`appliedam-insights-autopublish`) runs every day and publishes a new
 concise (650-800 word) journal-style Insights article every 2 days (cadence tracked in
 `.autopublish/state.json`, not the cron schedule). Use the real git push path above for
 images (hero + one figure), generating them via matplotlib with varied style each run,
 *unless* a real figure/photo has been provided by the user for that article (then use that
-instead, with a citation — see procedure above). Also back up the article's image assets as
-a ZIP to Google Drive under `My Drive > AppliedAM > bot > <Month Year>` (filename pattern:
+instead, with a citation — see procedure above). The generated (or real) hero image MUST be
+placed in the article body per "Hero image must appear in the article body" above, not just
+frontmatter. Also back up the article's image assets as a ZIP to Google Drive under
+`My Drive > AppliedAM > bot > <Month Year>` (filename pattern:
 `AppliedAM_<ArticleSlugCamelCase>_Assets.zip`) for redundancy — this has always worked
 reliably. See the scheduled task's own prompt for the full spec.
