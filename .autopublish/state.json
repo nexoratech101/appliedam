@@ -1,5 +1,5 @@
 {
-  "last_published_date": "2026-07-12",
+  "last_published_date": "2026-07-14",
   "cadence_days": 2,
   "published_topics": [
     "design-for-additive-manufacturing-what-actually-changes-when-you-print",
@@ -11,6 +11,7 @@
     "ct-inspection-porosity-metrology-metal-am",
     "lattices-that-design-themselves",
     "three-ways-to-build-in-metal",
-    "why-3d-printed-ceramics-still-crack"
+    "why-3d-printed-ceramics-still-crack",
+    "melt-pool-monitoring-metal-additive-manufacturing"
   ]
 }
