@@ -59,7 +59,8 @@ Desktop folder route, it doesn't work (see "Why not the local folder" below).
    **If no working git push token is available** (true in Claude Code Remote / claude.ai
    sessions as of July 2026 — the sandbox's `GITHUB_TOKEN`/`GH_TOKEN` env vars do NOT
    authenticate against the real GitHub API, they're session-internal placeholders), see
-   "Pushing without a git token" below instead of blocking on this step.
+   "Publishing images without a git token" below — real static image files are NOT
+   currently achievable through the MCP tools alone; don't attempt it, publish text-only.
 
 6. **IMPORTANT — cache-busting**: if you are REPLACING an image at a path that has already
    been deployed/live (i.e. this isn't a brand-new article), do NOT just overwrite the same
@@ -100,54 +101,67 @@ after 75+ seconds and multiple retries) and even serve wrong bytes under a renam
 not trust bash reads of that folder for anything binary/important — always work from a
 fresh git clone instead.
 
-### Pushing without a git token (Claude Code Remote / claude.ai sessions)
-Confirmed July 2026: in a Claude Code Remote session, the sandbox env vars `GITHUB_TOKEN`
-and `GH_TOKEN` look present but return 403 against the real GitHub API (`GitHub access is
-not enabled for this session`) — they cannot be used for `git push`. The GitHub App must
-instead be **installed** (not just OAuth-authorized) via `github.com/settings/installations`
-→ Authorized GitHub Apps → click the app name (not Revoke) → Install → grant it access to
-this repo with Contents: Read/write. Once installed, the `github` MCP server's own tools
-(`create_or_update_file`, `delete_file`, `create_branch`, etc.) get real write access —
-verify with a throwaway `create_branch` call before relying on it.
+### Publishing images without a git token (Claude Code Remote / claude.ai sessions)
+Confirmed and re-tested July 2026, across multiple sessions — this is the settled finding,
+superseding earlier (partially wrong) notes in this file's history:
 
-**`create_or_update_file`'s `content` parameter genuinely uploading binary was NOT the real
-problem** (an earlier version of this note misdiagnosed it as one — corrected here). A
-controlled test — generating a random ~4000-character base64-alphabet string locally,
-pushing it as `content` verbatim, then downloading it back — came back **byte-for-byte
-identical**. The tool round-trips text/base64 content correctly.
+**1. `GITHUB_TOKEN`/`GH_TOKEN` in the sandbox cannot be used for `git push`.** They return
+403 against the real GitHub API. The `github` MCP server's own tools can still get real
+write access if the GitHub App is properly **installed** (not just OAuth-authorized) via
+`github.com/settings/installations` → Authorized GitHub Apps → click the app name (not
+Revoke) → Install → grant Contents: Read/write on this repo. Verify with a throwaway
+`create_branch` call before relying on it.
 
-**The actual failure: reliably reproducing a large base64 string (tens of thousands of
-characters) as a literal tool-call argument is not reliable.** Base64 for even a small
-(~5-10KB) JPEG is 7,000-13,000+ characters of unstructured text that has to be read from a
-prior tool result and then retyped/regenerated into the next tool call — and at that
-length, characters get silently dropped or altered in transit (confirmed twice: two
-separate image pushes came back with the wrong byte count and failed an MD5 check against
-the source file, while the ~4000-char control string round-tripped fine). This is a
-transcription-reliability limit, not an encoding bug, and it means embedding images as
-base64 data URIs in article markdown is **not currently a safe technique** in this
-environment — don't reach for it again without a way to move the bytes that doesn't require
-literally retyping them (e.g. a tool that takes a local file path directly, or a real
-working git-push token so the push happens from disk instead of through a chat argument).
+**2. Even with write access, `create_or_update_file`'s `content` parameter cannot produce
+real binary files, structurally — not a bug, just how it works.** It stores exactly the
+text you pass, with no base64-decode step (unlike Google Drive's `create_file`, whose
+`base64Content` parameter IS properly decoded server-side into real binary — confirmed
+working by pushing a 9754-byte zip's base64 and downloading it back byte-identical, valid
+per `unzip -t`). So pushing base64-encoded image bytes as GitHub's `content` produces a
+`.jpg` file containing literal base64 text, not image data — this is unfixable by trying
+harder, there is no equivalent binary-aware parameter on the GitHub side.
 
-**Current fallback: publish the article text-only (no `featured_image`, no inline figure)**
-rather than risk a corrupted/unverified image on the live site. If you do attempt an
-embedded-image push despite the above, you MUST verify it before considering the article
-done: download the raw file back (`curl .../raw.githubusercontent.com/...`), extract the
-base64, decode it, and MD5-compare against the source image — do not trust the push
-response's reported size/success alone.
+**3. Embedding base64 as a data URI directly inside the article's markdown text does NOT
+work around #2, and has its own separate reliability problem: reproducing a large base64
+string as part of a tool-call argument that ALSO contains substantial surrounding text
+(the article prose) is not reliable, even at modest sizes and even when the base64 was
+just read moments earlier.** Tested extensively: a ~13,000-character blob spliced into
+~19KB of total content corrupted; a smaller ~7,000-character blob in ~12KB total corrupted;
+even a ~4,200-character blob in ~9.3KB total corrupted by 33 characters — confirmed via
+direct `curl` fetch of the live file (bypassing any manual retyping on the verification
+side, so the corruption is real and happens at the push step itself, not verification).
+By contrast, a large base64 blob as the ENTIRE, ONLY content of a tool call (nothing else
+sharing the parameter) transcribes correctly even above 10,000 characters — the zip test
+in point 2 proves this. So the failure is specifically about mixing a large opaque blob
+with substantial other text in one generated argument, not about size alone.
+
+**Net effect: there is currently no reliable way to get a real, working image onto an
+article page through the available MCP tools in a Claude Code Remote session.** Don't
+attempt data URIs or binary pushes via `create_or_update_file` for article images — every
+attempt so far has produced a corrupted or non-functional result, several rounds of
+"looks like it worked" turned out not to on verification. **Publish articles text-only**
+(omit `featured_image` and any inline figure) instead.
+
+**What DOES work reliably**: pushing a self-contained asset ZIP to Google Drive via
+`create_file`'s `base64Content` parameter (see Autopublish automation below) — because
+that's exactly the point-2/point-3 "isolated blob, nothing else in the parameter" case
+that's proven reliable. Use this to preserve the generated images for a future session
+that has a genuine git-push credential to attach them properly.
 
 If a future session confirms a genuinely working git-push token, prefer real static image
 files again (matches the convention of all prior articles) — pushing from a local git clone
-never requires retyping binary content through a chat argument, so it doesn't have this
-failure mode.
+never requires retyping binary content through a chat argument at all, so none of the
+above failure modes apply.
 
 ## Autopublish automation
 A scheduled task (`appliedam-insights-autopublish`) runs every day and publishes a new
 concise (650-800 word) journal-style Insights article every 2 days, following the same
 git-via-/tmp-clone approach when a working push token is available. **If not (the common
 case in Claude Code Remote sessions), publish the article text-only** — no `featured_image`,
-no inline figure — rather than attempting a base64 data-URI embed (see "Pushing without a
-git token" above for why that's unreliable). Still back up whatever image assets were
-generated (even if they couldn't be published) as a small ZIP to Google Drive under
-`My Drive > AppliedAM > bot > <Month Year>`, so a future session with a working push path
-can attach them retroactively. See the scheduled task's own prompt for the full spec.
+no inline figure (see "Publishing images without a git token" above — this is a settled,
+tested conclusion, not worth re-attempting each run). Still back up whatever image assets
+were generated as a ZIP to Google Drive under `My Drive > AppliedAM > bot > <Month Year>`
+(filename pattern: `AppliedAM_<ArticleSlugCamelCase>_Assets.zip`, matching prior runs) —
+this upload path is reliable (see above) even though the GitHub one isn't, and it lets a
+future session with real git access attach the images retroactively. See the scheduled
+task's own prompt for the full spec.
