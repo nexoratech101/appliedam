@@ -110,41 +110,44 @@ this repo with Contents: Read/write. Once installed, the `github` MCP server's o
 (`create_or_update_file`, `delete_file`, `create_branch`, etc.) get real write access —
 verify with a throwaway `create_branch` call before relying on it.
 
-**However, `create_or_update_file`'s `content` parameter is text-only and does NOT
-correctly upload binary files.** Passing base64-encoded image bytes as `content` does not
-get decoded server-side the way the raw GitHub Contents API does — it gets stored verbatim
-as a text file (i.e. you get a `.jpg` that is literally the base64 string, not a real
-image). Confirmed by pushing then re-downloading via `raw.githubusercontent.com` and
-checking with `file` — it came back as `ASCII text`, not image data. There is no working
-binary-upload path via the available MCP tools in this environment.
+**`create_or_update_file`'s `content` parameter genuinely uploading binary was NOT the real
+problem** (an earlier version of this note misdiagnosed it as one — corrected here). A
+controlled test — generating a random ~4000-character base64-alphabet string locally,
+pushing it as `content` verbatim, then downloading it back — came back **byte-for-byte
+identical**. The tool round-trips text/base64 content correctly.
 
-**Workaround: skip `static/images/insights/<slug>/` entirely and embed the images as
-inline base64 data URIs directly in the article markdown** — both in the `featured_image:`
-frontmatter value and the inline `![...](...)` figure reference:
-```
-featured_image: "data:image/jpeg;base64,<b64string>"
-...
-![alt text](data:image/jpeg;base64,<b64string>)
-```
-This works because the `.md` file itself is plain text, so `create_or_update_file` handles
-it correctly, and both Hugo's template (`background-image:url(...)`) and browsers render
-data URIs identically to a file path. To keep this from blowing up the chat context when
-reading the base64 back to construct the tool call, compress images hard first — JPEG,
-~600-800px on the long edge, quality ~40-55 — targeting under ~10KB raw (so the base64
-comfortably fits one `Read` call without truncation; the tokenizer is very inefficient on
-base64, roughly 2 tokens per character). Two images at that size add ~20-30KB of text to
-the article file, which is fine.
+**The actual failure: reliably reproducing a large base64 string (tens of thousands of
+characters) as a literal tool-call argument is not reliable.** Base64 for even a small
+(~5-10KB) JPEG is 7,000-13,000+ characters of unstructured text that has to be read from a
+prior tool result and then retyped/regenerated into the next tool call — and at that
+length, characters get silently dropped or altered in transit (confirmed twice: two
+separate image pushes came back with the wrong byte count and failed an MD5 check against
+the source file, while the ~4000-char control string round-tripped fine). This is a
+transcription-reliability limit, not an encoding bug, and it means embedding images as
+base64 data URIs in article markdown is **not currently a safe technique** in this
+environment — don't reach for it again without a way to move the bytes that doesn't require
+literally retyping them (e.g. a tool that takes a local file path directly, or a real
+working git-push token so the push happens from disk instead of through a chat argument).
 
-If a future session confirms it has a genuinely working git-push token or a fixed
-binary-upload path, prefer real static image files again (matches the convention of all
-prior articles) — this workaround exists only because of the current environment's tooling
-gap, not because it's the better long-term approach.
+**Current fallback: publish the article text-only (no `featured_image`, no inline figure)**
+rather than risk a corrupted/unverified image on the live site. If you do attempt an
+embedded-image push despite the above, you MUST verify it before considering the article
+done: download the raw file back (`curl .../raw.githubusercontent.com/...`), extract the
+base64, decode it, and MD5-compare against the source image — do not trust the push
+response's reported size/success alone.
+
+If a future session confirms a genuinely working git-push token, prefer real static image
+files again (matches the convention of all prior articles) — pushing from a local git clone
+never requires retyping binary content through a chat argument, so it doesn't have this
+failure mode.
 
 ## Autopublish automation
 A scheduled task (`appliedam-insights-autopublish`) runs every day and publishes a new
 concise (650-800 word) journal-style Insights article every 2 days, following the same
-git-via-/tmp-clone approach (or the data-URI workaround above if no push token is
-available), generating its own hero/figure diagrams via matplotlib (varied style each
-run), and backing up a small asset ZIP to Google Drive under
-`My Drive > AppliedAM > bot > <Month Year>`. See the scheduled task's own prompt for the
-full spec.
+git-via-/tmp-clone approach when a working push token is available. **If not (the common
+case in Claude Code Remote sessions), publish the article text-only** — no `featured_image`,
+no inline figure — rather than attempting a base64 data-URI embed (see "Pushing without a
+git token" above for why that's unreliable). Still back up whatever image assets were
+generated (even if they couldn't be published) as a small ZIP to Google Drive under
+`My Drive > AppliedAM > bot > <Month Year>`, so a future session with a working push path
+can attach them retroactively. See the scheduled task's own prompt for the full spec.
