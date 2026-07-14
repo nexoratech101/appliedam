@@ -4,26 +4,23 @@
 
 Context: articles are sometimes first published with an AI-generated schematic/diagram
 image (hero.jpg / figure1.jpg) as a placeholder, then later swapped for a real photo the
-user has. This is the reliable procedure for that swap — do not try the local synced
-Desktop folder route, it doesn't work (see "Why not the local folder" below).
+user has (or a real figure from a paper/site they cite). This is the reliable procedure.
 
 ### Procedure
 
 1. **User uploads the real photo to Google Drive** (My Drive, any location — e.g. the
-   `AppliedAM` folder). They just need to say something like "I've uploaded the new hero
-   for <article slug/topic>."
+   `AppliedAM` folder), or uploads it directly into the chat as an attachment. Either way,
+   confirm you know the source (fileId in Drive, or local upload path) before proceeding.
 
-2. **Find it in Drive**: use the Google Drive connector's `search_files`, e.g.
+2. **If it's in Drive**: use the Google Drive connector's `search_files`, e.g.
    `title contains '<part of filename>'` or filter by `modifiedTime > '<recent ISO time>'`.
-   Confirm the fileId, title, mimeType, fileSize.
-
-3. **Download without blowing up context**: call `download_file_content` with that fileId.
-   If the file is large, the tool will refuse to return it inline and instead save the
-   full JSON (`{content, id, mimeType, title}`, base64 in `content`) to a local path under
-   `.../.claude/projects/.../tool-results/mcp-...-download_file_content-*.txt`. That path
-   IS reachable from bash (search with `find / -iname "*download_file_content*" 2>/dev/null`
-   if the exact path isn't in view). Decode it directly to a file with Python — never try
-   to read/paste the raw base64 through the chat context, it's too large:
+   Confirm the fileId, title, mimeType, fileSize. Then call `download_file_content` with
+   that fileId. If the file is large, the tool saves the full JSON
+   (`{content, id, mimeType, title}`, base64 in `content`) to a local path under
+   `.../tool-results/mcp-...-download_file_content-*.txt` instead of returning it inline.
+   Decode it directly to a file with Python — **never** read/paste the raw base64 through
+   the chat context, and never manually retype a large base64 blob into another tool call
+   (see "The base64/data-URI dead end" below for why that specifically fails):
    ```
    python3 -c "
    import json, base64
@@ -31,9 +28,12 @@ Desktop folder route, it doesn't work (see "Why not the local folder" below).
    open('/tmp/work/real_photo.jpg','wb').write(base64.b64decode(d['content']))
    "
    ```
+   If it's a chat attachment instead, it's already a plain file on local disk (check
+   `/root/.claude/uploads/<session>/...`) — just read/process it directly, no decode step.
 
-4. **Resize/optimize for web** if the source photo is large (phone/camera photos here have
-   run 1.3–3MB at 3500px+). Target ~1600px on the long edge, JPEG quality ~80-85:
+3. **Resize/optimize for web** if the source is large. Target ~1600px on the long edge for
+   photos, JPEG quality ~80-85 (a smaller/lower-quality target is fine for a reused figure
+   that's already low-res, e.g. from a paper):
    ```
    python3 -c "
    from PIL import Image, ImageOps
@@ -44,124 +44,83 @@ Desktop folder route, it doesn't work (see "Why not the local folder" below).
    "
    ```
 
-5. **Push via a fresh /tmp clone of this repo** — do NOT do git operations directly in the
-   user's connected Desktop folder copy of this repo. That folder is Google-Drive-desktop
-   synced and its bash-mount view lags/caches badly (confirmed: edits made there through
-   Windows Explorer were not visible to bash even after minutes of waiting, while the
-   Read/Write file tools DID see them — the two access paths are not in sync). Always:
+4. **Clone and push using the default `origin` remote — do NOT inject any token into the
+   URL yourself.** This is the single most important correction in this file (see "Git push
+   actually works" below for the full story of why earlier notes said otherwise):
    ```
-   git clone https://<TOKEN>@github.com/nexoratech101/appliedam.git /tmp/appliedam-work
+   git clone https://github.com/nexoratech101/appliedam.git /tmp/appliedam-work
    cd /tmp/appliedam-work && git checkout master
-   ```
-   (Token: ask the user if not already known for this session; it's a fine-grained PAT
-   scoped to Contents: read/write on this repo only.)
-
-   **If no working git push token is available** (true in Claude Code Remote / claude.ai
-   sessions as of July 2026 — the sandbox's `GITHUB_TOKEN`/`GH_TOKEN` env vars do NOT
-   authenticate against the real GitHub API, they're session-internal placeholders), see
-   "Publishing images without a git token" below — real static image files are NOT
-   currently achievable through the MCP tools alone; don't attempt it, publish text-only.
-
-6. **IMPORTANT — cache-busting**: if you are REPLACING an image at a path that has already
-   been deployed/live (i.e. this isn't a brand-new article), do NOT just overwrite the same
-   filename. Cloudflare's edge cache and users' browsers cache images by URL, so overwriting
-   `hero.jpg` in place can leave old bytes showing on the article page (and in search
-   results) even though the homepage/other pages that re-fetch may show the new one. Instead:
-   - Copy to a new filename, e.g. `hero-v2.jpg` (bump the suffix each time: v3, v4, ...).
-   - `git rm` the old filename.
-   - Update the `featured_image:` frontmatter field and any inline `![...](...)` reference
-     in the article's `.md` file to point at the new filename.
-   - Commit and push.
-
-7. **Commit + push**:
-   ```
+   # ...make your changes...
    git add <changed paths>
    git -c user.email="randima005@gmail.com" -c user.name="AppliedAM Autopublish" commit -m "..."
-   git push https://<TOKEN>@github.com/nexoratech101/appliedam.git master
+   git push origin master
    ```
-   Branch is `master`, NOT `main` (main is an unused empty default branch).
+   Branch is `master`, NOT `main` (main is an unused empty default branch). Do not do git
+   operations in the user's connected Desktop folder copy of this repo — that folder is
+   Google-Drive-Desktop-synced and its bash-mount view lags/caches badly for binary files
+   (confirmed separately from the token issue below). Always use a fresh `/tmp` clone.
 
-8. **Courtesy copy**: after a successful push, you can also try writing the same final
-   image into the user's connected Desktop folder path via the Write tool (not bash) so
-   their local copy matches — but this is optional and not required for the live site to
-   be correct.
+5. **Cache-busting**: if you are REPLACING an image at a path that has already been
+   deployed/live (not a brand-new article), do NOT just overwrite the same filename.
+   Cloudflare's edge cache and browsers cache images by URL. Instead:
+   - Copy to a new filename, e.g. `hero-v2.jpg` (bump the suffix each time: v3, v4, ...).
+   - `git rm` the old filename.
+   - Update `featured_image:` frontmatter and any inline `![...](...)` reference to match.
+   - Commit and push.
 
-9. Report the live URL (`https://appliedam.net/insights/<slug>/`) and mention the
-   Cloudflare build takes 1-3 minutes, plus that a plain reload (no hard-refresh needed)
-   will show the new image once the new filename is live.
+6. Report the live URL (`https://appliedam.net/insights/<slug>/`) and mention the
+   Cloudflare build takes 1-3 minutes.
 
-### Why not the local synced Desktop folder
-The user's connected folder (`C:\Users\Administrator\Desktop\appliedam`) is the same repo,
-kept in sync via what looks like Google Drive Desktop (evidence: `.tmp.drivedownload` /
-`.tmp.driveupload` staging folders, and an earlier commit "Ignore Google Drive sync staging
-folder"). File edits made there (via Explorer, or by asking Claude to overwrite a file with
-the Write tool) are visible almost immediately through the Read/Write/Edit file tools, but
-the separate bash/shell mount of the same folder can lag arbitrarily (observed: still stale
-after 75+ seconds and multiple retries) and even serve wrong bytes under a renamed file. Do
-not trust bash reads of that folder for anything binary/important — always work from a
-fresh git clone instead.
+### Git push actually works — use the default `origin` remote, not a manually-supplied token
+Corrected July 2026, after a long detour caused by testing the wrong thing. The sandbox's
+`GITHUB_TOKEN`/`GH_TOKEN` env vars are real, but **read-only** (confirmed:
+`curl -H "Authorization: Bearer $GITHUB_TOKEN" https://api.github.com/repos/.../appliedam`
+returns 200 with `"permissions": {"push": false, ...}`). Manually building a push URL with
+that token (`git push https://x-access-token:$GITHUB_TOKEN@github.com/...`) fails with
+"Invalid username or token" — this led an earlier version of this file to wrongly conclude
+"no working git-push token exists in this environment" and build increasingly elaborate
+(and unreliable) base64/data-URI workarounds instead. **That conclusion was wrong.**
 
-### Publishing images without a git token (Claude Code Remote / claude.ai sessions)
-Confirmed and re-tested July 2026, across multiple sessions — this is the settled finding,
-superseding earlier (partially wrong) notes in this file's history:
+The actual fix: a plain `git clone https://github.com/nexoratech101/appliedam.git` (no
+token in the URL at all) picks up a pre-configured `url.insteadOf`-style git config
+(`GIT_CONFIG_KEY_*`/`GIT_CONFIG_VALUE_*` env vars set on the sandbox) that transparently
+rewrites `origin` to route through a local authenticated proxy
+(`http://local_proxy@127.0.0.1:<port>/git/nexoratech101/appliedam.git`). That proxy — not
+the raw `GITHUB_TOKEN` — is what has real write access. Confirmed by pushing a real test
+branch and a real commit with two binary JPEGs to `master`; both succeeded, and the pushed
+images verified byte-identical via `curl .../raw.githubusercontent.com/...` + `md5sum`
+against the source files. (One caveat: the proxy could push new branches/commits but
+returned 403 on `git push origin --delete <branch>` — branch deletion isn't permitted, so
+don't rely on being able to clean up a mistakenly-pushed branch; be careful about what you
+push in the first place, and prefer fixing forward with a new commit over trying to delete.)
 
-**1. `GITHUB_TOKEN`/`GH_TOKEN` in the sandbox cannot be used for `git push`.** They return
-403 against the real GitHub API. The `github` MCP server's own tools can still get real
-write access if the GitHub App is properly **installed** (not just OAuth-authorized) via
-`github.com/settings/installations` → Authorized GitHub Apps → click the app name (not
-Revoke) → Install → grant Contents: Read/write on this repo. Verify with a throwaway
-`create_branch` call before relying on it.
+**Bottom line: always just `git clone`/`git push` normally with no token substitution.** If
+that fails in some future session, THEN investigate — don't assume a manual token workaround
+is the fix; test the plain default-remote path first, since that's what actually works.
 
-**2. Even with write access, `create_or_update_file`'s `content` parameter cannot produce
-real binary files, structurally — not a bug, just how it works.** It stores exactly the
-text you pass, with no base64-decode step (unlike Google Drive's `create_file`, whose
-`base64Content` parameter IS properly decoded server-side into real binary — confirmed
-working by pushing a 9754-byte zip's base64 and downloading it back byte-identical, valid
-per `unzip -t`). So pushing base64-encoded image bytes as GitHub's `content` produces a
-`.jpg` file containing literal base64 text, not image data — this is unfixable by trying
-harder, there is no equivalent binary-aware parameter on the GitHub side.
-
-**3. Embedding base64 as a data URI directly inside the article's markdown text does NOT
-work around #2, and has its own separate reliability problem: reproducing a large base64
-string as part of a tool-call argument that ALSO contains substantial surrounding text
-(the article prose) is not reliable, even at modest sizes and even when the base64 was
-just read moments earlier.** Tested extensively: a ~13,000-character blob spliced into
-~19KB of total content corrupted; a smaller ~7,000-character blob in ~12KB total corrupted;
-even a ~4,200-character blob in ~9.3KB total corrupted by 33 characters — confirmed via
-direct `curl` fetch of the live file (bypassing any manual retyping on the verification
-side, so the corruption is real and happens at the push step itself, not verification).
-By contrast, a large base64 blob as the ENTIRE, ONLY content of a tool call (nothing else
-sharing the parameter) transcribes correctly even above 10,000 characters — the zip test
-in point 2 proves this. So the failure is specifically about mixing a large opaque blob
-with substantial other text in one generated argument, not about size alone.
-
-**Net effect: there is currently no reliable way to get a real, working image onto an
-article page through the available MCP tools in a Claude Code Remote session.** Don't
-attempt data URIs or binary pushes via `create_or_update_file` for article images — every
-attempt so far has produced a corrupted or non-functional result, several rounds of
-"looks like it worked" turned out not to on verification. **Publish articles text-only**
-(omit `featured_image` and any inline figure) instead.
-
-**What DOES work reliably**: pushing a self-contained asset ZIP to Google Drive via
-`create_file`'s `base64Content` parameter (see Autopublish automation below) — because
-that's exactly the point-2/point-3 "isolated blob, nothing else in the parameter" case
-that's proven reliable. Use this to preserve the generated images for a future session
-that has a genuine git-push credential to attach them properly.
-
-If a future session confirms a genuinely working git-push token, prefer real static image
-files again (matches the convention of all prior articles) — pushing from a local git clone
-never requires retyping binary content through a chat argument at all, so none of the
-above failure modes apply.
+### The base64/data-URI dead end (historical — do not repeat this)
+Earlier sessions (before the fix above was found) spent a lot of effort on this and it
+never worked reliably. Recorded here only so a future session doesn't re-attempt it:
+`create_or_update_file`'s `content` parameter has no base64-decode step (unlike Google
+Drive's `create_file`, whose `base64Content` IS decoded server-side into real binary) — so
+pushing base64 image bytes as GitHub file `content` produces a text file containing literal
+base64, not an image. Separately, embedding base64 as a data URI directly in article
+markdown was ALSO unreliable: reproducing a large base64 blob as part of a tool-call
+argument that also contains substantial surrounding prose corrupted the data almost every
+time (confirmed via direct `curl` verification, so real corruption, not a checking
+artifact) — even at modest sizes like ~4,200 characters in a ~9.3KB total file. An isolated
+blob as a tool call's ENTIRE content (e.g. a zip pushed to Drive) transcribed fine even
+above 10,000 characters, which is what led to the (correct, but incomplete) conclusion that
+Drive backups were reliable while GitHub image pushes weren't. All of this is now moot with
+a working git remote — don't reinvent it.
 
 ## Autopublish automation
 A scheduled task (`appliedam-insights-autopublish`) runs every day and publishes a new
-concise (650-800 word) journal-style Insights article every 2 days, following the same
-git-via-/tmp-clone approach when a working push token is available. **If not (the common
-case in Claude Code Remote sessions), publish the article text-only** — no `featured_image`,
-no inline figure (see "Publishing images without a git token" above — this is a settled,
-tested conclusion, not worth re-attempting each run). Still back up whatever image assets
-were generated as a ZIP to Google Drive under `My Drive > AppliedAM > bot > <Month Year>`
-(filename pattern: `AppliedAM_<ArticleSlugCamelCase>_Assets.zip`, matching prior runs) —
-this upload path is reliable (see above) even though the GitHub one isn't, and it lets a
-future session with real git access attach the images retroactively. See the scheduled
-task's own prompt for the full spec.
+concise (650-800 word) journal-style Insights article every 2 days (cadence tracked in
+`.autopublish/state.json`, not the cron schedule). Use the real git push path above for
+images (hero + one figure), generating them via matplotlib with varied style each run,
+*unless* a real figure/photo has been provided by the user for that article (then use that
+instead, with a citation — see procedure above). Also back up the article's image assets as
+a ZIP to Google Drive under `My Drive > AppliedAM > bot > <Month Year>` (filename pattern:
+`AppliedAM_<ArticleSlugCamelCase>_Assets.zip`) for redundancy — this has always worked
+reliably. See the scheduled task's own prompt for the full spec.
