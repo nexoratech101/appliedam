@@ -1,5 +1,5 @@
 {
-  "last_published_date": "2026-07-16",
+  "last_published_date": "2026-07-18",
   "cadence_days": 2,
   "published_topics": [
     "design-for-additive-manufacturing-what-actually-changes-when-you-print",
@@ -13,6 +13,8 @@
     "three-ways-to-build-in-metal",
     "why-3d-printed-ceramics-still-crack",
     "melt-pool-monitoring-metal-additive-manufacturing",
-    "continuous-fiber-3d-printing-interlayer-bonding"
-  ]
+    "continuous-fiber-3d-printing-interlayer-bonding",
+    "where-printing-meets-the-cutting-tool"
+  ],
+  "next_due_date": "2026-07-20"
 }
