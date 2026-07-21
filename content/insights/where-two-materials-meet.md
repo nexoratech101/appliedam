@@ -2,7 +2,7 @@
 title: "Where Two Materials Meet"
 date: 2026-07-20
 description: "Multi-material additive manufacturing lets a single build combine rigid and compliant, or dissimilar, materials without assembly, but the interface between them remains the part's weakest plane."
-featured_image: "/images/insights/where-two-materials-meet/hero.jpg"
+featured_image: "/images/insights/where-two-materials-meet/hero-v2.jpg"
 author: "AppliedAM Editorial Team"
 categories: ["Insights"]
 tags: ["Multi-Material AM", "Polymer AM", "Materials Science", "Process Engineering"]
@@ -11,7 +11,7 @@ ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
 ---
 
-![Cross-section schematic of a dual-nozzle multi-material print, showing a graded transition zone between a rigid material and a compliant material](/images/insights/where-two-materials-meet/hero.jpg)
+![Two dissimilar filament spools staged for a multi-material print run](/images/insights/where-two-materials-meet/hero-v2.jpg)
 
 *Print orientation, nozzle diameter, and temperature history — not material chemistry alone — set the strength of the bond between dissimilar materials in a single build.*
 
