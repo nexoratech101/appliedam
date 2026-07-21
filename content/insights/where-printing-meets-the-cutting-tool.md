@@ -2,7 +2,7 @@
 title: "Where Printing Meets the Cutting Tool"
 date: 2026-07-18
 description: "Interleaving directed-energy deposition with in-envelope machining changes the residual stress budget that ultimately governs a hybrid-built part's accuracy and service life."
-featured_image: "/images/insights/where-printing-meets-the-cutting-tool/hero.jpg"
+featured_image: "/images/insights/where-printing-meets-the-cutting-tool/hero-v2.jpg"
 author: "AppliedAM Editorial Team"
 categories: ["Insights"]
 tags: ["Hybrid Manufacturing", "Directed Energy Deposition", "Residual Stress", "Process Planning"]
@@ -13,8 +13,8 @@ draft: false
 
 Hybrid manufacturing systems that combine directed-energy deposition (DED) with in-envelope milling on a single fixture have moved from research cells to production floors over the past several years. The appeal is straightforward: build near-net-shape geometry additively, then finish critical features without ever removing the part from the machine. What is less straightforward is what happens to the material in between — because the two processes leave behind very different, and interacting, residual stress states.
 
-![A hybrid manufacturing cell combining a directed-energy deposition head and a milling spindle sharing one work envelope](/images/insights/where-printing-meets-the-cutting-tool/hero.jpg)
-*A single fixture, two processes: the deposition head builds near-net geometry while the spindle finishes features without disturbing part datum.*
+![A milling spindle finishing a metal block, chips curling off the cutting edge](/images/insights/where-printing-meets-the-cutting-tool/hero-v2.jpg)
+*The finishing pass: in a hybrid cell, this same spindle removes material from a near-net DED deposit without the part ever leaving its fixture.*
 
 DED processes build up residual stress through repeated thermal cycling. Each new bead reheats the layers beneath it, and as the deposit cools it contracts against material that has already solidified and partially cooled, producing a longitudinal stress gradient that generally trends tensile near the surface and grows with build height as thermal cycles accumulate. A recent evolution-of-microstructure study on laser-DED Inconel 718 traced this buildup directly to the number and spacing of reheating cycles, showing that stress state is inseparable from the deposition sequence itself, not just the final geometry ([Tandfonline, 2024](https://www.tandfonline.com/doi/full/10.1080/17452759.2024.2400329)). Left unmanaged, that tensile drift is what causes distortion, cracking at reentrant features, and dimensional walk during unconstrained cooling.
 
