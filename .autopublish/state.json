@@ -1,5 +1,5 @@
 {
-  "last_published_date": "2026-07-20",
+  "last_published_date": "2026-07-23",
   "cadence_days": 2,
   "published_topics": [
     "design-for-additive-manufacturing-what-actually-changes-when-you-print",
@@ -15,7 +15,8 @@
     "melt-pool-monitoring-metal-additive-manufacturing",
     "continuous-fiber-3d-printing-interlayer-bonding",
     "where-printing-meets-the-cutting-tool",
-    "where-two-materials-meet"
+    "where-two-materials-meet",
+    "the-recycled-filament-ceiling"
   ],
-  "next_due_date": "2026-07-23"
+  "next_due_date": "2026-07-25"
 }
