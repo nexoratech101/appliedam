@@ -3,6 +3,10 @@ title: "The Recycled Filament Ceiling"
 date: 2026-07-23
 description: "Thermomechanical degradation limits how many times thermoplastic feedstock can be reprocessed for 3D printing, constraining how circular polymer additive manufacturing can actually become."
 featured_image: "/images/insights/the-recycled-filament-ceiling/hero-real.jpg"
+photo_credit_name: "Xavier Messina"
+photo_credit_url: "https://www.pexels.com/@messina/"
+photo_credit_source: "Pexels"
+photo_credit_source_url: "https://www.pexels.com/photo/clear-plastic-bottles-12491642/"
 author: "AppliedAM Editorial Team"
 categories: ["Insights"]
 tags: ["polymer AM", "sustainability", "recycling", "FDM", "circular economy"]
