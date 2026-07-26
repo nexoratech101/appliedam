@@ -39,6 +39,21 @@
       {{ if .Description }}
       <div class="aam-article-summary"><p>{{ .Description }}</p></div>
       {{ end }}
+
+      {{ if .Params.photo_credit_name }}
+      <div class="aam-photo-credit" style="margin-bottom:1.25rem; padding-bottom:1rem; border-bottom:1px solid var(--border);">
+        <span class="aam-sidebar-label">{{ .Params.photo_credit_type | default "Photo credit" }}</span>
+        <p style="font-size:12px; color:var(--text-muted); margin:0.4rem 0 0; line-height:1.5;">
+          {{ .Params.photo_credit_label | default "Photo by" }}
+          {{ if .Params.photo_credit_url }}<a href="{{ .Params.photo_credit_url }}" target="_blank" rel="noopener nofollow">{{ .Params.photo_credit_name }}</a>{{ else }}{{ .Params.photo_credit_name }}{{ end }}
+          {{ if .Params.photo_credit_source }}
+          on
+          {{ if .Params.photo_credit_source_url }}<a href="{{ .Params.photo_credit_source_url }}" target="_blank" rel="noopener nofollow">{{ .Params.photo_credit_source }}</a>{{ else }}{{ .Params.photo_credit_source }}{{ end }}
+          {{ end }}
+        </p>
+      </div>
+      {{ end }}
+
       <div class="aam-share-block">
         <span class="aam-sidebar-label">Share</span>
         <div class="aam-share-btns">
@@ -196,19 +211,7 @@
         <button class="aam-newsletter-btn" style="width:100%;">Subscribe</button>
       </div>
 
-      {{ if .Params.photo_credit_name }}
-      <div class="aam-photo-credit" style="margin-top:1.25rem; padding-top:1rem; border-top:1px solid var(--border);">
-        <span class="aam-sidebar-label">Photo credit</span>
-        <p style="font-size:12px; color:var(--text-muted); margin:0.4rem 0 0; line-height:1.5;">
-          Photo by
-          {{ if .Params.photo_credit_url }}<a href="{{ .Params.photo_credit_url }}" target="_blank" rel="noopener nofollow">{{ .Params.photo_credit_name }}</a>{{ else }}{{ .Params.photo_credit_name }}{{ end }}
-          {{ if .Params.photo_credit_source }}
-          on
-          {{ if .Params.photo_credit_source_url }}<a href="{{ .Params.photo_credit_source_url }}" target="_blank" rel="noopener nofollow">{{ .Params.photo_credit_source }}</a>{{ else }}{{ .Params.photo_credit_source }}{{ end }}
-          {{ end }}
-        </p>
-      </div>
-      {{ end }}
+
     </div>
   </div>
 </div>
