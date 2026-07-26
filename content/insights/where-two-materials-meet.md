@@ -11,7 +11,7 @@ ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
 ---
 
-![Two dissimilar filament spools staged for a multi-material print run](/images/insights/where-two-materials-meet/hero-v2.jpg)
+![Cross-section schematic of a dual-nozzle multi-material print, showing a graded transition zone between a rigid material and a compliant material](/images/insights/where-two-materials-meet/hero.jpg)
 
 *Print orientation, nozzle diameter, and temperature history — not material chemistry alone — set the strength of the bond between dissimilar materials in a single build.*
 
