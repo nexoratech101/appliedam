@@ -1,5 +1,5 @@
 {
-  "last_published_date": "2026-07-23",
+  "last_published_date": "2026-07-27",
   "cadence_days": 2,
   "published_topics": [
     "design-for-additive-manufacturing-what-actually-changes-when-you-print",
@@ -16,7 +16,8 @@
     "continuous-fiber-3d-printing-interlayer-bonding",
     "where-printing-meets-the-cutting-tool",
     "where-two-materials-meet",
-    "the-recycled-filament-ceiling"
+    "the-recycled-filament-ceiling",
+    "why-3d-printed-parts-miss-their-tolerance"
   ],
-  "next_due_date": "2026-07-25"
+  "next_due_date": "2026-07-28"
 }
