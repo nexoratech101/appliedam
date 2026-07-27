@@ -18,7 +18,7 @@
 <div class="aam-container">
   {{ $sectionPages := sort .Pages "Date" "desc" }}
   {{ $featuredPage := index $sectionPages 0 }}
-  {{ $recentPages := first 3 (after 1 $sectionPages) }}
+  {{ $recentPages := first 15 (after 1 $sectionPages) }}
   {{ $featuredPickPages := sort (where .Site.RegularPages "Params.featured_pick" true) "Date" "desc" }}
   {{ $usedPages := slice }}
 
@@ -60,6 +60,7 @@
       </article>
       {{ end }}
     </div>
+    <div class="aam-swipe-dots" id="aamRecentDots"></div>
   </section>
   {{ end }}
 
@@ -85,4 +86,106 @@
     </div>
   </section>
 </div>
+
+<script>
+(function () {
+  var track = document.querySelector(".aam-list-section .aam-hp-cards3");
+  var dotsWrap = document.getElementById("aamRecentDots");
+  if (!track || !dotsWrap) return;
+  var cards = Array.prototype.slice.call(track.children);
+  if (!cards.length) return;
+
+  function cardsPerView() {
+    var w = window.innerWidth;
+    if (w <= 600) return 1;
+    if (w <= 1024) return 2;
+    return 3;
+  }
+
+  var MAX_DOTS = 7;
+
+  function buildDots() {
+    dotsWrap.innerHTML = "";
+    var perView = cardsPerView();
+    var rawPages = Math.ceil(cards.length / perView);
+    var pages = Math.min(rawPages, MAX_DOTS);
+    if (pages <= 1) { dotsWrap.style.display = "none"; return; }
+    dotsWrap.style.display = "flex";
+    for (var i = 0; i < pages; i++) {
+      var dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "aam-swipe-dot";
+      dot.setAttribute("aria-label", "Show older articles, page " + (i + 1));
+      (function (index) {
+        dot.addEventListener("click", function () {
+          var maxScroll = track.scrollWidth - track.clientWidth;
+          var left = pages > 1 ? (index / (pages - 1)) * maxScroll : 0;
+          track.scrollTo({ left: left, behavior: "smooth" });
+        });
+      })(i);
+      dotsWrap.appendChild(dot);
+    }
+    updateActiveDot();
+  }
+
+  function updateActiveDot() {
+    var dots = Array.prototype.slice.call(dotsWrap.children);
+    if (!dots.length) return;
+    var maxScroll = track.scrollWidth - track.clientWidth;
+    var ratio = maxScroll > 0 ? track.scrollLeft / maxScroll : 0;
+    var active = Math.round(ratio * (dots.length - 1));
+    dots.forEach(function (d, i) { d.classList.toggle("is-active", i === active); });
+  }
+
+  var scrollTimer;
+  track.addEventListener("scroll", function () {
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(updateActiveDot, 60);
+  });
+
+  var resizeTimer;
+  window.addEventListener("resize", function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(buildDots, 150);
+  });
+
+  var isDown = false;
+  var didDrag = false;
+  var startX = 0;
+  var startScroll = 0;
+
+  track.addEventListener("mousedown", function (e) {
+    isDown = true;
+    didDrag = false;
+    startX = e.pageX;
+    startScroll = track.scrollLeft;
+    track.classList.add("is-dragging");
+  });
+
+  window.addEventListener("mousemove", function (e) {
+    if (!isDown) return;
+    var delta = e.pageX - startX;
+    if (Math.abs(delta) > 4) didDrag = true;
+    track.scrollLeft = startScroll - delta;
+  });
+
+  function stopDrag() {
+    if (!isDown) return;
+    isDown = false;
+    track.classList.remove("is-dragging");
+  }
+  window.addEventListener("mouseup", stopDrag);
+  track.addEventListener("mouseleave", stopDrag);
+
+  track.addEventListener("click", function (e) {
+    if (didDrag) {
+      e.preventDefault();
+      e.stopPropagation();
+      didDrag = false;
+    }
+  }, true);
+
+  buildDots();
+})();
+</script>
 {{ end }}
