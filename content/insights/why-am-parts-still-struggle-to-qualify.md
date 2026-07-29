@@ -1,0 +1,28 @@
+---
+title: "Why AM Parts Still Struggle to Qualify"
+date: 2026-07-29
+description: "Additive manufacturing's biggest bottleneck isn't the printer anymore - it's proving statistically that a part will behave the same way twice, and the standards bodies are still catching up to how that should be done."
+featured_image: "/images/insights/why-am-parts-still-struggle-to-qualify/hero.jpg"
+author: "AppliedAM Editorial Team"
+categories: ["Insights"]
+tags: ["qualification", "standards", "ASTM", "ISO", "aerospace", "process control"]
+ai_level: "All Machine"
+ai_functions: ["Ideation", "Data Collection", "Writing"]
+draft: false
+---
+
+![A part-acceptance decision tree spanning statistical, equivalence, and model-based qualification paths](/images/insights/why-am-parts-still-struggle-to-qualify/hero.jpg)
+*Three routes to the same destination - qualifying an AM part rarely means picking just one.*
+
+A machine that can print a flawless titanium bracket on Tuesday and a slightly porous one on Wednesday, using the identical file and the identical settings, is not a hypothetical. It's the ordinary behavior of powder bed fusion, and it's the reason additive manufacturing's hardest problem was never really the printer. It's proving, to a regulator's satisfaction, that the process behind the part is trustworthy enough to build the next hundred just like it.
+
+For decades, manufacturing qualification meant qualifying a part: test it, measure it, sign off. AM broke that model because the same nominal process can drift between print jobs, machines, and even build plates within a single job. So the standards world shifted toward qualifying the process itself, not just its output. ISO/ASTM 52900 lays out the general vocabulary and principles for that shift, and a 2025 review in Virtual and Physical Prototyping traces how the field settled on three distinct qualification paths rather than one universal recipe ([Seifi et al., 2021](https://www.tandfonline.com/doi/full/10.1080/17452759.2021.2018938)). The first is statistical qualification - brute-force empirical testing across enough builds to characterize the variation directly. The second is equivalence qualification, where a new material or machine gets compared against something already proven, so the burden of full re-testing doesn't fall on every minor change. The third, model-based qualification, uses physics or data-driven simulation to predict performance and then checks that prediction against a smaller, targeted set of physical tests.
+
+None of these paths is cheap, and none of them is fast, which is exactly why the aerospace industry has spent the last two years building narrower standards on top of the general framework instead of waiting for one grand unified qualification scheme. ISO/ASTM 52967:2024 introduced a part-classification system specifically for aviation, sorting components by how much failure would cost - a bracket that only holds a wire loom doesn't need the same qualification rigor as a fuel-system fitting, even if both came off the same laser powder bed fusion machine ([ASTM, 2025](https://www.astm.org/news/additive-manufacturing-standards-aerospace-mj19)). That risk-tiered approach is a quiet but significant admission: qualifying every AM part to the same exhaustive standard was never going to scale, so the standards themselves now do some of the triage.
+
+Where this gets genuinely interesting is process monitoring, because it's the piece that turns qualification from a one-time hurdle into something closer to continuous verification. In-situ melt pool sensors, layer-wise imaging, and acoustic monitoring generate data on every single layer of every single build - which sounds like an obvious win for statistical process control until you notice that most of that data still isn't tied cleanly to final part properties.
+
+![How witness coupons feed statistical process control without cutting into shipped parts](/images/insights/why-am-parts-still-struggle-to-qualify/figure1.jpg)
+*Sacrificial coupons built alongside real parts let SPC run on production hardware without destroying the parts that ship.* NASA's approach threads this needle with witness testing: sacrificial coupons built alongside the real part, on the same plate, in the same run, that get destructively tested afterward as a stand-in for the parts that actually ship. It's not elegant, but it works, and it lets SPC operate on production hardware without cutting up the hardware itself. The National Academies' 2024 report on statistical and data-driven qualification methods pushes further, arguing that the real prize is machine learning models trained on monitoring data that can flag an out-of-spec build before it finishes printing, not after a CT scan finds the flaw weeks later ([National Academies, 2024](https://www.nationalacademies.org/read/27939/chapter/6)).
+
+It's tempting to read all this as bureaucratic friction slowing down a technology that's otherwise ready. That's not quite fair. A framework that lets a low-risk bracket qualify in weeks via equivalence, while a flight-critical fitting still goes through the full statistical gauntlet, is doing something genuinely useful: it's matching the cost of proof to the cost of failure. What's still missing is the connective tissue between in-process sensor data and the qualification decision itself - right now those live in separate worlds, one generating gigabytes per build and the other still leaning on post-build coupon testing that was designed for a slower era of manufacturing. Close that gap and additive manufacturing stops being a technology that has to prove itself every time and starts being one that proves itself continuously, in the background, while it prints.

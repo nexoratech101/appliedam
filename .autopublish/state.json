@@ -1,5 +1,5 @@
 {
-  "last_published_date": "2026-07-27",
+  "last_published_date": "2026-07-29",
   "cadence_days": 2,
   "published_topics": [
     "design-for-additive-manufacturing-what-actually-changes-when-you-print",
@@ -17,7 +17,8 @@
     "where-printing-meets-the-cutting-tool",
     "where-two-materials-meet",
     "the-recycled-filament-ceiling",
-    "why-3d-printed-parts-miss-their-tolerance"
+    "why-3d-printed-parts-miss-their-tolerance",
+    "why-am-parts-still-struggle-to-qualify"
   ],
-  "next_due_date": "2026-07-28"
+  "next_due_date": "2026-07-31"
 }
