@@ -106,17 +106,17 @@
     </div>
     <div class="aam-hp-cards4">
       {{ range first 4 $insightPages }}
-      <article class="aam-hp-card">
+      <a href="{{ .Permalink }}" class="aam-hp-card aam-card-link">
         <div class="aam-hp-card-img{{ if not .Params.featured_image }} aam-hp-card-img-empty{{ end }}"{{ if .Params.featured_image }} style="background-image:url('{{ .Params.featured_image }}')"{{ end }}></div>
         <div class="aam-hp-card-body">
           <div class="aam-hp-card-meta">
             <span class="aam-hp-badge aam-hp-badge-insights">Insights</span>
             <span class="aam-hp-card-date">{{ .Date.Format "Jan 2, 2006" }}</span>
           </div>
-          <h3 class="aam-hp-card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+          <h3 class="aam-hp-card-title">{{ .Title }}</h3>
           <p class="aam-hp-card-desc">{{ .Description }}</p>
         </div>
-      </article>
+      </a>
       {{ end }}
     </div>
   </div>

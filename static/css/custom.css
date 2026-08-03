@@ -1370,3 +1370,10 @@ main { margin: 0 !important; padding-bottom: 0 !important; }
 .aam-list-curated-title { font-size:16px; font-weight:700; color:var(--text); letter-spacing:-0.01em; }
 @media (max-width:900px) { .aam-list-feature-card { grid-template-columns:1fr; } .aam-list-feature-body { padding:20px; } }
 @media (max-width:600px) { .aam-list-curated-title { font-size:15px; } }
+
+/* Make entire article cards clickable (image, text, whitespace) */
+.aam-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}

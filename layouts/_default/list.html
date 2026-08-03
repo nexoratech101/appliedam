@@ -26,18 +26,18 @@
   {{ $usedPages = $usedPages | append . }}
   <section class="aam-list-feature">
     <div class="aam-list-feature-row">
-      <div class="aam-list-feature-card">
+      <a href="{{ .Permalink }}" class="aam-list-feature-card aam-card-link">
         <div class="aam-hp-feature-img{{ if not .Params.featured_image }} aam-hp-card-img-empty{{ end }}"{{ if .Params.featured_image }} style="background-image:url('{{ .Params.featured_image }}')"{{ end }}></div>
         <div class="aam-hp-feature-body aam-list-feature-body">
           <div class="aam-hp-feature-label">Featured article</div>
-          <h2 class="aam-hp-feature-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+          <h2 class="aam-hp-feature-title">{{ .Title }}</h2>
           <p class="aam-hp-feature-desc">{{ .Description }}</p>
           <div class="aam-hp-card-meta aam-list-feature-meta">
             <span class="aam-hp-badge aam-hp-badge-{{ .Section }}">{{ .Section | humanize | title }}</span>
             <span class="aam-hp-card-date">{{ .Date.Format "Jan 2, 2006" }}</span>
           </div>
         </div>
-      </div>
+      </a>
     </div>
   </section>
   {{ end }}
@@ -47,17 +47,17 @@
     <div class="aam-hp-cards3">
       {{ range $recentPages }}
       {{ $usedPages = $usedPages | append . }}
-      <article class="aam-hp-card">
+      <a href="{{ .Permalink }}" class="aam-hp-card aam-card-link">
         <div class="aam-hp-card-img{{ if not .Params.featured_image }} aam-hp-card-img-empty{{ end }}"{{ if .Params.featured_image }} style="background-image:url('{{ .Params.featured_image }}')"{{ end }}></div>
         <div class="aam-hp-card-body">
           <div class="aam-hp-card-meta">
             <span class="aam-hp-badge aam-hp-badge-{{ .Section }}">{{ .Section | humanize | title }}</span>
             <span class="aam-hp-card-date">{{ .Date.Format "Jan 2, 2006" }}</span>
           </div>
-          <h3 class="aam-hp-card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+          <h3 class="aam-hp-card-title">{{ .Title }}</h3>
           <p class="aam-hp-card-desc">{{ .Description }}</p>
         </div>
-      </article>
+      </a>
       {{ end }}
     </div>
     <div class="aam-swipe-dots" id="aamRecentDots"></div>
@@ -71,17 +71,17 @@
     <div class="aam-hp-cards4">
       {{ range first 4 $featuredPickPages }}
       {{ $page := . }}
-      <article class="aam-hp-card">
+      <a href="{{ $page.Permalink }}" class="aam-hp-card aam-card-link">
         <div class="aam-hp-card-img{{ if not $page.Params.featured_image }} aam-hp-card-img-empty{{ end }}"{{ if $page.Params.featured_image }} style="background-image:url('{{ $page.Params.featured_image }}')"{{ end }}></div>
         <div class="aam-hp-card-body">
           <div class="aam-hp-card-meta">
             <span class="aam-hp-badge aam-hp-badge-{{ $page.Section }}">{{ $page.Section | humanize | title }}</span>
             <span class="aam-hp-card-date">{{ $page.Date.Format "Jan 2, 2006" }}</span>
           </div>
-          <h3 class="aam-hp-card-title"><a href="{{ $page.Permalink }}">{{ $page.Title }}</a></h3>
+          <h3 class="aam-hp-card-title">{{ $page.Title }}</h3>
           <p class="aam-hp-card-desc">{{ $page.Description }}</p>
         </div>
-      </article>
+      </a>
       {{ end }}
     </div>
   </section>
