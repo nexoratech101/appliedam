@@ -1377,9 +1377,4 @@ main { margin: 0 !important; padding-bottom: 0 !important; }
   text-decoration: none;
   color: inherit;
 }
-.aam-hp-hero-main:hover .aam-hp-hero-title { text-decoration: underline; }
-.aam-hp-feature-card:hover .aam-hp-feature-title { color: #0077FF; }
-.aam-hp-recent-item:hover .aam-hp-recent-item-title { color: #0077FF; }
-.aam-hp-hero-main.aam-card-link { display: flex; }
-.aam-hp-stack-card.aam-card-link { display: flex; }
 .aam-list-feature-card.aam-card-link { display: grid; }
