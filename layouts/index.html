@@ -13,57 +13,57 @@
 
     <div class="aam-hp-hero-left">
       {{ with $hero }}
-      <div class="aam-hp-hero-main" {{ if .Params.featured_image }}style="background-image:url('{{ .Params.featured_image }}')"{{ end }}>
+      <a href="{{ .Permalink }}" class="aam-hp-hero-main aam-card-link" {{ if .Params.featured_image }}style="background-image:url('{{ .Params.featured_image }}')"{{ end }}>
         <div class="aam-hp-hero-overlay"></div>
         <div class="aam-hp-hero-content">
           <span class="aam-hp-badge aam-hp-badge-{{ .Section }}">{{ .Section | title }}</span>
-          <h2 class="aam-hp-hero-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+          <h2 class="aam-hp-hero-title">{{ .Title }}</h2>
           <div class="aam-hp-hero-meta">{{ if .Params.author }}{{ if reflect.IsMap .Params.author }}{{ .Params.author.name }}{{ else }}{{ .Params.author }}{{ end }} &middot; {{ end }}{{ .Date.Format "Jan 2, 2006" }} &middot; {{ .ReadingTime }} min read</div>
         </div>
-      </div>
+      </a>
       {{ end }}
     </div>
 
     <div class="aam-hp-hero-stack">
       {{ if ne $heroSection "research" }}{{ with (index $researchPages 0) }}
-      <div class="aam-hp-stack-card" {{ if .Params.featured_image }}style="background-image:url('{{ .Params.featured_image }}')"{{ end }}>
+      <a href="{{ .Permalink }}" class="aam-hp-stack-card aam-card-link" {{ if .Params.featured_image }}style="background-image:url('{{ .Params.featured_image }}')"{{ end }}>
         <div class="aam-hp-hero-overlay"></div>
         <div class="aam-hp-hero-content">
           <span class="aam-hp-badge aam-hp-badge-research">Research</span>
-          <h3 class="aam-hp-stack-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+          <h3 class="aam-hp-stack-title">{{ .Title }}</h3>
           <div class="aam-hp-sub-meta">{{ .Date.Format "Jan 2, 2006" }}</div>
         </div>
-      </div>
+      </a>
       {{ end }}{{ end }}
       {{ if ne $heroSection "insights" }}{{ with (index $insightPages 0) }}
-      <div class="aam-hp-stack-card" {{ if .Params.featured_image }}style="background-image:url('{{ .Params.featured_image }}')"{{ end }}>
+      <a href="{{ .Permalink }}" class="aam-hp-stack-card aam-card-link" {{ if .Params.featured_image }}style="background-image:url('{{ .Params.featured_image }}')"{{ end }}>
         <div class="aam-hp-hero-overlay"></div>
         <div class="aam-hp-hero-content">
           <span class="aam-hp-badge aam-hp-badge-insights">Insights</span>
-          <h3 class="aam-hp-stack-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+          <h3 class="aam-hp-stack-title">{{ .Title }}</h3>
           <div class="aam-hp-sub-meta">{{ .Date.Format "Jan 2, 2006" }}</div>
         </div>
-      </div>
+      </a>
       {{ end }}{{ end }}
       {{ if ne $heroSection "industry" }}{{ with (index $industryPages 0) }}
-      <div class="aam-hp-stack-card" {{ if .Params.featured_image }}style="background-image:url('{{ .Params.featured_image }}')"{{ end }}>
+      <a href="{{ .Permalink }}" class="aam-hp-stack-card aam-card-link" {{ if .Params.featured_image }}style="background-image:url('{{ .Params.featured_image }}')"{{ end }}>
         <div class="aam-hp-hero-overlay"></div>
         <div class="aam-hp-hero-content">
           <span class="aam-hp-badge aam-hp-badge-industry">Industry</span>
-          <h3 class="aam-hp-stack-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+          <h3 class="aam-hp-stack-title">{{ .Title }}</h3>
           <div class="aam-hp-sub-meta">{{ .Date.Format "Jan 2, 2006" }}</div>
         </div>
-      </div>
+      </a>
       {{ end }}{{ end }}
       {{ if ne $heroSection "case-studies" }}{{ with (index $casePages 0) }}
-      <div class="aam-hp-stack-card" {{ if .Params.featured_image }}style="background-image:url('{{ .Params.featured_image }}')"{{ end }}>
+      <a href="{{ .Permalink }}" class="aam-hp-stack-card aam-card-link" {{ if .Params.featured_image }}style="background-image:url('{{ .Params.featured_image }}')"{{ end }}>
         <div class="aam-hp-hero-overlay"></div>
         <div class="aam-hp-hero-content">
           <span class="aam-hp-badge aam-hp-badge-case-studies">Case Studies</span>
-          <h3 class="aam-hp-stack-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+          <h3 class="aam-hp-stack-title">{{ .Title }}</h3>
           <div class="aam-hp-sub-meta">{{ .Date.Format "Jan 2, 2006" }}</div>
         </div>
-      </div>
+      </a>
       {{ end }}{{ end }}
     </div>
 
@@ -127,24 +127,24 @@
     <div class="aam-hp-feature-row">
       <div class="aam-hp-feature-col">
         {{ with (index $researchPages 0) }}
-        <div class="aam-hp-feature-card">
+        <a href="{{ .Permalink }}" class="aam-hp-feature-card aam-card-link">
           <div class="aam-hp-feature-img{{ if not .Params.featured_image }} aam-hp-card-img-empty{{ end }}"{{ if .Params.featured_image }} style="background-image:url('{{ .Params.featured_image }}')"{{ end }}></div>
           <div class="aam-hp-feature-body">
             <div class="aam-hp-feature-label">Editor&apos;s Pick &middot; Research</div>
-            <h3 class="aam-hp-feature-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+            <h3 class="aam-hp-feature-title">{{ .Title }}</h3>
             <p class="aam-hp-feature-desc">{{ .Description }}</p>
           </div>
-        </div>
+        </a>
         {{ end }}
       </div>
       <div class="aam-hp-sidebar">
         <div class="aam-hp-recent">
           <div class="aam-hp-recent-title">Recently published</div>
           {{ range first 5 $pages }}
-          <div class="aam-hp-recent-item">
-            <a href="{{ .Permalink }}" class="aam-hp-recent-item-title">{{ .Title }}</a>
+          <a href="{{ .Permalink }}" class="aam-hp-recent-item aam-card-link">
+            <div class="aam-hp-recent-item-title">{{ .Title }}</div>
             <div class="aam-hp-recent-item-meta">{{ .Section | title }} &middot; {{ .Date.Format "Jan 2" }}</div>
-          </div>
+          </a>
           {{ end }}
         </div>
         <div class="aam-hp-nl">
