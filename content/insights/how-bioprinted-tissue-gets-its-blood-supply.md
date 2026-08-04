@@ -3,6 +3,11 @@ title: "How Bioprinted Tissue Gets Its Blood Supply"
 date: 2026-08-03
 description: "Bioprinting solved the geometry of living tissue years before it solved the plumbing, and the last decade of vascularization research is largely the story of closing that gap."
 featured_image: "/images/insights/how-bioprinted-tissue-gets-its-blood-supply/featured-v2.jpg"
+photo_credit_type: "Image credits"
+photo_credit_label: "Photo by"
+photo_credit_name: "Wake Forest Institute for Regenerative Medicine"
+photo_credit_source: "Berkeley Scientific Journal"
+photo_credit_source_url: "https://escholarship.org/content/qt5g53600j/qt5g53600j_noSplash_e8122cf5b3c79f6023e5d74822ebf7b2.pdf"
 author: "AppliedAM Editorial Team"
 categories: ["Insights"]
 tags: ["Bioprinting", "Tissue Engineering", "Vascularization", "Hydrogels", "Emerging Technology"]
