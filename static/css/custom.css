@@ -1295,7 +1295,6 @@ main { margin: 0 !important; padding-bottom: 0 !important; }
 .aam-hp-cards3::-webkit-scrollbar { display:none; }
 .aam-hp-cards3 { cursor:grab; }
 .aam-hp-cards3.is-dragging { cursor:grabbing; user-select:none; scroll-snap-type:none; }
-.aam-hp-cards3.is-dragging > .aam-hp-card { pointer-events:none; }
 .aam-hp-cards3 > .aam-hp-card { scroll-snap-align:start; flex:0 0 calc((100% - 32px) / 3); min-width:0; }
 .aam-swipe-dots { display:flex; justify-content:center; gap:8px; margin-top:16px; }
 .aam-swipe-dot { width:8px; height:8px; border-radius:50%; background:var(--border); border:none; padding:0; cursor:pointer; transition:background 0.2s, transform 0.2s; }
