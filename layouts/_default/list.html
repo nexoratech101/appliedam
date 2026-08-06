@@ -165,7 +165,7 @@
   window.addEventListener("mousemove", function (e) {
     if (!isDown) return;
     var delta = e.pageX - startX;
-    if (Math.abs(delta) > 4) didDrag = true;
+    if (Math.abs(delta) > 10) didDrag = true;
     track.scrollLeft = startScroll - delta;
   });
 
