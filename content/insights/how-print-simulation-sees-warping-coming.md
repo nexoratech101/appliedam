@@ -2,7 +2,13 @@
 title: "How Print Simulation Sees Warping Coming"
 date: "2026-08-09"
 description: "Thermal simulation software now models an FDM print layer by layer as it cools, catching the warping a part will develop before it's ever extruded. Recent research shows both classic finite-element models and newer machine-learning hybrids are closing the gap between predicted and measured distortion."
-featured_image: "/images/insights/how-print-simulation-sees-warping-coming/image1.jpg"
+featured_image: "/images/insights/how-print-simulation-sees-warping-coming/featured-v2.jpg"
+photo_credit_type: "Image credits"
+photo_credit_label: "Image via"
+photo_credit_name: "WayKen"
+photo_credit_url: "https://waykenrm.com/blogs/3d-printing-warping/"
+photo_credit_source: "WayKen"
+photo_credit_source_url: "https://waykenrm.com/blogs/3d-printing-warping/"
 author: "AppliedAM Editorial Team"
 categories: ["Insights"]
 tags: ["polymer AM", "FDM", "simulation", "slicing software", "warping"]
