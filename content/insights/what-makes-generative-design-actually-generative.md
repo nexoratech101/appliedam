@@ -2,7 +2,7 @@
 title: "What Makes Generative Design Actually Generative?"
 date: 2026-08-13
 description: "Generative design software doesn't sculpt parts the way a person would - it grows them from a set of rules, and understanding that difference explains both the organic shapes and the odd surprises engineers run into."
-featured_image: "/images/insights/what-makes-generative-design-actually-generative/image1.jpg"
+featured_image: "/images/insights/what-makes-generative-design-actually-generative/featured-v2.jpg"
 author: "AppliedAM Editorial Team"
 categories: ["Insights"]
 tags: ["generative design", "topology optimization", "software", "design for AM", "CAD"]
