@@ -1,5 +1,5 @@
 {
-  "last_published_date": "2026-08-11",
+  "last_published_date": "2026-08-14",
   "cadence_days": 2,
   "published_topics": [
     "design-for-additive-manufacturing-what-actually-changes-when-you-print",
@@ -22,7 +22,8 @@
     "how-bioprinted-tissue-gets-its-blood-supply",
     "where-printing-beats-traditional-tooling",
     "how-print-simulation-sees-warping-coming",
-    "the-densification-curve-for-printed-ceramics"
+    "the-densification-curve-for-printed-ceramics",
+    "what-makes-generative-design-actually-generative"
   ],
-  "next_due_date": "2026-08-13"
+  "next_due_date": "2026-08-15"
 }
