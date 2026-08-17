@@ -1,12 +1,17 @@
 {{ define "main" }}
 
 {{ $pages := .Site.RegularPages.ByDate.Reverse }}
+{{ $featuredPages := where $pages "Params.featured_pick" true }}
 {{ $hero := index $pages 0 }}
+{{ if gt (len $featuredPages) 0 }}{{ $hero = index $featuredPages 0 }}{{ end }}
 {{ $heroSection := $hero.Section }}
 {{ $insightPages := (where .Site.RegularPages "Section" "insights").ByDate.Reverse }}
 {{ $researchPages := (where .Site.RegularPages "Section" "research").ByDate.Reverse }}
 {{ $industryPages := (where .Site.RegularPages "Section" "industry").ByDate.Reverse }}
 {{ $casePages := (where .Site.RegularPages "Section" "case-studies").ByDate.Reverse }}
+{{ $researchFeatured := where $researchPages "Params.featured_pick" true }}
+{{ $editorsPick := index $researchPages 0 }}
+{{ if gt (len $researchFeatured) 0 }}{{ $editorsPick = index $researchFeatured 0 }}{{ end }}
 
 <section class="aam-hp-wrap">
   <div class="aam-hp-hero-grid">
@@ -126,7 +131,7 @@
   <div class="aam-hp-container">
     <div class="aam-hp-feature-row">
       <div class="aam-hp-feature-col">
-        {{ with (index $researchPages 0) }}
+        {{ with $editorsPick }}
         <div class="aam-hp-feature-card">
           <div class="aam-hp-feature-img{{ if not .Params.featured_image }} aam-hp-card-img-empty{{ end }}"{{ if .Params.featured_image }} style="background-image:url('{{ .Params.featured_image }}')"{{ end }}></div>
           <div class="aam-hp-feature-body">

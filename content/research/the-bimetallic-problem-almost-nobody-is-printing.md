@@ -9,7 +9,7 @@ author:
   type: "AppliedAM Editorial Team"
   email: "randima005@gmail.com"
   email_public: false
-featured_pick: true
+featured_pick: false
 draft: false
 ---
 
