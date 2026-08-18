@@ -2,7 +2,13 @@
 title: "The Standards That Made AM Trustworthy"
 date: 2026-08-16
 description: "Additive manufacturing has spent the last several years quietly assembling a real standards infrastructure, from shared vocabulary through process control to a new digital thread for tracking every part it makes."
-featured_image: "/images/insights/standards-that-made-am-trustworthy/image1.jpg"
+featured_image: "/images/insights/standards-that-made-am-trustworthy/featured-v2.jpg"
+photo_credit_type: "Image credits"
+photo_credit_label: "Photo by"
+photo_credit_name: "ISO/ASTM International"
+photo_credit_url: "https://www.iso.org/standard/76230.html"
+photo_credit_source: "QualifiedAM"
+photo_credit_source_url: "https://qualifiedam.com/standard/iso-astm-52920-2023/"
 author: "AppliedAM Editorial Team"
 categories: ["Insights"]
 tags: ["standards", "ISO/ASTM", "qualification", "certification", "digital thread"]
