@@ -1,9 +1,7 @@
 {{ define "main" }}
 
 {{ $pages := .Site.RegularPages.ByDate.Reverse }}
-{{ $featuredPages := where $pages "Params.featured_pick" true }}
 {{ $hero := index $pages 0 }}
-{{ if gt (len $featuredPages) 0 }}{{ $hero = index $featuredPages 0 }}{{ end }}
 {{ $heroSection := $hero.Section }}
 {{ $insightPages := (where .Site.RegularPages "Section" "insights").ByDate.Reverse }}
 {{ $researchPages := (where .Site.RegularPages "Section" "research").ByDate.Reverse }}
