@@ -1,5 +1,5 @@
 {
-  "last_published_date": "2026-08-16",
+  "last_published_date": "2026-08-19",
   "cadence_days": 2,
   "published_topics": [
     "design-for-additive-manufacturing-what-actually-changes-when-you-print",
@@ -24,7 +24,8 @@
     "how-print-simulation-sees-warping-coming",
     "the-densification-curve-for-printed-ceramics",
     "what-makes-generative-design-actually-generative",
-    "standards-that-made-am-trustworthy"
+    "standards-that-made-am-trustworthy",
+    "squeezing-more-life-out-of-sls-powder"
   ],
-  "next_due_date": "2026-08-18"
+  "next_due_date": "2026-08-22"
 }
