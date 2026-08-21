@@ -2,7 +2,7 @@
 title: "Squeezing More Life Out of SLS Powder"
 date: 2026-08-19
 description: "Selective laser sintering leaves most of a build's powder unsintered, and a growing body of research on how that leftover material ages is what lets shops recycle it instead of throwing it away."
-featured_image: "/images/insights/squeezing-more-life-out-of-sls-powder/image1.jpg"
+featured_image: "/images/insights/squeezing-more-life-out-of-sls-powder/featured-v2.jpg"
 author: "AppliedAM Editorial Team"
 categories: ["Insights"]
 tags: ["SLS", "polymer AM", "PA12", "powder reuse", "materials science"]
