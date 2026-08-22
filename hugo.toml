@@ -14,6 +14,19 @@ enableGitInfo = true
 # sitemap and site entirely rather than leaving orphaned, unindexed URLs around.
 disableKinds = ["taxonomy", "term"]
 
+# JSON search index (all articles' title/permalink/section/description/tags),
+# built at the homepage URL as /search-index.json. Powers the client-side
+# search box in the nav - see layouts/index.searchindex.json and
+# layouts/_partials/site-header.html.
+[outputs]
+  home = ["HTML", "RSS", "SearchIndex"]
+
+[outputFormats.SearchIndex]
+  mediaType     = "application/json"
+  baseName      = "search-index"
+  isPlainText   = true
+  notAlternative = true
+
 [params]
   description = "AppliedAM is an independent publication for the additive manufacturing community - research, industry applications, and real-world case studies."
   author = "AppliedAM Editorial Team"
