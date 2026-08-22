@@ -1394,19 +1394,35 @@ main { margin: 0 !important; padding-bottom: 0 !important; }
 }
 .aam-search-toggle:hover { background: rgba(255,255,255,0.08); }
 .aam-search-panel {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: #0d0d1a;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.25s ease;
-  z-index: 90;
+  position: fixed;
+  inset: 0;
+  background: rgba(13,13,26,0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 90px 20px 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  z-index: 200;
 }
-.aam-search-panel.is-open { max-height: 480px; }
-.aam-search-panel-inner { max-width: 1200px; margin: 0 auto; padding: 16px 2rem; }
+.aam-search-panel.is-open { opacity: 1; visibility: visible; }
+.aam-search-panel-inner {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  background: #0d0d1a;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  max-height: calc(100vh - 110px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
 .aam-search-input-row {
   display: flex;
   align-items: center;
@@ -1444,8 +1460,9 @@ main { margin: 0 !important; padding-bottom: 0 !important; }
   flex-direction: column;
   gap: 4px;
   margin-top: 12px;
-  max-height: 360px;
   overflow-y: auto;
+  flex: 1;
+  min-height: 0;
 }
 .aam-search-results.is-visible { display: flex; }
 .aam-search-result {
@@ -1488,5 +1505,6 @@ main { margin: 0 !important; padding-bottom: 0 !important; }
   .aam-search-result { flex-wrap: wrap; }
   .aam-search-result-title { max-width: 100%; }
   .aam-search-result-desc { white-space: normal; }
-  .aam-search-panel-inner { padding: 14px 1.25rem; }
+  .aam-search-panel-inner { padding: 14px 1.25rem; max-height: calc(100vh - 80px); }
+  .aam-search-panel { padding: 60px 14px 14px; }
 }
