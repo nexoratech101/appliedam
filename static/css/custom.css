@@ -1411,9 +1411,11 @@ main { margin: 0 !important; padding-bottom: 0 !important; }
 .aam-search-panel.is-open { opacity: 1; visibility: visible; }
 .aam-search-panel-inner {
   width: 100%;
-  max-width: 640px;
+  max-width: 480px;
   margin: 0 auto;
-  background: #0d0d1a;
+  background: rgba(13,13,26,0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255,255,255,0.12);
   border-radius: 12px;
   padding: 16px;
