@@ -12,9 +12,19 @@
       {{ end }}
     </nav>
     <div class="aam-topnav-right">
-      <button type="button" class="aam-search-toggle" id="aamSearchToggle" aria-label="Search">
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="5.5" stroke="#fff" stroke-width="1.6"/><path d="M16 16l-3.5-3.5" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>
-      </button>
+      <div class="aam-search-wrap">
+        <button type="button" class="aam-search-toggle" id="aamSearchToggle" aria-label="Search">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="5.5" stroke="#fff" stroke-width="1.6"/><path d="M16 16l-3.5-3.5" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </button>
+        <div class="aam-search-panel" id="aamSearchPanel">
+          <div class="aam-search-input-row">
+            <svg width="16" height="16" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="aam-search-input-icon"><circle cx="8" cy="8" r="5.5" stroke="#8A94A0" stroke-width="1.6"/><path d="M16 16l-3.5-3.5" stroke="#8A94A0" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <input type="text" id="aamSearchInput" class="aam-search-input" placeholder="Search articles by title, topic, or tag..." autocomplete="off">
+            <button type="button" class="aam-search-close" id="aamSearchClose" aria-label="Close search">&times;</button>
+          </div>
+          <div class="aam-search-results" id="aamSearchResults"></div>
+        </div>
+      </div>
       <label for="aam-menu-toggle" class="aam-hamburger" aria-label="Toggle menu">
         <span></span>
         <span></span>
@@ -23,27 +33,17 @@
       <a href="/submission-form/" class="aam-nav-cta" target="_blank" rel="noopener">Submit</a>
     </div>
   </div>
-
-  <div class="aam-search-panel" id="aamSearchPanel">
-    <div class="aam-search-panel-inner">
-      <div class="aam-search-input-row">
-        <svg width="16" height="16" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="aam-search-input-icon"><circle cx="8" cy="8" r="5.5" stroke="#8A94A0" stroke-width="1.6"/><path d="M16 16l-3.5-3.5" stroke="#8A94A0" stroke-width="1.6" stroke-linecap="round"/></svg>
-        <input type="text" id="aamSearchInput" class="aam-search-input" placeholder="Search articles by title, topic, or tag..." autocomplete="off">
-        <button type="button" class="aam-search-close" id="aamSearchClose" aria-label="Close search">&times;</button>
-      </div>
-      <div class="aam-search-results" id="aamSearchResults"></div>
-    </div>
-  </div>
 </header>
 
 <script>
 (function () {
   var toggle = document.getElementById("aamSearchToggle");
+  var wrap = document.querySelector(".aam-search-wrap");
   var panel = document.getElementById("aamSearchPanel");
   var closeBtn = document.getElementById("aamSearchClose");
   var input = document.getElementById("aamSearchInput");
   var resultsWrap = document.getElementById("aamSearchResults");
-  if (!toggle || !panel || !input || !resultsWrap) return;
+  if (!toggle || !wrap || !panel || !input || !resultsWrap) return;
 
   var indexData = null;
   var indexPromise = null;
@@ -76,8 +76,8 @@
     if (e.key === "Escape") closePanel();
   });
 
-  panel.addEventListener("click", function (e) {
-    if (e.target === panel) closePanel();
+  document.addEventListener("click", function (e) {
+    if (!wrap.contains(e.target)) closePanel();
   });
 
   function escapeHtml(s) {

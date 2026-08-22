@@ -1393,26 +1393,13 @@ main { margin: 0 !important; padding-bottom: 0 !important; }
   flex-shrink: 0;
 }
 .aam-search-toggle:hover { background: rgba(255,255,255,0.08); }
+.aam-search-wrap { position: relative; }
 .aam-search-panel {
-  position: fixed;
-  inset: 0;
-  background: rgba(13,13,26,0.72);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 90px 20px 20px;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.2s ease, visibility 0.2s ease;
-  z-index: 200;
-}
-.aam-search-panel.is-open { opacity: 1; visibility: visible; }
-.aam-search-panel-inner {
-  width: 100%;
-  max-width: 480px;
-  margin: 0 auto;
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: 420px;
+  max-width: calc(100vw - 40px);
   background: rgba(13,13,26,0.55);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -1420,11 +1407,17 @@ main { margin: 0 !important; padding-bottom: 0 !important; }
   border-radius: 12px;
   padding: 16px;
   box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-  max-height: calc(100vh - 110px);
+  max-height: calc(100vh - 100px);
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+  z-index: 200;
 }
+.aam-search-panel.is-open { opacity: 1; visibility: visible; transform: translateY(0); }
 .aam-search-input-row {
   display: flex;
   align-items: center;
@@ -1507,6 +1500,5 @@ main { margin: 0 !important; padding-bottom: 0 !important; }
   .aam-search-result { flex-wrap: wrap; }
   .aam-search-result-title { max-width: 100%; }
   .aam-search-result-desc { white-space: normal; }
-  .aam-search-panel-inner { padding: 14px 1.25rem; max-height: calc(100vh - 80px); }
-  .aam-search-panel { padding: 60px 14px 14px; }
+  .aam-search-panel { position: fixed; top: 80px; left: 12px; right: 12px; width: auto; max-width: none; padding: 14px; max-height: calc(100vh - 96px); }
 }
