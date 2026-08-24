@@ -1,5 +1,5 @@
 {
-  "last_published_date": "2026-08-19",
+  "last_published_date": "2026-08-24",
   "cadence_days": 2,
   "published_topics": [
     "design-for-additive-manufacturing-what-actually-changes-when-you-print",
@@ -25,7 +25,8 @@
     "the-densification-curve-for-printed-ceramics",
     "what-makes-generative-design-actually-generative",
     "standards-that-made-am-trustworthy",
-    "squeezing-more-life-out-of-sls-powder"
+    "squeezing-more-life-out-of-sls-powder",
+    "does-3d-printing-actually-save-energy"
   ],
-  "next_due_date": "2026-08-22"
+  "next_due_date": "2026-08-26"
 }
