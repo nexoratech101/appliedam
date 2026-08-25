@@ -2,7 +2,7 @@
 title: "Does 3D Printing Actually Save Energy?"
 date: "2026-08-24"
 description: "A decade of life cycle studies has moved the sustainability case for additive manufacturing from a hopeful assumption to a set of specific, sometimes uncomfortable numbers."
-featured_image: "/images/insights/does-3d-printing-actually-save-energy/hero.jpg"
+featured_image: "/images/insights/does-3d-printing-actually-save-energy/featured.jpg"
 author: "AppliedAM Editorial Team"
 categories: ["Insights"]
 tags: ["sustainability", "life cycle assessment", "energy", "metal AM", "polymer AM"]
