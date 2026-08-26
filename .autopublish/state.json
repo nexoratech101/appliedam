@@ -1,5 +1,5 @@
 {
-  "last_published_date": "2026-08-24",
+  "last_published_date": "2026-08-26",
   "cadence_days": 2,
   "published_topics": [
     "design-for-additive-manufacturing-what-actually-changes-when-you-print",
@@ -28,7 +28,8 @@
     "squeezing-more-life-out-of-sls-powder",
     "does-3d-printing-actually-save-energy",
     "how-printers-learned-to-calibrate-themselves",
-    "the-tradeoff-behind-printing-metal-at-scale"
+    "the-tradeoff-behind-printing-metal-at-scale",
+    "orientation-decision-nobody-optimizes"
   ],
   "next_due_date": "2026-08-26"
 }
