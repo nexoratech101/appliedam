@@ -2,7 +2,7 @@
 title: "How Printers Learned to Calibrate Themselves"
 date: 2026-08-24
 description: "Automatic bed leveling and accelerometer-driven input shaping have quietly replaced two of the most tedious rituals in desktop 3D printing, turning manual tuning into something the machine now does for itself."
-featured_image: "/images/insights/how-printers-learned-to-calibrate-themselves/hero.jpg"
+featured_image: "/images/insights/how-printers-learned-to-calibrate-themselves/hero-v2.jpg"
 author: "AppliedAM Editorial Team"
 categories: ["Insights"]
 tags: ["FDM", "polymer AM", "hobbyist", "calibration", "firmware"]
