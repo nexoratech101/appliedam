@@ -2,13 +2,7 @@
 title: "Where Printing Beats Traditional Tooling"
 date: 2026-08-06
 description: "The choice between 3D printing and conventional manufacturing methods like injection molding or machining comes down to a specific volume threshold, and recent cost modeling shows exactly where that threshold sits and why it keeps shifting."
-featured_image: "/images/insights/where-printing-beats-traditional-tooling/featured-v2.jpg"
-photo_credit_type: "Image credits"
-photo_credit_label: "Photo by"
-photo_credit_name: "Karola G"
-photo_credit_url: "https://www.pexels.com/@karola-g/"
-photo_credit_source: "Pexels"
-photo_credit_source_url: "https://www.pexels.com/photo/a-dentist-holding-a-dental-cast-6627279/"
+featured_image: "/images/insights/where-printing-beats-traditional-tooling/featured-v3.jpg"
 author: "AppliedAM Editorial Team"
 categories: ["Insights"]
 tags: ["economics", "additive manufacturing", "injection molding", "production volume", "adoption"]
