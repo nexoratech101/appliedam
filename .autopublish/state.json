@@ -1,5 +1,5 @@
 {
-  "last_published_date": "2026-08-26",
+  "last_published_date": "2026-08-27",
   "cadence_days": 2,
   "published_topics": [
     "design-for-additive-manufacturing-what-actually-changes-when-you-print",
@@ -29,7 +29,8 @@
     "does-3d-printing-actually-save-energy",
     "how-printers-learned-to-calibrate-themselves",
     "the-tradeoff-behind-printing-metal-at-scale",
-    "orientation-decision-nobody-optimizes"
+    "orientation-decision-nobody-optimizes",
+    "why-your-printer-moves-the-way-it-does"
   ],
-  "next_due_date": "2026-08-28"
+  "next_due_date": "2026-08-29"
 }
