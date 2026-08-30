@@ -1,5 +1,5 @@
 {
-  "last_published_date": "2026-08-27",
+  "last_published_date": "2026-08-28",
   "cadence_days": 2,
   "published_topics": [
     "design-for-additive-manufacturing-what-actually-changes-when-you-print",
@@ -30,7 +30,8 @@
     "how-printers-learned-to-calibrate-themselves",
     "the-tradeoff-behind-printing-metal-at-scale",
     "orientation-decision-nobody-optimizes",
-    "why-your-printer-moves-the-way-it-does"
+    "why-your-printer-moves-the-way-it-does",
+    "the-warehouse-that-never-holds-the-part"
   ],
-  "next_due_date": "2026-08-29"
+  "next_due_date": "2026-08-30"
 }
