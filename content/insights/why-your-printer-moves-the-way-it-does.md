@@ -17,7 +17,7 @@ ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
 ---
 
-![Diagram comparing three 3D printer motion systems side by side: a bedslinger with the bed sliding on the Y axis, a CoreXY printer with a stationary bed and belt-driven gantry, and a delta printer with three parallel arms suspending a central effector](/images/insights/why-your-printer-moves-the-way-it-does/image1.jpg)
+![Diagram comparing three 3D printer motion systems side by side: a bedslinger with the bed sliding on the Y axis, a CoreXY printer with a stationary bed and belt-driven gantry, and a delta printer with three parallel arms suspending a central effector](/images/insights/why-your-printer-moves-the-way-it-does/image1-v2.jpg)
 *Three machines, three ways of getting a hot nozzle to the same X, Y, Z coordinate. The geometry that gets it there shapes almost everything downstream.*
 
 Print the same file on two machines running the same firmware and the same filament, and the results can still look nothing alike. One comes out with faint, repeating waves along every vertical edge. The other comes out clean at twice the speed. The nozzle did not change. The slicer settings did not change. What changed is the machine's kinematics, the physical arrangement of motors, belts, and rails that gets the nozzle from one point to the next, and it turns out to be one of the least visible decisions in a printer's design and one of the most consequential.
@@ -28,7 +28,7 @@ Delta printers take a different approach entirely, and skip a Cartesian grid alt
 
 Whatever the geometry, quick direction changes ring the frame like a bell, and that vibration prints itself into the plastic as ghosting on either side of every sharp feature. [Klipper's documentation](https://www.klipper3d.org/Resonance_Compensation.html) is blunt about the cause: "ringing is caused by mechanical vibrations in the printer due to quick changes of the printing direction," and it names loose belts, flexible frames, and heavy moving mass as the usual suspects, the same properties that separate a bedslinger from a CoreXY from a delta in the first place.
 
-![Two overlaid waveform plots showing accelerometer readings from a 3D printer toolhead: a jagged, high-amplitude trace before input shaping is applied, and a much flatter trace at the same print speed after shaping is enabled](/images/insights/why-your-printer-moves-the-way-it-does/image2.jpg)
+![Two overlaid waveform plots showing accelerometer readings from a 3D printer toolhead: a jagged, high-amplitude trace before input shaping is applied, and a much flatter trace at the same print speed after shaping is enabled](/images/insights/why-your-printer-moves-the-way-it-does/image2-v2.jpg)
 *Same toolhead, same speed, same direction change. The difference between the two traces is a shaped motion command rather than a stiffer frame.*
 
 So why does a CoreXY machine still ring at all, if it already sheds so much moving mass? Because mass is only one variable. Belt tension, frame stiffness, and even how well a part bed is bolted down all feed the same resonance, and every printer has some natural frequency at which it wants to vibrate once disturbed. Push the toolhead's direction changes anywhere near that frequency and the ringing gets worse regardless of how light the gantry is.
