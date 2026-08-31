@@ -2,7 +2,13 @@
 title: "The Warehouse That Never Holds the Part"
 date: 2026-08-28
 description: "Rail operators, navies, and heavy industry are starting to store spare parts as CAD files instead of steel, printing them only when a machine breaks. The economics only work for some parts, but where they work, they upend how a maintenance budget gets spent."
-featured_image: "/images/insights/the-warehouse-that-never-holds-the-part/image1.jpg"
+featured_image: "/images/insights/the-warehouse-that-never-holds-the-part/featured.jpg"
+photo_credit_type: "Image credits"
+photo_credit_label: "Photo by"
+photo_credit_name: "ALHawraa"
+photo_credit_url: "https://www.pexels.com/@alhawraa-489004176/"
+photo_credit_source: "Pexels"
+photo_credit_source_url: "https://www.pexels.com/photo/warehouse-storage-with-stacked-cardboard-boxes-38195854/"
 author: "AppliedAM Editorial Team"
 categories: ["Insights"]
 tags: ["Additive Manufacturing", "Spare Parts", "Supply Chain", "Digital Inventory", "Industry Adoption"]
