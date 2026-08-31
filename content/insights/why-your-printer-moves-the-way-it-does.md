@@ -2,7 +2,13 @@
 title: "Why Your Printer Moves the Way It Does"
 date: 2026-08-27
 description: "The frame geometry that carries a printer's nozzle around the build plate, not the nozzle itself, decides how fast it can print cleanly, and software can only compensate for so much of what geometry gets wrong."
-featured_image: "/images/insights/why-your-printer-moves-the-way-it-does/image1.jpg"
+featured_image: "/images/insights/why-your-printer-moves-the-way-it-does/featured.jpg"
+photo_credit_type: "Image credits"
+photo_credit_label: "Photo by"
+photo_credit_name: "ZMorph All-in-One 3D Printers"
+photo_credit_url: "https://unsplash.com/@zmorph3d"
+photo_credit_source: "Unsplash"
+photo_credit_source_url: "https://unsplash.com/photos/macbook-pro-beside-3d-printer-FB1vd3XT_zQ"
 author: "AppliedAM Editorial Team"
 categories: ["Insights"]
 tags: ["3D Printer Kinematics", "CoreXY", "Delta Printers", "Input Shaping", "Klipper", "Hobbyist AM"]
