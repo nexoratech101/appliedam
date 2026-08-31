@@ -2,7 +2,13 @@
 title: "The Orientation Decision Nobody Optimizes"
 date: 2026-08-26
 description: "Rotating a part before it prints can more than double its ductility, multiply interfacial bond strength between dissimilar materials nearly fourfold, and decide whether a surface needs sanding, yet most slicing software still leaves the choice to whatever angle the model happened to load in."
-featured_image: "/images/insights/orientation-decision-nobody-optimizes/image1.jpg"
+featured_image: "/images/insights/orientation-decision-nobody-optimizes/featured.jpg"
+photo_credit_type: "Image credits"
+photo_credit_label: "Photo by"
+photo_credit_name: "Jakub Żerdzicki"
+photo_credit_url: "https://unsplash.com/@jakubzerdzicki"
+photo_credit_source: "Unsplash"
+photo_credit_source_url: "https://unsplash.com/photos/a-laptop-computer-sitting-on-top-of-a-table-MtO8S9yazeU"
 author: "AppliedAM Editorial Team"
 categories: ["Insights"]
 tags: ["Build Orientation", "Anisotropy", "FDM", "Multimaterial Printing", "Design for Additive Manufacturing"]
