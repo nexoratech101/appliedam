@@ -2,7 +2,13 @@
 title: "How 3D-Printed Implants Actually Get FDA Clearance"
 date: 2026-08-30
 description: "The FDA built its first dedicated review pathway for additive manufactured devices in 2017, after more than a hundred 3D-printed implants had already reached patients under general device rules, and the point-of-care question it raised in 2021 is still open."
-featured_image: "/images/insights/how-3d-printed-implants-get-fda-clearance/image1-v2.jpg"
+featured_image: "/images/insights/how-3d-printed-implants-get-fda-clearance/featured.jpg"
+photo_credit_type: "Image credits"
+photo_credit_label: "Photo by"
+photo_credit_name: "cottonbro studio"
+photo_credit_url: "https://www.pexels.com/@cottonbro/"
+photo_credit_source: "Pexels"
+photo_credit_source_url: "https://www.pexels.com/photo/skulls-and-denture-cast-on-a-white-surface-6528857/"
 author: "AppliedAM Editorial Team"
 categories: ["Insights"]
 tags: ["FDA", "Regulatory Pathway", "Medical Devices", "Point of Care", "Additive Manufacturing"]
