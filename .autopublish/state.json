@@ -1,5 +1,5 @@
 {
-  "last_published_date": "2026-09-02",
+  "last_published_date": "2026-09-03",
   "cadence_days": 2,
   "published_topics": [
     "design-for-additive-manufacturing-what-actually-changes-when-you-print",
@@ -35,7 +35,8 @@
     "how-3d-printed-implants-get-fda-clearance",
     "photopolymer-resins-built-to-be-undone",
     "the-chemistry-that-finishes-a-resin-print",
-    "solving-ceramic-printings-slowest-step"
+    "solving-ceramic-printings-slowest-step",
+    "how-peeks-crystallinity-determines-a-successful-print"
   ],
-  "next_due_date": "2026-09-04"
+  "next_due_date": "2026-09-05"
 }
