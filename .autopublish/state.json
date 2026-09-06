@@ -1,5 +1,5 @@
 {
-  "last_published_date": "2026-09-08",
+  "last_published_date": "2026-09-06",
   "cadence_days": 2,
   "published_topics": [
     "design-for-additive-manufacturing-what-actually-changes-when-you-print",
@@ -43,5 +43,5 @@
     "how-3d-printing-found-its-way-to-orbit",
     "how-electron-beam-melting-prints-titanium-stress-free"
   ],
-  "next_due_date": "2026-09-10"
+  "next_due_date": "2026-09-08"
 }

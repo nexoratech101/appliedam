@@ -1,6 +1,6 @@
 ---
 title: "How 3D Printing Found Its Way to Orbit"
-date: 2026-09-07
+date: 2026-09-06T08:00:00Z
 description: "From a plastic printer fixing its own faceplate on the ISS in 2014 to a stainless-steel bracket melted in microgravity a decade later, additive manufacturing's slow climb into orbit shows each generation solving exactly the problem the last one couldn't."
 featured_image: "/images/insights/how-3d-printing-found-its-way-to-orbit/image1.jpg"
 author: "AppliedAM Editorial Team"

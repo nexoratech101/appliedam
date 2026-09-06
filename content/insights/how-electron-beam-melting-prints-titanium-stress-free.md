@@ -1,6 +1,6 @@
 ---
 title: "How Electron Beam Melting Prints Titanium Stress-Free"
-date: 2026-09-08
+date: 2026-09-06T10:00:00Z
 description: "Electron beam melting holds the entire powder bed near 700°C, erasing the thermal gradient that leaves laser-printed metal parts residually stressed, but the mechanism it trades that problem for shows up just as clearly once the fatigue data comes in."
 featured_image: "/images/insights/how-electron-beam-melting-prints-titanium-stress-free/image1.jpg"
 author: "AppliedAM Editorial Team"
