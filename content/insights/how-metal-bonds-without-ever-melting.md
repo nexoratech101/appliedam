@@ -1,6 +1,6 @@
 ---
 title: "How Metal Bonds Without Ever Melting"
-date: 2026-09-04
+date: 2026-09-01T12:00:00Z
 description: "Cold spray fires metal powder fast enough to fuse on impact alone, letting shops rebuild titanium and aluminum aircraft parts without a heat-affected zone, but proving that impact actually produced a sound bond is still the harder half of the problem."
 featured_image: "/images/insights/how-metal-bonds-without-ever-melting/image1.jpg"
 author: "AppliedAM Editorial Team"

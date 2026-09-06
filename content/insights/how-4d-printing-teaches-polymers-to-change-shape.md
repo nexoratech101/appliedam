@@ -1,6 +1,6 @@
 ---
 title: "How 4D Printing Teaches Polymers to Change Shape"
-date: 2026-09-05
+date: 2026-09-02T12:00:00Z
 description: "A shape memory polymer can be printed flat, folded into a shape that has no business holding still, and left alone until heat or light tells it to unfold into the part it was actually designed to be."
 featured_image: "/images/insights/how-4d-printing-teaches-polymers-to-change-shape/image1.jpg"
 author: "AppliedAM Editorial Team"
