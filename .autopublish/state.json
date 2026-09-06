@@ -1,5 +1,5 @@
 {
-  "last_published_date": "2026-09-03",
+  "last_published_date": "2026-09-04",
   "cadence_days": 2,
   "published_topics": [
     "design-for-additive-manufacturing-what-actually-changes-when-you-print",
@@ -36,7 +36,8 @@
     "photopolymer-resins-built-to-be-undone",
     "the-chemistry-that-finishes-a-resin-print",
     "solving-ceramic-printings-slowest-step",
-    "how-peeks-crystallinity-determines-a-successful-print"
+    "how-peeks-crystallinity-determines-a-successful-print",
+    "how-metal-bonds-without-ever-melting"
   ],
-  "next_due_date": "2026-09-05"
+  "next_due_date": "2026-09-06"
 }
