@@ -1,5 +1,5 @@
 {
-  "last_published_date": "2026-09-06",
+  "last_published_date": "2026-09-07",
   "cadence_days": 2,
   "published_topics": [
     "design-for-additive-manufacturing-what-actually-changes-when-you-print",
@@ -39,7 +39,8 @@
     "how-peeks-crystallinity-determines-a-successful-print",
     "how-metal-bonds-without-ever-melting",
     "how-4d-printing-teaches-polymers-to-change-shape",
-    "who-carries-the-liability-for-a-defective-printed-part"
+    "who-carries-the-liability-for-a-defective-printed-part",
+    "how-3d-printing-found-its-way-to-orbit"
   ],
-  "next_due_date": "2026-09-08"
+  "next_due_date": "2026-09-09"
 }
