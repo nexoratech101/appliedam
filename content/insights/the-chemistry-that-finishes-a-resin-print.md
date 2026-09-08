@@ -2,7 +2,7 @@
 title: "The Chemistry That Finishes a Resin Print"
 date: 2026-09-01
 description: "A part fresh off an SLA or DLP printer is only 50 to 85 percent polymerized. What post-cure actually does, chemically, to close that gap, and why time alone is the wrong variable to control it with."
-featured_image: "/images/insights/the-chemistry-that-finishes-a-resin-print/image1.jpg"
+featured_image: "/images/insights/the-chemistry-that-finishes-a-resin-print/featured.jpg"
 author: "AppliedAM Editorial Team"
 categories: ["Insights"]
 tags: ["Vat Photopolymerization", "SLA", "DLP", "Post-Curing", "Materials Science"]
