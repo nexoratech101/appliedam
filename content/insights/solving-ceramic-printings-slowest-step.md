@@ -2,7 +2,7 @@
 title: "Solving Ceramic Printing's Slowest Step"
 date: 2026-09-02
 description: "Thermal debinding has kept 3D-printed ceramic parts on a 20-to-100-hour timeline for years, because burning off resin too fast cracks the part. A new vacuum-and-graphite-felt process from UT Dallas cuts that to under 30 minutes."
-featured_image: "/images/insights/solving-ceramic-printings-slowest-step/hero.jpg"
+featured_image: "/images/insights/solving-ceramic-printings-slowest-step/featured.jpg"
 author: "AppliedAM Editorial Team"
 categories: ["Insights"]
 tags: ["Ceramics", "Vat Photopolymerization", "Debinding", "Sintering", "Materials Science"]
