@@ -2,7 +2,7 @@
 title: "Photopolymer Resins Built to Be Undone"
 date: 2026-08-31
 description: "Stereolithography and DLP resins have always cured into permanent, unrecyclable networks. A decade of work on dynamic covalent chemistry is quietly rewriting that assumption, one reversible bond at a time."
-featured_image: "/images/insights/photopolymer-resins-built-to-be-undone/image1.jpg"
+featured_image: "/images/insights/photopolymer-resins-built-to-be-undone/featured.jpg"
 author: "AppliedAM Editorial Team"
 categories: ["Insights"]
 tags: ["photopolymer", "vitrimer", "SLA", "DLP", "sustainability", "materials science"]
