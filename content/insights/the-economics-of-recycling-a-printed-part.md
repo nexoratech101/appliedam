@@ -2,7 +2,7 @@
 title: "The Economics of Recycling a Printed Part"
 date: 2026-09-13
 description: "Additive manufacturing built its sustainability pitch on how little material it wastes while printing. What happens to a part once it's done being useful is a separate question, and the recycling infrastructure built for mono-material waste mostly can't answer it yet."
-featured_image: "/images/insights/the-economics-of-recycling-a-printed-part/image1.jpg"
+featured_image: "/images/insights/the-economics-of-recycling-a-printed-part/featured.jpg"
 author: "AppliedAM Editorial Team"
 categories: ["Insights"]
 tags: ["Sustainability", "Recycling", "Composites", "Circular Economy", "Polymer Additive Manufacturing"]
