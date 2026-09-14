@@ -2,7 +2,12 @@
 title: "The Open-Source Backbone Behind Every Desktop 3D Printer"
 date: 2026-09-09
 description: "Most desktop 3D printers run on firmware nobody at the company wrote, and that borrowed code is a big reason hobbyist machines caught up to industrial ones so quickly."
-featured_image: "/images/insights/open-source-backbone-behind-every-desktop-3d-printer/image1.jpg"
+featured_image: "/images/insights/open-source-backbone-behind-every-desktop-3d-printer/featured.jpg"
+photo_credit_type: "Image credits"
+photo_credit_label: "Photo by"
+photo_credit_name: "Open Source Ecology"
+photo_credit_source: "Open Source Ecology"
+photo_credit_source_url: "https://www.opensourceecology.org/rapid-prototyping/"
 author: "AppliedAM Editorial Team"
 categories: ["Insights"]
 tags: ["3D Printing Firmware", "Open Source", "Klipper", "Marlin", "Desktop Manufacturing"]
