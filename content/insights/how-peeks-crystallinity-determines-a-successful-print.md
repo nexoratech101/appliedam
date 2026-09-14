@@ -2,7 +2,13 @@
 title: "How PEEK's Crystallinity Determines a Successful Print"
 date: 2026-09-03
 description: "PEEK is semicrystalline, and getting a strong print comes down to managing that chemistry deliberately: the chamber temperature it needs, the cooling rate that lets it crystallize, and the mechanical properties that follow from getting both right."
-featured_image: "/images/insights/how-peeks-crystallinity-determines-a-successful-print/image1.jpg"
+featured_image: "/images/insights/how-peeks-crystallinity-determines-a-successful-print/featured.jpg"
+photo_credit_type: "Image credits"
+photo_credit_label: "Photo by"
+photo_credit_name: "Weerg"
+photo_credit_url: "https://www.weerg.com/"
+photo_credit_source: "Weerg.com"
+photo_credit_source_url: "https://www.weerg.com/3d-printing-materials/peek"
 author: "AppliedAM Editorial Team"
 categories: ["Insights"]
 tags: ["PEEK", "Polymer AM", "High-Performance Polymers", "Crystallinity", "FDM"]
