@@ -2,7 +2,12 @@
 title: "How Dry Is Dry Enough for FDM Filament"
 date: 2026-09-12
 description: "The chemistry behind filament moisture absorption, and why the popular one-time drying fix holds up far better for some materials than others."
-featured_image: "/images/insights/how-dry-is-dry-enough-for-fdm-filament/image1.jpg"
+featured_image: "/images/insights/how-dry-is-dry-enough-for-fdm-filament/featured.jpg"
+photo_credit_type: "Image credits"
+photo_credit_label: "Photo by"
+photo_credit_name: "GunplaMark"
+photo_credit_source: "Printables.com"
+photo_credit_source_url: "https://www.printables.com/model/952313-filament-dry-box-with-rollers"
 author: "AppliedAM Editorial Team"
 categories: ["Insights"]
 tags: ["Nylon", "FDM", "Materials Science", "Filament", "Hydrolysis"]
