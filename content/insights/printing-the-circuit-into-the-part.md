@@ -2,7 +2,12 @@
 title: "Printing the Circuit Into the Part"
 date: 2026-09-10
 description: "A decade after Voxel8 promised a single printer that could wire itself, 3D printed electronics settled into three narrower, more durable techniques instead of the one-machine dream it started from."
-featured_image: "/images/insights/printing-the-circuit-into-the-part/image1.jpg"
+featured_image: "/images/insights/printing-the-circuit-into-the-part/featured.jpg"
+photo_credit_type: "Image credits"
+photo_credit_label: "Photo by"
+photo_credit_name: "Embarcados"
+photo_credit_source: "Embarcados"
+photo_credit_source_url: "https://embarcados.com.br/voltera-imprima-sua-pcb/"
 author: "AppliedAM Editorial Team"
 categories: ["Insights"]
 tags: ["3D Printed Electronics", "Conductive Filament", "Direct Ink Writing", "Embedded Electronics", "Additive Manufacturing History"]
