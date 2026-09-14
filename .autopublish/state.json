@@ -1,5 +1,5 @@
 {
-  "last_published_date": "2026-09-06",
+  "last_published_date": "2026-09-13",
   "cadence_days": 2,
   "published_topics": [
     "design-for-additive-manufacturing-what-actually-changes-when-you-print",
@@ -41,7 +41,13 @@
     "how-4d-printing-teaches-polymers-to-change-shape",
     "who-carries-the-liability-for-a-defective-printed-part",
     "how-3d-printing-found-its-way-to-orbit",
-    "how-electron-beam-melting-prints-titanium-stress-free"
+    "how-electron-beam-melting-prints-titanium-stress-free",
+    "paper-trail-behind-a-certified-printed-part",
+    "open-source-backbone-behind-every-desktop-3d-printer",
+    "printing-the-circuit-into-the-part",
+    "why-jet-fusion-powder-doesnt-wear-out",
+    "how-dry-is-dry-enough-for-fdm-filament",
+    "the-economics-of-recycling-a-printed-part"
   ],
-  "next_due_date": "2026-09-08"
+  "next_due_date": "2026-09-15"
 }
