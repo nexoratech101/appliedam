@@ -2,7 +2,13 @@
 title: "Who Carries the Liability for a Defective Printed Part?"
 date: 2026-09-03T12:00:00Z
 description: "Traditional product liability assumes one manufacturer holds the duty of care, but a 3D-printed part can pass through five separate hands before it's installed, and insurers are still figuring out who to bill."
-featured_image: "/images/insights/who-carries-the-liability-for-a-defective-printed-part/image1.jpg"
+featured_image: "/images/insights/who-carries-the-liability-for-a-defective-printed-part/featured.jpg"
+photo_credit_type: "Image credits"
+photo_credit_label: "Photo by"
+photo_credit_name: "Tima Miroshnichenko"
+photo_credit_url: "https://www.pexels.com/@tima-miroshnichenko/"
+photo_credit_source: "Pexels"
+photo_credit_source_url: "https://www.pexels.com/photo/a-person-counting-money-6694965/"
 author: "AppliedAM Editorial Team"
 categories: ["Insights"]
 tags: ["Product Liability", "Insurance", "Industry", "Aerospace", "Supply Chain"]
