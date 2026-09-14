@@ -2,7 +2,12 @@
 title: "The Paper Trail Behind a Certified Printed Part"
 date: 2026-09-08T10:00:00Z
 description: "A single certified aerospace or medical part now needs an unbroken data trail back to its powder lot, machine parameters, and build monitoring records. Here's what that digital thread costs to build, and why it's becoming the real product."
-featured_image: "/images/insights/paper-trail-behind-a-certified-printed-part/image1.jpg"
+featured_image: "/images/insights/paper-trail-behind-a-certified-printed-part/featured.jpg"
+photo_credit_type: "Image credits"
+photo_credit_label: "Photo by"
+photo_credit_name: "U.S. Food and Drug Administration"
+photo_credit_source: "Wikimedia Commons"
+photo_credit_source_url: "https://philschatz.com/algebra-intermediate-book/contents/m63301.html"
 author: "AppliedAM Editorial Team"
 categories: ["Insights"]
 tags: ["Additive Manufacturing", "Quality Assurance", "Traceability", "Standards"]
