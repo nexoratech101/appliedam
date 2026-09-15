@@ -9,6 +9,8 @@ tags: ["Ceramic AM", "Binder Jetting", "Vat Photopolymerization", "Sintering", "
 ai_level: "All Machine"
 ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
+aliases:
+  - /insights/the-densification-curve-for-printed-ceramics/
 ---
 
 A printed ceramic part starts life as a loose arrangement of grains held together by almost nothing. In binder jetting, a polymer binder wicks between powder particles wherever the printhead deposits it. In vat photopolymerization, a UV-curable resin locks ceramic particles into a solid green shape one exposed layer at a time. Neither process applies the kind of mechanical force that presses powder into a dense compact, and that absence is the root of a problem every printed ceramic has to overcome before it can be called finished.

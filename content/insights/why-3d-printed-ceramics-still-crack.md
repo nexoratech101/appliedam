@@ -9,6 +9,8 @@ tags: ["Ceramic AM", "Vat Photopolymerization", "Sintering", "Materials Science"
 ai_level: "All Machine"
 ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
+aliases:
+  - /insights/why-3d-printed-ceramics-still-crack/
 ---
 
 Ceramic additive manufacturing occupies an odd position in the field: the printing step is arguably the easy part. Vat photopolymerization — stereolithography and digital light processing adapted to ceramic-loaded resins — can resolve features at the scale of tens of microns, a precision conventional ceramic forming rarely offers. The part that leaves the printer, however, is not a ceramic. It is a polymer scaffold carrying ceramic powder, and everything that determines whether the final piece survives happens afterward, largely invisibly, in a furnace.

@@ -9,6 +9,8 @@ tags: ["photopolymer", "vitrimer", "SLA", "DLP", "sustainability", "materials sc
 ai_level: "All Machine"
 ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
+aliases:
+  - /insights/photopolymer-resins-built-to-be-undone/
 ---
 
 For most of stereolithography's history, curing a resin meant committing to it permanently. UV light triggers a network of crosslinks that lock a liquid into a rigid part, and those bonds, once formed, don't come back apart. That permanence is exactly what gives SLA and DLP parts their strength and solvent resistance, but it also means a failed print, a support structure, or an obsolete prototype has nowhere to go but a landfill. Researchers working on thermoset recycling ran into this same wall decades earlier with epoxies and rubber, and largely accepted it as the price of a crosslinked network.

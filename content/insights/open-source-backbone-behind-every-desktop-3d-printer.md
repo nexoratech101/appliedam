@@ -14,6 +14,8 @@ tags: ["3D Printing Firmware", "Open Source", "Klipper", "Marlin", "Desktop Manu
 ai_level: "Oversight"
 ai_functions: ["Data Collection", "Data Interpretation", "Writing"]
 draft: false
+aliases:
+  - /insights/open-source-backbone-behind-every-desktop-3d-printer/
 ---
 
 ![The two dominant open-source firmware lineages behind desktop 3D printing: RepRap's founding code split into Marlin, which runs entirely on the printer's own controller, and Klipper, which hands the heavy math to a separate host computer.](/images/insights/open-source-backbone-behind-every-desktop-3d-printer/image1.jpg)

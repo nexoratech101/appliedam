@@ -14,6 +14,8 @@ tags: ["Bioprinting", "Tissue Engineering", "Vascularization", "Hydrogels", "Eme
 ai_level: "All Machine"
 ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
+aliases:
+  - /insights/how-bioprinted-tissue-gets-its-blood-supply/
 ---
 
 The first extrusion-printed tissue constructs, built in the early 2010s, could hold a shape and keep cells alive near the surface. What they couldn't do was feed themselves. Anything thicker than about 200 micrometers from an open edge starved for oxygen and nutrients within days, because diffusion alone can't reach cells buried deeper than that without a real circulatory system to carry supply in. Bioprinting had solved geometry. It hadn't solved plumbing, and for a long stretch that gap defined the field's ceiling.

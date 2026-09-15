@@ -9,6 +9,8 @@ tags: ["Polymer AM", "Composites", "FDM/FFF", "Materials Science"]
 ai_level: "All Machine"
 ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
+aliases:
+  - /insights/continuous-fiber-3d-printing-interlayer-bonding/
 ---
 
 ![Continuous Fiber 3D Printing schematic showing a print head laying an unbroken fiber tow alongside the thermoplastic matrix, layer by layer](/images/insights/continuous-fiber-3d-printing-interlayer-bonding/hero.jpg)

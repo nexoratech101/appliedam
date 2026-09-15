@@ -9,6 +9,8 @@ tags: ["Vat Photopolymerization", "SLA", "DLP", "Post-Curing", "Materials Scienc
 ai_level: "All Machine"
 ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
+aliases:
+  - /insights/the-chemistry-that-finishes-a-resin-print/
 ---
 
 ![Bar chart titled "A Printed Part Is a Chemical Work in Progress" showing degree of conversion at 80.99 percent with no post-cure versus 97.20 percent after post-curing at 80 degrees Celsius for 90 minutes, with a dashed line marking the roughly 95 percent threshold where mechanical properties plateau](/images/insights/the-chemistry-that-finishes-a-resin-print/image1.jpg)

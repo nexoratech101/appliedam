@@ -9,6 +9,8 @@ tags: ["Support Structures", "Powder Bed Fusion", "Residual Stress", "FDM", "SLA
 ai_level: "All Machine"
 ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
+aliases:
+  - /insights/support-structures-why-they-matter-and-how-to-design-around-them/
 ---
 
 Support structures are frequently treated in practitioner literature as a slicing-stage afterthought, a scaffold generated automatically once a geometry is deemed to contain unsupported overhangs. This framing understates their function. Across powder bed fusion, material extrusion, and vat photopolymerization, supports perform a load-bearing and thermal-management role that is inseparable from the physics of layer-wise solidification itself. Their necessity, geometry, and removal cost are direct consequences of how each process manages heat extraction, viscoelastic transition, and interlayer bonding during build. A rigorous treatment of support strategy therefore requires examining the underlying mechanism in each process family rather than applying a single overhang-angle heuristic across all of them.

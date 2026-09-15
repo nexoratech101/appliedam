@@ -11,6 +11,8 @@ author:
   email: "randiam005@gmail.com"
   email_public: false
 featured_pick: true
+aliases:
+  - /research/rebecca-surgical-positioning-table/
 ---
 
 What if one of the most critical pieces of equipment in an operating room could be built for a fraction of its commercial price, by anyone, anywhere in the world? That is exactly the question Rebecca Kaaya Nansubuga, a graduate student in Western University, Ontario, supervised by Dr. Joshua Pearce, is working to answer.

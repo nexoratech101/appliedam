@@ -14,6 +14,8 @@ tags: ["Additive Manufacturing", "Quality Assurance", "Traceability", "Standards
 ai_level: "Oversight"
 ai_functions: ["Data Collection", "Data Interpretation", "Writing"]
 draft: false
+aliases:
+  - /insights/paper-trail-behind-a-certified-printed-part/
 ---
 
 ![The digital thread: powder lot, machine parameters, in-situ monitoring, post-processing, and serialized part, connected by an unbroken record](/images/insights/paper-trail-behind-a-certified-printed-part/image1.jpg)

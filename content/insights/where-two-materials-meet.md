@@ -9,6 +9,8 @@ tags: ["Multi-Material AM", "Polymer AM", "Materials Science", "Process Engineer
 ai_level: "All Machine"
 ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
+aliases:
+  - /insights/where-two-materials-meet/
 ---
 
 ![Cross-section schematic of a dual-nozzle multi-material print, showing a graded transition zone between a rigid material and a compliant material](/images/insights/where-two-materials-meet/hero.jpg)

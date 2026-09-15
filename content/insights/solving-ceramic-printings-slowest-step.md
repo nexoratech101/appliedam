@@ -9,6 +9,8 @@ tags: ["Ceramics", "Vat Photopolymerization", "Debinding", "Sintering", "Materia
 ai_level: "All Machine"
 ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
+aliases:
+  - /insights/solving-ceramic-printings-slowest-step/
 ---
 
 ![A cross-section illustration of a ceramic green part inside a porous graphite felt chamber, with arrows showing gas escaping outward through the felt while a vacuum draws it away, and a temperature ramp curve in the corner.](/images/insights/solving-ceramic-printings-slowest-step/hero.jpg)

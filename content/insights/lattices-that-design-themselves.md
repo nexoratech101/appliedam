@@ -9,6 +9,8 @@ tags: ["topology optimization", "lattice structures", "design for additive manuf
 ai_level: "All Machine"
 ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
+aliases:
+  - /insights/lattices-that-design-themselves/
 ---
 Topology optimization has moved from a purely digital design exercise into a manufacturing discipline in its own right, largely because additive manufacturing is one of the few processes capable of building the free-form, cellular geometry the algorithm actually proposes. Left unconstrained, a topology optimization solver distributes material wherever strain energy is highest and removes it everywhere else, producing organic, lattice-like structures that subtractive or molding processes cannot realize. A recent [review of topology optimization methods for additive manufacturing](https://www.sciencedirect.com/science/article/pii/S1000936120304520) frames this as a genuine convergence: design and fabrication constraints are no longer treated separately, with printability increasingly built directly into the optimization problem rather than checked afterward.
 

@@ -9,6 +9,8 @@ tags: ["Wire Arc Additive Manufacturing", "WAAM", "Metal AM", "Residual Stress",
 ai_level: "All Machine"
 ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
+aliases:
+  - /insights/the-tradeoff-behind-printing-metal-at-scale/
 ---
 
 ![Schematic cross-section of a wire arc additive manufacturing wall, showing a welding torch depositing beads that shift from cooler blue near the baseplate to warmer rust near the top as residual stress accumulates with build height](/images/insights/the-tradeoff-behind-printing-metal-at-scale/image1.jpg)

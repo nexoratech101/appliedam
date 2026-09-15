@@ -9,6 +9,8 @@ tags: ["DfAM", "FDM", "topology optimisation", "overhang", "wall thickness", "su
 ai_level: "Oversight"
 ai_functions: ["Data Collection", "Data Interpretation", "Writing"]
 draft: false
+aliases:
+  - /insights/design-for-additive-manufacturing-what-actually-changes-when-you-print/
 ---
 
 Most engineers learn to design for the constraint. In machining, it is tool access. In injection moulding, it is draft angles and split lines. In additive manufacturing, the constraints are different - and so is the opportunity.

@@ -15,6 +15,8 @@ tags: ["PEEK", "Polymer AM", "High-Performance Polymers", "Crystallinity", "FDM"
 ai_level: "All Machine"
 ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
+aliases:
+  - /insights/how-peeks-crystallinity-determines-a-successful-print/
 ---
 
 ![Schematic showing a PEEK filament cross-section transitioning from a disordered amorphous polymer chain arrangement near a cold extrusion path to an ordered lamellar crystalline structure in a heated build chamber, with a temperature gradient bar spanning glass transition to melt temperature](/images/insights/how-peeks-crystallinity-determines-a-successful-print/image1.jpg)

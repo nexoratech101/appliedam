@@ -7,6 +7,8 @@ tags: ["3D Printing", "Motion Control", "Firmware", "Jerk", "UltiMaker"]
 author:
   name: "Randima Bandara"
   type: "General contributor"
+aliases:
+  - /industry/smart-motion-in-3d-printing/
 ---
 
 If we say 3D printing is an evolution of CNC technology, it wouldn't be far from the truth.

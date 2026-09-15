@@ -12,6 +12,8 @@ author:
 ai_level: "Oversight"
 ai_functions: ["Data Collection", "Writing"]
 draft: false
+aliases:
+  - /insights/where-to-actually-find-free-3d-models-worth-printing/
 ---
 
 Not all free model repositories are built for AM practitioners. Here is where to look - and what to watch out for.

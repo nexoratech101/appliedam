@@ -15,6 +15,8 @@ tags: ["Space Manufacturing", "Metal AM", "History of AM", "ISS", "Emerging Tech
 ai_level: "All Machine"
 ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
+aliases:
+  - /insights/how-3d-printing-found-its-way-to-orbit/
 ---
 
 ![A timeline of additive manufacturing milestones aboard the International Space Station, from the 2014 Zero-G Printer to the 2024 metal print](/images/insights/how-3d-printing-found-its-way-to-orbit/image1.jpg)

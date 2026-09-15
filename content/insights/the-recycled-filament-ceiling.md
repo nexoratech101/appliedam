@@ -15,6 +15,8 @@ tags: ["polymer AM", "sustainability", "recycling", "FDM", "circular economy"]
 ai_level: "All Machine"
 ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
+aliases:
+  - /insights/the-recycled-filament-ceiling/
 ---
 
 Additive manufacturing is routinely marketed as inherently sustainable: build only what is needed, waste little material, and - in principle - feed a part back into the machine as feedstock for the next one. The last claim is the least settled. Whether a thermoplastic can be reprocessed through repeated extrusion-and-print cycles without losing the mechanical performance that made it useful in the first place depends on polymer chemistry that does not care about the circular-economy narrative built on top of it.

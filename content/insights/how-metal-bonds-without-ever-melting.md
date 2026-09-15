@@ -9,6 +9,8 @@ tags: ["Cold Spray", "Metal Additive Manufacturing", "Bonding Mechanism", "Nonde
 ai_level: "All Machine"
 ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
+aliases:
+  - /insights/how-metal-bonds-without-ever-melting/
 ---
 
 ![Horizontal bar chart titled "The Same Powder, Two Very Different Speeds" comparing particle impact velocities: aluminum particles at 300 to 600-plus meters per second, 316L stainless with helium carrier gas at approximately 750 meters per second, and 316L stainless with nitrogen carrier gas at under 500 meters per second](/images/insights/how-metal-bonds-without-ever-melting/image1.jpg)

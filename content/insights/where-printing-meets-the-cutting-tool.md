@@ -9,6 +9,8 @@ tags: ["Hybrid Manufacturing", "Directed Energy Deposition", "Residual Stress", 
 ai_level: "All Machine"
 ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
+aliases:
+  - /insights/where-printing-meets-the-cutting-tool/
 ---
 
 Hybrid manufacturing systems that combine directed-energy deposition (DED) with in-envelope milling on a single fixture have moved from research cells to production floors over the past several years. The appeal is straightforward: build near-net-shape geometry additively, then finish critical features without ever removing the part from the machine. What is less straightforward is what happens to the material in between — because the two processes leave behind very different, and interacting, residual stress states.

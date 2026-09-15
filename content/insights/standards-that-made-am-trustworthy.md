@@ -15,6 +15,8 @@ tags: ["standards", "ISO/ASTM", "qualification", "certification", "digital threa
 ai_level: "All Machine"
 ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
+aliases:
+  - /insights/standards-that-made-am-trustworthy/
 ---
 
 A decade ago, an engineer who wanted to fly a 3D-printed bracket had almost no common rulebook to point to. Each qualification effort was built from scratch, one company's internal process specification standing in for what should have been shared, external ground truth. That gap between "we can print it" and "we can certify it" is the real story of additive manufacturing standards, and it has been closing steadily rather than all at once.

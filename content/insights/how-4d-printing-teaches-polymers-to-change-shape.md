@@ -9,6 +9,8 @@ tags: ["4D Printing", "Shape Memory Polymers", "Polymer Additive Manufacturing",
 ai_level: "All Machine"
 ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
+aliases:
+  - /insights/how-4d-printing-teaches-polymers-to-change-shape/
 ---
 
 ![Four-panel diagram showing the shape memory polymer cycle: a permanent printed shape, heated and deformed into a temporary shape, cooled and fixed, then triggered to recover its original permanent shape](/images/insights/how-4d-printing-teaches-polymers-to-change-shape/image1.jpg)

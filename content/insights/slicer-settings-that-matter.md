@@ -9,6 +9,8 @@ tags: ["Slicer Settings", "FDM", "Best Practices", "Print Quality"]
 ai_level: "Oversight"
 ai_functions: ["Data Collection", "Data Interpretation", "Writing"]
 draft: false
+aliases:
+  - /insights/slicer-settings-that-matter/
 ---
 
 Open any modern slicer in advanced mode and you are looking at over 200 parameters. Most of them you will never touch. A small number actually determine whether a part looks good, fits correctly, or survives use - and most practitioners either ignore them entirely and run defaults, or tune the wrong ones first.

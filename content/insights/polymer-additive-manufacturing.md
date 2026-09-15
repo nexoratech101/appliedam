@@ -9,6 +9,8 @@ author:
   type: "General contributor"
   email: "randima005@gmail.com"
   email_public: false
+aliases:
+  - /insights/polymer-additive-manufacturing/
 ---
 
 If someone asks you to name polymer additive manufacturing techniques, how many can you list at once? If you are only familiar with the ASTM/ISO 52900 classification, now is the best time to expand your knowledge. [AMPOWER](https://www.linkedin.com/company/ampower-gmbh-&-co.-kg/posts/?feedView=all), a leading strategy consultancy and thought leader in industrial additive manufacturing, has identified over 16 different polymer 3D printing processes.

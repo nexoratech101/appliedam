@@ -9,6 +9,8 @@ tags: ["Multi Jet Fusion", "Polymer AM", "PA12", "Materials Science", "Powder Be
 ai_level: "Oversight"
 ai_functions: ["Data Collection", "Data Interpretation", "Writing"]
 draft: false
+aliases:
+  - /insights/why-jet-fusion-powder-doesnt-wear-out/
 ---
 
 ![A labeled cutaway diagram of an HP Multi Jet Fusion build chamber, showing the powder bed, fusing agent jets, detailing agent jets, and infrared lamp, with the unfused surrounding powder shaded to show heat soak.](/images/insights/why-jet-fusion-powder-doesnt-wear-out/image1.jpg)

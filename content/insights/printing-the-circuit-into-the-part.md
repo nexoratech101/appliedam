@@ -14,6 +14,8 @@ tags: ["3D Printed Electronics", "Conductive Filament", "Direct Ink Writing", "E
 ai_level: "Oversight"
 ai_functions: ["Data Collection", "Data Interpretation", "Writing"]
 draft: false
+aliases:
+  - /insights/printing-the-circuit-into-the-part/
 ---
 
 ![A branching diagram traces direct ink writing research at Harvard through Voxel8's 2015 single-machine electronics printer, its later pivot to footwear printing, and the three separate techniques that took its place: embedding real components, printing signal-only conductive traces, and printing multilayer circuit boards](/images/insights/printing-the-circuit-into-the-part/image1.jpg)

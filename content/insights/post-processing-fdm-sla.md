@@ -9,6 +9,8 @@ tags: ["Post-Processing", "FDM", "SLA", "Finishing", "Best Practices"]
 ai_level: "Oversight"
 ai_functions: ["Data Collection", "Data Interpretation", "Writing"]
 draft: false
+aliases:
+  - /insights/post-processing-fdm-sla/
 ---
 
 A part coming off the build plate is rarely the finished product. Whether it needs to look good, fit precisely, or survive outdoors, the gap between "printed" and "done" is post-processing - and most practitioners default to whatever they did last time rather than choosing the method that fits the part.

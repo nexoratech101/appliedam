@@ -9,6 +9,8 @@ tags: ["quality inspection", "CT scanning", "porosity", "metal additive manufact
 ai_level: "All Machine"
 ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
+aliases:
+  - /insights/ct-inspection-porosity-metrology-metal-am/
 ---
 
 Porosity remains the most consequential defect population in metal additive manufacturing, and X-ray computed tomography (XCT) has become the dominant nondestructive method for characterizing it. Unlike sectioning-based metallography, XCT reconstructs the full internal void network of a part in three dimensions without destroying it, but the technique's apparent completeness conceals a metrology problem: what a CT scan reports as "porosity" is inseparable from the resolution and thresholding choices used to produce the reconstruction.

@@ -9,6 +9,8 @@ tags: ["Metal AM", "Laser Powder Bed Fusion", "Process Monitoring", "Machine Lea
 ai_level: "All Machine"
 ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
+aliases:
+  - /insights/melt-pool-monitoring-metal-additive-manufacturing/
 ---
 
 Every layer of a laser powder bed fusion (LPBF) build passes through a molten pool that exists for a few milliseconds before it solidifies, and inside that brief window is most of the information about whether the part will be sound. Post-build inspection — CT scanning, sectioning — can find the defects that resulted, but it can't say when or why they formed, and it can't stop a bad build from continuing. In-situ melt pool monitoring tries to close that gap: sensing the melt pool itself, in real time, while the laser is still moving.

@@ -15,6 +15,8 @@ tags: ["3D Printer Kinematics", "CoreXY", "Delta Printers", "Input Shaping", "Kl
 ai_level: "All Machine"
 ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
+aliases:
+  - /insights/why-your-printer-moves-the-way-it-does/
 ---
 
 ![Diagram comparing three 3D printer motion systems side by side: a bedslinger with the bed sliding on the Y axis, a CoreXY printer with a stationary bed and belt-driven gantry, and a delta printer with three parallel arms suspending a central effector](/images/insights/why-your-printer-moves-the-way-it-does/image1-v2.jpg)

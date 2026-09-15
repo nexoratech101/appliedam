@@ -15,6 +15,8 @@ tags: ["polymer AM", "FDM", "simulation", "slicing software", "warping"]
 ai_level: "All Machine"
 ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
+aliases:
+  - /insights/how-print-simulation-sees-warping-coming/
 ---
 
 Think about the last time you baked a big sheet of cookies and watched the edges curl up before the center had even set. That's a heat problem, not a dough problem, and it turns out 3D-printed plastic parts warp for almost the same reason. As one layer of hot filament cools and shrinks while the layer beneath it is already rigid, the part pulls itself out of shape. Print simulation software exists to catch that curl before it happens, modeling the thermal history of a print so an engineer can fix the geometry, the orientation, or the toolpath before a single gram of filament is wasted.

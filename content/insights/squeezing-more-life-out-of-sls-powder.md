@@ -9,6 +9,8 @@ tags: ["SLS", "polymer AM", "PA12", "powder reuse", "materials science"]
 ai_level: "All Machine"
 ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
+aliases:
+  - /insights/squeezing-more-life-out-of-sls-powder/
 ---
 
 In a typical selective laser sintering build, the laser only touches about a fifth of the powder in the chamber. The rest sits at sintering-adjacent temperatures for hours, unused but not unaffected, and gets scooped up afterward to feed the next job. Whether that leftover powder is still worth using is one of the more practical questions in polymer additive manufacturing, and it turns out to have a fairly precise answer.

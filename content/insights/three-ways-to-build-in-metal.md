@@ -9,6 +9,8 @@ tags: ["metal additive manufacturing", "powder bed fusion", "binder jetting"]
 ai_level: "All Machine"
 ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
+aliases:
+  - /insights/three-ways-to-build-in-metal/
 ---
 
 Metal additive manufacturing is often discussed as a single technology, but the three dominant processes — laser powder bed fusion (L-PBF), directed energy deposition (DED), and binder jetting — arrive at a fully dense part through unrelated physical routes, and the differences are not cosmetic. Each trades resolution, build rate, residual stress, and capital cost against one another in ways that determine which parts a given process can realistically produce, and mixing up the three in casual comparison obscures decisions that should be made early in a part's design.

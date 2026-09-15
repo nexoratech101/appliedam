@@ -15,6 +15,8 @@ tags: ["Additive Manufacturing", "Spare Parts", "Supply Chain", "Digital Invento
 ai_level: "All Machine"
 ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
+aliases:
+  - /insights/the-warehouse-that-never-holds-the-part/
 ---
 
 ![Diagram comparing a traditional spare parts warehouse of stacked shelves against a digital inventory model where a single server holds part files that route to a printer only on demand](/images/insights/the-warehouse-that-never-holds-the-part/image1-v2.jpg)

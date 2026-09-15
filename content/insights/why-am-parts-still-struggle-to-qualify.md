@@ -9,6 +9,8 @@ tags: ["qualification", "standards", "ASTM", "ISO", "aerospace", "process contro
 ai_level: "All Machine"
 ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
+aliases:
+  - /insights/why-am-parts-still-struggle-to-qualify/
 ---
 
 ![A part-acceptance decision tree spanning statistical, equivalence, and model-based qualification paths](/images/insights/why-am-parts-still-struggle-to-qualify/hero.jpg)

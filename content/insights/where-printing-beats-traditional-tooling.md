@@ -9,6 +9,8 @@ tags: ["economics", "additive manufacturing", "injection molding", "production v
 ai_level: "All Machine"
 ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
+aliases:
+  - /insights/where-printing-beats-traditional-tooling/
 ---
 
 Every manufacturing engineer eventually runs the same calculation: at what quantity does it stop making sense to print a part and start making sense to tool up for it. That number isn't fixed. It moves with part geometry, material, labor rates, and how much a company values flexibility over unit cost. But the shape of the calculation is now well understood, and it's reshaping where additive manufacturing actually gets deployed on factory floors.

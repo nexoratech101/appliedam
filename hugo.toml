@@ -99,6 +99,12 @@ disableKinds = ["taxonomy", "term"]
   category = "categories"
   author   = "authors"
 
+[permalinks]
+  research = "/:contentbasename/"
+  industry = "/:contentbasename/"
+  "case-studies" = "/:contentbasename/"
+  insights = "/:contentbasename/"
+
 [markup]
   [markup.goldmark.renderer]
     unsafe = true

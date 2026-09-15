@@ -7,6 +7,8 @@ tags: ["FDM", "3D Printing", "Materials", "Engineering"]
 author:
   name: "AppliedAM Team"
   type: "Registered writer"
+aliases:
+  - /research/fdm-complete-guide/
 ---
 
 Fused Deposition Modeling â€" better known as FDM â€" is the most widely used

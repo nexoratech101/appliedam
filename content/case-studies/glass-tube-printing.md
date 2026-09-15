@@ -9,6 +9,8 @@ author:
   type: "General contributor"
   email: "randima005@gmail.com"
   email_public: false
+aliases:
+  - /case-studies/glass-tube-printing/
 ---
 
 3D printing is one of the most powerful tools for overcoming industry challenges, enhancing efficiency, and optimizing production. Here is a compelling case study demonstrating how this technology can deliver game-changing solutions by simply thinking outside the box.

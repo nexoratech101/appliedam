@@ -9,6 +9,8 @@ tags: ["Sustainability", "Recycling", "Composites", "Circular Economy", "Polymer
 ai_level: "All Machine"
 ai_functions: ["Data Collection", "Data Interpretation", "Writing"]
 draft: false
+aliases:
+  - /insights/the-economics-of-recycling-a-printed-part/
 ---
 
 ![A recycling sorting line schematic shows mono-material PET bottles diverting into a sorted stream after an NIR scanner, while a printed composite part continues unsorted into a residual landfill stream](/images/insights/the-economics-of-recycling-a-printed-part/image1.jpg)

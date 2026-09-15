@@ -15,6 +15,8 @@ tags: ["Product Liability", "Insurance", "Industry", "Aerospace", "Supply Chain"
 ai_level: "All Machine"
 ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
+aliases:
+  - /insights/who-carries-the-liability-for-a-defective-printed-part/
 ---
 
 ![Diagram comparing traditional manufacturing's two-party liability chain (manufacturer, distributor) against additive manufacturing's five-party chain (designer, software or file host, material supplier, machine builder, print operator)](/images/insights/who-carries-the-liability-for-a-defective-printed-part/image1.jpg)

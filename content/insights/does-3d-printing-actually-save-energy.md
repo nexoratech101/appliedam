@@ -9,6 +9,8 @@ tags: ["sustainability", "life cycle assessment", "energy", "metal AM", "polymer
 ai_level: "All Machine"
 ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
+aliases:
+  - /insights/does-3d-printing-actually-save-energy/
 ---
 
 ![Illustration of a manufacturing energy flow comparing additive and conventional production](/images/insights/does-3d-printing-actually-save-energy/hero.jpg)

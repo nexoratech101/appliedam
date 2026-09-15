@@ -15,6 +15,8 @@ tags: ["Build Orientation", "Anisotropy", "FDM", "Multimaterial Printing", "Desi
 ai_level: "All Machine"
 ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
+aliases:
+  - /insights/orientation-decision-nobody-optimizes/
 ---
 
 ![Schematic comparing three 3D-printed build orientations, flat, on edge, and vertical, showing how the angle between layer lines and the applied load determines whether the layer bonds are loaded in shear, tension, or compression](/images/insights/orientation-decision-nobody-optimizes/image1.jpg)

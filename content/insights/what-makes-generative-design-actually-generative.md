@@ -9,6 +9,8 @@ tags: ["generative design", "topology optimization", "software", "design for AM"
 ai_level: "All Machine"
 ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
+aliases:
+  - /insights/what-makes-generative-design-actually-generative/
 ---
 
 Open a generative design tool, type in a bounding box, a load case, and a couple of mounting holes, and a few minutes later you get back something that looks like a bone or a bit of coral. That resemblance isn't decoration. It's a side effect of how the software actually works, and it's worth understanding before you trust one of these parts on a real machine.

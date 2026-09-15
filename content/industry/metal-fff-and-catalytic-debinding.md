@@ -10,6 +10,8 @@ author:
   email: "randima005@gmail.com"
   email_public: false
 draft: false
+aliases:
+  - /industry/metal-fff-and-catalytic-debinding/
 ---
 
 Metal Fused Filament Fabrication (Metal FFF) is an additive manufacturing process used to produce complex metal parts using metal-bound composite filaments. This technique is particularly valuable when fast delivery times are crucial or when traditional manufacturing methods face limitations.

@@ -14,6 +14,8 @@ tags: ["Nylon", "FDM", "Materials Science", "Filament", "Hydrolysis"]
 ai_level: "Oversight"
 ai_functions: ["Data Collection", "Data Interpretation", "Writing"]
 draft: false
+aliases:
+  - /insights/how-dry-is-dry-enough-for-fdm-filament/
 ---
 
 ![Diagram of moisture diffusing through a filament spool and flash-boiling at the hot end nozzle](/images/insights/how-dry-is-dry-enough-for-fdm-filament/image1.jpg)

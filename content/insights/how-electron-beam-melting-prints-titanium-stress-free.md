@@ -9,6 +9,8 @@ tags: ["Electron Beam Melting", "Metal Additive Manufacturing", "Residual Stress
 ai_level: "All Machine"
 ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
+aliases:
+  - /insights/how-electron-beam-melting-prints-titanium-stress-free/
 ---
 
 ![Two temperature-through-build-height curves compare electron beam melting's shallow thermal gradient to laser powder bed fusion's steep one](/images/insights/how-electron-beam-melting-prints-titanium-stress-free/image1.jpg)

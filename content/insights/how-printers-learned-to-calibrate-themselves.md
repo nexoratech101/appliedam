@@ -9,6 +9,8 @@ tags: ["FDM", "polymer AM", "hobbyist", "calibration", "firmware"]
 ai_level: "All Machine"
 ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
+aliases:
+  - /insights/how-printers-learned-to-calibrate-themselves/
 ---
 
 ![A cutaway illustration of a 3D printer bed showing a probe measuring height at a grid of points, with a wireframe mesh floating above the plate representing the resulting compensation map.](/images/insights/how-printers-learned-to-calibrate-themselves/hero.jpg)

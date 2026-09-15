@@ -10,6 +10,8 @@ draft: false
 project_university: "Michigan State University"
 project_course: "ME 471 - Advanced Manufacturing"
 project_year: "2024"
+aliases:
+  - /case-studies/drone-frame-topology-optimization/
 ---
 
 ## Project Overview

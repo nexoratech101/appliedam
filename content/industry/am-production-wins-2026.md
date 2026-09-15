@@ -9,6 +9,8 @@ tags: ["Production", "Aerospace", "Defense", "Medical", "Metal AM", "Industry Tr
 ai_level: "Oversight"
 ai_functions: ["Data Collection", "Data Interpretation", "Writing"]
 draft: false
+aliases:
+  - /industry/am-production-wins-2026/
 ---
 
 Additive manufacturing has spent over a decade promising to reshape manufacturing at large. Some of that promise has materialized. A lot of it hasn't - or hasn't yet, or won't in the form originally pitched. The useful question for 2026 is not whether AM is the future of manufacturing in the abstract. It is narrower and more practical: where, specifically, is it already winning today, in production, repeatedly, at quality - and where does the evidence say it still falls short.

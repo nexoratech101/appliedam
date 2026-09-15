@@ -11,6 +11,8 @@ author:
   email_public: false
 featured_pick: false
 draft: false
+aliases:
+  - /research/the-bimetallic-problem-almost-nobody-is-printing/
 ---
 
 Bimetallic printing is one of those topics everyone in metal additive manufacturing seems curious about, and there is a growing body of research behind it. The gap, however, is specific: when it comes to wire laser metal deposition, almost no bimetallic research exists. Most labs and companies do not have access to a WLMD machine to begin with. Ayman Ahdy does.

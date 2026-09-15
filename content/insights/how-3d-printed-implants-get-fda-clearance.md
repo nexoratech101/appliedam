@@ -15,6 +15,8 @@ tags: ["FDA", "Regulatory Pathway", "Medical Devices", "Point of Care", "Additiv
 ai_level: "All Machine"
 ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
+aliases:
+  - /insights/how-3d-printed-implants-get-fda-clearance/
 ---
 
 ![Timeline diagram showing the FDA's additive manufacturing regulatory milestones from pre-2017 ad hoc device review through the 2017 technical guidance, the 2021 point-of-care discussion paper, and the still-open gap flagged in 2022](/images/insights/how-3d-printed-implants-get-fda-clearance/image1-v2.jpg)

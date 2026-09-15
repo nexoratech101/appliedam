@@ -9,6 +9,8 @@ tags: ["polymer AM", "dimensional accuracy", "FDM", "SLA", "tolerancing"]
 ai_level: "All Machine"
 ai_functions: ["Ideation", "Data Collection", "Writing"]
 draft: false
+aliases:
+  - /insights/why-3d-printed-parts-miss-their-tolerance/
 ---
 
 When a polymer part comes off the printer within a few tenths of a millimeter of its CAD dimensions, that gets chalked up to a well-calibrated machine. Usually it's something simpler: the geometry got lucky. Dimensional error in material extrusion (FDM) and vat photopolymerization (SLA) isn't mostly a tuning problem. It's what you get when thermal and cure kinetics run their course, and those kinetics look nothing alike between the two processes. A recent study comparing FDM, vat photopolymerization, and electron beam melting backs this up in an interesting way: it's not just that average error differs between processes, but that the whole shape of the variability does. One tolerance table can't honestly describe both ([Al-Ahmari et al., 2025](https://www.mdpi.com/2227-9717/13/12/3825)).
