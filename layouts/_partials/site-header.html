@@ -4,17 +4,18 @@
       <img src="/images/logo.png" alt="AppliedAM" class="aam-logo-img">
     </a>
     <input type="checkbox" id="aam-menu-toggle" class="aam-menu-toggle-input">
+    {{ $currentPage := . }}
     <nav class="aam-nav-links" id="aam-nav-links">
       {{ range .Site.Menus.main }}
         {{ if and (ne .Name "Submit") (ne .Name "Submit a Project") }}
-        <a href="{{ .URL }}" class="aam-nav-link">{{ .Name }}</a>
+        <a href="{{ .URL }}" class="aam-nav-link{{ if $currentPage.IsMenuCurrent "main" . }} aam-nav-link-active{{ end }}">{{ .Name }}</a>
         {{ end }}
       {{ end }}
     </nav>
     <div class="aam-topnav-right">
       <div class="aam-search-wrap">
         <button type="button" class="aam-search-toggle" id="aamSearchToggle" aria-label="Search">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="5.5" stroke="#fff" stroke-width="1.6"/><path d="M16 16l-3.5-3.5" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="5.5" stroke="#333D4B" stroke-width="1.6"/><path d="M16 16l-3.5-3.5" stroke="#333D4B" stroke-width="1.6" stroke-linecap="round"/></svg>
         </button>
         <div class="aam-search-panel" id="aamSearchPanel">
           <div class="aam-search-input-row">
