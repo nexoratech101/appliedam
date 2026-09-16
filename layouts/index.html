@@ -188,7 +188,7 @@
         <div class="times-rail-thumb{{ if not .Params.featured_image }} nature-tile-art-empty{{ end }}"{{ if .Params.featured_image }} style="background-image:url('{{ .Params.featured_image }}')"{{ end }}></div>
         <div class="times-rail-body">
           <div class="times-rail-title">{{ .Title }}</div>
-          <p class="times-rail-date">{{ .Date.Format "Jan 2, 2006" }}</p>
+          <p class="times-rail-date"><span class="times-rail-cat">{{ .Section | title }}</span> &middot; {{ .Date.Format "Jan 2, 2006" }}</p>
         </div>
       </a>
       {{ end }}
