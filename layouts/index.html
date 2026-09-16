@@ -1,28 +1,30 @@
 {{ define "main" }}
 
 {{ $pages := .Site.RegularPages.ByDate.Reverse }}
+
+{{/* Top section: latest 5 articles overall - hero + 4 grid tiles */}}
 {{ $hero := index $pages 0 }}
+{{ $natureGridPages := first 4 (after 1 $pages) }}
 {{ $used := slice $hero.RelPermalink }}
-
-{{ $insightPages := (where .Site.RegularPages "Section" "insights").ByDate.Reverse }}
-{{ $researchPages := (where .Site.RegularPages "Section" "research").ByDate.Reverse }}
-{{ $researchFeatured := where $researchPages "Params.featured_pick" true }}
-{{ $editorsPick := index $researchPages 0 }}
-{{ if gt (len $researchFeatured) 0 }}{{ $editorsPick = index $researchFeatured 0 }}{{ end }}
-{{ $used = $used | append $editorsPick.RelPermalink }}
-
-{{ $natureGridPages := first 4 (where $insightPages "RelPermalink" "not in" $used) }}
 {{ range $natureGridPages }}{{ $used = $used | append .RelPermalink }}{{ end }}
 
-{{ $storyListPages := first 3 (where $pages "RelPermalink" "not in" $used) }}
+{{/* Editor's Choice: specific selected articles, not date-ranked */}}
+{{ $editorsPick := .Site.GetPage "/research/the-bimetallic-problem-almost-nobody-is-printing" }}
+{{ $storyListPages := slice
+  (.Site.GetPage "/research/rebecca-surgical-positioning-table")
+  (.Site.GetPage "/insights/how-3d-printed-implants-get-fda-clearance")
+  (.Site.GetPage "/insights/the-warehouse-that-never-holds-the-part")
+}}
+{{ $used = $used | append $editorsPick.RelPermalink }}
 {{ range $storyListPages }}{{ $used = $used | append .RelPermalink }}{{ end }}
 
-{{ $moreArticles := first 14 (where $pages "RelPermalink" "not in" $used) }}
-{{ $moreText := first 4 $moreArticles }}
-{{ $morePhotoFeature := index $moreArticles 4 }}
-{{ $morePhotoMed1 := index $moreArticles 5 }}
-{{ $morePhotoMed2 := index $moreArticles 6 }}
-{{ $moreRail := after 7 $moreArticles }}
+{{/* More From AppliedAM: positions counted within the remaining (non-repeated) pool */}}
+{{ $moreArticles := where $pages "RelPermalink" "not in" $used }}
+{{ $morePhotoFeature := index $moreArticles 9 }}
+{{ $moreText := after 10 $moreArticles | first 4 }}
+{{ $morePhotoMed1 := index $moreArticles 14 }}
+{{ $morePhotoMed2 := index $moreArticles 15 }}
+{{ $moreRail := slice (index $moreArticles 17) (index $moreArticles 19) (index $moreArticles 21) (index $moreArticles 23) (index $moreArticles 25) (index $moreArticles 27) (index $moreArticles 29) }}
 
 <div class="nature-wrap">
 <section class="nature-hero">
