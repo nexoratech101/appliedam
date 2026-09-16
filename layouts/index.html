@@ -90,12 +90,12 @@
         <span class="story-art{{ if not .Params.featured_image }} nature-tile-art-empty{{ end }}"{{ if .Params.featured_image }} style="background-image:url('{{ .Params.featured_image }}')"{{ end }}></span>
         <div class="story-content">
           <div class="story-title">{{ .Title }}</div>
-          <div class="story-meta-row">
-            <span class="story-date">{{ .Date.Format "Jan 2, 2006" }}</span>
-            <span class="cat-tag cat-{{ .Section }}">{{ .Section | title }}</span>
-          </div>
+          <p class="story-date">{{ .Date.Format "Jan 2, 2006" }}</p>
           <p class="story-desc">{{ .Description }}</p>
-          <span class="arrow-circle"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M4.5 11.5L11.5 4.5M11.5 4.5H5.5M11.5 4.5V10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="story-bottom">
+            <div class="story-tags"><span class="cat-tag cat-{{ .Section }}">{{ .Section | title }}</span></div>
+            <span class="arrow-circle"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M4.5 11.5L11.5 4.5M11.5 4.5H5.5M11.5 4.5V10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
         </div>
       </a>
       {{ end }}
