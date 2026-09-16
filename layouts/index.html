@@ -7,6 +7,7 @@
 {{ $researchFeatured := where $researchPages "Params.featured_pick" true }}
 {{ $editorsPick := index $researchPages 0 }}
 {{ if gt (len $researchFeatured) 0 }}{{ $editorsPick = index $researchFeatured 0 }}{{ end }}
+{{ $natureGridPages := first 4 (where $insightPages "RelPermalink" "ne" $hero.RelPermalink) }}
 {{ $storyListPages := first 3 (after 1 $pages) }}
 {{ $moreArticles := first 14 (after 4 $pages) }}
 {{ $moreText := first 4 $moreArticles }}
@@ -15,239 +16,204 @@
 {{ $morePhotoMed2 := index $moreArticles 6 }}
 {{ $moreRail := after 7 $moreArticles }}
 
-<section class="aam-hp-wrap">
-  <div class="aam-hp-hero-grid">
-
+<div class="nature-wrap">
+<section class="nature-hero">
+  <div class="nature-hero-text">
     {{ with $hero }}
-    <div class="aam-hp-hero-main">
-      <div class="aam-hp-hero-text">
-        <span class="aam-hp-badge aam-hp-badge-{{ .Section }}">{{ .Section | title }}</span>
-        <h2 class="aam-hp-hero-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-        <div class="aam-hp-hero-meta">{{ if .Params.author }}{{ if reflect.IsMap .Params.author }}{{ .Params.author.name }}{{ else }}{{ .Params.author }}{{ end }} &middot; {{ end }}{{ .Date.Format "Jan 2, 2006" }} &middot; {{ .ReadingTime }} min read</div>
-        {{ if .Description }}<p class="aam-hp-hero-desc">{{ .Description }}</p>{{ end }}
-      </div>
-      <div class="aam-hp-hero-photo"{{ if .Params.featured_image }} style="background-image:url('{{ .Params.featured_image }}')"{{ end }}></div>
-    </div>
+    <h1 class="nature-hero-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+    <p class="nature-hero-meta">{{ if .Params.author }}{{ if reflect.IsMap .Params.author }}{{ .Params.author.name }}{{ else }}{{ .Params.author }}{{ end }} &middot; {{ end }}{{ .Date.Format "Jan 2, 2006" }} &middot; {{ .ReadingTime }} min read</p>
+    {{ if .Description }}<p class="nature-hero-desc">{{ .Description }}</p>{{ end }}
     {{ end }}
-
   </div>
+  <div class="nature-hero-photo"{{ if $hero.Params.featured_image }} style="background-image:url('{{ $hero.Params.featured_image }}')"{{ end }}></div>
 </section>
 
-<section class="aam-hp-pillars-wrap">
-  <div class="aam-hp-container">
-    <h2 class="aam-hp-section-head">Coverage built around how additive manufacturing actually works</h2>
-    <div class="aam-hp-pillars-grid">
-      <a href="/research/" class="aam-hp-pillar-card">
-        <div class="aam-hp-pillar-card-body">
-          <div class="aam-hp-pillar-card-title">Research</div>
-          <p class="aam-hp-pillar-card-desc">Peer-reviewed findings from AppliedAM&apos;s contributors and the wider AM research community.</p>
-          <span class="aam-hp-card-arrow" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        </div>
-        <div class="aam-hp-pillar-art aam-hp-pillar-art-research"><span>R</span></div>
-      </a>
-      <a href="/industry/" class="aam-hp-pillar-card">
-        <div class="aam-hp-pillar-card-body">
-          <div class="aam-hp-pillar-card-title">Industry</div>
-          <p class="aam-hp-pillar-card-desc">Market moves, new capacity, and the business side of additive manufacturing.</p>
-          <span class="aam-hp-card-arrow" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        </div>
-        <div class="aam-hp-pillar-art aam-hp-pillar-art-industry"><span>I</span></div>
-      </a>
-      <a href="/case-studies/" class="aam-hp-pillar-card">
-        <div class="aam-hp-pillar-card-body">
-          <div class="aam-hp-pillar-card-title">Case Studies</div>
-          <p class="aam-hp-pillar-card-desc">Real production runs and real lessons from teams using AM at scale.</p>
-          <span class="aam-hp-card-arrow" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        </div>
-        <div class="aam-hp-pillar-art aam-hp-pillar-art-case-studies"><span>CS</span></div>
-      </a>
-      <a href="/insights/" class="aam-hp-pillar-card">
-        <div class="aam-hp-pillar-card-body">
-          <div class="aam-hp-pillar-card-title">Insights</div>
-          <p class="aam-hp-pillar-card-desc">Explainers and analysis on the technology, economics, and practice of AM.</p>
-          <span class="aam-hp-card-arrow" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        </div>
-        <div class="aam-hp-pillar-art aam-hp-pillar-art-insights"><span>In</span></div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="aam-hp-promo">
-  <div class="aam-hp-container aam-hp-promo-inner">
+<div class="nature-grid">
+  {{ range $natureGridPages }}
+  <a href="{{ .Permalink }}" class="nature-tile">
+    <div class="nature-tile-art{{ if not .Params.featured_image }} nature-tile-art-empty{{ end }}"{{ if .Params.featured_image }} style="background-image:url('{{ .Params.featured_image }}')"{{ end }}></div>
+    <div class="nature-tile-title">{{ .Title }}</div>
+    <p class="nature-tile-date">{{ .Date.Format "Jan 2, 2006" }}</p>
+    <p class="nature-tile-desc">{{ .Description }}</p>
+    <span class="arrow-circle"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M4.5 11.5L11.5 4.5M11.5 4.5H5.5M11.5 4.5V10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+  </a>
+  {{ end }}
+  <a href="/submission-form/" class="nature-tile is-accent" target="_blank" rel="noopener">
     <div>
-      <div class="aam-hp-promo-title">Have work worth publishing? <em>We want to read it.</em></div>
-      <p class="aam-hp-promo-sub">AppliedAM accepts research write-ups, case studies, and technical explainers from practitioners across the AM community.</p>
+      <img src="/images/logo-white.png" alt="AppliedAM">
+      <div class="nature-tile-title">Get AppliedAM in your inbox</div>
+      <p class="nature-tile-desc">A twice-monthly newsletter rounding up our latest coverage, from AppliedAM.</p>
     </div>
-    <a href="/submission-form/" class="aam-hp-pill-btn aam-hp-pill-btn-light" target="_blank" rel="noopener">Submission guidelines
-      <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-  </div>
-</section>
+    <span class="accent-link">Subscribe for free <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+  </a>
+</div>
+</div>
 
-<section class="aam-hp-strip-wrap">
-  <div class="aam-hp-container">
-    <div class="aam-hp-strip-header">
-      <h2 class="aam-hp-strip-title">Latest <span>Insights</span></h2>
-      <a href="/insights/" class="aam-hp-strip-link">See all &rarr;</a>
+<div class="promo-band">
+  <div class="wrap promo-band-inner">
+    <div>
+      <div class="promo-title">Have work worth publishing? <em>We want to read it.</em></div>
+      <p class="promo-sub">AppliedAM accepts research write-ups, case studies, and technical explainers from practitioners across the AM community.</p>
     </div>
-    <div class="aam-hp-cards4">
-      {{ range first 4 $insightPages }}
-      <article class="aam-hp-card">
-        <div class="aam-hp-card-img{{ if not .Params.featured_image }} aam-hp-card-img-empty{{ end }}"{{ if .Params.featured_image }} style="background-image:url('{{ .Params.featured_image }}')"{{ end }}></div>
-        <div class="aam-hp-card-body">
-          <div class="aam-hp-card-meta">
-            <span class="aam-hp-badge aam-hp-badge-insights">Insights</span>
-            <span class="aam-hp-card-date">{{ .Date.Format "Jan 2, 2006" }}</span>
+    <a href="/submission-form/" class="pill-btn is-light" target="_blank" rel="noopener">Submission guidelines <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+</div>
+
+<section class="section wrap">
+  <h2 class="section-head">Editor&apos;s Choice</h2>
+  <div class="latest-grid">
+    {{ with $editorsPick }}
+    <a href="{{ .Permalink }}" class="feat-card">
+      <div class="feat-photo{{ if not .Params.featured_image }} nature-tile-art-empty{{ end }}"{{ if .Params.featured_image }} style="background-image:url('{{ .Params.featured_image }}')"{{ end }}></div>
+      <div class="feat-scrim"></div>
+      <div class="feat-body">
+        <div class="feat-title">{{ .Title }}</div>
+        <p class="feat-meta">{{ if .Params.author }}{{ if reflect.IsMap .Params.author }}{{ .Params.author.name }}{{ else }}{{ .Params.author }}{{ end }} &middot; {{ end }}{{ .Date.Format "Jan 2, 2006" }} &middot; {{ .ReadingTime }} min read</p>
+        <p class="feat-desc">{{ .Description }}</p>
+        <span class="feat-link">Read now <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4.5 11.5L11.5 4.5M11.5 4.5H5.5M11.5 4.5V10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </div>
+    </a>
+    {{ end }}
+    <div class="story-list">
+      {{ range $storyListPages }}
+      <a href="{{ .Permalink }}" class="story-row">
+        <span class="story-art{{ if not .Params.featured_image }} nature-tile-art-empty{{ end }}"{{ if .Params.featured_image }} style="background-image:url('{{ .Params.featured_image }}')"{{ end }}></span>
+        <div class="story-content">
+          <div class="story-title">{{ .Title }}</div>
+          <p class="story-date">{{ .Date.Format "Jan 2, 2006" }}</p>
+          <p class="story-desc">{{ .Description }}</p>
+          <div class="story-bottom">
+            <div class="story-tags"><span class="cat-tag cat-{{ .Section }}">{{ .Section | title }}</span></div>
+            <span class="arrow-circle"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M4.5 11.5L11.5 4.5M11.5 4.5H5.5M11.5 4.5V10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
-          <h3 class="aam-hp-card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-          <p class="aam-hp-card-desc">{{ .Description }}</p>
-          <a href="{{ .Permalink }}" class="aam-hp-card-arrow" aria-label="Read {{ .Title }}">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 11L11 3M11 3H4.5M11 3V9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
         </div>
-      </article>
+      </a>
       {{ end }}
-      <div class="aam-hp-nl">
-        <div class="aam-hp-nl-logo"><img src="/images/logo_full.png" alt="AppliedAM"></div>
-        <div class="aam-hp-nl-title">Get AppliedAM in your inbox</div>
-        <p class="aam-hp-nl-sub">A twice-monthly newsletter rounding up our latest coverage, from AppliedAM.</p>
-        <input type="email" placeholder="your@email.com" class="aam-hp-nl-input">
-        <button class="aam-hp-nl-btn">Subscribe for free</button>
-      </div>
     </div>
   </div>
 </section>
 
-<section class="aam-hp-feature-wrap">
-  <div class="aam-hp-container">
-    <h2 class="aam-hp-section-head">Editor&apos;s Choice</h2>
-    <div class="aam-hp-feature-row">
-      <div class="aam-hp-feature-col">
-        {{ with $editorsPick }}
-        <a href="{{ .Permalink }}" class="aam-hp-feature-card">
-          <div class="aam-hp-feature-photo{{ if not .Params.featured_image }} aam-hp-card-img-empty{{ end }}"{{ if .Params.featured_image }} style="background-image:url('{{ .Params.featured_image }}')"{{ end }}></div>
-          <div class="aam-hp-feature-scrim"></div>
-          <div class="aam-hp-feature-body">
-            <h3 class="aam-hp-feature-title">{{ .Title }}</h3>
-            <p class="aam-hp-feature-meta">{{ if .Params.author }}{{ if reflect.IsMap .Params.author }}{{ .Params.author.name }}{{ else }}{{ .Params.author }}{{ end }} &middot; {{ end }}{{ .Date.Format "Jan 2, 2006" }} &middot; {{ .ReadingTime }} min read</p>
-            <p class="aam-hp-feature-desc">{{ .Description }}</p>
-            <span class="aam-hp-feature-link">Read now
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4.5 11.5L11.5 4.5M11.5 4.5H5.5M11.5 4.5V10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </div>
+<section class="section wrap">
+  <h2 class="section-head">Coverage built around how additive manufacturing actually works</h2>
+  <div class="pillars">
+    <a href="/research/" class="pillar">
+      <div class="pillar-body">
+        <div class="pillar-title">Research</div>
+        <p class="pillar-desc">Peer-reviewed findings from AppliedAM&apos;s contributors and the wider AM research community.</p>
+        <span class="arrow-circle"><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </div>
+      <div class="pillar-art art-research"><span class="glyph">R</span></div>
+    </a>
+    <a href="/industry/" class="pillar">
+      <div class="pillar-body">
+        <div class="pillar-title">Industry</div>
+        <p class="pillar-desc">Market moves, new capacity, and the business side of additive manufacturing.</p>
+        <span class="arrow-circle"><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </div>
+      <div class="pillar-art art-industry"><span class="glyph">I</span></div>
+    </a>
+    <a href="/case-studies/" class="pillar">
+      <div class="pillar-body">
+        <div class="pillar-title">Case Studies</div>
+        <p class="pillar-desc">Real production runs and real lessons from teams using AM at scale.</p>
+        <span class="arrow-circle"><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </div>
+      <div class="pillar-art art-case-studies"><span class="glyph">CS</span></div>
+    </a>
+    <a href="/insights/" class="pillar">
+      <div class="pillar-body">
+        <div class="pillar-title">Insights</div>
+        <p class="pillar-desc">Explainers and analysis on the technology, economics, and practice of AM.</p>
+        <span class="arrow-circle"><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </div>
+      <div class="pillar-art art-insights"><span class="glyph">In</span></div>
+    </a>
+  </div>
+</section>
+
+<section class="section wrap">
+  <div class="section-head-row">
+    <h2 class="section-head">More From AppliedAM</h2>
+    <a href="/insights/" class="view-all-link">View all articles <span class="arrow-circle"><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+  </div>
+  <div class="times-grid">
+    <div class="times-col-text">
+      {{ range $moreText }}
+      <a href="{{ .Permalink }}" class="times-text-item">
+        <div class="times-text-title">{{ .Title }}</div>
+        <p class="times-text-date">{{ .Date.Format "Jan 2, 2006" }}</p>
+        <p class="times-text-desc">{{ .Description }}</p>
+      </a>
+      {{ end }}
+    </div>
+    <div class="times-col-photo">
+      {{ with $morePhotoFeature }}
+      <a href="{{ .Permalink }}" class="times-photo-feature">
+        <div class="times-photo-feature-photo{{ if not .Params.featured_image }} nature-tile-art-empty{{ end }}"{{ if .Params.featured_image }} style="background-image:url('{{ .Params.featured_image }}')"{{ end }}></div>
+        <div class="times-photo-feature-title">{{ .Title }}</div>
+        <p class="times-photo-feature-date">{{ .Date.Format "Jan 2, 2006" }}</p>
+        <p class="times-photo-feature-desc">{{ .Description }}</p>
+      </a>
+      {{ end }}
+      <div class="times-photo-row">
+        {{ with $morePhotoMed1 }}
+        <a href="{{ .Permalink }}" class="times-photo-medium">
+          <div class="times-photo-medium-photo{{ if not .Params.featured_image }} nature-tile-art-empty{{ end }}"{{ if .Params.featured_image }} style="background-image:url('{{ .Params.featured_image }}')"{{ end }}></div>
+          <div class="times-photo-medium-title">{{ .Title }}</div>
+          <p class="times-photo-medium-date">{{ .Date.Format "Jan 2, 2006" }}</p>
+        </a>
+        {{ end }}
+        {{ with $morePhotoMed2 }}
+        <a href="{{ .Permalink }}" class="times-photo-medium">
+          <div class="times-photo-medium-photo{{ if not .Params.featured_image }} nature-tile-art-empty{{ end }}"{{ if .Params.featured_image }} style="background-image:url('{{ .Params.featured_image }}')"{{ end }}></div>
+          <div class="times-photo-medium-title">{{ .Title }}</div>
+          <p class="times-photo-medium-date">{{ .Date.Format "Jan 2, 2006" }}</p>
         </a>
         {{ end }}
       </div>
-      <div class="aam-hp-sidebar">
-        <div class="aam-hp-story-list">
-          {{ range $storyListPages }}
-          <a href="{{ .Permalink }}" class="aam-hp-story-row">
-            <span class="aam-hp-story-art{{ if not .Params.featured_image }} aam-hp-card-img-empty{{ end }}"{{ if .Params.featured_image }} style="background-image:url('{{ .Params.featured_image }}')"{{ end }}></span>
-            <div class="aam-hp-story-content">
-              <div class="aam-hp-story-title">{{ .Title }}</div>
-              <p class="aam-hp-story-date">{{ .Date.Format "Jan 2, 2006" }}</p>
-              <p class="aam-hp-story-desc">{{ .Description }}</p>
-              <div class="aam-hp-story-bottom">
-                <span class="aam-hp-badge aam-hp-badge-{{ .Section }}">{{ .Section | title }}</span>
-                <span class="aam-hp-card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M4.5 11.5L11.5 4.5M11.5 4.5H5.5M11.5 4.5V10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              </div>
-            </div>
-          </a>
-          {{ end }}
+    </div>
+    <div class="times-col-rail">
+      {{ range $moreRail }}
+      <a href="{{ .Permalink }}" class="times-rail-item">
+        <div class="times-rail-thumb{{ if not .Params.featured_image }} nature-tile-art-empty{{ end }}"{{ if .Params.featured_image }} style="background-image:url('{{ .Params.featured_image }}')"{{ end }}></div>
+        <div class="times-rail-body">
+          <div class="times-rail-title">{{ .Title }}</div>
+          <p class="times-rail-date">{{ .Date.Format "Jan 2, 2006" }}</p>
         </div>
-      </div>
+      </a>
+      {{ end }}
     </div>
   </div>
 </section>
 
-<section class="aam-hp-more-wrap">
-  <div class="aam-hp-container">
-    <div class="aam-hp-strip-header">
-      <h2 class="aam-hp-section-head" style="margin-bottom:0;">More From AppliedAM</h2>
-      <a href="/insights/" class="aam-hp-strip-link">View all articles &rarr;</a>
-    </div>
-    <div class="aam-hp-more-grid">
-      <div class="aam-hp-more-text">
-        {{ range $moreText }}
-        <a href="{{ .Permalink }}" class="aam-hp-more-text-item">
-          <div class="aam-hp-more-text-title">{{ .Title }}</div>
-          <p class="aam-hp-more-text-date">{{ .Date.Format "Jan 2, 2006" }}</p>
-          <p class="aam-hp-more-text-desc">{{ .Description }}</p>
-        </a>
-        {{ end }}
-      </div>
-      <div class="aam-hp-more-photo">
-        {{ with $morePhotoFeature }}
-        <a href="{{ .Permalink }}" class="aam-hp-more-feature">
-          <div class="aam-hp-more-feature-img{{ if not .Params.featured_image }} aam-hp-card-img-empty{{ end }}"{{ if .Params.featured_image }} style="background-image:url('{{ .Params.featured_image }}')"{{ end }}></div>
-          <div class="aam-hp-more-feature-title">{{ .Title }}</div>
-          <p class="aam-hp-more-feature-date">{{ .Date.Format "Jan 2, 2006" }}</p>
-          <p class="aam-hp-more-feature-desc">{{ .Description }}</p>
-        </a>
-        {{ end }}
-        <div class="aam-hp-more-medium-row">
-          {{ with $morePhotoMed1 }}
-          <a href="{{ .Permalink }}" class="aam-hp-more-medium">
-            <div class="aam-hp-more-medium-img{{ if not .Params.featured_image }} aam-hp-card-img-empty{{ end }}"{{ if .Params.featured_image }} style="background-image:url('{{ .Params.featured_image }}')"{{ end }}></div>
-            <div class="aam-hp-more-medium-title">{{ .Title }}</div>
-            <p class="aam-hp-more-medium-date">{{ .Date.Format "Jan 2, 2006" }}</p>
-          </a>
-          {{ end }}
-          {{ with $morePhotoMed2 }}
-          <a href="{{ .Permalink }}" class="aam-hp-more-medium">
-            <div class="aam-hp-more-medium-img{{ if not .Params.featured_image }} aam-hp-card-img-empty{{ end }}"{{ if .Params.featured_image }} style="background-image:url('{{ .Params.featured_image }}')"{{ end }}></div>
-            <div class="aam-hp-more-medium-title">{{ .Title }}</div>
-            <p class="aam-hp-more-medium-date">{{ .Date.Format "Jan 2, 2006" }}</p>
-          </a>
-          {{ end }}
-        </div>
-      </div>
-      <div class="aam-hp-more-rail">
-        {{ range $moreRail }}
-        <a href="{{ .Permalink }}" class="aam-hp-more-rail-item">
-          <div class="aam-hp-more-rail-thumb{{ if not .Params.featured_image }} aam-hp-card-img-empty{{ end }}"{{ if .Params.featured_image }} style="background-image:url('{{ .Params.featured_image }}')"{{ end }}></div>
-          <div class="aam-hp-more-rail-body">
-            <div class="aam-hp-more-rail-title">{{ .Title }}</div>
-            <p class="aam-hp-more-rail-date">{{ .Date.Format "Jan 2, 2006" }}</p>
-          </div>
-        </a>
-        {{ end }}
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="aam-hp-nl-band">
-  <div class="aam-hp-container aam-hp-nl-band-inner">
+<div class="dark-band">
+  <div class="wrap dark-band-inner">
     <div>
-      <div class="aam-hp-nl-band-title">Get AppliedAM in your inbox</div>
-      <p class="aam-hp-nl-band-sub">A twice-monthly newsletter rounding up our latest research, industry, case studies, and insights coverage, straight from the AppliedAM editorial team.</p>
+      <div class="dark-band-title">Get AppliedAM in your inbox</div>
+      <p class="dark-band-sub">A twice-monthly newsletter rounding up our latest research, industry, case studies, and insights coverage - straight from the AppliedAM editorial team.</p>
     </div>
-    <button type="button" class="aam-hp-pill-btn">Subscribe for free
-      <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </button>
+    <a href="/submission-form/" class="pill-btn" target="_blank" rel="noopener">Subscribe for free <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   </div>
-</section>
+</div>
 
-<section class="aam-hp-duo-wrap">
-  <div class="aam-hp-container aam-hp-duo">
-    <a href="/about/" class="aam-hp-duo-card aam-hp-duo-card-industry">
-      <div class="aam-hp-duo-card-body">
-        <div class="aam-hp-duo-title">Meet the editorial team</div>
-        <p class="aam-hp-duo-desc">The engineers, researchers, and writers behind AppliedAM&apos;s reporting and technical reviews.</p>
-        <span class="aam-hp-pill-btn aam-hp-pill-btn-light">Read our story
-          <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </span>
+<section class="section wrap">
+  <div class="duo">
+    <a href="/about/" class="duo-card">
+      <div class="duo-bg art-industry" style="position:absolute;inset:0;"></div>
+      <div class="duo-scrim"></div>
+      <div class="duo-card-body">
+        <div class="duo-title">Meet the editorial team</div>
+        <p class="duo-desc">The engineers, researchers, and writers behind AppliedAM&apos;s reporting and technical reviews.</p>
+        <span class="pill-btn is-light">Read our story <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </div>
     </a>
-    <a href="/contact/" class="aam-hp-duo-card aam-hp-duo-card-case-studies" target="_blank" rel="noopener">
-      <div class="aam-hp-duo-card-body">
-        <div class="aam-hp-duo-title">Have a case study to share?</div>
-        <p class="aam-hp-duo-desc">Tell us about a build, a process win, or a lesson learned. We publish real-world AM case studies from the field.</p>
-        <span class="aam-hp-pill-btn aam-hp-pill-btn-light">Pitch us
-          <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </span>
+    <a href="/contact/" class="duo-card" target="_blank" rel="noopener">
+      <div class="duo-bg art-case-studies" style="position:absolute;inset:0;"></div>
+      <div class="duo-scrim"></div>
+      <div class="duo-card-body">
+        <div class="duo-title">Have a case study to share?</div>
+        <p class="duo-desc">Tell us about a build, a process win, or a lesson learned - we publish real-world AM case studies from the field.</p>
+        <span class="pill-btn is-light">Pitch us <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </div>
     </a>
   </div>
