@@ -1095,7 +1095,7 @@ a:hover .arrow-circle, .card-link:hover .arrow-circle { background: var(--accent
 .nature-tile-title { font-family: var(--font-body); font-weight: 700; font-size: 0.95rem; line-height: 1.35; color: var(--ink); text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3px; text-decoration-color: var(--border-warm); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .nature-tile:hover .nature-tile-title { text-decoration-color: var(--accent); color: var(--accent-dark); }
 .nature-tile-date { font-size: 0.72rem; color: var(--text-muted); opacity: 0.85; margin-top: 0.35rem; }
-.nature-tile-desc { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.4rem; margin-bottom: 0.9rem; line-height: 1.5; }
+.nature-tile-desc { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.4rem; margin-bottom: 0.9rem; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .nature-tile .arrow-circle { margin-top: auto; align-self: flex-end; }
 .nature-tile.is-accent { background: linear-gradient(150deg, #14315c, #0b1929); color: #fff; justify-content: space-between; }
 .nature-tile.is-accent img { height: 48px; width: auto; margin-bottom: 1rem; }
