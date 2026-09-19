@@ -2,7 +2,13 @@
 title: "The Math Behind Digital Spare Parts"
 date: 2026-09-19
 description: "Additive manufacturing lets a company store a spare part as a CAD file instead of a warehoused object, printing it only when a machine breaks down. The economics only favor that trade for a specific slice of a parts catalog, and a recent cost study puts a number on exactly how narrow that slice is."
-featured_image: "/images/insights/the-math-behind-digital-spare-parts/image1.jpg"
+featured_image: "/images/insights/the-math-behind-digital-spare-parts/featured.jpg"
+photo_credit_type: "Image credits"
+photo_credit_label: "Photo by"
+photo_credit_name: "Jakub Zerdzicki"
+photo_credit_url: "https://www.pexels.com/@jakubzerdzicki/"
+photo_credit_source: "Pexels"
+photo_credit_source_url: "https://www.pexels.com/photo/objects-manufactured-by-3d-printer-20688553/"
 author: "AppliedAM Editorial Team"
 categories: ["Insights"]
 tags: ["Spare Parts", "Supply Chain", "Digital Inventory", "Manufacturing Economics", "Industry Adoption"]
