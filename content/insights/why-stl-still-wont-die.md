@@ -3,6 +3,12 @@ title: "Why STL Still Won't Die"
 date: 2026-09-16
 description: "3D printing has had a better file format than STL for over a decade. Almost everything downloaded online still arrives in the older one, and the reason has little to do with engineering."
 featured_image: "/images/insights/why-stl-still-wont-die/hero.jpg"
+photo_credit_type: "Image credits"
+photo_credit_label: "Photo by"
+photo_credit_name: "ThisIsEngineering"
+photo_credit_url: "https://www.pexels.com/@thisisengineering/"
+photo_credit_source: "Pexels"
+photo_credit_source_url: "https://www.pexels.com/photo/man-in-front-of-the-computer-3913017/"
 author: "AppliedAM Editorial Team"
 categories: ["Insights"]
 tags: ["File Formats", "STL", "3MF", "Slicing", "Software"]
