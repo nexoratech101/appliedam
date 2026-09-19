@@ -1,5 +1,5 @@
 {
-  "last_published_date": "2026-09-13",
+  "last_published_date": "2026-09-16",
   "cadence_days": 2,
   "published_topics": [
     "design-for-additive-manufacturing-what-actually-changes-when-you-print",
@@ -47,7 +47,8 @@
     "printing-the-circuit-into-the-part",
     "why-jet-fusion-powder-doesnt-wear-out",
     "how-dry-is-dry-enough-for-fdm-filament",
-    "the-economics-of-recycling-a-printed-part"
+    "the-economics-of-recycling-a-printed-part",
+    "why-stl-still-wont-die"
   ],
-  "next_due_date": "2026-09-15"
+  "next_due_date": "2026-09-18"
 }
