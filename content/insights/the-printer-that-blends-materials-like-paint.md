@@ -2,7 +2,13 @@
 title: "The Printer That Blends Materials Like Paint"
 date: 2026-09-25
 description: "A PolyJet printer does not commit to one plastic and stay there. It jets multiple photopolymer resins droplet by droplet under UV light, so a single part can shift from rubber-soft to hard as it prints, the way a paint mixer blends two cans into every shade in between."
-featured_image: "/images/insights/the-printer-that-blends-materials-like-paint/image1.jpg"
+featured_image: "/images/insights/the-printer-that-blends-materials-like-paint/featured.jpg"
+photo_credit_type: "Image credits"
+photo_credit_label: "Image courtesy of"
+photo_credit_name: "Stratasys"
+photo_credit_url: "https://www.stratasys.com/en/materials/materials-catalog/polyjet-materials/verovivid/"
+photo_credit_source: "VeroVivid Materials Catalog"
+photo_credit_source_url: "https://www.stratasys.com/en/materials/materials-catalog/polyjet-materials/verovivid/"
 author: "AppliedAM Editorial Team"
 categories: ["Insights"]
 tags: ["PolyJet", "Material Jetting", "Digital Materials", "Prosthetics", "Multi-Material Printing"]
