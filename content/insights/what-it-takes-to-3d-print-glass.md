@@ -2,7 +2,12 @@
 title: "What It Takes to 3D Print Glass"
 date: 2026-09-22
 description: "Molten thermoplastic flows the moment it clears its melting point. Glass resists a printer for a different reason: its viscosity crosses several orders of magnitude before it counts as printable at all, and two MIT projects have found opposite ways through that window."
-featured_image: "/images/insights/what-it-takes-to-3d-print-glass/image1.jpg"
+featured_image: "/images/insights/what-it-takes-to-3d-print-glass/featured.jpg"
+photo_credit_type: "Image credits"
+photo_credit_label: "Photo by"
+photo_credit_name: "Steven Keating"
+photo_credit_source: "MIT News"
+photo_credit_source_url: "https://news.mit.edu/2015/3-d-printing-transparent-glass-0914"
 author: "AppliedAM Editorial Team"
 categories: ["Insights"]
 tags: ["Glass", "Ceramics", "Additive Manufacturing", "Materials Science", "MIT Research"]
