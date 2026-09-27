@@ -1,0 +1,47 @@
+{{ define "main" }}
+
+<nav class="aam-breadcrumb" aria-label="Breadcrumb">
+  <div class="aam-breadcrumb-inner">
+    <a href="/">Home</a>
+    <span class="aam-breadcrumb-sep">/</span>
+    <span class="aam-breadcrumb-current">{{ .Title }}</span>
+  </div>
+</nav>
+
+<div class="aam-list-header">
+  <div class="aam-container">
+    <h1 class="aam-list-title">{{ .Title }}</h1>
+    {{ if .Description }}<p class="aam-list-desc">{{ .Description }}</p>{{ end }}
+  </div>
+</div>
+
+<div class="aam-container">
+  {{ $allPages := sort .Site.RegularPages "Date" "desc" }}
+  {{ $paginator := .Paginate $allPages 20 }}
+
+  <section class="aam-archive-list">
+    {{ range $paginator.Pages }}
+    <a href="{{ .Permalink }}" class="aam-archive-row">
+      <div class="aam-archive-thumb{{ if not .Params.featured_image }} aam-list-img-empty{{ end }}"{{ if .Params.featured_image }} style="background-image:url('{{ .Params.featured_image }}')"{{ end }}></div>
+      <div class="aam-archive-body">
+        <div class="aam-archive-meta">
+          <span class="aam-list-badge aam-list-badge-{{ .Section }}">{{ .Section | humanize | title }}</span>
+          <span class="aam-archive-date">{{ .Date.Format "Jan 2, 2006" }}</span>
+        </div>
+        <h2 class="aam-archive-title">{{ .Title }}</h2>
+        <p class="aam-archive-desc">{{ .Description }}</p>
+      </div>
+    </a>
+    {{ end }}
+  </section>
+
+  {{ if gt $paginator.TotalPages 1 }}
+  <nav class="aam-list-pagination" aria-label="Pagination">
+    {{ if $paginator.HasPrev }}<a href="{{ $paginator.Prev.URL }}" class="aam-list-page-link">&larr; Newer</a>{{ end }}
+    <span class="aam-list-page-count">Page {{ $paginator.PageNumber }} of {{ $paginator.TotalPages }}</span>
+    {{ if $paginator.HasNext }}<a href="{{ $paginator.Next.URL }}" class="aam-list-page-link">Older &rarr;</a>{{ end }}
+  </nav>
+  {{ end }}
+</div>
+
+{{ end }}

@@ -15,177 +15,84 @@
   </div>
 </div>
 
+{{ $sectionPages := sort .Pages "Date" "desc" }}
+{{ $paginator := .Paginate $sectionPages 15 }}
+{{ $pagePages := $paginator.Pages }}
+
 <div class="aam-container">
-  {{ $sectionPages := sort .Pages "Date" "desc" }}
-  {{ $featuredPage := index $sectionPages 0 }}
-  {{ $recentPages := first 15 (after 1 $sectionPages) }}
-  {{ $featuredPickPages := sort (where .Site.RegularPages "Params.featured_pick" true) "Date" "desc" }}
-  {{ $usedPages := slice }}
+  {{ if gt (len $pagePages) 0 }}
+  {{ $feature := index $pagePages 0 }}
+  {{ $side := after 1 $pagePages | first 2 }}
+  {{ $gridPages := after 3 $pagePages }}
 
-  {{ with $featuredPage }}
-  {{ $usedPages = $usedPages | append . }}
-  <section class="aam-list-feature">
-    <div class="aam-list-feature-row">
-      <a href="{{ .Permalink }}" class="aam-list-feature-card aam-card-link">
-        <div class="aam-hp-feature-img{{ if not .Params.featured_image }} aam-hp-card-img-empty{{ end }}"{{ if .Params.featured_image }} style="background-image:url('{{ .Params.featured_image }}')"{{ end }}></div>
-        <div class="aam-hp-feature-body aam-list-feature-body">
-          <div class="aam-hp-feature-label">Featured article</div>
-          <h2 class="aam-hp-feature-title">{{ .Title }}</h2>
-          <p class="aam-hp-feature-desc">{{ .Description }}</p>
-          <div class="aam-hp-card-meta aam-list-feature-meta">
-            <span class="aam-hp-badge aam-hp-badge-{{ .Section }}">{{ .Section | humanize | title }}</span>
-            <span class="aam-hp-card-date">{{ .Date.Format "Jan 2, 2006" }}</span>
-          </div>
+  <section class="aam-list-trio">
+    <a href="{{ $feature.Permalink }}" class="aam-list-card aam-list-card-feature">
+      <div class="aam-list-card-img{{ if not $feature.Params.featured_image }} aam-list-img-empty{{ end }}"{{ if $feature.Params.featured_image }} style="background-image:url('{{ $feature.Params.featured_image }}')"{{ end }}></div>
+      <div class="aam-list-card-body">
+        <div class="aam-list-card-meta">
+          <span class="aam-list-badge aam-list-badge-{{ $feature.Section }}">{{ $feature.Section | humanize | title }}</span>
+          <span class="aam-list-card-date">{{ $feature.Date.Format "Jan 2, 2006" }}</span>
         </div>
-      </a>
-    </div>
-  </section>
-  {{ end }}
-
-  {{ if $recentPages }}
-  <section class="aam-list-section">
-    <div class="aam-hp-cards3">
-      {{ range $recentPages }}
-      {{ $usedPages = $usedPages | append . }}
-      <a href="{{ .Permalink }}" class="aam-hp-card aam-card-link">
-        <div class="aam-hp-card-img{{ if not .Params.featured_image }} aam-hp-card-img-empty{{ end }}"{{ if .Params.featured_image }} style="background-image:url('{{ .Params.featured_image }}')"{{ end }}></div>
-        <div class="aam-hp-card-body">
-          <div class="aam-hp-card-meta">
-            <span class="aam-hp-badge aam-hp-badge-{{ .Section }}">{{ .Section | humanize | title }}</span>
-            <span class="aam-hp-card-date">{{ .Date.Format "Jan 2, 2006" }}</span>
+        <h2 class="aam-list-card-title aam-list-card-title-feature">{{ $feature.Title }}</h2>
+        <p class="aam-list-card-desc">{{ $feature.Description }}</p>
+      </div>
+    </a>
+    <div class="aam-list-trio-side">
+      {{ range $side }}
+      <a href="{{ .Permalink }}" class="aam-list-card aam-list-card-side">
+        <div class="aam-list-card-img{{ if not .Params.featured_image }} aam-list-img-empty{{ end }}"{{ if .Params.featured_image }} style="background-image:url('{{ .Params.featured_image }}')"{{ end }}></div>
+        <div class="aam-list-card-body">
+          <div class="aam-list-card-meta">
+            <span class="aam-list-badge aam-list-badge-{{ .Section }}">{{ .Section | humanize | title }}</span>
+            <span class="aam-list-card-date">{{ .Date.Format "Jan 2, 2006" }}</span>
           </div>
-          <h3 class="aam-hp-card-title">{{ .Title }}</h3>
-          <p class="aam-hp-card-desc">{{ .Description }}</p>
+          <h3 class="aam-list-card-title">{{ .Title }}</h3>
+          <p class="aam-list-card-desc">{{ .Description }}</p>
         </div>
       </a>
       {{ end }}
     </div>
-    <div class="aam-swipe-dots" id="aamRecentDots"></div>
+  </section>
+
+  {{ $chunkSize := 4 }}
+  {{ if gt (len $gridPages) 0 }}
+  {{ $numChunks := math.Ceil (div (float (len $gridPages)) (float $chunkSize)) }}
+  {{ range $c := (seq 0 (sub (int $numChunks) 1)) }}
+  {{ $chunk := $gridPages | after (mul $c $chunkSize) | first $chunkSize }}
+  <section class="aam-list-grid4">
+    {{ range $chunk }}
+    <a href="{{ .Permalink }}" class="aam-list-card">
+      <div class="aam-list-card-img{{ if not .Params.featured_image }} aam-list-img-empty{{ end }}"{{ if .Params.featured_image }} style="background-image:url('{{ .Params.featured_image }}')"{{ end }}></div>
+      <div class="aam-list-card-body">
+        <div class="aam-list-card-meta">
+          <span class="aam-list-badge aam-list-badge-{{ .Section }}">{{ .Section | humanize | title }}</span>
+          <span class="aam-list-card-date">{{ .Date.Format "Jan 2, 2006" }}</span>
+        </div>
+        <h3 class="aam-list-card-title">{{ .Title }}</h3>
+        <p class="aam-list-card-desc">{{ .Description }}</p>
+      </div>
+    </a>
+    {{ end }}
   </section>
   {{ end }}
+  {{ end }}
+  {{ end }}
 
-  <section class="aam-list-curated">
-    <div class="aam-list-curated-header">
-      <h2 class="aam-list-curated-title">Discover some of our most-read articles</h2>
+  {{ if gt $paginator.TotalPages 1 }}
+  <nav class="aam-list-pagination" aria-label="Pagination">
+    {{ if $paginator.HasPrev }}<a href="{{ $paginator.Prev.URL }}" class="aam-list-page-link">&larr; Newer</a>{{ end }}
+    <span class="aam-list-page-count">Page {{ $paginator.PageNumber }} of {{ $paginator.TotalPages }}</span>
+    {{ if $paginator.HasNext }}<a href="{{ $paginator.Next.URL }}" class="aam-list-page-link">Older &rarr;</a>{{ end }}
+  </nav>
+  {{ end }}
+
+  <section class="aam-list-archive-banner">
+    <div>
+      <div class="aam-list-archive-title">Looking for something older?</div>
+      <p class="aam-list-archive-sub">Browse every AppliedAM article, across every section, in one chronological list.</p>
     </div>
-    <div class="aam-hp-cards4">
-      {{ range first 4 $featuredPickPages }}
-      {{ $page := . }}
-      <a href="{{ $page.Permalink }}" class="aam-hp-card aam-card-link">
-        <div class="aam-hp-card-img{{ if not $page.Params.featured_image }} aam-hp-card-img-empty{{ end }}"{{ if $page.Params.featured_image }} style="background-image:url('{{ $page.Params.featured_image }}')"{{ end }}></div>
-        <div class="aam-hp-card-body">
-          <div class="aam-hp-card-meta">
-            <span class="aam-hp-badge aam-hp-badge-{{ $page.Section }}">{{ $page.Section | humanize | title }}</span>
-            <span class="aam-hp-card-date">{{ $page.Date.Format "Jan 2, 2006" }}</span>
-          </div>
-          <h3 class="aam-hp-card-title">{{ $page.Title }}</h3>
-          <p class="aam-hp-card-desc">{{ $page.Description }}</p>
-        </div>
-      </a>
-      {{ end }}
-    </div>
+    <a href="/archive/" class="aam-list-archive-btn">View the full archive &rarr;</a>
   </section>
 </div>
 
-<script>
-(function () {
-  var track = document.querySelector(".aam-list-section .aam-hp-cards3");
-  var dotsWrap = document.getElementById("aamRecentDots");
-  if (!track || !dotsWrap) return;
-  var cards = Array.prototype.slice.call(track.children);
-  if (!cards.length) return;
-
-  function cardsPerView() {
-    var w = window.innerWidth;
-    if (w <= 600) return 1;
-    if (w <= 1024) return 2;
-    return 3;
-  }
-
-  var MAX_DOTS = 7;
-
-  function buildDots() {
-    dotsWrap.innerHTML = "";
-    var perView = cardsPerView();
-    var rawPages = Math.ceil(cards.length / perView);
-    var pages = Math.min(rawPages, MAX_DOTS);
-    if (pages <= 1) { dotsWrap.style.display = "none"; return; }
-    dotsWrap.style.display = "flex";
-    for (var i = 0; i < pages; i++) {
-      var dot = document.createElement("button");
-      dot.type = "button";
-      dot.className = "aam-swipe-dot";
-      dot.setAttribute("aria-label", "Show older articles, page " + (i + 1));
-      (function (index) {
-        dot.addEventListener("click", function () {
-          var maxScroll = track.scrollWidth - track.clientWidth;
-          var left = pages > 1 ? (index / (pages - 1)) * maxScroll : 0;
-          track.scrollTo({ left: left, behavior: "smooth" });
-        });
-      })(i);
-      dotsWrap.appendChild(dot);
-    }
-    updateActiveDot();
-  }
-
-  function updateActiveDot() {
-    var dots = Array.prototype.slice.call(dotsWrap.children);
-    if (!dots.length) return;
-    var maxScroll = track.scrollWidth - track.clientWidth;
-    var ratio = maxScroll > 0 ? track.scrollLeft / maxScroll : 0;
-    var active = Math.round(ratio * (dots.length - 1));
-    dots.forEach(function (d, i) { d.classList.toggle("is-active", i === active); });
-  }
-
-  var scrollTimer;
-  track.addEventListener("scroll", function () {
-    clearTimeout(scrollTimer);
-    scrollTimer = setTimeout(updateActiveDot, 60);
-  });
-
-  var resizeTimer;
-  window.addEventListener("resize", function () {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(buildDots, 150);
-  });
-
-  var isDown = false;
-  var didDrag = false;
-  var startX = 0;
-  var startScroll = 0;
-
-  track.addEventListener("mousedown", function (e) {
-    isDown = true;
-    didDrag = false;
-    startX = e.pageX;
-    startScroll = track.scrollLeft;
-    track.classList.add("is-dragging");
-  });
-
-  window.addEventListener("mousemove", function (e) {
-    if (!isDown) return;
-    var delta = e.pageX - startX;
-    if (Math.abs(delta) > 10) didDrag = true;
-    track.scrollLeft = startScroll - delta;
-  });
-
-  function stopDrag() {
-    if (!isDown) return;
-    isDown = false;
-    track.classList.remove("is-dragging");
-  }
-  window.addEventListener("mouseup", stopDrag);
-  track.addEventListener("mouseleave", stopDrag);
-
-  track.addEventListener("click", function (e) {
-    if (didDrag) {
-      e.preventDefault();
-      e.stopPropagation();
-      didDrag = false;
-    }
-  }, true);
-
-  buildDots();
-})();
-</script>
 {{ end }}
