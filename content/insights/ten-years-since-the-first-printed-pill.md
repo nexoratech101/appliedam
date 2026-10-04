@@ -1,0 +1,32 @@
+---
+title: "Ten Years Since the First Printed Pill"
+date: 2026-09-28
+description: "Aprecia's Spritam opened the door to 3D-printed medicine in 2015. A decade of polypill research has pushed drug-loading efficiency past 96 percent, work that is now waiting on the regulatory pathway that would let a second printed drug follow Spritam to market."
+featured_image: "/images/insights/ten-years-since-the-first-printed-pill/image1.jpg"
+author: "AppliedAM Editorial Team"
+categories: ["Insights"]
+tags: ["Pharmaceuticals", "Binder Jetting", "Personalized Medicine", "Regulation"]
+ai_level: "All Machine"
+ai_functions: ["Ideation", "Data Collection", "Writing"]
+draft: false
+aliases:
+  - /insights/ten-years-since-the-first-printed-pill/
+---
+
+![Timeline of milestones from Spritam's 2015 FDA approval to 2026, showing the FDA has approved no second 3D-printed drug in the decade since](/images/insights/ten-years-since-the-first-printed-pill/image1.jpg)
+*A decade of regulatory waypoints for 3D-printed medical devices, and none yet for a second printed drug.*
+
+In August 2015, Aprecia Pharmaceuticals set a levetiracetam tablet in front of the FDA that looked, on paper, unremarkable: an epilepsy drug already sold under other brand names, in doses patients already knew. What made [Spritam](https://aprecia.com/resources/press/fda-approves-the-first-3d-printed-drug-product/) different was how it was made. The agency's approval that month marked, in its own words, the first time a drug product manufactured by 3D printing had cleared the FDA, and [the news landed as a genuine industry milestone](https://www.biopharmadive.com/news/aprecias-spritam-becomes-first-fda-approved-3d-printed-medication/403389/): the technology had already found a home in dentistry and medical devices, but never before in a pill a patient swallowed, or in Spritam's case, dissolved with a sip of water.
+
+The mechanism behind that dissolution was the real story. Aprecia's [ZipDose platform](https://www.asme.org/topics-resources/content/3dprinted-drugs-does-future-hold), developed from research at MIT, builds tablets through binder jetting: thin layers of powder spread one atop another, each held together by droplets of liquid binder rather than by heat or pressure. Conventional tableting compresses powder into a dense disc built to survive shipping and swallowing intact. Binder jetting does close to the opposite, binding the powder just enough to hold its shape while leaving a porous, honeycombed interior that a mouthful of liquid collapses almost instantly. That porosity let Aprecia pack up to 1,000 milligrams of levetiracetam into a tablet built to vanish in seconds rather than being chewed or swallowed whole, a real difference for children, seizure patients, and elderly patients with dysphagia.
+
+Ten years on, the opening Spritam made has stayed strikingly narrow. It remains the only FDA-approved drug product manufactured by 3D printing, even as the surrounding research has moved well past what ZipDose demonstrated. Academic groups, [FabRx and University College London prominent among them](https://pmc.ncbi.nlm.nih.gov/articles/PMC12808572), spent the past decade showing the same layer-by-layer logic could do more than dissolve fast. One study built a five-drug cardiovascular polypill, combining aspirin, hydrochlorothiazide, atenolol, pravastatin, and ramipril in a tablet just under six millimeters tall, tuned so that more than 75 percent of the hydrochlorothiazide and aspirin released within the first thirty minutes while the other three drugs stretched their release across twelve hours. A separate floating-tablet polypill for hypertension, combining diltiazem, propranolol, and hydrochlorothiazide, went further on precision than timing: each drug was loaded at 96 to 99 percent efficiency, close to the ceiling any manufacturing method can reach.
+
+![Bar chart showing drug-loading efficiency of diltiazem, propranolol, and hydrochlorothiazide in a 3D-printed floating cardiovascular polypill, each above 96 percent](/images/insights/ten-years-since-the-first-printed-pill/image2.jpg)
+*Three drugs, three different molecules, all loaded within four points of each other and within four points of perfect.*
+
+Reviewers surveying this body of work report that printed polypills can cut a patient's daily pill count by 60 to 70 percent and improve adherence by 30 to 40 percent, the kind of figure that makes Spritam's original swallowing-difficulty pitch look, in hindsight, like an early instance of a much larger idea: a pharmacy printer that builds one patient's exact drug combination on demand, rather than a factory pressing millions of identical tablets.
+
+That larger idea keeps running into a wall Spritam never had to test. Aprecia's tablet was a single, well-characterized drug produced in a conventional pharmaceutical factory, the kind of batch manufacturing the FDA's drug-approval framework was built around. A hospital pharmacy printing a five-drug polypill tailored to one patient's kidney function and weight is a different manufacturing model entirely, closer to compounding than to mass production, and the regulatory apparatus for judging batch-to-batch consistency, stability, and good manufacturing practice was not written with a printer making one dose at a time in mind. Reviews of the field describe the gap plainly: no country has settled on a clear regulatory pathway for personalized, point-of-care printed medicines, even as the technical case for them keeps strengthening.
+
+Medical devices found a version of this same fork a few years after Spritam, when the FDA published its first guidance for 3D-printed devices in December 2017, only to leave the point-of-care manufacturing question a 2021 follow-up discussion paper raised still unresolved as of [the agency's last public review in 2022](https://www.pew.org/en/research-and-analysis/issue-briefs/2022/07/fdas-regulatory-framework-for-3d-printing-of-medical-devices-needs-more-clarity). Pharmaceuticals have not yet reached even that first waypoint. The decade since Spritam has produced the science: drug-loading efficiencies above 96 percent, release profiles tuned to the hour, dose combinations no factory-pressed tablet could match, without yet producing the regulatory language that would let a second printed drug follow the first one to market. The lineage from ZipDose to today's polypills reads like a technology that arrived early and is still waiting for the rules to catch up to it.
