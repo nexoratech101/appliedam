@@ -1105,7 +1105,7 @@ a:hover .arrow-circle, .card-link:hover .arrow-circle { background: var(--accent
 @media (max-width: 1000px) { .nature-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .nature-grid { grid-template-columns: 1fr; } }
 
-.section { padding: 3rem 0; }
+.section { padding-block: 3rem; }
 .section-head { font-family: var(--font-serif); font-weight: 500; font-size: clamp(1.5rem, 2.6vw, 2.05rem); color: var(--ink); max-width: 42ch; margin-bottom: 1.75rem; }
 .section-head-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.75rem; }
 .section-head-row .section-head { margin-bottom: 0; }
